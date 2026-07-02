@@ -1,0 +1,318 @@
+/* ==========================================================
+   capitalretraite.fr — système de design
+   Palette : blanc / marine profond / cuivre chaud
+   Typo : Spectral (display) + Public Sans (corps)
+   Signature : la « ligne de vie » (constitution → décumulation)
+   ========================================================== */
+
+:root {
+  --blanc: #ffffff;
+  --ivoire: #f7f6f2;
+  --marine: #122641;
+  --marine-encre: #0c1b30;
+  --marine-40: rgba(18, 38, 65, 0.4);
+  --gris-texte: #43506a;
+  --gris-filet: #dcd9d1;
+  --cuivre: #b06e33;
+  --cuivre-fonce: #8f5624;
+  --cuivre-pale: #f3e7da;
+
+  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-body: "Public Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --maxw: 1080px;
+  --maxw-prose: 720px;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--gris-texte);
+  background: var(--blanc);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--marine);
+  line-height: 1.2;
+  font-weight: 500;
+}
+h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); letter-spacing: -0.01em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
+h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+a { color: var(--cuivre-fonce); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--cuivre);
+  outline-offset: 2px;
+}
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
+.prose { max-width: var(--maxw-prose); }
+.prose p { margin-bottom: 1.1rem; }
+.prose h2 { margin-top: 2.5rem; }
+.prose h3 { margin-top: 1.8rem; }
+.prose ul, .prose ol { margin: 0 0 1.1rem 1.3rem; }
+.prose li { margin-bottom: 0.4rem; }
+.prose table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95rem; }
+.prose th, .prose td { border: 1px solid var(--gris-filet); padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
+.prose th { background: var(--ivoire); color: var(--marine); font-family: var(--font-body); font-weight: 600; }
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cuivre);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  border-bottom: 1px solid var(--gris-filet);
+  background: var(--blanc);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.brand { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--marine);
+}
+.brand-name em { color: var(--cuivre); font-style: normal; }
+.brand-sub { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--marine-40); }
+.main-nav { display: flex; align-items: center; gap: 1.4rem; }
+.main-nav a { color: var(--marine); font-size: 0.95rem; font-weight: 500; }
+.main-nav a:hover { color: var(--cuivre-fonce); text-decoration: none; }
+.nav-toggle { display: none; background: none; border: 1px solid var(--gris-filet); border-radius: var(--radius); padding: 0.4rem 0.7rem; font-size: 0.9rem; color: var(--marine); cursor: pointer; }
+
+@media (max-width: 780px) {
+  .nav-toggle { display: block; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--blanc);
+    border-bottom: 1px solid var(--gris-filet);
+    padding: 0.5rem 1.25rem 1rem;
+  }
+  .main-nav.open { display: flex; }
+  .main-nav a { padding: 0.6rem 0; width: 100%; border-bottom: 1px solid var(--ivoire); }
+  .main-nav .btn { margin-top: 0.8rem; width: 100%; text-align: center; }
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--cuivre); color: var(--blanc); }
+.btn-primary:hover { background: var(--cuivre-fonce); }
+.btn-secondary { background: transparent; color: var(--marine); border-color: var(--marine); }
+.btn-secondary:hover { background: var(--marine); color: var(--blanc); }
+.btn-light { background: var(--blanc); color: var(--marine); }
+.btn-light:hover { background: var(--ivoire); }
+
+/* ---------- Hero + ligne de vie ---------- */
+.hero { padding: 4.5rem 0 3.5rem; }
+.hero .sub {
+  font-size: 1.15rem;
+  max-width: 620px;
+  margin: 1.2rem 0 2rem;
+}
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.lifeline {
+  position: relative;
+  margin: 3.5rem 0 0;
+  height: 58px;
+}
+.lifeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, var(--gris-filet), var(--marine) 45%, var(--cuivre) 100%);
+}
+.lifeline .mark {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.lifeline .mark::before {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--marine);
+  margin: 8px auto 6px;
+}
+.lifeline .mark.accent::before { background: var(--cuivre); }
+.lifeline .mark span { font-size: 0.75rem; letter-spacing: 0.06em; color: var(--gris-texte); white-space: nowrap; }
+.lifeline .mark strong { display: block; font-family: var(--font-display); font-size: 1rem; color: var(--marine); }
+
+/* ---------- Sections ---------- */
+.section { padding: 3.5rem 0; }
+.section-ivoire { background: var(--ivoire); }
+.section-marine { background: var(--marine); }
+.section-marine h2, .section-marine h3 { color: var(--blanc); }
+.section-marine p, .section-marine li { color: rgba(255, 255, 255, 0.85); }
+.section-marine a:not(.btn) { color: #e8b98a; }
+
+/* ---------- Cards ---------- */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+.card {
+  display: block;
+  background: var(--blanc);
+  border: 1px solid var(--gris-filet);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.card:hover { border-color: var(--cuivre); text-decoration: none; transform: translateY(-2px); }
+.card .card-kicker { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cuivre); font-weight: 600; }
+.card h3 { margin: 0.4rem 0 0.5rem; }
+.card p { font-size: 0.93rem; }
+.card .card-more { display: inline-block; margin-top: 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--cuivre-fonce); }
+
+/* ---------- Listes « réalités » ---------- */
+.realites { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.realite h3 { font-size: 1.1rem; }
+.realite .num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--cuivre);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Réassurance ---------- */
+.reassurance-list { list-style: none; margin-top: 1.5rem; display: grid; gap: 0.9rem; max-width: 640px; }
+.reassurance-list li { padding-left: 1.6rem; position: relative; }
+.reassurance-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--cuivre);
+}
+
+/* ---------- Encadrés ---------- */
+.note, .author-box {
+  border: 1px solid var(--gris-filet);
+  border-left: 3px solid var(--cuivre);
+  background: var(--ivoire);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.1rem 1.3rem;
+  margin: 1.8rem 0;
+  font-size: 0.95rem;
+}
+.author-box strong { color: var(--marine); }
+.risk-notice { font-size: 0.85rem; color: var(--marine-40); margin-top: 1.5rem; }
+
+/* ---------- CTA bandeau ---------- */
+.cta-banner { text-align: center; padding: 4rem 1.25rem; }
+.cta-banner h2 { max-width: 640px; margin: 0 auto 1.5rem; }
+
+/* ---------- Formulaires ---------- */
+.form { max-width: 560px; display: grid; gap: 1rem; margin-top: 1.5rem; }
+.form label { font-size: 0.9rem; font-weight: 600; color: var(--marine); display: block; margin-bottom: 0.3rem; }
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--gris-filet);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--marine);
+  background: var(--blanc);
+}
+.form textarea { min-height: 130px; resize: vertical; }
+.form .hint { font-size: 0.8rem; color: var(--marine-40); margin-top: 0.3rem; }
+.form-confirm {
+  border: 1px solid var(--cuivre);
+  background: var(--cuivre-pale);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  max-width: 560px;
+}
+.form-confirm h3 { color: var(--cuivre-fonce); }
+
+/* ---------- Fil d'Ariane ---------- */
+.breadcrumb { font-size: 0.82rem; color: var(--marine-40); padding-top: 1.5rem; }
+.breadcrumb a { color: var(--marine-40); }
+.breadcrumb a:hover { color: var(--cuivre-fonce); }
+.breadcrumb span[aria-hidden] { margin: 0 0.4rem; }
+
+/* ---------- Page header ---------- */
+.page-header { padding: 2rem 0 1rem; }
+.page-header .sub { font-size: 1.1rem; max-width: 640px; margin-top: 0.8rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--marine-encre);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 3rem 0 2rem;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-top: 4rem;
+}
+.site-footer .footer-brand { font-family: var(--font-display); font-size: 1.05rem; color: var(--blanc); margin-bottom: 0.8rem; }
+.site-footer p { margin-bottom: 0.4rem; }
+.site-footer .footer-legal { margin-top: 1rem; color: rgba(255, 255, 255, 0.55); }
+.site-footer .footer-links { margin-top: 1.4rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.site-footer a { color: #e8b98a; }
+
+/* ---------- Divers ---------- */
+.calendly-placeholder {
+  border: 1px dashed var(--gris-filet);
+  border-radius: var(--radius);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: var(--marine-40);
+  margin: 1.5rem 0;
+  background: var(--ivoire);
+}
+.mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; }
