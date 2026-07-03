@@ -56,7 +56,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <p className="footer-brand">© {year} capitalretraite.fr — Un service Le Rempart Financier</p>
+        <p className="footer-brand">© {year} capitalretraite.com — Un service Le Rempart Financier</p>
         <p>EXP Capital, éditeur — ORIAS 25005915</p>
         <p>Conseil en investissement financier sous Épargne Plurielle, CIF — ORIAS 16003696</p>
         <p className="footer-legal">

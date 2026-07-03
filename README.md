@@ -1,4 +1,4 @@
-# capitalretraite.fr
+# capitalretraite.com
 
 Site satellite retraite de l'écosystème Le Rempart Financier.
 Éditeur : EXP Capital (SASU) — ORIAS 25005915. CIF mandant : Épargne Plurielle — ORIAS 16003696.
@@ -62,7 +62,7 @@ pour qu'ils correspondent.
 ## Checklist livraison
 
 - [x] `<title>` + `<meta description>` uniques par page (`src/routes.jsx`, injectés au prerender)
-- [x] Canonicals absolus `https://capitalretraite.fr/...`
+- [x] Canonicals absolus `https://capitalretraite.com/...`
 - [x] JSON-LD Organization en homepage (sameAs → lerempartfinancier.fr)
 - [x] JSON-LD BreadcrumbList sur chaque page intérieure
 - [x] Seuls les ORIAS 25005915 (EXP Capital, éditeur) et 16003696 (Épargne Plurielle, CIF) sont utilisés — aucun autre identifiant inventé, placeholders explicites pour adresse/SIRET

@@ -4,7 +4,7 @@ export default function Confidentialite() {
       <div className="container prose">
         <h1>Politique de confidentialité</h1>
         <p>
-          Cette politique décrit comment capitalretraite.fr, édité par EXP Capital (SASU),
+          Cette politique décrit comment capitalretraite.com, édité par EXP Capital (SASU),
           collecte et traite vos données personnelles, conformément au Règlement général sur la
           protection des données (RGPD) et à la loi Informatique et Libertés.
         </p>
