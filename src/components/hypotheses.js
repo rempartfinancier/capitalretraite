@@ -102,6 +102,11 @@ export const FRAIS_TYPES = {
     fraisCourants: { min: 1.5, max: 2.2 },
     source: "frais courants des fonds actions de gestion active distribués en France (données AMF/ESMA) — À VÉRIFIER",
   },
+  immobilierLocatif: {
+    fraisNotaireAncien: { min: 7.0, max: 8.0 },
+    fraisGestionLocative: { min: 6.0, max: 8.0 },
+    source: "ordres de grandeur usuels du marché (frais de notaire dans l'ancien, frais d'une gestion locative déléguée en % des loyers) — À VÉRIFIER",
+  },
 };
 
 // ---- Valeurs purement illustratives des exemples pédagogiques ----

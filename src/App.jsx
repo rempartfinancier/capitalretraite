@@ -6,6 +6,7 @@ import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import BilanRetraite from "./pages/BilanRetraite.jsx";
 import Strategies from "./pages/Strategies.jsx";
+import Guides from "./pages/Guides.jsx";
 import StrategiePer from "./pages/StrategiePer.jsx";
 import StrategieAssuranceVie from "./pages/StrategieAssuranceVie.jsx";
 import StrategiePea from "./pages/StrategiePea.jsx";
@@ -28,6 +29,16 @@ import GuideCoutAssuranceVie from "./pages/GuideCoutAssuranceVie.jsx";
 import GuideCoutConseiller from "./pages/GuideCoutConseiller.jsx";
 import GuideMeilleurPer from "./pages/GuideMeilleurPer.jsx";
 import GuideEtfOuFondsActifs from "./pages/GuideEtfOuFondsActifs.jsx";
+import GuideLmnpRisques from "./pages/GuideLmnpRisques.jsx";
+import GuideLmnpOuLocatifNu from "./pages/GuideLmnpOuLocatifNu.jsx";
+import GuideCoutInvestissementLocatif from "./pages/GuideCoutInvestissementLocatif.jsx";
+import GuideCinqErreursLocatif from "./pages/GuideCinqErreursLocatif.jsx";
+import GuideImmobilierOuAv from "./pages/GuideImmobilierOuAv.jsx";
+import GuidePerOuImmobilier from "./pages/GuidePerOuImmobilier.jsx";
+import GuideCoutPer from "./pages/GuideCoutPer.jsx";
+import GuideInconvenientsRenteViagere from "./pages/GuideInconvenientsRenteViagere.jsx";
+import GuideRenteOuRetraitsProgrammes from "./pages/GuideRenteOuRetraitsProgrammes.jsx";
+import GuideOrdreDecaissement from "./pages/GuideOrdreDecaissement.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -55,6 +66,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/bilan-retraite" element={<BilanRetraite />} />
           <Route path="/strategies" element={<Strategies />} />
+          <Route path="/guides" element={<Guides />} />
           <Route path="/strategies/per" element={<StrategiePer />} />
           <Route path="/strategies/assurance-vie-retraite" element={<StrategieAssuranceVie />} />
           <Route path="/strategies/pea-retraite" element={<StrategiePea />} />
@@ -77,6 +89,16 @@ export default function App() {
           <Route path="/guide/combien-coute-un-conseiller-en-gestion-de-patrimoine" element={<GuideCoutConseiller />} />
           <Route path="/guide/quel-est-le-meilleur-per" element={<GuideMeilleurPer />} />
           <Route path="/guide/etf-ou-fonds-actifs" element={<GuideEtfOuFondsActifs />} />
+          <Route path="/guide/lmnp-risques" element={<GuideLmnpRisques />} />
+          <Route path="/guide/lmnp-ou-locatif-nu" element={<GuideLmnpOuLocatifNu />} />
+          <Route path="/guide/combien-coute-un-investissement-locatif" element={<GuideCoutInvestissementLocatif />} />
+          <Route path="/guide/cinq-erreurs-investissement-locatif-retraite" element={<GuideCinqErreursLocatif />} />
+          <Route path="/guide/immobilier-locatif-ou-assurance-vie" element={<GuideImmobilierOuAv />} />
+          <Route path="/guide/per-ou-immobilier-locatif" element={<GuidePerOuImmobilier />} />
+          <Route path="/guide/combien-coute-un-per" element={<GuideCoutPer />} />
+          <Route path="/guide/inconvenients-rente-viagere" element={<GuideInconvenientsRenteViagere />} />
+          <Route path="/guide/rente-viagere-ou-retraits-programmes" element={<GuideRenteOuRetraitsProgrammes />} />
+          <Route path="/guide/ordre-de-decaissement-retraite" element={<GuideOrdreDecaissement />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />

@@ -26,6 +26,13 @@ export const routesMeta = [
     breadcrumb: [["Accueil", "/"], ["Stratégies", "/strategies"]],
   },
   {
+    path: "/guides",
+    title: "Tous nos guides retraite — PER, assurance-vie, PEA, immobilier",
+    description:
+      "La bibliothèque complète de nos guides retraite, classés par enveloppe : PER, assurance-vie, PEA, immobilier, décumulation. Comparatifs, coûts et pièges à éviter.",
+    breadcrumb: [["Accueil", "/"], ["Guides", "/guides"]],
+  },
+  {
     path: "/strategies/per",
     title: "Le PER : fonctionnement, fiscalité, pièges — Capital Retraite",
     description:
@@ -83,7 +90,7 @@ export const routesMeta = [
       "Taux de remplacement, niveau de vie cible, ordres de grandeur honnêtes selon votre situation : une réponse structurée à la question retraite n°1 — sans chiffre magique.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Combien épargner pour la retraite", "/guide/combien-faut-il-epargner-pour-la-retraite"],
     ],
   },
@@ -94,7 +101,7 @@ export const routesMeta = [
       "Fiscalité à l'entrée vs à la sortie, liquidité, succession, cas d'usage : le comparatif structuré PER / assurance-vie pour préparer sa retraite, sans réponse toute faite.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["PER vs assurance-vie", "/guide/per-vs-assurance-vie-retraite"],
     ],
   },
@@ -105,7 +112,7 @@ export const routesMeta = [
       "Sortie en capital ou en rente : impôt sur le revenu, prélèvements sociaux, fractionnement et timing de sortie. Un sujet technique expliqué pédagogiquement.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Fiscalité de sortie du PER", "/guide/fiscalite-sortie-per"],
     ],
   },
@@ -116,7 +123,7 @@ export const routesMeta = [
       "Le plus tôt possible — mais pas pour tout le monde. TMI, horizon, liquidité : à quel âge le PER devient pertinent, et pourquoi il n'est pas trop tard à 50 ans.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["À quel âge commencer un PER", "/guide/a-quel-age-commencer-per"],
     ],
   },
@@ -127,7 +134,7 @@ export const routesMeta = [
       "Fonds euros, fonds maison, frais d'entrée et de gestion, gestion pilotée : les mécanismes qui rognent le rendement d'une assurance-vie bancaire — et la méthode pour auditer la vôtre.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Pourquoi votre assurance-vie rapporte peu", "/guide/pourquoi-votre-assurance-vie-rapporte-peu"],
     ],
   },
@@ -138,7 +145,7 @@ export const routesMeta = [
       "Un PER peut être fiscalement brillant et financièrement décevant : frais sur versements, gestion pilotée à horizon par défaut, fonds maison. La grille de lecture pour auditer votre plan.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["PER bancaire : ce qu'il faut vérifier", "/guide/per-bancaire-frais-gestion-horizon"],
     ],
   },
@@ -149,7 +156,7 @@ export const routesMeta = [
       "Droits de garde, frais de courtage, fonds actions maison à 2 % : le même PEA peut coûter dix fois plus cher selon l'établissement. Le comparatif pour choisir — ou transférer.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["PEA : banque ou courtier", "/guide/pea-banque-ou-courtier"],
     ],
   },
@@ -160,7 +167,7 @@ export const routesMeta = [
       "PER, PEA, assurance-vie : notre classement honnête des enveloppes retraite — et pourquoi le PER n'est pas la solution magique qu'on vous vend. Analyse par profil et par objectif.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["La meilleure enveloppe retraite", "/guide/meilleure-enveloppe-retraite"],
     ],
   },
@@ -171,7 +178,7 @@ export const routesMeta = [
       "Le PER n'est pas fait pour tout le monde : TMI basse, besoin de liquidité, mauvais contrat, mauvaise raison. Les situations où ouvrir un PER est une erreur — et celles où il excelle.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Faut-il ouvrir un PER", "/guide/faut-il-ouvrir-un-per"],
     ],
   },
@@ -182,7 +189,7 @@ export const routesMeta = [
       "Fiscalité, disponibilité, sortie, succession : le comparatif complet PEA vs PER pour la retraite. Deux enveloppes que tout oppose — à commencer par ce qu'il en reste au décès.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["PEA ou PER", "/guide/pea-ou-per-pour-la-retraite"],
     ],
   },
@@ -193,7 +200,7 @@ export const routesMeta = [
       "Plafonds, fiscalité, souplesse, transmission : le comparatif PEA / assurance-vie — et pourquoi les opposer est souvent la mauvaise question. Complémentaires plus que concurrents.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["PEA ou assurance-vie", "/guide/pea-ou-assurance-vie"],
     ],
   },
@@ -204,7 +211,7 @@ export const routesMeta = [
       "Plafond de 150 000 €, univers restreint aux actions, clôture au décès : les vraies limites du PEA, expliquées sans détour — et pourquoi il reste central dans une stratégie retraite.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Les inconvénients du PEA", "/guide/inconvenients-du-pea"],
     ],
   },
@@ -215,7 +222,7 @@ export const routesMeta = [
       "Loi Sapin 2, solidité de l'assureur, unités de compte, délais de rachat : les vrais risques de l'assurance-vie, leur probabilité réelle et comment s'en protéger. Sans catastrophisme.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Les risques de l'assurance-vie", "/guide/risques-assurance-vie"],
     ],
   },
@@ -226,7 +233,7 @@ export const routesMeta = [
       "Frais d'entrée, de gestion, d'arbitrage, frais des supports, coût de la gestion pilotée : tous les frais d'une assurance-vie décodés poste par poste, avec les fourchettes du marché.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Combien coûte une assurance-vie", "/guide/combien-coute-une-assurance-vie"],
     ],
   },
@@ -237,7 +244,7 @@ export const routesMeta = [
       "Rétrocessions, honoraires, frais cachés : comment un conseiller en gestion de patrimoine est rémunéré, ce que cela change pour vous, et les questions à poser avant de signer.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Le coût d'un conseiller", "/guide/combien-coute-un-conseiller-en-gestion-de-patrimoine"],
     ],
   },
@@ -248,7 +255,7 @@ export const routesMeta = [
       "Les classements « meilleur PER » sont presque tous biaisés par l'affiliation. Notre réponse : pas de palmarès, mais la grille de critères pour juger n'importe quel contrat vous-même.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["Quel est le meilleur PER", "/guide/quel-est-le-meilleur-per"],
     ],
   },
@@ -259,8 +266,118 @@ export const routesMeta = [
       "93 % des gérants battus par les indices ? La réalité est plus nuancée. ETF et gestion active comparés honnêtement : frais, performance, biais des études — et ce qui compte vraiment.",
     breadcrumb: [
       ["Accueil", "/"],
-      ["Guides", "/strategies"],
+      ["Guides", "/guides"],
       ["ETF ou fonds actifs", "/guide/etf-ou-fonds-actifs"],
+    ],
+  },
+  {
+    path: "/guide/lmnp-risques",
+    title: "LMNP : les risques que l'on vous cache",
+    description:
+      "Amortissement, réforme fiscale, dépendance à l'exploitant en résidence gérée : les vrais risques du statut LMNP, au-delà de l'argument de vente.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Les risques du LMNP", "/guide/lmnp-risques"],
+    ],
+  },
+  {
+    path: "/guide/lmnp-ou-locatif-nu",
+    title: "LMNP ou locatif nu : lequel choisir pour la retraite ?",
+    description:
+      "Deux régimes fiscaux, deux niveaux de gestion : le comparatif entre location meublée (LMNP) et location nue pour préparer sa retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["LMNP ou locatif nu", "/guide/lmnp-ou-locatif-nu"],
+    ],
+  },
+  {
+    path: "/guide/combien-coute-un-investissement-locatif",
+    title: "Combien coûte réellement un investissement locatif ?",
+    description:
+      "Frais de notaire, gestion locative, vacance, fiscalité : la grille de coûts complète d'un bien locatif, du rendement brut affiché au rendement net réel.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Le coût d'un investissement locatif", "/guide/combien-coute-un-investissement-locatif"],
+    ],
+  },
+  {
+    path: "/guide/cinq-erreurs-investissement-locatif-retraite",
+    title: "Les 5 erreurs les plus coûteuses de l'investissement locatif retraite",
+    description:
+      "Prix au m², cash-flow positif à tout prix, gestion sous-estimée : les fausses boussoles qui plombent un projet immobilier pensé pour la retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["5 erreurs de l'investissement locatif", "/guide/cinq-erreurs-investissement-locatif-retraite"],
+    ],
+  },
+  {
+    path: "/guide/immobilier-locatif-ou-assurance-vie",
+    title: "Immobilier locatif ou assurance-vie pour préparer sa retraite ?",
+    description:
+      "Effet de levier du crédit contre polyvalence fiscale : le comparatif entre investissement locatif direct et assurance-vie pour se constituer un capital retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Immobilier ou assurance-vie", "/guide/immobilier-locatif-ou-assurance-vie"],
+    ],
+  },
+  {
+    path: "/guide/per-ou-immobilier-locatif",
+    title: "PER ou immobilier locatif : lequel privilégier pour transmettre ?",
+    description:
+      "Abattement successoral du PER assurantiel contre démembrement immobilier : deux façons de protéger sa famille, comparées sans parti pris.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PER ou immobilier locatif", "/guide/per-ou-immobilier-locatif"],
+    ],
+  },
+  {
+    path: "/guide/combien-coute-un-per",
+    title: "Combien coûte un PER, vraiment ?",
+    description:
+      "Frais sur versements, gestion annuelle, supports, gestion pilotée : la grille des frais d'un PER poste par poste, réseau traditionnel contre contrat en ligne.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Combien coûte un PER", "/guide/combien-coute-un-per"],
+    ],
+  },
+  {
+    path: "/guide/inconvenients-rente-viagere",
+    title: "Rente viagère : les inconvénients qu'on ne vous dit jamais",
+    description:
+      "Aliénation définitive du capital, taux de conversion figé, absence de transmission : ce qu'implique vraiment le choix de la rente viagère.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Les inconvénients de la rente viagère", "/guide/inconvenients-rente-viagere"],
+    ],
+  },
+  {
+    path: "/guide/rente-viagere-ou-retraits-programmes",
+    title: "Rente viagère ou retraits programmés : comment choisir ?",
+    description:
+      "Sécurité du revenu à vie contre capital transmissible : le comparatif chiffré entre rente viagère et retraits programmés selon votre longévité.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Rente ou retraits programmés", "/guide/rente-viagere-ou-retraits-programmes"],
+    ],
+  },
+  {
+    path: "/guide/ordre-de-decaissement-retraite",
+    title: "L'ordre de décaissement : l'erreur qui coûte cher à la retraite",
+    description:
+      "Par quelle enveloppe commencer à la retraite : l'ordre dans lequel puiser dans son épargne pèse autant que l'ordre dans lequel on l'a constituée.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["L'ordre de décaissement", "/guide/ordre-de-decaissement-retraite"],
     ],
   },
   {

@@ -24,7 +24,7 @@ function Header() {
         </button>
         <nav id="main-nav" className={`main-nav${open ? " open" : ""}`} onClick={() => setOpen(false)}>
           <Link to="/strategies">Stratégies</Link>
-          <Link to="/guide/combien-faut-il-epargner-pour-la-retraite">Guides</Link>
+          <Link to="/guides">Guides</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/bilan-retraite" className="btn btn-primary">
             Bilan retraite gratuit
