@@ -15,6 +15,9 @@ import GuideCombienEpargner from "./pages/GuideCombienEpargner.jsx";
 import GuidePerVsAv from "./pages/GuidePerVsAv.jsx";
 import GuideFiscaliteSortiePer from "./pages/GuideFiscaliteSortiePer.jsx";
 import GuideAgeCommencerPer from "./pages/GuideAgeCommencerPer.jsx";
+import GuideAvRapportePeu from "./pages/GuideAvRapportePeu.jsx";
+import GuidePerBancaire from "./pages/GuidePerBancaire.jsx";
+import GuidePeaBanqueCourtier from "./pages/GuidePeaBanqueCourtier.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -51,6 +54,9 @@ export default function App() {
           <Route path="/guide/per-vs-assurance-vie-retraite" element={<GuidePerVsAv />} />
           <Route path="/guide/fiscalite-sortie-per" element={<GuideFiscaliteSortiePer />} />
           <Route path="/guide/a-quel-age-commencer-per" element={<GuideAgeCommencerPer />} />
+          <Route path="/guide/pourquoi-votre-assurance-vie-rapporte-peu" element={<GuideAvRapportePeu />} />
+          <Route path="/guide/per-bancaire-frais-gestion-horizon" element={<GuidePerBancaire />} />
+          <Route path="/guide/pea-banque-ou-courtier" element={<GuidePeaBanqueCourtier />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />

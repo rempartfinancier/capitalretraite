@@ -3,3 +3,4 @@ dist
 dist-server
 .env
 .env.local
+content-corpus/

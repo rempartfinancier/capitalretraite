@@ -121,6 +121,39 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
+    title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
+    description:
+      "Fonds euros, fonds maison, frais d'entrée et de gestion, gestion pilotée : les mécanismes qui rognent le rendement d'une assurance-vie bancaire — et la méthode pour auditer la vôtre.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Pourquoi votre assurance-vie rapporte peu", "/guide/pourquoi-votre-assurance-vie-rapporte-peu"],
+    ],
+  },
+  {
+    path: "/guide/per-bancaire-frais-gestion-horizon",
+    title: "PER bancaire : frais, gestion à horizon, supports maison — ce qu'il faut vérifier",
+    description:
+      "Un PER peut être fiscalement brillant et financièrement décevant : frais sur versements, gestion pilotée à horizon par défaut, fonds maison. La grille de lecture pour auditer votre plan.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["PER bancaire : ce qu'il faut vérifier", "/guide/per-bancaire-frais-gestion-horizon"],
+    ],
+  },
+  {
+    path: "/guide/pea-banque-ou-courtier",
+    title: "PEA : banque ou courtier en ligne ? Frais, fonds maison et vraie diversification",
+    description:
+      "Droits de garde, frais de courtage, fonds actions maison à 2 % : le même PEA peut coûter dix fois plus cher selon l'établissement. Le comparatif pour choisir — ou transférer.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["PEA : banque ou courtier", "/guide/pea-banque-ou-courtier"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

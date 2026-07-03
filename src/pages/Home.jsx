@@ -76,6 +76,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* À LA UNE — articles phares */}
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">À la une</span>
+          <h2>Votre épargne actuelle travaille-t-elle vraiment pour vous ?</h2>
+          <p style={{ maxWidth: "640px" }}>
+            Trois enquêtes pédagogiques sur ce que coûtent réellement les contrats standards —
+            frais, supports imposés, gestion packagée. À lire avant tout rendez-vous, ici ou
+            ailleurs.
+          </p>
+          <div className="card-grid">
+            <Link to="/guide/pourquoi-votre-assurance-vie-rapporte-peu" className="card">
+              <span className="card-kicker">Article phare — assurance-vie</span>
+              <h3>Pourquoi votre assurance-vie rapporte si peu</h3>
+              <p>
+                Fonds euros, fonds maison, frais d'entrée et de gestion, gestion pilotée : les
+                mécanismes qui rognent votre rendement — et comment auditer votre contrat.
+              </p>
+              <span className="card-more">Lire l'enquête →</span>
+            </Link>
+            <Link to="/guide/per-bancaire-frais-gestion-horizon" className="card">
+              <span className="card-kicker">Article phare — PER</span>
+              <h3>PER bancaire : ce qu'il faut vérifier</h3>
+              <p>
+                Un PER peut être fiscalement brillant et financièrement décevant. Frais, gestion à
+                horizon par défaut, supports maison : la grille de lecture complète.
+              </p>
+              <span className="card-more">Lire l'enquête →</span>
+            </Link>
+            <Link to="/guide/pea-banque-ou-courtier" className="card">
+              <span className="card-kicker">Article phare — PEA</span>
+              <h3>PEA : banque ou courtier en ligne ?</h3>
+              <p>
+                Le même PEA peut coûter dix fois plus cher selon l'établissement. Droits de garde,
+                courtage, fonds maison : le comparatif pour choisir — ou transférer.
+              </p>
+              <span className="card-more">Lire l'enquête →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* PROBLÈME — 3 réalités */}
       <section className="section section-ivoire">
         <div className="container">

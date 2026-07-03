@@ -316,3 +316,78 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: var(--ivoire);
 }
 .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; }
+
+/* ---------- Simulateurs ---------- */
+.simulateur {
+  border: 1px solid var(--gris-filet);
+  border-top: 3px solid var(--cuivre);
+  background: var(--ivoire);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 1.5rem 1.4rem;
+  margin: 2.2rem 0;
+}
+.simulateur .sim-titre {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--marine);
+  margin-bottom: 1.1rem;
+}
+.sim-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.9rem 1.1rem;
+  margin-bottom: 1.2rem;
+}
+.sim-champ { display: block; }
+.sim-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--marine);
+  margin-bottom: 0.25rem;
+}
+.sim-input-wrap { display: flex; align-items: center; gap: 0.4rem; }
+.sim-input-wrap input,
+.sim-input-wrap select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--gris-filet);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--marine);
+  background: var(--blanc);
+}
+.sim-suffixe { font-size: 0.85rem; color: var(--gris-texte); white-space: nowrap; }
+.sim-resultat table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.5rem 0 0.8rem;
+  font-size: 0.93rem;
+  background: var(--blanc);
+}
+.sim-resultat th, .sim-resultat td {
+  border: 1px solid var(--gris-filet);
+  padding: 0.55rem 0.75rem;
+  text-align: left;
+}
+.sim-resultat th { background: var(--marine); color: var(--blanc); font-family: var(--font-body); font-weight: 600; font-size: 0.85rem; }
+.sim-valeur { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sim-resultat tr:last-child td { background: var(--cuivre-pale); color: var(--marine); font-weight: 600; }
+.sim-detail { color: var(--marine-40); font-size: 0.82rem; }
+.sim-note { font-size: 0.83rem; color: var(--gris-texte); margin: 0.4rem 0 0.8rem; }
+.maj-note { font-size: 0.8rem; color: var(--marine-40); border-top: 1px dashed var(--gris-filet); padding-top: 0.7rem; margin-top: 0.6rem; }
+.table-scroll { overflow-x: auto; }
+
+/* ---------- Sommaire d'article (articles phares) ---------- */
+.sommaire {
+  border: 1px solid var(--gris-filet);
+  background: var(--ivoire);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.92rem;
+}
+.sommaire strong { color: var(--marine); display: block; margin-bottom: 0.5rem; }
+.sommaire ol { margin: 0 0 0 1.2rem; }
+.sommaire li { margin-bottom: 0.25rem; }
