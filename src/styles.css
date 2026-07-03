@@ -217,6 +217,83 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .card p { font-size: 0.93rem; }
 .card .card-more { display: inline-block; margin-top: 0.8rem; font-size: 0.88rem; font-weight: 600; color: var(--cuivre-fonce); }
 
+/* ---------- Guides : nav sticky par enveloppe + articles à la une ---------- */
+.guides-nav {
+  position: sticky;
+  top: 66px;
+  z-index: 40;
+  background: var(--blanc);
+  border-bottom: 1px solid var(--gris-filet);
+}
+.guides-nav-inner {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.8rem 1.25rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.guides-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--gris-filet);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--marine);
+  background: var(--blanc);
+  white-space: nowrap;
+}
+.guides-pill:hover { border-color: var(--cuivre); text-decoration: none; }
+.guides-pill.active { background: var(--marine); border-color: var(--marine); color: var(--blanc); }
+.guides-pill.active .guides-pill-count { background: var(--cuivre); color: var(--blanc); }
+.guides-pill-count {
+  background: var(--ivoire);
+  color: var(--marine-40);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+}
+
+.guides-section-title { margin-top: 0; }
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.4rem;
+  margin: 1.5rem 0 3rem;
+}
+.featured-card {
+  display: block;
+  padding: 1.6rem;
+  border: 1px solid var(--gris-filet);
+  border-radius: var(--radius);
+  background: var(--ivoire);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.featured-card:hover { border-color: var(--cuivre); text-decoration: none; transform: translateY(-2px); }
+.featured-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cuivre-fonce);
+  background: var(--cuivre-pale);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.7rem;
+}
+.featured-card h3 { margin: 0 0 0.5rem; font-size: 1.25rem; }
+.featured-card p { font-size: 0.95rem; margin-bottom: 0; }
+.featured-card .card-more { display: inline-block; margin-top: 0.9rem; font-size: 0.9rem; font-weight: 600; color: var(--cuivre-fonce); }
+
+.guides-category { scroll-margin-top: 145px; padding-top: 2.5rem; }
+.guides-category:first-of-type { padding-top: 1rem; }
+
 /* ---------- Listes « réalités » ---------- */
 .realites { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 .realite h3 { font-size: 1.1rem; }

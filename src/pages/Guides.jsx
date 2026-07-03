@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CtaBanner } from "../components/Layout.jsx";
 
@@ -5,6 +6,7 @@ import { CtaBanner } from "../components/Layout.jsx";
 // pour un visiteur qui découvre le site. Nouveau guide → ajouter une ligne ici.
 const categories = [
   {
+    id: "vue-ensemble",
     name: "Vue d'ensemble",
     items: [
       {
@@ -25,6 +27,7 @@ const categories = [
     ],
   },
   {
+    id: "comparatifs",
     name: "Comparatifs entre enveloppes",
     items: [
       {
@@ -60,6 +63,7 @@ const categories = [
     ],
   },
   {
+    id: "per",
     name: "PER",
     items: [
       {
@@ -95,6 +99,7 @@ const categories = [
     ],
   },
   {
+    id: "assurance-vie",
     name: "Assurance-vie",
     items: [
       {
@@ -115,6 +120,7 @@ const categories = [
     ],
   },
   {
+    id: "pea",
     name: "PEA",
     items: [
       {
@@ -130,6 +136,7 @@ const categories = [
     ],
   },
   {
+    id: "immobilier",
     name: "Immobilier",
     items: [
       {
@@ -155,6 +162,7 @@ const categories = [
     ],
   },
   {
+    id: "decumulation",
     name: "Décumulation",
     items: [
       {
@@ -176,7 +184,67 @@ const categories = [
   },
 ];
 
+const CATEGORY_IDS = categories.map((c) => c.id);
+
+// Un article par enveloppe : le meilleur point d'entrée pour un visiteur qui
+// découvre le site et n'a pas encore de question précise en tête.
+const featured = [
+  {
+    to: "/guide/meilleure-enveloppe-retraite",
+    badge: "Vue d'ensemble",
+    title: "Quelle est la meilleure enveloppe pour préparer sa retraite ?",
+    text: "Notre classement par objectif — consommer, transmettre, garder la main — plutôt qu'un vainqueur unique.",
+  },
+  {
+    to: "/guide/faut-il-ouvrir-un-per",
+    badge: "PER",
+    title: "Faut-il ouvrir un PER ? Les cas où la réponse est non",
+    text: "Le PER n'est pas la solution magique pour la retraite — voici quand l'ouvrir est une erreur.",
+  },
+  {
+    to: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
+    badge: "Assurance-vie",
+    title: "Pourquoi votre assurance-vie rapporte si peu",
+    text: "Fonds euros, frais, gestion pilotée : les mécanismes qui rognent le rendement — et comment auditer le vôtre.",
+  },
+  {
+    to: "/guide/pea-banque-ou-courtier",
+    badge: "PEA",
+    title: "PEA : banque ou courtier en ligne ?",
+    text: "Le même PEA peut coûter plusieurs fois plus cher selon l'établissement.",
+  },
+  {
+    to: "/guide/combien-coute-un-investissement-locatif",
+    badge: "Immobilier",
+    title: "Combien coûte réellement un investissement locatif ?",
+    text: "Notaire, gestion, vacance, fiscalité : le rendement brut n'est jamais le rendement net.",
+  },
+  {
+    to: "/guide/ordre-de-decaissement-retraite",
+    badge: "Décumulation",
+    title: "L'ordre de décaissement : l'erreur qui coûte cher à la retraite",
+    text: "Par quelle enveloppe commencer quand vient le moment de consommer son capital.",
+  },
+];
+
 export default function Guides() {
+  const [active, setActive] = useState(CATEGORY_IDS[0]);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { rootMargin: "-140px 0px -70% 0px" }
+    );
+    const sections = CATEGORY_IDS.map((id) => document.getElementById(id)).filter(Boolean);
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <section className="page-header">
@@ -190,17 +258,48 @@ export default function Guides() {
         </div>
       </section>
 
+      <nav className="guides-nav" aria-label="Aller à une catégorie de guides">
+        <div className="container guides-nav-inner">
+          {categories.map((cat) => (
+            <a
+              key={cat.id}
+              href={`#${cat.id}`}
+              className={`guides-pill${active === cat.id ? " active" : ""}`}
+            >
+              {cat.name}
+              <span className="guides-pill-count">{cat.items.length}</span>
+            </a>
+          ))}
+        </div>
+      </nav>
+
       <section className="section">
         <div className="container prose">
           <p>
-            Chaque guide traite une seule question, en profondeur. Si vous préférez une vue
+            Commencez par les articles à la une ci-dessous, ou cliquez sur une enveloppe dans le
+            menu pour aller directement à la section qui vous intéresse. Si vous préférez une vue
             d'ensemble par stratégie plutôt que par question, notre page{" "}
             <Link to="/strategies">5 stratégies pour construire votre capital retraite</Link>{" "}
             est le meilleur point de départ.
           </p>
         </div>
+
+        <div className="container">
+          <h2 className="guides-section-title">À la une</h2>
+          <div className="featured-grid">
+            {featured.map((item) => (
+              <Link key={item.to} to={item.to} className="featured-card">
+                <span className="featured-badge">{item.badge}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span className="card-more">Lire le guide →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {categories.map((cat) => (
-          <div className="container" key={cat.name}>
+          <div className="container guides-category" key={cat.id} id={cat.id}>
             <h2>{cat.name}</h2>
             <div className="card-grid">
               {cat.items.map((item) => (
