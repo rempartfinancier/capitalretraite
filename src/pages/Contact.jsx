@@ -1,5 +1,24 @@
+import { useEffect } from "react";
 import { FormContact } from "../components/Forms.jsx";
-import { CALENDLY_URL } from "../components/config.js";
+
+function IClosedWidget() {
+  useEffect(() => {
+    if (document.querySelector('script[src="https://app.iclosed.io/assets/widget.js"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://app.iclosed.io/assets/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  return (
+    <div
+      className="iclosed-widget"
+      data-url="https://app.iclosed.io/e/EpargnePlurielleAJ/appel-decouverte-immobilierpassif"
+      title="Appel découverte - Capital Retraite"
+      style={{ width: "100%", height: "620px" }}
+    />
+  );
+}
 
 export default function Contact() {
   return (
@@ -17,19 +36,7 @@ export default function Contact() {
       <section className="section">
         <div className="container prose">
           <h2>Réserver un créneau</h2>
-          {/*
-            PLACEHOLDER CALENDLY — remplacer par le widget officiel une fois l'URL connue :
-            <div className="calendly-inline-widget" data-url={CALENDLY_URL} style={{ minWidth: "320px", height: "700px" }} />
-            + <script src="https://assets.calendly.com/assets/external/widget.js" async />
-          */}
-          <div className="calendly-placeholder">
-            <p>Le calendrier de réservation s'affichera ici.</p>
-            <p style={{ marginTop: "0.8rem" }}>
-              <a className="btn btn-primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Ouvrir le calendrier de rendez-vous
-              </a>
-            </p>
-          </div>
+          <IClosedWidget />
 
           <h2>Ou écrivez-nous</h2>
           <FormContact />
