@@ -18,6 +18,16 @@ import GuideAgeCommencerPer from "./pages/GuideAgeCommencerPer.jsx";
 import GuideAvRapportePeu from "./pages/GuideAvRapportePeu.jsx";
 import GuidePerBancaire from "./pages/GuidePerBancaire.jsx";
 import GuidePeaBanqueCourtier from "./pages/GuidePeaBanqueCourtier.jsx";
+import GuideMeilleureEnveloppe from "./pages/GuideMeilleureEnveloppe.jsx";
+import GuideFautIlOuvrirPer from "./pages/GuideFautIlOuvrirPer.jsx";
+import GuidePeaOuPer from "./pages/GuidePeaOuPer.jsx";
+import GuidePeaOuAv from "./pages/GuidePeaOuAv.jsx";
+import GuideInconvenientsPea from "./pages/GuideInconvenientsPea.jsx";
+import GuideRisquesAv from "./pages/GuideRisquesAv.jsx";
+import GuideCoutAssuranceVie from "./pages/GuideCoutAssuranceVie.jsx";
+import GuideCoutConseiller from "./pages/GuideCoutConseiller.jsx";
+import GuideMeilleurPer from "./pages/GuideMeilleurPer.jsx";
+import GuideEtfOuFondsActifs from "./pages/GuideEtfOuFondsActifs.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -57,6 +67,16 @@ export default function App() {
           <Route path="/guide/pourquoi-votre-assurance-vie-rapporte-peu" element={<GuideAvRapportePeu />} />
           <Route path="/guide/per-bancaire-frais-gestion-horizon" element={<GuidePerBancaire />} />
           <Route path="/guide/pea-banque-ou-courtier" element={<GuidePeaBanqueCourtier />} />
+          <Route path="/guide/meilleure-enveloppe-retraite" element={<GuideMeilleureEnveloppe />} />
+          <Route path="/guide/faut-il-ouvrir-un-per" element={<GuideFautIlOuvrirPer />} />
+          <Route path="/guide/pea-ou-per-pour-la-retraite" element={<GuidePeaOuPer />} />
+          <Route path="/guide/pea-ou-assurance-vie" element={<GuidePeaOuAv />} />
+          <Route path="/guide/inconvenients-du-pea" element={<GuideInconvenientsPea />} />
+          <Route path="/guide/risques-assurance-vie" element={<GuideRisquesAv />} />
+          <Route path="/guide/combien-coute-une-assurance-vie" element={<GuideCoutAssuranceVie />} />
+          <Route path="/guide/combien-coute-un-conseiller-en-gestion-de-patrimoine" element={<GuideCoutConseiller />} />
+          <Route path="/guide/quel-est-le-meilleur-per" element={<GuideMeilleurPer />} />
+          <Route path="/guide/etf-ou-fonds-actifs" element={<GuideEtfOuFondsActifs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />

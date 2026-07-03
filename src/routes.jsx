@@ -1,7 +1,7 @@
 // Source de vérité unique : routes, métadonnées SEO, fils d'Ariane.
 // Utilisée par l'app (client + SSR) ET par scripts/prerender.mjs.
 
-export const SITE_URL = "https://capitalretraite.fr";
+export const SITE_URL = "https://www.capitalretraite.com";
 
 export const routesMeta = [
   {
@@ -154,6 +154,116 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/meilleure-enveloppe-retraite",
+    title: "Quelle est la meilleure enveloppe pour préparer sa retraite ?",
+    description:
+      "PER, PEA, assurance-vie : notre classement honnête des enveloppes retraite — et pourquoi le PER n'est pas la solution magique qu'on vous vend. Analyse par profil et par objectif.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["La meilleure enveloppe retraite", "/guide/meilleure-enveloppe-retraite"],
+    ],
+  },
+  {
+    path: "/guide/faut-il-ouvrir-un-per",
+    title: "Faut-il ouvrir un PER ? Les cas où la réponse est non",
+    description:
+      "Le PER n'est pas fait pour tout le monde : TMI basse, besoin de liquidité, mauvais contrat, mauvaise raison. Les situations où ouvrir un PER est une erreur — et celles où il excelle.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Faut-il ouvrir un PER", "/guide/faut-il-ouvrir-un-per"],
+    ],
+  },
+  {
+    path: "/guide/pea-ou-per-pour-la-retraite",
+    title: "PEA ou PER pour préparer sa retraite ? Le vrai match",
+    description:
+      "Fiscalité, disponibilité, sortie, succession : le comparatif complet PEA vs PER pour la retraite. Deux enveloppes que tout oppose — à commencer par ce qu'il en reste au décès.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["PEA ou PER", "/guide/pea-ou-per-pour-la-retraite"],
+    ],
+  },
+  {
+    path: "/guide/pea-ou-assurance-vie",
+    title: "PEA ou assurance-vie : lequel choisir pour la retraite ?",
+    description:
+      "Plafonds, fiscalité, souplesse, transmission : le comparatif PEA / assurance-vie — et pourquoi les opposer est souvent la mauvaise question. Complémentaires plus que concurrents.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["PEA ou assurance-vie", "/guide/pea-ou-assurance-vie"],
+    ],
+  },
+  {
+    path: "/guide/inconvenients-du-pea",
+    title: "Les inconvénients du PEA : plafond, rigidité, succession",
+    description:
+      "Plafond de 150 000 €, univers restreint aux actions, clôture au décès : les vraies limites du PEA, expliquées sans détour — et pourquoi il reste central dans une stratégie retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Les inconvénients du PEA", "/guide/inconvenients-du-pea"],
+    ],
+  },
+  {
+    path: "/guide/risques-assurance-vie",
+    title: "Les risques réels de l'assurance-vie, expliqués sans tabou",
+    description:
+      "Loi Sapin 2, solidité de l'assureur, unités de compte, délais de rachat : les vrais risques de l'assurance-vie, leur probabilité réelle et comment s'en protéger. Sans catastrophisme.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Les risques de l'assurance-vie", "/guide/risques-assurance-vie"],
+    ],
+  },
+  {
+    path: "/guide/combien-coute-une-assurance-vie",
+    title: "Combien coûte une assurance-vie ? La grille poste par poste",
+    description:
+      "Frais d'entrée, de gestion, d'arbitrage, frais des supports, coût de la gestion pilotée : tous les frais d'une assurance-vie décodés poste par poste, avec les fourchettes du marché.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Combien coûte une assurance-vie", "/guide/combien-coute-une-assurance-vie"],
+    ],
+  },
+  {
+    path: "/guide/combien-coute-un-conseiller-en-gestion-de-patrimoine",
+    title: "Combien coûte un conseiller en gestion de patrimoine ?",
+    description:
+      "Rétrocessions, honoraires, frais cachés : comment un conseiller en gestion de patrimoine est rémunéré, ce que cela change pour vous, et les questions à poser avant de signer.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Le coût d'un conseiller", "/guide/combien-coute-un-conseiller-en-gestion-de-patrimoine"],
+    ],
+  },
+  {
+    path: "/guide/quel-est-le-meilleur-per",
+    title: "Quel est le meilleur PER ? Pourquoi nous ne publions pas de classement",
+    description:
+      "Les classements « meilleur PER » sont presque tous biaisés par l'affiliation. Notre réponse : pas de palmarès, mais la grille de critères pour juger n'importe quel contrat vous-même.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["Quel est le meilleur PER", "/guide/quel-est-le-meilleur-per"],
+    ],
+  },
+  {
+    path: "/guide/etf-ou-fonds-actifs",
+    title: "ETF ou fonds de gestion active : le vrai match, sans caricature",
+    description:
+      "93 % des gérants battus par les indices ? La réalité est plus nuancée. ETF et gestion active comparés honnêtement : frais, performance, biais des études — et ce qui compte vraiment.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/strategies"],
+      ["ETF ou fonds actifs", "/guide/etf-ou-fonds-actifs"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
@@ -164,14 +274,14 @@ export const routesMeta = [
     path: "/mentions-legales",
     title: "Mentions légales — Capital Retraite",
     description:
-      "Mentions légales du site capitalretraite.fr, édité par EXP Capital (ORIAS 25005915), conseil en investissement financier sous Épargne Plurielle (ORIAS 16003696).",
+      "Mentions légales du site capitalretraite.com, édité par EXP Capital (ORIAS 25005915), conseil en investissement financier sous Épargne Plurielle (ORIAS 16003696).",
     breadcrumb: [["Accueil", "/"], ["Mentions légales", "/mentions-legales"]],
   },
   {
     path: "/confidentialite",
     title: "Politique de confidentialité — Capital Retraite",
     description:
-      "Comment capitalretraite.fr collecte, utilise et protège vos données personnelles. Vos droits RGPD et nos engagements de confidentialité.",
+      "Comment capitalretraite.com collecte, utilise et protège vos données personnelles. Vos droits RGPD et nos engagements de confidentialité.",
     breadcrumb: [["Accueil", "/"], ["Confidentialité", "/confidentialite"]],
   },
 ];
