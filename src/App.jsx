@@ -5,6 +5,7 @@ import Layout from "./components/Layout.jsx";
 
 import Home from "./pages/Home.jsx";
 import BilanRetraite from "./pages/BilanRetraite.jsx";
+import SimulateurRetraite from "./pages/SimulateurRetraite.jsx";
 import Strategies from "./pages/Strategies.jsx";
 import Guides from "./pages/Guides.jsx";
 import StrategiePer from "./pages/StrategiePer.jsx";
@@ -75,6 +76,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bilan-retraite" element={<BilanRetraite />} />
+          <Route path="/simulateur-retraite" element={<SimulateurRetraite />} />
           <Route path="/strategies" element={<Strategies />} />
           <Route path="/guides" element={<Guides />} />
           <Route path="/strategies/per" element={<StrategiePer />} />

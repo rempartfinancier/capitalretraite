@@ -55,6 +55,9 @@ export default function Home() {
               Prendre rendez-vous
             </a>
           </div>
+          <p style={{ marginTop: "1rem" }}>
+            <Link to="/simulateur-retraite">Ou estimez votre écart de revenus en 3 minutes →</Link>
+          </p>
           <div className="lifeline" aria-hidden="true">
             <div className="mark" style={{ left: "8%" }}>
               <strong>45 ans</strong>

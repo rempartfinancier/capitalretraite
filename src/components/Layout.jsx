@@ -24,6 +24,7 @@ function Header() {
         </button>
         <nav id="main-nav" className={`main-nav${open ? " open" : ""}`} onClick={() => setOpen(false)}>
           <Link to="/strategies">Stratégies</Link>
+          <Link to="/simulateur-retraite">Simulateur</Link>
           <Link to="/guides">Guides</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/bilan-retraite" className="btn btn-primary">

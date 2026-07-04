@@ -19,6 +19,13 @@ export const routesMeta = [
     breadcrumb: [["Accueil", "/"], ["Bilan retraite", "/bilan-retraite"]],
   },
   {
+    path: "/simulateur-retraite",
+    title: "Simulateur retraite gratuit : votre écart de revenus et le capital nécessaire",
+    description:
+      "Estimez en 3 minutes votre écart de revenus à la retraite, le capital nécessaire pour le combler et l'effort d'épargne mensuel correspondant. Gratuit, sans compte, hypothèses affichées.",
+    breadcrumb: [["Accueil", "/"], ["Simulateur retraite", "/simulateur-retraite"]],
+  },
+  {
     path: "/strategies",
     title: "5 stratégies pour construire votre capital retraite",
     description:
