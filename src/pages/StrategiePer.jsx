@@ -174,7 +174,11 @@ export default function StrategiePer() {
             L'alternative est la gestion libre : choisir soi-même ses supports et le moment de ses
             arbitrages, pour qui accepte de s'en occuper — ou de se faire accompagner. Aucun mode
             de gestion n'est bon ou mauvais dans l'absolu ; c'est son adéquation à votre
-            situation, appréciée au cas par cas, qui tranche.
+            situation, appréciée au cas par cas, qui tranche. Notre guide{" "}
+            <a href="/guide/gestion-pilotee-ou-gestion-libre">
+              gestion pilotée ou gestion libre
+            </a>{" "}
+            détaille cet arbitrage au-delà du seul PER.
           </p>
 
           <h3>Mesurez l'effet réel : effort d'épargne, frais et fiscalité de sortie</h3>
@@ -275,7 +279,10 @@ export default function StrategiePer() {
             Nous y consacrons une analyse détaillée :{" "}
             <a href="/guide/per-bancaire-frais-gestion-horizon">
               PER bancaire, frais et gestion à horizon
-            </a>.
+            </a>. Pour la grille de frais complète poste par poste, voir{" "}
+            <a href="/guide/combien-coute-un-per">combien coûte un PER</a> ; et pour savoir
+            comment juger n'importe quel contrat sans se fier à un classement affilié,{" "}
+            <a href="/guide/quel-est-le-meilleur-per">quel est le meilleur PER</a>.
           </p>
 
           <h2>L'avantage fiscal à l'entrée</h2>
@@ -327,7 +334,18 @@ export default function StrategiePer() {
             patrimoniale d'ensemble — liquidités disponibles, TMI anticipée à la retraite,
             objectifs de transmission — et s'apprécie au cas par cas. Réduire le PER à un
             placement de défiscalisation, c'est d'ailleurs passer à côté de ce qui, dans notre
-            analyse, en fait un outil réellement singulier.
+            analyse, en fait un outil réellement singulier. Notre guide{" "}
+            <a href="/guide/faut-il-ouvrir-un-per">faut-il ouvrir un PER ?</a> détaille les cas où
+            la réponse est non, et{" "}
+            <a href="/guide/meilleure-enveloppe-retraite">
+              quelle est la meilleure enveloppe pour préparer sa retraite
+            </a>{" "}
+            replace ce choix face au PEA et à l'assurance-vie. Les travailleurs indépendants
+            trouveront dans{" "}
+            <a href="/guide/retraite-independants-per-ou-madelin">
+              PER ou Madelin pour les indépendants
+            </a>{" "}
+            les spécificités propres à leur statut.
           </p>
 
           <h3>La face méconnue du PER : protection familiale et transmission</h3>

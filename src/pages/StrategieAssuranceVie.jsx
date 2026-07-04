@@ -83,7 +83,9 @@ export default function StrategieAssuranceVie() {
             cas de crise grave menaçant la stabilité du secteur. Ce dispositif n'a, à notre
             connaissance, jamais été activé ; s'il l'était un jour, ce serait précisément pour
             protéger collectivement les épargnants. Il rappelle simplement qu'aucun placement,
-            même garanti, ne vit hors de son environnement.
+            même garanti, ne vit hors de son environnement. Notre guide{" "}
+            <a href="/guide/risques-assurance-vie">les risques réels de l'assurance-vie</a> passe
+            ce sujet et les autres risques en revue, sans tabou ni catastrophisme.
           </div>
 
           <h3>Les unités de compte : le moteur, sans la garantie</h3>
@@ -154,7 +156,15 @@ export default function StrategieAssuranceVie() {
             besoin de liquidité en vente au pire moment. La gestion libre évite cet écueil, mais
             exige une méthode — définir son allocation, la tenir, la sécuriser progressivement —
             ou un accompagnement : c'est précisément le rôle d'un conseil indépendant, qui
-            construit l'allocation avec vous sans la figer dans un profil standard.
+            construit l'allocation avec vous sans la figer dans un profil standard. Notre guide{" "}
+            <a href="/guide/gestion-pilotee-ou-gestion-libre">
+              gestion pilotée ou gestion libre
+            </a>{" "}
+            détaille cet arbitrage, et{" "}
+            <a href="/guide/conseiller-ou-gerer-seul-sa-retraite">
+              faut-il un conseiller, ou peut-on gérer seul
+            </a>{" "}
+            aide à trancher si l'accompagnement se justifie pour votre situation.
           </p>
 
           <h3>Mesurez vous-même : le poids des frais sur 15 ans</h3>
@@ -261,6 +271,12 @@ export default function StrategieAssuranceVie() {
             <a href="/guide/pourquoi-votre-assurance-vie-rapporte-peu">
               pourquoi votre assurance-vie rapporte peu
             </a>
+            . Pour la grille de frais complète, voir{" "}
+            <a href="/guide/combien-coute-une-assurance-vie">combien coûte une assurance-vie</a> ;
+            et pour choisir entre contrat bancaire, en ligne ou conseillé selon votre profil,{" "}
+            <a href="/guide/meilleure-assurance-vie-retraite">
+              quelle est la meilleure assurance-vie
+            </a>
             .
           </div>
 
@@ -294,7 +310,12 @@ export default function StrategieAssuranceVie() {
             L'assurance-vie est aussi un outil de transmission : les capitaux versés avant 70 ans
             bénéficient d'un cadre successoral spécifique, avec un abattement par bénéficiaire
             désigné. Pour un patrimoine constitué, cette dimension pèse dans l'arbitrage entre
-            enveloppes — un PER liquidé n'offre pas les mêmes possibilités.
+            enveloppes — un PER liquidé n'offre pas les mêmes possibilités. Notre guide{" "}
+            <a href="/guide/donation-ou-assurance-vie-transmission">
+              donation ou assurance-vie pour transmettre
+            </a>{" "}
+            compare cette voie à la donation classique, souvent complémentaire plutôt que
+            concurrente.
           </p>
 
           <h2>La rente viagère optionnelle</h2>
@@ -318,8 +339,13 @@ export default function StrategieAssuranceVie() {
             (mécanisme luxembourgeois de ségrégation des actifs auprès d'une banque dépositaire,
             sous le contrôle du régulateur) et le « super-privilège » (rang de créancier
             prioritaire accordé au souscripteur en cas de défaillance de l'assureur), un univers
-            d'investissement élargi et une neutralité fiscale pour un résident français. C'est un
-            sujet à part entière, que nous traitons sur notre site dédié :{" "}
+            d'investissement élargi et une neutralité fiscale pour un résident français. Notre
+            guide <a href="/guide/assurance-vie-luxembourgeoise">
+              l'assurance-vie luxembourgeoise, pour qui et pourquoi
+            </a>{" "}
+            détaille ce triangle de sécurité et corrige une idée reçue fréquente sur l'avantage
+            fiscal réel pour un résident français. C'est aussi un sujet à part entière sur notre
+            site dédié :{" "}
             <a href="https://assurancevie.lu" target="_blank" rel="noopener noreferrer">
               assurancevie.lu
             </a>

@@ -134,7 +134,10 @@ export default function StrategiePea() {
             repose sur une tolérance réglementaire qui pourrait, en théorie, évoluer. Une piste de
             réflexion prudente : ne pas bâtir la totalité de son PEA sur des indices non européens
             via ce mécanisme, et conserver une part investie sur un indice européen large —
-            d'autant que la cote européenne compte ses propres leaders mondiaux.
+            d'autant que la cote européenne compte ses propres leaders mondiaux. Pour approfondir
+            l'arbitrage entre ETF et gestion active au-delà du seul cadre du PEA, notre guide{" "}
+            <a href="/guide/etf-ou-fonds-actifs">ETF ou fonds de gestion active</a> détaille le
+            débat sans caricature.
           </p>
           <p>
             Côté rendement, le repère est le même que pour les actions en direct : entre{" "}
@@ -255,7 +258,11 @@ export default function StrategiePea() {
             fois à la retraite, et à préserver plus longtemps les enveloppes mieux traitées à la
             transmission, comme l'<a href="/strategies/assurance-vie-retraite">assurance-vie</a> ;
             l'ordre pertinent dépend toutefois de chaque situation patrimoniale et se détermine au
-            cas par cas.
+            cas par cas. Notre guide{" "}
+            <a href="/guide/pea-ou-assurance-vie">PEA ou assurance-vie</a> détaille ce duel
+            consommer/transmettre, et{" "}
+            <a href="/guide/pea-ou-per-pour-la-retraite">PEA ou PER</a> le prolonge côté
+            transmission pure face à l'abattement successoral du PER.
           </p>
 
           <h2>Le plafond</h2>
@@ -279,6 +286,10 @@ export default function StrategiePea() {
           </ul>
 
           <h2>Les limites — et elles sont réelles</h2>
+          <p>
+            Notre guide <a href="/guide/inconvenients-du-pea">les inconvénients du PEA</a> reprend
+            chacun des points ci-dessous en détail, sans les minimiser.
+          </p>
           <ul>
             <li>
               <strong>Aucune garantie du capital</strong> : un PEA est investi en actions ; sa

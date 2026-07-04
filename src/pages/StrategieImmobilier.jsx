@@ -108,7 +108,11 @@ export default function StrategieImmobilier() {
             tourisme), où un exploitant prend la gestion en charge via un bail commercial, il
             supprime la charge locative du quotidien mais déplace le risque : tout repose alors
             sur la solidité de l'exploitant, l'emplacement et le type de résidence — trois
-            critères à examiner sans complaisance avant de signer.
+            critères à examiner sans complaisance avant de signer. Notre guide{" "}
+            <a href="/guide/lmnp-risques">les risques du LMNP</a> détaille chacun de ces points
+            au-delà de l'argument de vente habituel, et{" "}
+            <a href="/guide/lmnp-ou-locatif-nu">LMNP ou locatif nu</a> compare les deux régimes si
+            vous hésitez encore sur le montage à privilégier.
           </p>
           <p>
             Côté rendement, la location meublée dégage un rendement locatif brut généralement
@@ -158,12 +162,20 @@ export default function StrategieImmobilier() {
             mensualité dès le premier jour) conduit souvent à des choix contre-productifs — depuis
             les règles d'endettement du HCSF (Haut Conseil de stabilité financière — taux d'effort plafonné à 35 %), la stratégie
             d'accumulation de biens en série n'est de toute façon plus accessible au commun des
-            épargnants. À titre d'illustration : un bien payé comptant qui affiche 5 % bruts peut,
-            une fois déduits taxe foncière, charges, entretien et impôts, ne laisser que 2 à 3 %
-            nets — ordre de grandeur constaté en cabinet, variable selon les villes et les
-            situations. Notre grille de lecture : la pierre se juge en flux net d'impôt et de
-            charges, rapporté à l'argent réellement sorti de sa poche — jamais en rendement brut
-            affiché.
+            épargnants — notre guide{" "}
+            <a href="/guide/cinq-erreurs-investissement-locatif-retraite">
+              les 5 erreurs les plus coûteuses de l'investissement locatif
+            </a>{" "}
+            revient en détail sur ces fausses boussoles. À titre d'illustration : un bien payé
+            comptant qui affiche 5 % bruts peut, une fois déduits taxe foncière, charges, entretien
+            et impôts, ne laisser que 2 à 3 % nets — ordre de grandeur constaté en cabinet, variable
+            selon les villes et les situations ; notre guide{" "}
+            <a href="/guide/combien-coute-un-investissement-locatif">
+              combien coûte réellement un investissement locatif
+            </a>{" "}
+            détaille poste par poste ce calcul du brut au net. Notre grille de lecture : la pierre
+            se juge en flux net d'impôt et de charges, rapporté à l'argent réellement sorti de sa
+            poche — jamais en rendement brut affiché.
           </p>
           <p>
             Les rendements locatifs bruts constatés en location nue se situent, selon les villes,
@@ -244,6 +256,16 @@ export default function StrategieImmobilier() {
             une promesse ni une prévision. Les performances passées ne préjugent pas des
             performances futures, et aucun de ces supports ne garantit le capital investi.
           </div>
+          <p>
+            L'immobilier n'est pas la seule voie pour se constituer un capital pendant la vie
+            active : notre guide{" "}
+            <a href="/guide/immobilier-locatif-ou-assurance-vie">
+              immobilier locatif ou assurance-vie
+            </a>{" "}
+            met en regard l'effet de levier du crédit et la polyvalence sans emprunt de
+            l'assurance-vie, pour trancher selon votre goût pour la gestion et votre besoin de
+            liquidité.
+          </p>
 
           <h2>L'usufruit temporaire : acheter du revenu pour une durée choisie</h2>
           <p>
@@ -260,6 +282,12 @@ export default function StrategieImmobilier() {
             constituer un capital à prix réduit, qui se reconstitue en pleine propriété à
             l'échéance — sans revenus pendant la période, donc sans fiscalité. Une brique
             pertinente pour qui n'a pas besoin de revenus immédiats et pense déjà à la transmission.
+            Notre guide{" "}
+            <a href="/guide/per-ou-immobilier-locatif">
+              PER ou immobilier locatif pour transmettre
+            </a>{" "}
+            compare cette logique à l'abattement successoral du PER assurantiel, pour ceux qui
+            hésitent entre les deux leviers de protection familiale.
           </p>
 
           <h2>Ce que l'immobilier ne fait pas</h2>

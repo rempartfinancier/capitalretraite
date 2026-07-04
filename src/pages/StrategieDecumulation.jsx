@@ -49,7 +49,11 @@ export default function StrategieDecumulation() {
             Le mécanisme tient en un chiffre : le <strong>taux de conversion</strong>, c'est-à-dire le pourcentage du capital cédé que l'assureur s'engage à verser chaque année sous forme de rente — autrement dit, combien de rente annuelle pour 100 € de capital confié. À 65 ans, sans option, l'ordre de grandeur constaté va de {pct(DECUMULATION.tauxConversionRente65.min)} à {pct(DECUMULATION.tauxConversionRente65.max)} selon les contrats (barèmes de conversion des assureurs, fondés sur ces tables de mortalité ; hypothèses révisées en {HYPOTHESES_MAJ}, à vérifier contrat par contrat). Pour un capital de 100 000 € converti à 65 ans au taux médian de {pct(DECUMULATION.tauxConversionRente65.defaut)}, la rente serait ainsi d'environ {euros((100000 * DECUMULATION.tauxConversionRente65.defaut) / 100)} par an, avant impôt. Plus la conversion intervient tard, plus le taux est élevé : l'assureur s'attend à verser moins longtemps.
           </p>
           <p>
-            Deux options viennent moduler le contrat. La <strong>réversion</strong>, déjà évoquée, se paramètre ici : vous désignez le bénéficiaire — le conjoint le plus souvent — et la part de la rente qui lui sera reversée après votre décès. Les <strong>annuités garanties</strong> : l'assureur s'engage à verser la rente pendant un nombre minimal d'années, à vos bénéficiaires si vous décédez avant ce terme. Ces protections ont un coût implicite : à capital égal, elles abaissent le taux de conversion de départ. Quant à la fiscalité de la rente, elle dépend entièrement de son origine (PER, assurance-vie, PEA, capital personnel) — les régimes sont récapitulés plus bas dans la fiscalité comparative des sorties.
+            Deux options viennent moduler le contrat. La <strong>réversion</strong>, déjà évoquée, se paramètre ici : vous désignez le bénéficiaire — le conjoint le plus souvent — et la part de la rente qui lui sera reversée après votre décès. Les <strong>annuités garanties</strong> : l'assureur s'engage à verser la rente pendant un nombre minimal d'années, à vos bénéficiaires si vous décédez avant ce terme. Ces protections ont un coût implicite : à capital égal, elles abaissent le taux de conversion de départ. Quant à la fiscalité de la rente, elle dépend entièrement de son origine (PER, assurance-vie, PEA, capital personnel) — les régimes sont récapitulés plus bas dans la fiscalité comparative des sorties. Notre guide{" "}
+            <a href="/guide/inconvenients-rente-viagere">
+              les inconvénients de la rente viagère
+            </a>{" "}
+            détaille les limites de ce choix irréversible, souvent minimisées ailleurs.
           </p>
           <div className="note">
             Notre analyse : sur le PER, la sortie en rente est rarement la meilleure option dans les situations que nous rencontrons — la sortie en capital, le plus souvent fractionnée sur plusieurs années pour éviter de faire grimper la TMI (tranche marginale d'imposition : le taux d'impôt qui s'applique à la dernière partie de vos revenus), garde la main sur le capital et laisse subsister, pour la part non retirée, les atouts successoraux de l'enveloppe. Conclusion à réexaminer au cas par cas, jamais un automatisme. Pour une rente issue d'une assurance-vie ou d'un PEA, en revanche, il n'existe pas de verdict général : revenu à vie et simplicité d'un côté, capital aliéné et taux figé de l'autre — l'arbitrage se pèse situation par situation.
@@ -78,7 +82,11 @@ export default function StrategieDecumulation() {
 
           <h3>Rente, retraits programmés ou une combinaison des deux ?</h3>
           <p>
-            Les deux logiques ne s'excluent pas : convertir une fraction du capital en rente pour sécuriser un socle de revenus, et piloter le reste en retraits programmés, est une combinaison possible, dont la pertinence s'évalue au cas par cas. Le tableau suivant résume l'arbitrage.
+            Les deux logiques ne s'excluent pas : convertir une fraction du capital en rente pour sécuriser un socle de revenus, et piloter le reste en retraits programmés, est une combinaison possible, dont la pertinence s'évalue au cas par cas. Notre guide{" "}
+            <a href="/guide/rente-viagere-ou-retraits-programmes">
+              rente viagère ou retraits programmés : comment choisir
+            </a>{" "}
+            reprend ce comparatif chiffré en détail. Le tableau suivant résume l'arbitrage.
           </p>
           <table>
             <thead>
@@ -150,7 +158,11 @@ export default function StrategieDecumulation() {
 
           <h2>L'ordre de décaissement : par quelle enveloppe commencer ?</h2>
           <p>
-            C'est la question la plus structurante de la décumulation — et la moins souvent posée. À patrimoine identique, l'ordre dans lequel on puise dans ses enveloppes peut sensiblement alourdir ou alléger la facture fiscale d'une retraite entière, et changer ce qui restera aux héritiers. Un ordre revient fréquemment dans nos analyses ; il est indicatif, jamais universel, et se vérifie au cas par cas.
+            C'est la question la plus structurante de la décumulation — et la moins souvent posée. À patrimoine identique, l'ordre dans lequel on puise dans ses enveloppes peut sensiblement alourdir ou alléger la facture fiscale d'une retraite entière, et changer ce qui restera aux héritiers. Un ordre revient fréquemment dans nos analyses ; il est indicatif, jamais universel, et se vérifie au cas par cas. Notre guide{" "}
+            <a href="/guide/ordre-de-decaissement-retraite">
+              l'ordre de décaissement : l'erreur qui coûte cher
+            </a>{" "}
+            reprend ce raisonnement avec un scénario chiffré complet.
           </p>
           <h3>1. Le PEA d'abord : une enveloppe à consommer de son vivant</h3>
           <p>
@@ -191,6 +203,17 @@ export default function StrategieDecumulation() {
             <li>Convertir tout son capital en rente — ou refuser toute rente — par principe plutôt que par calcul ;</li>
             <li>Ne penser la décumulation qu'à 64 ans, alors qu'elle se prépare dès 55.</li>
           </ul>
+          <p>
+            La décumulation ne commence d'ailleurs pas toujours à l'arrêt complet d'activité :
+            notre guide{" "}
+            <a href="/guide/cumul-emploi-retraite-comment-ca-marche">
+              cumul emploi-retraite
+            </a>{" "}
+            explique comment continuer à travailler tout en percevant sa pension, et{" "}
+            <a href="/guide/surcote-decote-retraite">surcote ou décote</a> détaille l'impact du
+            moment exact de départ sur le montant de la pension elle-même — un paramètre à
+            anticiper avant même de raisonner sur les enveloppes.
+          </p>
 
           <div className="note">
             Piste de réflexion : une stratégie de décaissement articule typiquement un socle de
