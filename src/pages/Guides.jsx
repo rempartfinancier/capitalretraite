@@ -24,6 +24,11 @@ const categories = [
         title: "Combien coûte un conseiller en gestion de patrimoine ?",
         text: "Rétrocessions, honoraires, conflits d'intérêts : la question que la profession esquive.",
       },
+      {
+        to: "/guide/conseiller-ou-gerer-seul-sa-retraite",
+        title: "Faut-il un conseiller en gestion de patrimoine, ou peut-on tout gérer seul ?",
+        text: "Ce qu'on peut vraiment faire seul aujourd'hui, et ce qui devient difficile sans accompagnement.",
+      },
     ],
   },
   {
@@ -59,6 +64,16 @@ const categories = [
         to: "/guide/per-ou-immobilier-locatif",
         title: "PER ou immobilier locatif : lequel privilégier pour transmettre ?",
         text: "Deux façons de protéger sa famille — l'abattement successoral du PER face au démembrement immobilier.",
+      },
+      {
+        to: "/guide/gestion-pilotee-ou-gestion-libre",
+        title: "Gestion pilotée ou gestion libre : que choisir ?",
+        text: "Sur un PER ou une assurance-vie, déléguer les choix d'investissement ou les garder en main.",
+      },
+      {
+        to: "/guide/donation-ou-assurance-vie-transmission",
+        title: "Donation ou assurance-vie : comment transmettre à ses enfants ?",
+        text: "Deux logiques de transmission différentes, souvent complémentaires plutôt que concurrentes.",
       },
     ],
   },
@@ -116,6 +131,16 @@ const categories = [
         to: "/guide/combien-coute-une-assurance-vie",
         title: "Combien coûte une assurance-vie ?",
         text: "La grille poste par poste : entrée, gestion, supports, arbitrage, gestion pilotée.",
+      },
+      {
+        to: "/guide/meilleure-assurance-vie-retraite",
+        title: "Quelle est la meilleure assurance-vie pour la retraite ?",
+        text: "Le comparatif par profil : tout faire seul, ou être accompagné.",
+      },
+      {
+        to: "/guide/assurance-vie-luxembourgeoise",
+        title: "Assurance-vie luxembourgeoise : pour qui ?",
+        text: "Triangle de sécurité, neutralité fiscale : ce que ça change vraiment, et pour quels patrimoines.",
       },
     ],
   },
@@ -179,6 +204,43 @@ const categories = [
         to: "/guide/ordre-de-decaissement-retraite",
         title: "L'ordre de décaissement : l'erreur qui coûte cher à la retraite",
         text: "Par quelle enveloppe commencer quand vient le moment de consommer son capital.",
+      },
+    ],
+  },
+  {
+    id: "mecanique-retraite",
+    name: "Comprendre le système de retraite",
+    items: [
+      {
+        to: "/guide/combien-coute-rachat-trimestres-retraite",
+        title: "Combien coûte le rachat de trimestres pour la retraite ?",
+        text: "Ce qui détermine le prix d'un trimestre racheté, et quand l'opération est vraiment rentable.",
+      },
+      {
+        to: "/guide/cumul-emploi-retraite-comment-ca-marche",
+        title: "Cumul emploi-retraite : comment ça marche ?",
+        text: "Cumul intégral ou plafonné, droits à la retraite : les règles expliquées simplement.",
+      },
+      {
+        to: "/guide/surcote-decote-retraite",
+        title: "Surcote ou décote : comment ça se calcule ?",
+        text: "1,25 % par trimestre, dans un sens ou dans l'autre — un mécanisme à anticiper, pas à subir.",
+      },
+    ],
+  },
+  {
+    id: "profils-specifiques",
+    name: "Profils spécifiques",
+    items: [
+      {
+        to: "/guide/retraite-independants-per-ou-madelin",
+        title: "Retraite des indépendants : PER ou contrat Madelin ?",
+        text: "Ce qui a changé depuis la loi PACTE, et ce qu'il reste des anciens contrats Madelin.",
+      },
+      {
+        to: "/guide/retraite-fonctionnaires-completer",
+        title: "Retraite des fonctionnaires : comment la compléter ?",
+        text: "Calcul sur les 6 derniers mois, RAFP : ce qui distingue la fonction publique du régime général.",
       },
     ],
   },

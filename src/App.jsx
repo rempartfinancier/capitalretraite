@@ -39,6 +39,16 @@ import GuideCoutPer from "./pages/GuideCoutPer.jsx";
 import GuideInconvenientsRenteViagere from "./pages/GuideInconvenientsRenteViagere.jsx";
 import GuideRenteOuRetraitsProgrammes from "./pages/GuideRenteOuRetraitsProgrammes.jsx";
 import GuideOrdreDecaissement from "./pages/GuideOrdreDecaissement.jsx";
+import GuideMeilleureAssuranceVie from "./pages/GuideMeilleureAssuranceVie.jsx";
+import GuideIndependantsPerMadelin from "./pages/GuideIndependantsPerMadelin.jsx";
+import GuideCoutRachatTrimestres from "./pages/GuideCoutRachatTrimestres.jsx";
+import GuideCumulEmploiRetraite from "./pages/GuideCumulEmploiRetraite.jsx";
+import GuideSurcoteDecote from "./pages/GuideSurcoteDecote.jsx";
+import GuideGestionPiloteeOuLibre from "./pages/GuideGestionPiloteeOuLibre.jsx";
+import GuideConseillerOuSeul from "./pages/GuideConseillerOuSeul.jsx";
+import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembourgeoise.jsx";
+import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx";
+import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -99,6 +109,16 @@ export default function App() {
           <Route path="/guide/inconvenients-rente-viagere" element={<GuideInconvenientsRenteViagere />} />
           <Route path="/guide/rente-viagere-ou-retraits-programmes" element={<GuideRenteOuRetraitsProgrammes />} />
           <Route path="/guide/ordre-de-decaissement-retraite" element={<GuideOrdreDecaissement />} />
+          <Route path="/guide/meilleure-assurance-vie-retraite" element={<GuideMeilleureAssuranceVie />} />
+          <Route path="/guide/retraite-independants-per-ou-madelin" element={<GuideIndependantsPerMadelin />} />
+          <Route path="/guide/combien-coute-rachat-trimestres-retraite" element={<GuideCoutRachatTrimestres />} />
+          <Route path="/guide/cumul-emploi-retraite-comment-ca-marche" element={<GuideCumulEmploiRetraite />} />
+          <Route path="/guide/surcote-decote-retraite" element={<GuideSurcoteDecote />} />
+          <Route path="/guide/gestion-pilotee-ou-gestion-libre" element={<GuideGestionPiloteeOuLibre />} />
+          <Route path="/guide/conseiller-ou-gerer-seul-sa-retraite" element={<GuideConseillerOuSeul />} />
+          <Route path="/guide/assurance-vie-luxembourgeoise" element={<GuideAssuranceVieLuxembourgeoise />} />
+          <Route path="/guide/donation-ou-assurance-vie-transmission" element={<GuideDonationOuAssuranceVie />} />
+          <Route path="/guide/retraite-fonctionnaires-completer" element={<GuideRetraiteFonctionnaires />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />

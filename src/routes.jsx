@@ -381,6 +381,116 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/meilleure-assurance-vie-retraite",
+    title: "Quelle est la meilleure assurance-vie pour la retraite ? Le comparatif par profil",
+    description:
+      "Contrat bancaire, courtier en ligne, gestion conseillée par un CGP : la meilleure assurance-vie n'est pas un nom, c'est un profil. La grille pour choisir selon que vous voulez tout faire seul ou être accompagné.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["La meilleure assurance-vie", "/guide/meilleure-assurance-vie-retraite"],
+    ],
+  },
+  {
+    path: "/guide/retraite-independants-per-ou-madelin",
+    title: "Retraite des indépendants : PER ou contrat Madelin ?",
+    description:
+      "TNS, professions libérales, gérants majoritaires : PER individuel ou contrat Madelin pour préparer sa retraite ? Plafonds de déduction, sortie en rente ou en capital, ce qui a changé depuis la loi PACTE.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PER ou Madelin (indépendants)", "/guide/retraite-independants-per-ou-madelin"],
+    ],
+  },
+  {
+    path: "/guide/combien-coute-rachat-trimestres-retraite",
+    title: "Combien coûte le rachat de trimestres pour la retraite ?",
+    description:
+      "Versement pour la retraite (ex-rachat Fillon) : ce qui détermine le prix d'un trimestre racheté, comment l'estimer avec le simulateur officiel, et quand l'opération est réellement rentable.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Le coût du rachat de trimestres", "/guide/combien-coute-rachat-trimestres-retraite"],
+    ],
+  },
+  {
+    path: "/guide/cumul-emploi-retraite-comment-ca-marche",
+    title: "Cumul emploi-retraite : comment ça marche et quelles limites ?",
+    description:
+      "Cumul intégral ou plafonné, cotisations qui ne créent plus de droits, règles propres à chaque régime : le cumul emploi-retraite expliqué simplement, et les erreurs qui coûtent une pension.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Le cumul emploi-retraite", "/guide/cumul-emploi-retraite-comment-ca-marche"],
+    ],
+  },
+  {
+    path: "/guide/surcote-decote-retraite",
+    title: "Surcote ou décote à la retraite : comment ça se calcule ?",
+    description:
+      "1,25 % par trimestre de surcote, autant en décote plafonnée à 20 trimestres : le mécanisme qui peut faire gagner ou perdre plusieurs centaines d'euros par mois de pension, et comment l'anticiper.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Surcote et décote", "/guide/surcote-decote-retraite"],
+    ],
+  },
+  {
+    path: "/guide/gestion-pilotee-ou-gestion-libre",
+    title: "Gestion pilotée ou gestion libre : que choisir pour son épargne retraite ?",
+    description:
+      "Sur un PER ou une assurance-vie, déléguer les choix d'investissement ou les garder en main : le comparatif entre gestion pilotée et gestion libre, coûts et rigidité compris.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Gestion pilotée ou libre", "/guide/gestion-pilotee-ou-gestion-libre"],
+    ],
+  },
+  {
+    path: "/guide/conseiller-ou-gerer-seul-sa-retraite",
+    title: "Faut-il un conseiller en gestion de patrimoine, ou peut-on tout gérer seul ?",
+    description:
+      "Ouvrir ses enveloppes seul sur un courtier en ligne ou se faire accompagner par un professionnel : ce que l'accompagnement change réellement, et comment trancher selon votre situation.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Conseiller ou gérer seul", "/guide/conseiller-ou-gerer-seul-sa-retraite"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-luxembourgeoise",
+    title: "Assurance-vie luxembourgeoise : pour qui, et quels avantages réels ?",
+    description:
+      "Triangle de sécurité, neutralité fiscale, multidevises : ce que l'assurance-vie luxembourgeoise apporte réellement par rapport à un contrat français, et pour quels patrimoines cela change la donne.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["L'assurance-vie luxembourgeoise", "/guide/assurance-vie-luxembourgeoise"],
+    ],
+  },
+  {
+    path: "/guide/donation-ou-assurance-vie-transmission",
+    title: "Donation ou assurance-vie : comment transmettre à ses enfants ?",
+    description:
+      "Abattement de 100 000 € par parent et par enfant tous les 15 ans, ou clause bénéficiaire d'assurance-vie hors succession : deux logiques de transmission comparées, souvent complémentaires.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Donation ou assurance-vie", "/guide/donation-ou-assurance-vie-transmission"],
+    ],
+  },
+  {
+    path: "/guide/retraite-fonctionnaires-completer",
+    title: "Retraite des fonctionnaires : spécificités et comment la compléter",
+    description:
+      "Calcul sur les six derniers mois de traitement, RAFP, catégorie active : ce qui distingue la retraite des fonctionnaires du régime général, et les enveloppes pour compléter une pension souvent inférieure aux attentes.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["La retraite des fonctionnaires", "/guide/retraite-fonctionnaires-completer"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

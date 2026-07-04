@@ -325,6 +325,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   margin: 1.8rem 0;
   font-size: 0.95rem;
 }
+
+.resume-executif {
+  border: 1px solid var(--gris-filet);
+  border-left: 3px solid var(--marine);
+  background: var(--ivoire);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.2rem 1.4rem;
+  margin: 1.6rem 0 2.2rem;
+  font-size: 1.02rem;
+}
+.resume-executif strong { color: var(--marine); }
 .author-box strong { color: var(--marine); }
 .risk-notice { font-size: 0.85rem; color: var(--marine-40); margin-top: 1.5rem; }
 

@@ -117,7 +117,17 @@ export const ILLUSTRATIF = {
   fraisSupportMaison: 2.0, // frais courants d'un fonds « maison » type (%/an)
   fraisSupportEtf: 0.3, // frais courants d'un ETF type (%/an)
   fraisFondsEpargneSalariale: 3.0, // ordre de grandeur corpus des frais des fonds d'épargne salariale (%/an) — À VÉRIFIER
+  pensionMensuelleIllustrative: 1800, // pension mensuelle type utilisée dans les exemples de calcul de surcote/décote (€) — purement pédagogique, sans lien avec un cas réel
   source: "hypothèses d'illustration pédagogique, à réviser avec les autres — À VÉRIFIER",
+};
+
+// ---- Transmission (donation et abattements successoraux) ----
+export const TRANSMISSION = {
+  abattementDonationParEnfant: 100000, // abattement donation en ligne directe, par parent et par enfant (€)
+  renouvellementDonationAnnees: 15, // délai de renouvellement de l'abattement de donation (années)
+  abattementSuccessionAvParBeneficiaire: 152500, // abattement assurance-vie, versements avant 70 ans, par bénéficiaire (€)
+  abattementSuccessionAvApres70Collectif: 30500, // abattement assurance-vie, versements après 70 ans, pour l'ensemble des bénéficiaires (€)
+  source: "Code général des impôts, art. 779 (donations) et 990 I (assurance-vie) — barèmes en vigueur à la date de révision — À VÉRIFIER",
 };
 
 // ---- Fiscalité (barèmes en vigueur à la date de révision) ----
@@ -161,6 +171,19 @@ export const DECUMULATION = {
     hommes: 19,
     source: "espérance de vie à 65 ans, INSEE, données 2023-2024 — À VÉRIFIER",
   },
+};
+
+// ---- Mécanique du régime général : surcote, décote, rachat de trimestres ----
+// Paramètres légaux du Code de la sécurité sociale — plus stables dans le temps
+// que les rendements de marché ci-dessus, mais à revérifier tout de même selon
+// la génération et le régime d'affiliation avant publication.
+export const REGIME_GENERAL = {
+  surcoteParTrimestre: 1.25, // majoration du taux plein par trimestre cotisé au-delà de la durée requise et de l'âge légal (%)
+  decoteParTrimestre: 1.25, // minoration par trimestre manquant par rapport à la durée requise, régime général (%)
+  decotePlafondTrimestres: 20, // nombre maximal de trimestres de décote pris en compte
+  ageTauxPleinAutomatique: 67, // âge d'annulation automatique de la décote, régime général
+  rachatTrimestresPlafond: 12, // nombre maximal de trimestres rachetables (versement pour la retraite, ex « rachat Fillon »)
+  source: "Code de la sécurité sociale, régime général — service-public.fr / info-retraite.fr — À VÉRIFIER selon la génération et le régime d'affiliation",
 };
 
 // ---- Valeurs par défaut des simulateurs (modifiables à l'écran) ----
