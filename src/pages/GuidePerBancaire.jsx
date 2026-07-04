@@ -49,6 +49,17 @@ export default function GuidePerBancaire() {
 
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> un PER bancaire (tenu en compte-titres, sans fonds en
+              euros ni abattement successoral) n'est ni meilleur ni pire par nature qu'un PER
+              assurantiel — mais il change les supports accessibles, la gestion par défaut et ce
+              qui arrive au capital en cas de décès. Avant de vous fier à la seule déduction
+              fiscale à l'entrée, vérifiez trois choses : la famille exacte de votre plan, les
+              frais empilés sur chaque étage, et le mode de gestion appliqué par défaut (souvent
+              une gestion pilotée à horizon que personne n'a explicitement choisie).
+            </p>
+          </div>
           <p>
             Le PER (Plan Épargne Retraite) — l'enveloppe créée en 2019 pour regrouper l'épargne
             retraite des Français — est devenu l'argument vedette des campagnes de défiscalisation
@@ -73,17 +84,18 @@ export default function GuidePerBancaire() {
           <div className="sommaire">
             <strong>Sommaire</strong>
             <ol>
-              <li><a href="#per-en-deux-phrases">Le PER en deux phrases</a></li>
+              <li><a href="#per-en-deux-phrases">Comment fonctionne un PER, concrètement ?</a></li>
               <li><a href="#trois-familles">Tous les PER ne se valent pas : les trois familles</a></li>
               <li><a href="#gestion-pilotee">La gestion pilotée à horizon : le réglage par défaut</a></li>
-              <li><a href="#empilement-frais">L'empilement de frais — et le cas de l'épargne salariale</a></li>
-              <li><a href="#strategie">Ce que votre PER dit de votre stratégie</a></li>
-              <li><a href="#audit">Auditer votre PER en 15 minutes</a></li>
+              <li><a href="#empilement-frais">Quels sont les frais réels d'un PER bancaire ?</a></li>
+              <li><a href="#strategie">PER et succession : que devient l'argent en cas de décès ?</a></li>
+              <li><a href="#audit">Comment vérifier si mon PER est un bon contrat ?</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#conclusion">En conclusion</a></li>
             </ol>
           </div>
 
-          <h2 id="per-en-deux-phrases">1. Le PER en deux phrases</h2>
+          <h2 id="per-en-deux-phrases">1. Comment fonctionne un PER, concrètement ?</h2>
           <p>
             Première phrase : le PER est une enveloppe bloquée jusqu'à la retraite (hors cas de
             déblocage anticipé prévus par la loi, dont l'achat de la résidence principale et les
@@ -232,7 +244,7 @@ export default function GuidePerBancaire() {
             </p>
           </div>
 
-          <h2 id="empilement-frais">4. L'empilement de frais — et le cas de l'épargne salariale</h2>
+          <h2 id="empilement-frais">4. Quels sont les frais réels d'un PER bancaire ? L'empilement, et le cas de l'épargne salariale</h2>
           <p>
             Un PER peut facturer jusqu'à quatre étages de frais : sur chaque versement, sur
             l'encours (le total de votre épargne, via les frais de gestion annuels du contrat), à
@@ -412,7 +424,7 @@ export default function GuidePerBancaire() {
             20-30 ans), ASPIM/IEIF (SCPI, 2024) — hypothèses du site révisées en {HYPOTHESES_MAJ}.
           </p>
 
-          <h2 id="strategie">5. Ce que votre PER dit de votre stratégie</h2>
+          <h2 id="strategie">5. PER et succession : que devient l'argent en cas de décès ?</h2>
           <p>
             Un discours répandu range le PER dans la case « gadget fiscal » ; le discours inverse
             en fait l'enveloppe retraite ultime. Les deux ratent l'essentiel. Notre analyse,
@@ -440,7 +452,7 @@ export default function GuidePerBancaire() {
             — seulement des stratégies cohérentes, ou non, avec une situation donnée.
           </p>
 
-          <h2 id="audit">6. Auditer votre PER en 15 minutes : la check-list</h2>
+          <h2 id="audit">6. Comment vérifier si mon PER est un bon contrat ? La check-list en 15 minutes</h2>
           <ol>
             <li>
               <strong>Identifiez la famille de votre plan.</strong> Ouvert auprès d'un assureur :
@@ -487,14 +499,79 @@ export default function GuidePerBancaire() {
             succession, autres enveloppes — jamais sur un critère isolé.
           </p>
 
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Un PER bancaire est-il moins bon qu'un PER assurantiel ?</h3>
+          <p>
+            Ni meilleur ni moins bon par nature : il est différent. Le PER bancaire donne souvent
+            accès à des frais plus bas et à un large choix de titres, mais il ne bénéficie
+            d'aucun abattement successoral spécifique, contrairement au PER assurantiel. Le bon
+            choix dépend de votre priorité : coût de gestion ou protection en cas de décès.
+          </p>
+          <h3>Comment savoir si mon PER est bancaire ou assurantiel ?</h3>
+          <p>
+            Regardez auprès de qui il est ouvert. Un contrat souscrit auprès d'un assureur, avec
+            accès à un fonds en euros, est assurantiel. Un compte tenu par une banque ou un
+            courtier, sous forme de compte-titres, sans fonds en euros, est bancaire.
+          </p>
+          <h3>Puis-je changer de gestion pilotée à horizon si je ne l'ai pas choisie ?</h3>
+          <p>
+            Oui, dans la plupart des contrats : vous pouvez généralement basculer vers une gestion
+            libre ou choisir une autre grille de pilotage (prudente, équilibrée, dynamique) sur
+            simple demande auprès de votre gestionnaire.
+          </p>
+          <h3>Que devient mon PER bancaire si je change d'établissement ?</h3>
+          <p>
+            Un PER se transfère d'un établissement à l'autre, y compris entre un PER bancaire et
+            un PER assurantiel, moyennant des frais de transfert plafonnés par la loi et nuls
+            au-delà de cinq ans de détention (règles en vigueur en {HYPOTHESES_MAJ}, à vérifier).
+          </p>
+          <h3>Un PER bancaire donne-t-il droit à la même déduction fiscale qu'un PER assurantiel ?</h3>
+          <p>
+            Oui. La déduction des versements volontaires du revenu imposable, dans la limite du
+            plafond, s'applique de la même façon quelle que soit la famille de PER : c'est la
+            partie la plus standardisée de l'enveloppe, identique partout.
+          </p>
+          <h3>Faut-il transférer un vieux PERCO vers un PER bancaire en ligne pour réduire les frais ?</h3>
+          <p>
+            Cela mérite d'être étudié, mais pas de façon automatique : vérifiez d'abord si un
+            abondement de l'employeur est encore en jeu sur le plan collectif, et si un transfert
+            vous ferait perdre un accès au fonds en euros dont vous auriez besoin. La réponse
+            dépend de votre situation, pas d'une règle générale.
+          </p>
+
           <h2 id="conclusion">7. En conclusion</h2>
           <p>
-            Le PER est un outil sérieux, desservi par la façon dont on le vend. La déduction à
-            l'entrée est réelle, mais c'est la partie la plus standardisée de l'enveloppe : tout ce
-            qui fera la différence à l'arrivée — famille de plan, frais, supports, mode de gestion,
-            clause bénéficiaire — se joue contrat par contrat. C'est précisément ce que la
-            souscription « pour l'impôt » ne regarde jamais, et ce qu'un audit de quinze minutes
-            suffit déjà à éclairer.
+            <strong>Rappel :</strong> le PER est un outil sérieux, desservi par la façon dont on
+            le vend. La déduction à l'entrée est réelle, mais c'est la partie la plus standardisée
+            de l'enveloppe : tout ce qui fera la différence à l'arrivée — famille de plan, frais,
+            supports, mode de gestion, clause bénéficiaire — se joue contrat par contrat.
+          </p>
+          <p>
+            <strong>Coût de l'inaction :</strong> un PER bancaire ou assurantiel logé dans des
+            fonds coûteux, jamais audité, peut coûter cher sur la durée sans qu'aucun relevé ne le
+            signale explicitement. Reprenons l'ordre de grandeur calculé plus haut sur l'épargne
+            salariale : à effort d'épargne identique ({euros(ILLU.versementAnnuel)} par an pendant{" "}
+            {ILLU.dureeAnnees} ans), l'écart entre un rendement net de {pct(ILLU.tauxNetBas)} et un
+            rendement net de {pct(ILLU.tauxNetHaut)} atteint environ{" "}
+            {euros(
+              valeurFuture(ILLU.versementAnnuel, ILLU.dureeAnnees, ILLU.tauxNetHaut) -
+                valeurFuture(ILLU.versementAnnuel, ILLU.dureeAnnees, ILLU.tauxNetBas)
+            )}{" "}
+            — un ordre de grandeur illustratif, mais qui donne la mesure de ce qu'un contrat non
+            vérifié peut faire perdre, sans qu'aucune décision explicite n'ait jamais été prise.
+          </p>
+          <p>
+            <strong>Réintroduction du service :</strong> c'est précisément ce que la souscription
+            « pour l'impôt » ne regarde jamais, et ce qu'un audit de quinze minutes suffit déjà à
+            éclairer. Notre <a href="/bilan-retraite">bilan retraite gratuit</a> reprend avec vous
+            la famille de votre plan, ses frais réels et son mode de gestion, sans engagement.
+          </p>
+          <p>
+            <strong>Prochaine lecture priorisée :</strong> pour aller plus loin, notre guide{" "}
+            <a href="/guide/fiscalite-sortie-per">fiscalité de sortie du PER</a> détaille comment
+            préparer la sortie en capital ou en rente, et notre comparatif{" "}
+            <a href="/guide/per-vs-assurance-vie-retraite">PER ou assurance-vie</a> aide à
+            arbitrer entre les deux enveloppes selon votre objectif.
           </p>
           <div className="note">
             <p>

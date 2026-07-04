@@ -42,6 +42,18 @@ export default function GuideAvRapportePeu() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> une assurance-vie qui rapporte peu n'est presque
+              jamais un défaut de l'enveloppe elle-même, mais la conséquence de trois mécaniques
+              cumulées : un fonds en euros employé comme moteur de long terme alors qu'il est
+              conçu pour la sécurité, des frais empilés sur trois étages (entrée, gestion, supports)
+              qui totalisent couramment {pct(fraisBancaireAnnuel)} par an sur un contrat bancaire,
+              et une gestion pilotée standardisée qui ajoute sa propre couche sans toujours la
+              justifier. Ces trois paramètres se vérifient et se corrigent — c'est l'objet de
+              l'audit en cinq étapes plus bas.
+            </p>
+          </div>
           <p>
             Votre contrat d'assurance-vie a peut-être dix ans, quinze ans. Vous avez versé avec
             régularité, sans jamais rien faire d'imprudent — et pourtant, le relevé annuel affiche
@@ -73,6 +85,7 @@ export default function GuideAvRapportePeu() {
               <li><a href="#gestion-pilotee">La gestion pilotée tient-elle sa promesse du « clé en main » ?</a></li>
               <li><a href="#simulateur">Faites le test vous-même : mêmes versements, frais différents</a></li>
               <li><a href="#audit">Comment auditer votre contrat en 20 minutes ?</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -194,7 +207,17 @@ export default function GuideAvRapportePeu() {
             Dernier point souvent ignoré : le fonds en euros n'est pas non plus une épargne
             instantanément disponible. Un rachat prend en pratique plusieurs jours à deux
             semaines, l'assureur disposant d'un délai légal pouvant aller jusqu'à deux mois — rien
-            de comparable à un livret réglementé.
+            de comparable à un livret réglementé. Ce délai maximal de versement des sommes dues
+            après une demande de rachat est fixé par le Code des assurances ; le détail des
+            démarches et des recours en cas de dépassement est expliqué sur{" "}
+            <a
+              href="https://www.service-public.fr/particuliers/vosdroits/F32574"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              service-public.fr
+            </a>
+            .
           </p>
           <p>
             Notre analyse : le fonds en euros n'est pas un mauvais produit — il est très souvent
@@ -487,43 +510,94 @@ export default function GuideAvRapportePeu() {
             </p>
           </div>
 
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Comment savoir si mon assurance-vie rapporte « peu » par rapport à la moyenne ?</h3>
+          <p>
+            Comparez le taux net de votre fonds en euros, indiqué sur votre relevé annuel, à la
+            moyenne de marché ({pct(RENDEMENTS.fondsEuros.moyen)} en {RENDEMENTS.fondsEuros.periode}
+            ) puis additionnez les trois étages de frais (entrée, gestion, supports) pour la part
+            investie en unités de compte. Si votre fonds en euros est nettement sous la moyenne, ou
+            si vos frais cumulés dépassent {pct(fraisBancaireAnnuel)} par an sans accompagnement
+            identifiable en contrepartie, le contrat mérite un audit.
+          </p>
+          <h3>Est-ce ma faute si mon contrat a peu rapporté ?</h3>
+          <p>
+            Non, dans l'immense majorité des cas. Les profils standardisés dits « prudents » ou
+            « équilibrés » proposés par défaut, et le manque d'information sur les frais réels,
+            expliquent l'essentiel du problème — pas une erreur de gestion de votre part.
+          </p>
+          <h3>Dois-je clôturer mon contrat pour en ouvrir un meilleur ?</h3>
+          <p>
+            Rarement en clôturant : au-delà de huit ans, l'antériorité fiscale a de la valeur.
+            L'option la plus fréquente consiste à réorienter les futurs versements et, si possible,
+            les supports existants au sein du même contrat, ou à ouvrir un second contrat à côté
+            sans fermer le premier.
+          </p>
+          <h3>Un contrat à 100 % en unités de compte est-il forcément meilleur qu'un contrat en fonds euros ?</h3>
+          <p>
+            Non. Le capital n'y est pas garanti et la valeur peut baisser, parfois fortement, au
+            moment où vous avez besoin de l'argent. La bonne répartition entre sécurité et
+            dynamisme dépend de votre horizon et de votre tolérance au risque, pas d'une règle
+            universelle.
+          </p>
+          <h3>Combien coûte un audit de mon contrat auprès d'un professionnel ?</h3>
+          <p>
+            Le bilan retraite que nous proposons est gratuit et ne vous engage à rien : vous venez
+            avec votre relevé annuel, nous reprenons ensemble le taux servi, les frais et les
+            supports détenus.
+          </p>
+          <h3>La fiscalité après huit ans s'applique-t-elle même si je ne retire rien ?</h3>
+          <p>
+            Non. L'abattement et le taux réduit après huit ans ne s'appliquent qu'au moment d'un
+            rachat, sur les gains effectivement retirés. Tant que vous ne retirez rien, aucune
+            imposition sur le revenu n'est due — seuls les prélèvements sociaux sur le fonds en
+            euros sont prélevés chaque année, gains non retirés compris.
+          </p>
+
           <h2 id="synthese">Notre analyse, en synthèse</h2>
           <p>
-            Reprenons le fil. Si votre assurance-vie a peu rapporté, la cause est rarement
-            mystérieuse : un fonds en euros employé comme moteur de long terme alors qu'il est
-            conçu pour la sécurité de court terme ({pct(RENDEMENTS.fondsEuros.moyen)} en moyenne
-            en {RENDEMENTS.fondsEuros.periode}, avant prélèvements sociaux annuels) ; des fonds
-            maison facturés {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.min)} à{" "}
-            {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.max)} là où des supports
+            <strong>Rappel du problème :</strong> si votre assurance-vie a peu rapporté, la cause
+            est rarement mystérieuse : un fonds en euros employé comme moteur de long terme alors
+            qu'il est conçu pour la sécurité de court terme ({pct(RENDEMENTS.fondsEuros.moyen)} en
+            moyenne en {RENDEMENTS.fondsEuros.periode}, avant prélèvements sociaux annuels) ; des
+            fonds maison facturés {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.min)}{" "}
+            à {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.max)} là où des supports
             indiciels font un travail comparable pour{" "}
             {pct(FRAIS_TYPES.contratInternet.fraisSupports.min)} à{" "}
             {pct(FRAIS_TYPES.contratInternet.fraisSupports.max)} ; trois étages de frais qui
             totalisent couramment {pct(fraisBancaireAnnuel)} par an ; et, souvent, une gestion
-            pilotée qui ajoute sa couche et fige l'ensemble. Aucun de ces éléments n'est une
-            fatalité : ce sont des paramètres — et des paramètres se vérifient, se renégocient ou
-            se remplacent.
+            pilotée qui ajoute sa couche et fige l'ensemble.
           </p>
           <p>
-            L'enveloppe, elle, reste l'une des plus complètes pour préparer une retraite :
-            fiscalité adoucie après huit ans, rachats libres, atouts successoraux. Encore faut-il
-            décider de ce qu'on y loge et comment on en sortira — c'est l'objet de notre page{" "}
-            <a href="/strategies/assurance-vie-retraite">assurance-vie et retraite</a>, du
-            comparatif{" "}
+            <strong>Réponse — ce ne sont pas des fatalités :</strong> ce sont des paramètres, et
+            des paramètres se vérifient, se renégocient ou se remplacent. L'enveloppe elle-même
+            reste l'une des plus complètes pour préparer une retraite : fiscalité adoucie après
+            huit ans, rachats libres, atouts successoraux. Encore faut-il décider de ce qu'on y
+            loge et comment on en sortira.
+          </p>
+          <p>
+            <strong>Réintroduction du service — l'audit, sans engagement :</strong> ce diagnostic
+            est volontairement général, car il décrit des mécanismes de marché, pas votre contrat.
+            Le vôtre mérite un examen ligne à ligne — taux servi, frais réels, supports détenus,
+            clause bénéficiaire — au regard de votre horizon, de votre fiscalité et de vos projets.
+            C'est précisément l'objet du <a href="/bilan-retraite">bilan retraite gratuit</a> :
+            vous venez avec votre relevé annuel, le diagnostic se pose ensemble, sans qu'aucune
+            clôture de contrat ne soit jamais présumée nécessaire à l'avance.
+          </p>
+          <p>
+            <strong>Prochaine lecture :</strong> pour situer cette enveloppe dans une stratégie
+            d'ensemble, notre page <a href="/strategies/assurance-vie-retraite">assurance-vie et
+            retraite</a>, le comparatif{" "}
             <a href="/guide/per-vs-assurance-vie-retraite">PER ou assurance-vie</a> et, pour la
-            phase où le capital doit devenir un revenu, de notre guide sur{" "}
-            <a href="/strategies/decumulation">la décumulation</a>.
+            phase où le capital doit devenir un revenu, notre guide sur{" "}
+            <a href="/strategies/decumulation">la décumulation</a> prolongent utilement cette
+            analyse.
           </p>
           <div className="note">
             <p>
-              Ce diagnostic est volontairement général : il décrit des mécanismes de marché, pas
-              votre contrat. Le vôtre mérite un examen ligne à ligne — taux servi, frais réels,
-              supports détenus, clause bénéficiaire — au regard de votre horizon, de votre
-              fiscalité et de vos projets. C'est précisément l'objet du{" "}
-              <a href="/bilan-retraite">bilan retraite gratuit</a> : vous venez avec votre relevé
-              annuel, le diagnostic se pose ensemble. Cette analyse ne constitue pas un conseil en
-              investissement personnalisé ; les chiffres cités sont des constats passés datés ou
-              des hypothèses illustratives, et les performances passées ne préjugent pas des
-              performances futures.
+              Cette analyse ne constitue pas un conseil en investissement personnalisé ; les
+              chiffres cités sont des constats passés datés ou des hypothèses illustratives, et
+              les performances passées ne préjugent pas des performances futures.
             </p>
           </div>
           <AuthorBox />

@@ -17,6 +17,17 @@ export default function GuideLmnpOuLocatifNu() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> le locatif nu et le LMNP taxent les mêmes loyers dans deux
+              catégories fiscales différentes — revenus fonciers pour le nu, BIC pour le meublé — avec
+              des abattements et des règles de charges déductibles distincts. À TMI élevée et sur un
+              horizon long, le LMNP au régime réel a généralement l'avantage grâce à l'amortissement ;
+              à TMI modérée ou pour privilégier la simplicité, le nu reste souvent préférable. Aucun
+              des deux n'est supérieur dans l'absolu : le bon choix dépend de votre TMI, de votre
+              appétence pour la gestion et de votre horizon de détention.
+            </p>
+          </div>
           <p>
             Deux façons de louer un même logement, deux régimes fiscaux qui n'ont presque rien en
             commun. Meublé ou nu, un investissement locatif en direct partage la même mécanique de
@@ -39,6 +50,7 @@ export default function GuideLmnpOuLocatifNu() {
               <li><a href="#lmnp">Le LMNP : loyers en BIC et amortissement</a></li>
               <li><a href="#tableau">Le comparatif en un tableau</a></li>
               <li><a href="#trancher">Ce qui doit vraiment trancher</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#conclusion">Notre analyse, cas par cas</a></li>
             </ol>
           </div>
@@ -162,6 +174,19 @@ export default function GuideLmnpOuLocatifNu() {
                   <td>Souvent plus étroit ou plus rotatif selon la zone et le type de bien</td>
                 </tr>
                 <tr>
+                  <td>Horizon de détention recommandé</td>
+                  <td>
+                    Mécanique fiscale stable dans le temps, donc moins sensible au moment de la
+                    sortie : convient aussi à un horizon plus court
+                  </td>
+                  <td>
+                    Horizon long recommandé : l'amortissement déploie son effet sur plusieurs
+                    années, et une revente précoce en amoindrit l'intérêt, en plus d'être pénalisée
+                    par la réforme sur la plus-value (voir{" "}
+                    <a href="/guide/lmnp-risques">les risques du LMNP</a>)
+                  </td>
+                </tr>
+                <tr>
                   <td>Pour quel profil</td>
                   <td>Recherche de simplicité, TMI modérée, marché familial local porteur</td>
                   <td>TMI élevée, appétence pour la gestion ou un exploitant fiable, horizon long</td>
@@ -205,12 +230,54 @@ export default function GuideLmnpOuLocatifNu() {
             le temps, donc moins sensible au moment de la sortie.
           </p>
 
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Peut-on transformer un bien loué nu en LMNP sans le vendre ?</h3>
+          <p>
+            Oui, il suffit de le meubler selon la liste réglementaire d'équipements exigés et de
+            déclarer le changement d'usage aux impôts. Ce basculement fait passer les loyers futurs
+            en BIC, mais ne s'applique pas rétroactivement aux loyers déjà perçus en foncier.
+          </p>
+          <h3>Le micro-foncier ou le micro-BIC sont-ils toujours plus simples que le régime réel ?</h3>
+          <p>
+            Plus simples administrativement, oui, mais pas toujours plus avantageux fiscalement :
+            dès que les charges réelles (intérêts d'emprunt, travaux) ou l'amortissement dépassent
+            l'abattement forfaitaire de 30 % ou 50 %, le régime réel devient plus intéressant malgré
+            sa lourdeur comptable.
+          </p>
+          <h3>Faut-il choisir le même régime pour tous ses biens locatifs ?</h3>
+          <p>
+            Non, rien n'impose une cohérence entre plusieurs biens : on peut très bien détenir un
+            bien en location nue et un autre en LMNP, chacun choisi selon sa situation propre
+            (marché local, montage financier, horizon de détention envisagé pour ce bien précis).
+          </p>
+          <h3>Le statut LMNP implique-t-il de s'immatriculer comme une entreprise ?</h3>
+          <p>
+            Une déclaration d'activité (numéro SIRET) est nécessaire, mais cela ne fait pas de vous
+            un professionnel au sens fiscal : le statut reste celui de loueur en meublé non
+            professionnel tant que les recettes et leur part dans vos revenus globaux restent sous
+            certains seuils réglementaires.
+          </p>
+          <h3>Un investisseur avec une TMI basse a-t-il un intérêt à passer en LMNP ?</h3>
+          <p>
+            L'intérêt est plus limité : l'amortissement neutralise un revenu qui, à TMI basse,
+            aurait été taxé légèrement de toute façon. La charge comptable supplémentaire du régime
+            réel pèse alors relativement plus lourd face à un avantage fiscal réduit, ce qui
+            explique pourquoi la simplicité du nu reprend souvent l'avantage dans ce cas.
+          </p>
+          <h3>Le choix entre nu et meublé est-il définitif ?</h3>
+          <p>
+            Non, il est possible de changer de régime dans le temps, mais chaque bascule a des
+            conséquences fiscales à anticiper (déclaration de changement d'usage, sort des
+            amortissements déjà pratiqués côté LMNP) qui justifient d'étudier la question avant de
+            changer, plutôt que par réaction à une seule mauvaise année.
+          </p>
+
           <h2 id="conclusion">Notre analyse, cas par cas</h2>
           <p>
             Il n'existe pas de régime supérieur dans l'absolu : il existe des régimes mieux ou
             moins bien adaptés à une TMI, à un goût pour la gestion et à un horizon de détention
             donnés. Un cadre fortement imposé, prêt à s'investir dans le suivi comptable ou à
-            confier son bien à un exploitant sérieux, a statistiquement plus à gagner du LMNP au
+            confier son bien à un exploitant sérieux, a généralement plus à gagner du LMNP au
             régime réel. Un épargnant qui privilégie la simplicité, dispose d'une TMI plus modérée
             ou vise un marché locatif familial peut légitimement préférer le nu — sans que ce choix
             soit un renoncement financier.

@@ -158,6 +158,10 @@ export const FISCALITE = {
   avAbattementAnnuelCouple: 9200, // idem, couple soumis à imposition commune (€)
   peaExonerationIRApres: 5, // années avant exonération d'IR des plus-values du PEA
   tmiOptions: [0, 11, 30, 41, 45], // tranches marginales du barème IR (%)
+  // Plafond de déduction propre à un enfant majeur rattaché ouvrant son propre PER
+  // (10 % de 8 fois le PASS de l'année précédente, plafond spécifique bas du barème
+  // PER individuel) — À VÉRIFIER, ce plafond est révisé chaque année.
+  perPlafondEnfantRattache: 4710,
   source: "barèmes en vigueur à la date de révision des hypothèses — À VÉRIFIER avant publication",
 };
 
@@ -202,6 +206,13 @@ export const SIMU_DEFAUTS = {
   tmiRetraite: 11,
   capitalDecumulation: 200000,
   ageDepart: 65,
+};
+
+// ---- Rémunération du conseil en gestion de patrimoine ----
+export const CONSEIL = {
+  retrocessionAnnuelleTypique: { min: 0.5, max: 1.0 },
+  honorairesBilanPatrimonial: { min: 500, max: 3000 },
+  source: "ordres de grandeur usuels constatés sur le marché du conseil en gestion de patrimoine en France — À VÉRIFIER",
 };
 
 // Format € sans décimales, style français.

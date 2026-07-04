@@ -1,4 +1,5 @@
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
+import { CONSEIL, HYPOTHESES_MAJ, euros, pct } from "../components/hypotheses.js";
 
 export default function GuideCoutConseiller() {
   return (
@@ -11,6 +12,20 @@ export default function GuideCoutConseiller() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> un conseiller en gestion de patrimoine se rémunère
+              par rétrocessions (une part des frais du produit souscrit, de l'ordre de{" "}
+              {pct(CONSEIL.retrocessionAnnuelleTypique.min)} à{" "}
+              {pct(CONSEIL.retrocessionAnnuelleTypique.max)} par an sur l'encours), par
+              honoraires (souvent de {euros(CONSEIL.honorairesBilanPatrimonial.min)} à{" "}
+              {euros(CONSEIL.honorairesBilanPatrimonial.max)} pour un bilan patrimonial), ou par
+              un mélange des deux — données {HYPOTHESES_MAJ}, à vérifier auprès de chaque
+              cabinet. Aucun modèle n'est en soi plus vertueux : ce qui doit vous alerter, c'est
+              l'absence de réponse claire à la question « combien touchez-vous exactement ? ».
+            </p>
+          </div>
+
           <p>
             C'est une question légitime, posée par presque tous nos clients au premier
             rendez-vous, et à laquelle il est rarement répondu clairement. Non pas qu'elle soit
@@ -27,9 +42,11 @@ export default function GuideCoutConseiller() {
               <li><a href="#retrocessions">Les rétrocessions : le coût invisible dans les produits</a></li>
               <li><a href="#honoraires">Les honoraires : plus lisibles, pas plus vertueux</a></li>
               <li><a href="#mixte">Le modèle mixte : la transparence plutôt que le dogme</a></li>
+              <li><a href="#comparatif">Le comparatif des trois modèles</a></li>
               <li><a href="#bancaire">Le conseiller bancaire n'est pas un CGP</a></li>
               <li><a href="#valeur">Ce que vaut un bon conseil</a></li>
               <li><a href="#questions">Les 5 questions à poser avant de signer</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -54,7 +71,13 @@ export default function GuideCoutConseiller() {
             partie en repart vers le conseiller. C'est le modèle le plus répandu en France, et il
             explique une phrase qu'on entend souvent : « mon conseiller ne me coûte rien ». Elle
             est fausse. Le coût existe ; il est simplement logé dans les frais du produit plutôt
-            que sur une facture à part.
+            que sur une facture à part. Sur une assurance-vie ou un PER, cette rétrocession
+            annuelle se situe en ordre de grandeur entre{" "}
+            {pct(CONSEIL.retrocessionAnnuelleTypique.min)} et{" "}
+            {pct(CONSEIL.retrocessionAnnuelleTypique.max)} de l'encours géré par an — {CONSEIL.source}.
+            Ce taux s'ajoute aux autres frais du contrat déjà détaillés dans notre guide{" "}
+            <a href="/guide/combien-coute-une-assurance-vie">combien coûte une assurance-vie</a>,
+            il ne s'y substitue pas.
           </p>
           <p>
             Le conflit d'intérêts qui en découle est évident et nous le disons sans détour :
@@ -75,7 +98,11 @@ export default function GuideCoutConseiller() {
             rémunéré exclusivement en conseiller en investissements financiers (CIF — statut
             réglementé qui encadre l'activité de conseil sur les produits financiers) au forfait
             d'honoraires n'a, en théorie, aucun intérêt direct à recommander un produit plutôt
-            qu'un autre.
+            qu'un autre. En ordre de grandeur, un bilan patrimonial facturé à l'acte se situe
+            entre {euros(CONSEIL.honorairesBilanPatrimonial.min)} et{" "}
+            {euros(CONSEIL.honorairesBilanPatrimonial.max)} selon la complexité du dossier et le
+            cabinet — {CONSEIL.source} ; un suivi annuel, quand il est facturé séparément, obéit
+            à une logique de forfait ou de taux sur encours propre à chaque structure.
           </p>
           <p>
             Mais soyons clairs sur un point que le discours dominant du « tout honoraires, donc
@@ -106,6 +133,62 @@ export default function GuideCoutConseiller() {
             justement cette information : le document d'informations clés de chaque produit détaille
             les frais prélevés, et le conseiller doit pouvoir préciser, en complément, ce qui lui
             en revient.
+          </p>
+
+          <h2 id="comparatif">Le comparatif des trois modèles</h2>
+          <p>
+            Une synthèse à garder sous les yeux avant tout premier rendez-vous — aucune colonne
+            n'est « la bonne » dans l'absolu, chacune déplace simplement l'endroit où se loge le
+            conflit d'intérêts.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Modèle</th>
+                  <th>Comment ça marche</th>
+                  <th>Ordre de grandeur</th>
+                  <th>Conflit d'intérêt typique</th>
+                  <th>Ce qu'il faut demander</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rétrocessions</td>
+                  <td>
+                    Une part des frais du produit souscrit (assurance-vie, PER, fonds) est
+                    reversée au conseiller par l'assureur ou la société de gestion
+                  </td>
+                  <td>
+                    De l'ordre de {pct(CONSEIL.retrocessionAnnuelleTypique.min)} à{" "}
+                    {pct(CONSEIL.retrocessionAnnuelleTypique.max)} de l'encours par an — À VÉRIFIER
+                  </td>
+                  <td>Tentation de privilégier les produits les mieux rémunérés plutôt que les plus adaptés</td>
+                  <td>Le détail des rétrocessions perçues sur le contrat proposé (visible dans le DIC)</td>
+                </tr>
+                <tr>
+                  <td>Honoraires</td>
+                  <td>Le conseil est facturé directement, au forfait ou au temps passé, indépendamment des produits souscrits</td>
+                  <td>
+                    De l'ordre de {euros(CONSEIL.honorairesBilanPatrimonial.min)} à{" "}
+                    {euros(CONSEIL.honorairesBilanPatrimonial.max)} pour un bilan patrimonial — À VÉRIFIER
+                  </td>
+                  <td>Tentation d'allonger le temps facturé, ou à l'inverse de minimiser le suivi une fois le forfait encaissé</td>
+                  <td>Le périmètre exact couvert par le forfait, et ce qui est facturé en plus</td>
+                </tr>
+                <tr>
+                  <td>Modèle mixte</td>
+                  <td>Honoraires sur certaines missions (bilan, ingénierie) combinés à des rétrocessions sur les produits mis en place ensuite</td>
+                  <td>Combinaison des deux fourchettes ci-dessus, dans des proportions propres à chaque cabinet — À VÉRIFIER</td>
+                  <td>Les deux conflits précédents peuvent coexister si la répartition n'est pas explicite</td>
+                  <td>La part exacte d'honoraires et de rétrocessions sur votre dossier précis</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Ces ordres de grandeur sont des repères de marché, {CONSEIL.source}, à vérifier
+            auprès de chaque cabinet et à ne jamais présumer sans confirmation écrite.
           </p>
 
           <h2 id="bancaire">Le conseiller bancaire n'est pas un CGP</h2>
@@ -193,6 +276,48 @@ export default function GuideCoutConseiller() {
               défavorable, et ce qui est inclus ou facturé en plus à ce stade.
             </li>
           </ol>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Un conseiller rémunéré par rétrocessions coûte-t-il plus cher qu'un conseiller à honoraires ?</h3>
+          <p>
+            Pas nécessairement : dans le modèle par rétrocessions, le coût est intégré aux frais
+            du produit plutôt que facturé à part, ce qui rend la comparaison directe difficile.
+            Le seul moyen de comparer réellement les deux, c'est de demander le montant exact des
+            rétrocessions perçues sur le contrat proposé et de le mettre en face d'un devis
+            d'honoraires équivalent.
+          </p>
+          <h3>Le conseil est-il gratuit si mon conseiller ne me facture rien directement ?</h3>
+          <p>
+            Non. Si aucune facture ne vous est adressée, c'est presque toujours parce que le
+            conseiller est rémunéré par rétrocessions, prélevées sur les frais du produit que
+            vous payez indirectement. Le coût existe, il est simplement moins visible.
+          </p>
+          <h3>Peut-on négocier les honoraires d'un bilan patrimonial ?</h3>
+          <p>
+            Cela dépend des cabinets : certains pratiquent un tarif fixe, d'autres ajustent selon
+            la complexité du dossier ou la relation dans la durée. Rien n'empêche de demander un
+            devis détaillé avant de s'engager, comme pour toute prestation de conseil.
+          </p>
+          <h3>Un CIF peut-il être rémunéré par rétrocessions ?</h3>
+          <p>
+            Oui, le statut de conseiller en investissements financiers (CIF) n'impose pas un
+            modèle de rémunération unique : un CIF peut percevoir des rétrocessions, des
+            honoraires, ou combiner les deux, sous réserve de respecter ses obligations
+            d'information et d'agir dans l'intérêt du client.
+          </p>
+          <h3>Comment vérifier ce qu'un conseiller touche réellement sur mon contrat ?</h3>
+          <p>
+            Le document d'informations clés (DIC) remis avant toute souscription détaille les
+            frais du produit, dont une partie peut revenir au distributeur. Le conseiller doit
+            par ailleurs pouvoir préciser, sur demande, le montant ou le taux qui lui revient
+            personnellement sur le contrat proposé.
+          </p>
+          <h3>Faut-il se méfier d'un conseiller qui refuse de détailler sa rémunération ?</h3>
+          <p>
+            Oui. La rémunération, quel que soit le modèle, fait partie des informations qu'un
+            professionnel sérieux communique sans détour. Une réponse évasive ou éludée est un
+            signal d'alerte plus fiable que le modèle de rémunération lui-même.
+          </p>
 
           <h2 id="synthese">Notre analyse, en synthèse</h2>
           <p>

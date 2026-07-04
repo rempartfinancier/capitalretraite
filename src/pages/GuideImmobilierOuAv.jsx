@@ -24,6 +24,21 @@ export default function GuideImmobilierOuAv() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> l'immobilier locatif à crédit et l'assurance-vie ne
+              répondent pas à la même mécanique et ne devraient pas être comparés comme deux
+              candidats au même poste. L'immobilier permet un effet de levier bancaire — investir
+              avec l'argent de la banque — sécurisé par une assurance emprunteur, au prix d'une
+              gestion active et d'une faible liquidité. L'assurance-vie n'offre aucun levier mais
+              une disponibilité totale et une grande souplesse de versement. Le rendement affiché
+              d'un bien locatif (brut, avant charges et fiscalité) et celui d'un fonds euros (net
+              de frais de gestion) ne se comparent d'ailleurs pas directement — voir le tableau
+              plus bas. Dans la plupart des patrimoines que nous accompagnons, les deux
+              coexistent plutôt qu'ils ne s'excluent.
+            </p>
+          </div>
+
           <p>
             Les deux solutions reviennent dans presque tous nos premiers rendez-vous, souvent
             opposées comme s'il fallait trancher une bonne fois pour toutes. Ce n'est pourtant
@@ -47,6 +62,7 @@ export default function GuideImmobilierOuAv() {
               <li><a href="#assurance-vie">L'assurance-vie : la polyvalence sans levier</a></li>
               <li><a href="#tableau">Le comparatif en un tableau</a></li>
               <li><a href="#critere">Le vrai critère de choix</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#conclusion">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -66,11 +82,16 @@ export default function GuideImmobilierOuAv() {
             projet : l'assurance emprunteur, exigée par la banque pour accorder le crédit,
             fonctionne comme une protection familiale intégrée à l'opération. En cas de décès
             de l'emprunteur avant la fin du remboursement, le capital restant dû est soldé par
-            l'assurance — les proches héritent du bien libre de crédit, sans avoir à financer
-            quoi que ce soit. Ce mécanisme n'est pas une option accessoire : il transforme un
+            l'assurance, selon la quotité assurée retenue à la souscription — les proches héritent
+            du bien libre de crédit pour la part couverte, sans avoir nécessairement à financer
+            le reste. Ce mécanisme n'est pas une option accessoire : il transforme un
             projet d'accumulation en outil de protection dès le premier jour, dès la signature
             du prêt. C'est un argument que l'on oublie souvent de mettre en balance quand on
-            compare crédit immobilier et épargne financière.
+            compare crédit immobilier et épargne financière. La fiche{" "}
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F2469" target="_blank" rel="noopener noreferrer">
+              service-public.fr sur l'assurance emprunteur
+            </a>{" "}
+            détaille les garanties, exclusions et plafonds propres à ce type de contrat.
           </p>
           <p>
             Le rendement, lui, doit être regardé avec discernement. Le rendement locatif direct
@@ -96,7 +117,11 @@ export default function GuideImmobilierOuAv() {
             LFSS 2026 n'a pas concerné, contrairement au PER, au PEA et au compte-titres. Pour un
             contribuable à la tranche marginale la plus élevée du barème ({pct(tmiLaPlusHaute)}),
             le taux combiné atteint {pct(tauxMarginalImmobilierMax)} sur les loyers nets de
-            charges. Notre page{" "}
+            charges. La fiche{" "}
+            <a href="https://www.anil.org/lois-fiscalite/fiscalite-du-logement/imposition-des-revenus-fonciers/" target="_blank" rel="noopener noreferrer">
+              ANIL sur l'imposition des revenus fonciers
+            </a>{" "}
+            détaille les régimes d'imposition applicables (micro-foncier ou réel). Notre page{" "}
             <a href="/guide/combien-coute-un-investissement-locatif">
               combien coûte réellement un investissement locatif
             </a>{" "}
@@ -191,14 +216,17 @@ export default function GuideImmobilierOuAv() {
                   <td>Aucune protection automatique liée au versement lui-même</td>
                 </tr>
                 <tr>
-                  <td>Rendement indicatif</td>
+                  <td>Rendement indicatif (non comparable terme à terme — natures différentes)</td>
                   <td>
-                    {pct(RENDEMENTS.locatifDirect.min)} à {pct(RENDEMENTS.locatifDirect.max)} brut
-                    ({RENDEMENTS.locatifDirect.periode}, hors charges et fiscalité)
+                    {pct(RENDEMENTS.locatifDirect.min)} à {pct(RENDEMENTS.locatifDirect.max)}{" "}
+                    <strong>brut</strong>, avant charges, vacance locative et fiscalité (
+                    {RENDEMENTS.locatifDirect.periode})
                   </td>
                   <td>
-                    {pct(RENDEMENTS.fondsEuros.min)} à {pct(RENDEMENTS.fondsEuros.max)} sur fonds
-                    euros ({RENDEMENTS.fondsEuros.periode}) ; UC sans rendement garanti
+                    {pct(RENDEMENTS.fondsEuros.min)} à {pct(RENDEMENTS.fondsEuros.max)}{" "}
+                    <strong>net</strong> de frais de gestion sur fonds euros (
+                    {RENDEMENTS.fondsEuros.periode}), avant prélèvements sociaux ; UC sans
+                    rendement garanti
                   </td>
                 </tr>
                 <tr>
@@ -213,6 +241,10 @@ export default function GuideImmobilierOuAv() {
             Les montants, taux et rendements de ce tableau sont ceux en vigueur ou constatés en{" "}
             {HYPOTHESES_MAJ} ; les performances passées ne préjugent pas des performances
             futures, et chaque loi de finances peut faire évoluer les barèmes fiscaux cités.
+            Rappel important : la ligne « rendement indicatif » met en regard deux natures de
+            chiffres différentes — un rendement locatif brut, avant charges et fiscalité, contre un
+            rendement de fonds euros net de frais de gestion — et ne doit pas être lue comme un
+            classement direct entre les deux supports.
           </p>
 
           <h2 id="critere">Le vrai critère de choix</h2>
@@ -235,6 +267,54 @@ export default function GuideImmobilierOuAv() {
             une fois la phase d'accumulation terminée. Notre page{" "}
             <a href="/strategies/immobilier-retraite">l'immobilier dans la stratégie retraite</a>{" "}
             complète cette analyse côté immobilier.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Peut-on comparer directement le rendement locatif et celui du fonds euros ?</h3>
+          <p>
+            Non, pas sans ajustement. Le rendement locatif habituellement cité est brut, avant
+            charges, vacance locative et fiscalité, quand le rendement du fonds euros est net des
+            frais de gestion (mais avant prélèvements sociaux). Pour comparer utilement les deux,
+            il faut ramener le rendement locatif à un chiffre net de charges et de fiscalité, ce
+            que notre page{" "}
+            <a href="/guide/combien-coute-un-investissement-locatif">
+              combien coûte réellement un investissement locatif
+            </a>{" "}
+            permet de faire.
+          </p>
+          <h3>L'assurance emprunteur couvre-t-elle toujours 100 % du capital restant dû ?</h3>
+          <p>
+            Pas nécessairement : la quotité assurée se choisit à la souscription, en particulier
+            entre coemprunteurs, et peut être inférieure à 100 % du capital emprunté. Des
+            exclusions médicales et des plafonds de capital assurable existent également selon
+            l'âge et l'état de santé au moment de la souscription.
+          </p>
+          <h3>Peut-on retirer de l'argent d'une assurance-vie avant huit ans ?</h3>
+          <p>
+            Oui, un rachat partiel ou total reste possible à tout moment, quel que soit
+            l'ancienneté du contrat. Le cap des huit ans ne conditionne que le régime fiscal
+            applicable aux gains rachetés, jamais la disponibilité de l'épargne elle-même.
+          </p>
+          <h3>Un effet de levier est-il possible sur une assurance-vie ?</h3>
+          <p>
+            Non, pas directement au sein du contrat : vous n'investissez que ce que vous avez
+            versé. Certains investisseurs empruntent par ailleurs pour alimenter un contrat
+            (crédit lombard ou prêt personnel), mais ce montage sort du cadre de l'assurance-vie
+            elle-même et comporte ses propres risques, distincts du levier immobilier.
+          </p>
+          <h3>Faut-il choisir entre immobilier locatif et assurance-vie, ou les deux ?</h3>
+          <p>
+            Dans la majorité des patrimoines que nous accompagnons, les deux coexistent plutôt
+            qu'ils ne s'excluent, à des moments différents d'une même stratégie retraite : le
+            levier immobilier pendant la vie active, la polyvalence et la liquidité de
+            l'assurance-vie en complément ou à l'approche de la retraite.
+          </p>
+          <h3>Que se passe-t-il si je revends mon bien locatif avant la fin du crédit ?</h3>
+          <p>
+            Le capital restant dû est remboursé par le produit de la vente, et l'assurance
+            emprunteur cesse de s'appliquer puisque le prêt est soldé. D'éventuelles pénalités de
+            remboursement anticipé peuvent s'ajouter, encadrées par la loi et généralement
+            plafonnées.
           </p>
 
           <h2 id="conclusion">Notre analyse, en synthèse</h2>

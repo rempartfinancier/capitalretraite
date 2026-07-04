@@ -18,6 +18,18 @@ export default function GuideMeilleureEnveloppe() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> il n'existe pas de meilleure enveloppe dans l'absolu —
+              tout dépend de votre objectif. Pour consommer un capital de son vivant à la retraite,
+              le PEA est le mieux placé grâce à son exonération d'impôt sur le revenu après cinq
+              ans. Pour la polyvalence — garder la main sur un projet non défini, avec une
+              fiscalité douce à tout horizon — l'assurance-vie est l'enveloppe pivot. Pour
+              transmettre et protéger sa famille, le PER assurantiel offre un report d'imposition
+              qui devient définitif en cas de décès, assorti d'un abattement successoral. Le
+              détail de chaque ligne, et de leurs limites, suit ci-dessous.
+            </p>
+          </div>
           <p>
             C'est sans doute la question qu'on nous pose le plus souvent en premier rendez-vous.
             Et la réponse honnête commence par un aveu : formulée ainsi, elle n'a pas de réponse.
@@ -50,6 +62,7 @@ export default function GuideMeilleureEnveloppe() {
               <li><a href="#complements">Compte-titres et immobilier : les compléments</a></li>
               <li><a href="#tableau">Le comparatif en un tableau</a></li>
               <li><a href="#erreurs">Les erreurs du classement unique</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -82,7 +95,15 @@ export default function GuideMeilleureEnveloppe() {
             au maximum (plafond légal en vigueur en {HYPOTHESES_MAJ}), et chaque retrait ampute
             définitivement cette capacité — l'argent retiré ne « libère » pas de place pour de
             nouveaux versements. Ensuite le sort au décès, qui est la vraie ligne de partage :
-            le PEA est automatiquement clôturé au décès de son titulaire. Les gains échappent
+            le PEA est automatiquement clôturé au décès de son titulaire, comme le rappelle{" "}
+            <a
+              href="https://www.service-public.fr/particuliers/vosdroits/F2385"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              service-public.fr
+            </a>
+            . Les gains échappent
             alors à l'impôt sur le revenu, mais les prélèvements sociaux sont dus sur l'ensemble
             des plus-values (les gains de valeur accumulés depuis l'ouverture), et les titres
             rejoignent la succession sans aucun abattement propre à l'enveloppe.
@@ -108,7 +129,11 @@ export default function GuideMeilleureEnveloppe() {
             tout moment, sauf supports illiquides ; le cap des huit ans ne conditionne que la
             fiscalité. Elle héberge deux familles de supports : le fonds en euros, dont le
             capital est garanti par l'assureur — une garantie réelle, mais portée par l'assureur
-            lui-même, donc valable hors faillite de celui-ci — et qui a servi en moyenne{" "}
+            lui-même, donc valable hors faillite de celui-ci, sous le contrôle prudentiel de l'
+            <a href="https://acpr.banque-france.fr/" target="_blank" rel="noopener noreferrer">
+              ACPR
+            </a>{" "}
+            — et qui a servi en moyenne{" "}
             {pct(RENDEMENTS.fondsEuros.moyen)} en {RENDEMENTS.fondsEuros.periode} (moyenne de
             marché France Assureurs / ACPR, avant prélèvements sociaux — un constat passé qui ne
             préjuge en rien des taux futurs) ; et les unités de compte (UC), des supports non
@@ -123,10 +148,27 @@ export default function GuideMeilleureEnveloppe() {
             commune, et d'un taux réduit de {pct(FISCALITE.avTauxReduitApres8Ans)} sous
             conditions de versements (barème en vigueur en {HYPOTHESES_MAJ}). Les prélèvements
             sociaux y restent à {pct(FISCALITE.prelevementsSociaux.assuranceVie)} — un taux
-            propre à cette enveloppe, que la hausse de la LFSS 2026 n'a pas concernée. Aucun
+            propre à cette enveloppe, que la hausse de la LFSS 2026 n'a pas concernée (le détail
+            de cette hausse, réservée à d'autres enveloppes, est expliqué sur{" "}
+            <a
+              href="https://www.service-public.fr/particuliers/actualites"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              service-public.fr
+            </a>
+            ). Aucun
             plafond de versement. Et au décès, les capitaux issus des versements effectués avant
-            70 ans sont transmis avec un abattement de 152 500 € par bénéficiaire (barème en
-            vigueur en {HYPOTHESES_MAJ}).
+            70 ans sont transmis avec un abattement de 152 500 € par bénéficiaire, fixé par
+            l'article 990 I du{" "}
+            <a
+              href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041471365"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Code général des impôts
+            </a>{" "}
+            (barème en vigueur en {HYPOTHESES_MAJ}).
           </p>
           <p>
             Projet à dix ans, revenus complémentaires à la retraite, transmission : la même
@@ -281,6 +323,48 @@ export default function GuideMeilleureEnveloppe() {
             le sort successoral de chacune — pèse autant que l'ordre dans lequel on les a
             remplies, et il s'apprécie au cas par cas. C'est tout l'objet de notre page sur{" "}
             <a href="/strategies/decumulation">la décumulation</a>.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Faut-il choisir une seule enveloppe ou plusieurs à la fois ?</h3>
+          <p>
+            Plusieurs, dans la grande majorité des cas. Les enveloppes ne sont pas concurrentes :
+            une stratégie retraite solide combine le plus souvent un PEA, une assurance-vie et,
+            selon la situation fiscale, un PER — chacune affectée à l'objectif où elle excelle.
+          </p>
+          <h3>Par quelle enveloppe commencer si on débute ?</h3>
+          <p>
+            Il n'y a pas d'ordre universel, mais un principe utile : ouvrir tôt le PEA et
+            l'assurance-vie fait courir leur antériorité fiscale (les cinq ans du PEA, les huit
+            ans de l'assurance-vie) même avec de petits versements, ce qui laisse plus d'options
+            ouvertes plus tard.
+          </p>
+          <h3>Le PER est-il vraiment utile si je ne suis pas fortement imposé ?</h3>
+          <p>
+            Son intérêt fiscal immédiat est plus faible à TMI basse, mais son atout de protection
+            familiale en cas de décès — report d'imposition définitivement acquis, abattement
+            successoral — reste valable quelle que soit la TMI. Notre guide{" "}
+            <a href="/guide/faut-il-ouvrir-un-per">faut-il ouvrir un PER ?</a> détaille les cas où
+            la réponse est non.
+          </p>
+          <h3>Peut-on changer d'avis et transférer son épargne d'une enveloppe à l'autre ?</h3>
+          <p>
+            Pas directement d'une enveloppe à l'autre par un simple virement fiscalement neutre :
+            chaque enveloppe a ses propres règles de transfert ou de clôture. On peut en revanche
+            réorienter les nouveaux versements vers une autre enveloppe sans toucher à l'existant.
+          </p>
+          <h3>L'immobilier ne devrait-il pas figurer dans ce classement ?</h3>
+          <p>
+            L'immobilier obéit à une logique différente, fondée sur le crédit et l'effet de
+            levier, plutôt que sur une enveloppe fiscale au sens strict — c'est pourquoi il fait
+            l'objet d'un examen séparé sur notre page{" "}
+            <a href="/strategies/immobilier-retraite">immobilier et retraite</a>.
+          </p>
+          <h3>Que se passe-t-il si je dépasse le plafond de versement du PEA ou du PER ?</h3>
+          <p>
+            Le PEA refuse simplement tout versement au-delà de 150 000 € : l'excédent n'est pas
+            accepté. Sur le PER, le dépassement du plafond de déduction n'empêche pas le
+            versement, mais la part excédentaire n'est alors plus déductible du revenu imposable.
           </p>
 
           <h2 id="synthese">Notre analyse, en synthèse</h2>

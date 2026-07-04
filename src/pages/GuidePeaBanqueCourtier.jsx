@@ -67,6 +67,18 @@ export default function GuidePeaBanqueCourtier() {
 
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> un PEA ouvert en banque ou chez un courtier en ligne
+              donne accès au même avantage fiscal et au même plafond légal — la loi ne fait aucune
+              différence. Ce qui varie, c'est le coût : frais de tenue de compte et de courtage
+              plafonnés par la loi Pacte, mais surtout frais des fonds logés dans le plan, qui
+              peuvent aller de moins de {pct(FRAIS_TYPES.contratInternet.fraisSupports.min)} pour
+              un ETF à plus de {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.max)}{" "}
+              pour un fonds maison. Le courtier en ligne gagne presque toujours le match des coûts
+              ; la banque, celui de l'accompagnement de proximité.
+            </p>
+          </div>
           <p>
             Ouvrir un PEA dans votre agence bancaire ou chez un courtier en ligne donne accès à
             exactement le même avantage fiscal. Beaucoup d'épargnants en concluent que le choix de
@@ -84,6 +96,7 @@ export default function GuidePeaBanqueCourtier() {
             <li><a href="#banque-ou-courtier">Banque ou courtier en ligne : le vrai match</a></li>
             <li><a href="#contenu">Ce que vous y mettez compte plus que l'endroit où vous l'ouvrez</a></li>
             <li><a href="#checklist">La check-list d'audit de votre PEA</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
             <li><a href="#retenir">Ce qu'il faut retenir</a></li>
           </ul>
 
@@ -100,7 +113,15 @@ export default function GuidePeaBanqueCourtier() {
           </p>
           <p>
             Les versements sont plafonnés à 150 000 € par personne (plafond légal en vigueur en
-            juillet 2026), et ce plafond ne se recharge pas après un retrait : c'est ce qui fait du
+            juillet 2026, publié par l'
+            <a
+              href="https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/les-enveloppes-fiscales-et-sociales/le-plan-depargne-en-actions-pea"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              AMF
+            </a>
+            ), et ce plafond ne se recharge pas après un retrait : c'est ce qui fait du
             PEA une enveloppe de long terme, pertinente d'abord pour la retraite — nous détaillons
             cette logique dans notre page <a href="/strategies/pea-retraite">le PEA dans une
             optique retraite</a>. Le point essentiel de cet article tient en une phrase : la loi
@@ -114,7 +135,15 @@ export default function GuidePeaBanqueCourtier() {
             Trois familles de frais rythment la vie d'un PEA : les frais de tenue de compte et
             droits de garde (facturés pour la conservation de vos titres), les frais de courtage
             (prélevés à chaque ordre d'achat ou de vente en bourse) et les frais de transfert.
-            Depuis un décret d'application de la loi Pacte entré en vigueur en 2020, ils sont
+            Depuis un{" "}
+            <a
+              href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000041660867/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              décret d'application de la loi Pacte
+            </a>{" "}
+            entré en vigueur en 2020, ils sont
             plafonnés — sous réserve des barèmes en vigueur en juillet 2026, à vérifier auprès de
             votre établissement : environ 10 € pour l'ouverture, 0,4 % par an de la valeur du plan
             pour la tenue de compte et les droits de garde (plus un petit forfait par ligne
@@ -140,11 +169,22 @@ export default function GuidePeaBanqueCourtier() {
           </p>
           <p>
             Notre analyse, en deux temps. Le discours anti-frais très répandu sur les réseaux a
-            raison sur l'arithmétique : un écart de l'ordre de trois points de frais annuels peut,
-            sur vingt-cinq ans, aller jusqu'à réduire de moitié le capital final d'un versement
-            initial unique (l'effet est moindre, mais majeur, sur des versements réguliers) — un
-            ordre de grandeur que nous avons vérifié par le calcul, sur hypothèses illustratives.
-            En revanche, faire du niveau de frais l'unique critère est l'erreur symétrique : la
+            raison sur l'arithmétique : à rendement brut identique, un écart de 3 points de frais
+            annuels réduit le capital final d'environ 50 % au bout de 25 ans, mais ce résultat ne
+            vaut que dans un cas précis — un versement initial unique, sans apport ultérieur, avec
+            un rendement brut constant chaque année (aucune trajectoire réelle n'est linéaire).
+            Exemple de calcul : à {pct(RENDEMENTS.ucActionsLongTerme.moyen)} brut par an, un
+            capital initial croît d'un facteur{" "}
+            {Math.round(Math.pow(1 + RENDEMENTS.ucActionsLongTerme.moyen / 100, 25) * 10) / 10}{" "}
+            sur 25 ans ; au même rendement brut diminué de 3 points de frais, il ne croît plus que
+            d'un facteur{" "}
+            {Math.round(Math.pow(1 + (RENDEMENTS.ucActionsLongTerme.moyen - 3) / 100, 25) * 10) /
+              10}
+            , soit environ la moitié. Sur des versements réguliers (le cas le plus fréquent),
+            l'effet est réel mais moindre, car chaque versement n'est exposé aux frais que sur sa
+            propre durée restante — c'est précisément ce que simule l'outil ci-dessous avec vos
+            propres montants et durée, plutôt que sur un cas type. En revanche, faire du niveau de
+            frais l'unique critère est l'erreur symétrique : la
             seule variable qui compte est la performance nette de frais et de fiscalité. Il existe
             des fonds de conviction (fonds gérés activement, dont le portefeuille s'écarte
             volontairement de l'indice) chargés à près de 2 % qui ont historiquement battu leur
@@ -341,6 +381,46 @@ export default function GuidePeaBanqueCourtier() {
               concrètement, ces frais correspondent-ils ?
             </li>
           </ol>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Peut-on ouvrir un PEA à la fois en banque et chez un courtier en ligne ?</h3>
+          <p>
+            Non : un même contribuable ne peut détenir qu'un seul PEA (et, le cas échéant, un PEA-PME
+            en complément). Il faut donc choisir un établissement, quitte à en changer plus tard
+            par un transfert conservant l'antériorité fiscale.
+          </p>
+          <h3>Le PEA en ligne est-il vraiment gratuit ?</h3>
+          <p>
+            Rarement totalement. Un tarif affiché à 0 € se rémunère généralement ailleurs — écart
+            entre prix d'achat et de vente, frais de change sur les titres en devise étrangère, ou
+            services annexes facturés à l'acte. Un tarif bas et lisible vaut mieux qu'un « gratuit »
+            opaque.
+          </p>
+          <h3>Que se passe-t-il si je retire de l'argent avant 5 ans ?</h3>
+          <p>
+            Un retrait avant le cinquième anniversaire du plan entraîne, sauf exception légale
+            (comme la création d'entreprise), la clôture du PEA et la perte de l'antériorité
+            fiscale acquise.
+          </p>
+          <h3>Puis-je transférer mon PEA sans perdre son ancienneté ?</h3>
+          <p>
+            Oui : le transfert d'un établissement à l'autre conserve la date d'ouverture initiale,
+            qui commande le délai de cinq ans. Seuls des frais de transfert plafonnés par la loi
+            Pacte s'appliquent.
+          </p>
+          <h3>Dois-je choisir uniquement des ETF pour mon PEA ?</h3>
+          <p>
+            Ce n'est pas une obligation, mais les ETF (fonds indiciels à bas coût) constituent
+            souvent un socle robuste et peu coûteux. Une poche satellite en fonds de conviction ou
+            titres en direct peut compléter ce socle selon votre profil et le temps que vous
+            pouvez y consacrer.
+          </p>
+          <h3>La gestion sous mandat sur un PEA vaut-elle le coût qu'elle facture ?</h3>
+          <p>
+            Cela dépend du service réellement rendu derrière le surcoût annuel facturé. Notre
+            analyse invite à vérifier ce que cette délégation apporte concrètement — allocation
+            réellement suivie et ajustée dans le temps — plutôt que de la retenir par défaut.
+          </p>
 
           <h2 id="retenir">Ce qu'il faut retenir</h2>
           <p>

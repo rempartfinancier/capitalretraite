@@ -18,6 +18,19 @@ export default function GuidePeaOuPer() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> le PEA et le PER assurantiel ne répondent pas au
+              même besoin. Le PEA est fait pour être consommé du vivant de son titulaire — il
+              ne se transmet pas et se clôture au décès sans aucun abattement. Le PER, lui,
+              devient particulièrement intéressant en cas de décès avant liquidation : la
+              déduction obtenue à l'entrée reste acquise et un abattement s'applique aux
+              bénéficiaires, l'âge du titulaire au décès déterminant celui qui s'applique.
+              Dans la plupart des situations, les deux enveloppes se complètent plutôt qu'elles
+              ne s'opposent.
+            </p>
+          </div>
+
           <p>
             Le PEA (plan d'épargne en actions) et le PER (plan d'épargne retraite) sont
             régulièrement présentés comme deux candidats au même poste : « la » meilleure
@@ -29,6 +42,14 @@ export default function GuidePeaOuPer() {
             personne ne pose — voulez-vous consommer ce capital de votre vivant, ou le
             transmettre ?
           </p>
+          <p>
+            Cet article se concentre volontairement sur le duel PEA/PER, à l'exclusion des
+            autres enveloppes retraite. Si votre question porte plus largement sur l'ensemble
+            des solutions disponibles — assurance-vie, compte-titres, immobilier — et que vous
+            hésitez entre plus de deux enveloppes, notre guide{" "}
+            <a href="/guide/meilleure-enveloppe-retraite">quelle est la meilleure enveloppe pour
+            préparer sa retraite ?</a> répond à cette question plus large.
+          </p>
           <div className="sommaire">
             <strong>Sommaire</strong>
             <ol>
@@ -37,6 +58,7 @@ export default function GuidePeaOuPer() {
               <li><a href="#per">Le PER : l'enveloppe à transmettre</a></li>
               <li><a href="#tableau">Le comparatif point par point</a></li>
               <li><a href="#verdict">Notre verdict, nuancé</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
           </div>
 
@@ -136,7 +158,15 @@ export default function GuidePeaOuPer() {
             152 500 € par bénéficiaire lorsque le titulaire décède avant 70 ans (règles en
             vigueur en {HYPOTHESES_MAJ}) — et c'est bien l'âge au moment du décès qui
             détermine l'abattement applicable, pas la date à laquelle les versements ont été
-            effectués, contrairement à l'assurance-vie. Après 70 ans, un abattement global de
+            effectués, contrairement à l'assurance-vie (voir l'article{" "}
+            <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006307325" target="_blank" rel="noopener noreferrer">
+              990 I du Code général des impôts
+            </a>{" "}
+            ; un résumé pratique est également disponible sur{" "}
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F16150" target="_blank" rel="noopener noreferrer">
+              service-public.fr
+            </a>
+            ). Après 70 ans, un abattement global de
             30 500 € s'applique pour l'ensemble des bénéficiaires. Dans les deux cas, les
             gains transmis échappent aux prélèvements sociaux.
           </p>
@@ -253,6 +283,51 @@ export default function GuidePeaOuPer() {
             <a href="/guide/meilleure-enveloppe-retraite">quelle est la meilleure enveloppe pour la retraite ?</a>{" "}
             replace ce duel PEA/PER dans le paysage complet des enveloppes disponibles.
           </p>
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Peut-on ouvrir un PEA et un PER en même temps ?</h3>
+          <p>
+            Oui, sans aucune restriction : ce sont deux enveloppes indépendantes, avec leurs
+            propres plafonds et leur propre fiscalité, qui peuvent parfaitement coexister et se
+            compléter dans une même stratégie retraite.
+          </p>
+          <h3>Le PER est-il toujours plus intéressant pour la transmission que le PEA ?</h3>
+          <p>
+            Dans la quasi-totalité des cas, oui, pour le PER assurantiel : c'est le seul des
+            deux qui prévoit un abattement dédié et une déduction fiscale définitivement
+            acquise au décès. Le PEA, à l'inverse, ne prévoit aucun avantage successoral et se
+            clôture automatiquement — un point structurel, pas une question d'arbitrage au cas
+            par cas.
+          </p>
+          <h3>Que devient un PER bancaire au décès, par rapport à un PER assurantiel ?</h3>
+          <p>
+            Un PER bancaire fonctionne comme un compte-titres ordinaire : à la différence du
+            PER assurantiel, il ne bénéficie d'aucun abattement propre et entre intégralement
+            dans la masse successorale. Vérifier la nature exacte de son PER est donc un
+            préalable indispensable avant de compter sur un avantage successoral.
+          </p>
+          <h3>Peut-on retirer l'argent du PER avant la retraite ?</h3>
+          <p>
+            Seulement dans les cas de déblocage anticipé prévus par la loi (accidents de la
+            vie tels qu'invalidité ou surendettement, ou achat de la résidence principale) :
+            hors ces cas, l'épargne reste bloquée jusqu'à la retraite, contrairement au PEA qui
+            reste disponible à tout moment moyennant la clôture du plan avant le délai
+            d'exonération.
+          </p>
+          <h3>Faut-il privilégier le PEA ou le PER si l'on n'est pas imposable ?</h3>
+          <p>
+            La déduction à l'entrée du PER perd une grande partie de son intérêt si la tranche
+            marginale d'imposition est nulle ou faible, puisqu'il n'y a alors que peu ou pas
+            d'impôt à économiser immédiatement. Le PEA, dont l'avantage se situe entièrement à
+            la sortie, mérite dans ce cas d'être examiné en priorité — sans que cela dispense
+            d'une étude individuelle de la situation.
+          </p>
+          <h3>Le plafond de versement du PEA se reconstitue-t-il avec le temps ?</h3>
+          <p>
+            Non : contrairement à d'autres enveloppes, un retrait sur un PEA ampute
+            définitivement la capacité de versement de 150 000 €, sans possibilité de la
+            reconstituer ultérieurement, même des années après le retrait.
+          </p>
+
           <div className="note">
             <p>
               Cette analyse est générale et ne constitue pas un conseil en investissement

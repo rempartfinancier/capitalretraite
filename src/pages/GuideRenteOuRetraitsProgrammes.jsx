@@ -17,6 +17,20 @@ export default function GuideRenteOuRetraitsProgrammes() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> la rente viagère cède le capital à un assureur en
+              échange d'un revenu garanti jusqu'au décès — elle protège contre le risque de
+              longévité, mais rien ne revient aux héritiers en cas de décès prématuré, sauf option
+              de réversion ou d'annuités garanties. Les retraits programmés laissent le capital
+              investi et transmissible, avec une souplesse totale, mais exposent au risque
+              d'épuiser ce capital si le rythme de retrait est trop élevé ou si les marchés
+              traversent une période défavorable en début de retraite. Le bon choix dépend de deux
+              curseurs personnels — la tolérance au risque de longévité et le besoin de
+              transmettre — pas d'une règle universelle.
+            </p>
+          </div>
+
           <p>
             Le jour où vous arrêtez de constituer votre capital pour commencer à en vivre, une
             question se pose — et elle ne se pose qu'une fois, car les deux réponses sont
@@ -36,6 +50,7 @@ export default function GuideRenteOuRetraitsProgrammes() {
               <li><a href="#comparatif-chiffre">Le comparatif chiffré selon votre longévité</a></li>
               <li><a href="#comparatif-qualitatif">Le comparatif qualitatif, critère par critère</a></li>
               <li><a href="#mix">Et si on combinait les deux ?</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#conclusion">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -247,6 +262,48 @@ export default function GuideRenteOuRetraitsProgrammes() {
             séparément — ni plus, ni moins.
           </p>
 
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Peut-on revenir sur son choix après avoir converti son capital en rente viagère ?</h3>
+          <p>
+            Non, la conversion en rente viagère est en principe irréversible : le capital est
+            aliéné, c'est-à-dire définitivement cédé à l'assureur en échange du revenu. C'est
+            précisément pour cette raison que la décision mérite d'être posée avec soin avant
+            d'être prise, et non ajustée après coup.
+          </p>
+          <h3>Peut-on convertir seulement une partie de son capital en rente viagère ?</h3>
+          <p>
+            Oui, c'est le principe du mix évoqué plus haut : convertir une fraction du capital
+            pour sécuriser un socle de revenu garanti, tout en laissant le reste en retraits
+            programmés pour conserver souplesse et capital transmissible.
+          </p>
+          <h3>Les retraits programmés peuvent-ils s'épuiser avant la fin de vie ?</h3>
+          <p>
+            Oui, c'est le risque principal de cette option : si le rythme de retrait choisi est
+            trop élevé, ou si les marchés traversent une période durablement défavorable, en
+            particulier en début de retraite, le capital peut s'éteindre avant la fin de vie. C'est
+            pour cette raison que le rythme de retrait doit être dimensionné avec prudence plutôt
+            que fixé arbitrairement.
+          </p>
+          <h3>La rente viagère est-elle réversible au conjoint par défaut ?</h3>
+          <p>
+            Non, la réversion est une option à choisir explicitement à la conversion, et elle a un
+            coût : elle abaisse le taux de conversion de départ puisque l'assureur prend un
+            engagement supplémentaire envers un second bénéficiaire.
+          </p>
+          <h3>Toutes les enveloppes permettent-elles à la fois la rente et les retraits programmés ?</h3>
+          <p>
+            Cela dépend du contrat et de l'enveloppe : certains produits ne proposent qu'une sortie
+            en rente, d'autres qu'en capital ou en retraits, et d'autres encore les deux options,
+            voire un mix. Vérifier les modalités de sortie disponibles sur son propre contrat fait
+            partie des points à contrôler avant même la phase de constitution.
+          </p>
+          <h3>Faut-il décider entre rente et retraits programmés dès l'ouverture du contrat ?</h3>
+          <p>
+            Non, cette décision se prend en principe au moment du départ à la retraite, quand la
+            situation personnelle, familiale et patrimoniale est mieux connue qu'au moment de
+            l'ouverture du contrat, parfois des décennies plus tôt.
+          </p>
+
           <h2 id="conclusion">Notre analyse, en synthèse</h2>
           <p>
             Il n'existe pas de règle universelle entre rente viagère et retraits programmés, et
@@ -260,6 +317,29 @@ export default function GuideRenteOuRetraitsProgrammes() {
             séquence des rendements, s'imposent naturellement. Entre ces deux pôles, la bonne
             réponse reste, comme souvent en décumulation, un calcul au cas par cas plutôt qu'un
             principe général.
+          </p>
+          <p>
+            Ne pas trancher cette question a, lui aussi, un coût : reporter la décision au-delà du
+            moment où elle doit être prise revient souvent à la subir plutôt qu'à la choisir — un
+            contrat qui bascule par défaut en gestion prudente faute d'arbitrage, une conversion en
+            rente précipitée à un âge ou dans des conditions de marché qui ne sont pas optimales,
+            ou à l'inverse des retraits programmés fixés sans jamais être révisés à la lumière de
+            l'évolution réelle des marchés. Le risque de séquence des rendements en particulier
+            frappe plus durement ceux qui n'ont rien anticipé que ceux qui ont, au moins, posé la
+            question à temps.
+          </p>
+          <p>
+            Pour aller plus loin sur ce qui doit se décider avant même d'arbitrer entre rente et
+            retraits, notre guide{" "}
+            <a href="/guide/ordre-de-decaissement-retraite">l'ordre de décaissement à la retraite</a>{" "}
+            détaille dans quel ordre puiser dans ses différentes enveloppes une fois ce choix posé.
+          </p>
+          <p>
+            C'est très exactement ce que nous reprenons lors d'un{" "}
+            <a href="/bilan-retraite">bilan retraite gratuit</a> : positionner ensemble vos deux
+            curseurs personnels — tolérance au risque de longévité et besoin de transmission — sur
+            vos propres chiffres, votre propre âge et la composition réelle de votre patrimoine,
+            plutôt que sur les moyennes générales de cet article.
           </p>
           <div className="note">
             <p>

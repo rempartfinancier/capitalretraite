@@ -12,6 +12,16 @@ export default function GuideMeilleurPer() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> il n'existe pas de « meilleur PER » dans l'absolu — le bon
+              contrat dépend de votre TMI, de votre horizon avant la retraite et de votre objectif
+              (transmettre ou consommer ce capital). Nous ne publions donc pas de classement nommé ;
+              à la place, cet article donne une grille de 8 critères vérifiables pour juger n'importe
+              quel PER, le vôtre ou celui qu'on vous propose, par vous-même.
+            </p>
+          </div>
+
           <p>
             Vous cherchez « meilleur PER 2026 », ou une variante proche. C'est une recherche légitime :
             le PER (plan d'épargne retraite) engage votre épargne pour des années, et personne n'a envie
@@ -27,6 +37,7 @@ export default function GuideMeilleurPer() {
               <li><a href="#nexiste-pas">Pourquoi « le meilleur PER » n'existe pas dans l'absolu</a></li>
               <li><a href="#grille">La grille : 8 critères pour juger n'importe quel PER vous-même</a></li>
               <li><a href="#position">Notre position assumée</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
           </div>
 
@@ -91,82 +102,109 @@ export default function GuideMeilleurPer() {
             juger sérieusement un PER — le vôtre, ou celui qu'on vous propose — sans avoir besoin d'un
             nom de contrat pour trancher.
           </p>
-          <ol>
-            <li>
-              <strong>Assurantiel ou bancaire ?</strong> C'est le critère qui conditionne tout le reste
-              du régime successoral. Un PER assurantiel, souscrit auprès d'un assureur, ouvre droit — en
-              cas de décès avant 70 ans — à un abattement de 152 500 € par bénéficiaire désigné (barème
-              en vigueur en {HYPOTHESES_MAJ}), le même principe qu'en assurance-vie. Un PER bancaire
-              fonctionne comme un compte-titres : au décès, l'épargne intègre la succession sans
-              abattement propre à l'enveloppe. Un doute ? Il suffit de vérifier auprès de qui le contrat
-              est ouvert.
-            </li>
-            <li>
-              <strong>Les frais sur versements.</strong> Dans un réseau traditionnel, ils s'élèvent
-              couramment de {pct(FRAIS_TYPES.contratBancaireTraditionnel.entree.min)} à{" "}
-              {pct(FRAIS_TYPES.contratBancaireTraditionnel.entree.max)} de chaque somme versée ; en
-              ligne, ils tombent le plus souvent à {pct(FRAIS_TYPES.contratInternet.entree.max)}. Ordres
-              de grandeur constatés sur les grilles tarifaires publiques, à vérifier contrat par contrat
-              et révisés en {HYPOTHESES_MAJ}. Point souvent ignoré : dans un réseau, ces frais sont
-              fréquemment négociables — encore faut-il le demander.
-            </li>
-            <li>
-              <strong>Les frais de gestion annuels.</strong> Ils prélèvent chaque année une fraction de
-              l'encours total, qu'il progresse ou non. La fourchette constatée va d'environ{" "}
-              {pct(FRAIS_TYPES.contratInternet.gestionAnnuelle.min)} à{" "}
-              {pct(FRAIS_TYPES.contratInternet.gestionAnnuelle.max)} sur un contrat en ligne compétitif,
-              jusqu'à {pct(FRAIS_TYPES.contratBancaireTraditionnel.gestionAnnuelle.min)} à{" "}
-              {pct(FRAIS_TYPES.contratBancaireTraditionnel.gestionAnnuelle.max)} sur un contrat de réseau
-              traditionnel (ordres de grandeur révisés en {HYPOTHESES_MAJ}). Sur des versements étalés
-              sur quinze ou vingt ans, l'écart entre ces deux bornes pèse sur le capital final bien plus
-              que la plupart des épargnants ne l'imaginent.
-            </li>
-            <li>
-              <strong>Les frais et la qualité des supports.</strong> Un fonds indiciel (ETF, qui réplique
-              un indice à bas coût) affiche des frais courants de l'ordre de{" "}
-              {pct(FRAIS_TYPES.etf.fraisCourants.min)} à {pct(FRAIS_TYPES.etf.fraisCourants.max)} par an,
-              contre {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.min)} à{" "}
-              {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.max)} pour un fonds actions classique
-              de gestion active (données à vérifier, révisées en {HYPOTHESES_MAJ}). Un PER dont l'univers
-              de supports se limite à quelques fonds « maison » chargés, sans accès à des ETF ou à des
-              fonds tiers, ferme la porte à une part importante de l'optimisation possible.
-            </li>
-            <li>
-              <strong>La grille de gestion pilotée par défaut, et la liberté d'en sortir.</strong> Sauf
-              choix contraire, un PER est investi en gestion pilotée à horizon (une répartition standard
-              qui se sécurise progressivement à l'approche de la retraite). Cette gestion ajoute
-              généralement un surcoût de mandat de l'ordre de {pct(FRAIS_TYPES.gestionPiloteeSurcout.min)}{" "}
-              à {pct(FRAIS_TYPES.gestionPiloteeSurcout.max)} par an (ordre de grandeur révisé en{" "}
-              {HYPOTHESES_MAJ}), au-dessus des frais des fonds sous-jacents. Ce n'est pas la
-              sécurisation progressive elle-même qui pose question — c'est sa standardisation, son coût,
-              et la facilité — ou non — d'en sortir pour reprendre la main sur son allocation.
-            </li>
-            <li>
-              <strong>Les modalités de sortie.</strong> Le contrat permet-il une sortie en capital,
-              en une fois ou fractionnée sur plusieurs années, ou impose-t-il de fait la rente viagère
-              (un revenu versé à vie par l'assureur, en contrepartie de l'abandon définitif du capital) ?
-              Cette liberté conditionne directement votre marge de manœuvre fiscale au moment du
-              déblocage.
-            </li>
-            <li>
-              <strong>La clause bénéficiaire.</strong> Sur un PER assurantiel, sa rédaction est-elle
-              libre, ou enfermée dans une formule type imposée par le contrat ? Une clause figée, jamais
-              adaptée à l'évolution de votre situation familiale, peut neutraliser une partie de
-              l'avantage successoral décrit au premier critère.
-            </li>
-            <li>
-              <strong>La solidité et le service de l'assureur.</strong> Solidité financière de
-              l'organisme qui porte l'engagement, qualité du service en ligne, réactivité en cas de
-              question ou de sinistre : ce dernier critère ne se lit sur aucune grille tarifaire, mais il
-              conditionne l'expérience réelle du contrat sur plusieurs décennies.
-            </li>
-          </ol>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Critère</th>
+                  <th>Où le vérifier</th>
+                  <th>Pourquoi ça compte</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Assurantiel ou bancaire ?</td>
+                  <td>Auprès de qui le contrat est ouvert (assureur ou établissement bancaire)</td>
+                  <td>
+                    Conditionne tout le régime successoral : un PER assurantiel ouvre droit, en cas de
+                    décès avant 70 ans, à un abattement de 152 500 € par bénéficiaire désigné (barème
+                    en vigueur en {HYPOTHESES_MAJ}), le même principe qu'en assurance-vie ; un PER
+                    bancaire fonctionne comme un compte-titres, sans abattement propre à l'enveloppe.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Frais sur versements</td>
+                  <td>Grille tarifaire du contrat, à négocier notamment en réseau</td>
+                  <td>
+                    Couramment {pct(FRAIS_TYPES.contratBancaireTraditionnel.entree.min)} à{" "}
+                    {pct(FRAIS_TYPES.contratBancaireTraditionnel.entree.max)} en réseau traditionnel,
+                    contre {pct(FRAIS_TYPES.contratInternet.entree.max)} le plus souvent en ligne
+                    (ordres de grandeur révisés en {HYPOTHESES_MAJ}) — un point de départ qui pèse sur
+                    chaque versement, avant même toute performance.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Frais de gestion annuels</td>
+                  <td>Document d'informations clés (DIC) ou conditions générales</td>
+                  <td>
+                    De l'ordre de {pct(FRAIS_TYPES.contratInternet.gestionAnnuelle.min)} à{" "}
+                    {pct(FRAIS_TYPES.contratInternet.gestionAnnuelle.max)} sur un contrat en ligne
+                    compétitif, jusqu'à {pct(FRAIS_TYPES.contratBancaireTraditionnel.gestionAnnuelle.min)}{" "}
+                    à {pct(FRAIS_TYPES.contratBancaireTraditionnel.gestionAnnuelle.max)} en réseau
+                    traditionnel (révisé en {HYPOTHESES_MAJ}) : prélevés chaque année sur tout l'encours,
+                    l'écart pèse lourd sur quinze ou vingt ans de versements.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Frais et qualité des supports</td>
+                  <td>Liste des supports disponibles et leurs frais courants (DIC de chaque fonds)</td>
+                  <td>
+                    Un ETF affiche des frais courants de l'ordre de{" "}
+                    {pct(FRAIS_TYPES.etf.fraisCourants.min)} à {pct(FRAIS_TYPES.etf.fraisCourants.max)}{" "}
+                    par an, contre {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.min)} à{" "}
+                    {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.max)} pour un fonds actions
+                    classique de gestion active (révisé en {HYPOTHESES_MAJ}) : un univers limité à des
+                    fonds « maison » chargés ferme la porte à une part importante de l'optimisation.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Gestion pilotée par défaut et liberté d'en sortir</td>
+                  <td>Convention de gestion pilotée annexée au contrat</td>
+                  <td>
+                    Sauf choix contraire, l'épargne est investie en gestion pilotée à horizon, avec un
+                    surcoût de mandat de l'ordre de {pct(FRAIS_TYPES.gestionPiloteeSurcout.min)} à{" "}
+                    {pct(FRAIS_TYPES.gestionPiloteeSurcout.max)} par an (révisé en {HYPOTHESES_MAJ}) :
+                    ce n'est pas la sécurisation progressive qui pose question, mais sa standardisation,
+                    son coût, et la facilité — ou non — d'en sortir.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Modalités de sortie</td>
+                  <td>Conditions générales, chapitre « dénouement » ou « sortie »</td>
+                  <td>
+                    Sortie en capital (en une fois ou fractionnée) ou rente viagère de fait imposée :
+                    cela conditionne directement votre marge de manœuvre fiscale au moment du
+                    déblocage.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Clause bénéficiaire</td>
+                  <td>Formulaire de clause bénéficiaire du contrat assurantiel</td>
+                  <td>
+                    Rédaction libre ou formule type imposée : une clause figée, jamais adaptée à
+                    l'évolution de votre situation familiale, peut neutraliser une partie de l'avantage
+                    successoral du premier critère.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Solidité et service de l'assureur</td>
+                  <td>Rapports de solvabilité publics, avis clients, réactivité du service en ligne</td>
+                  <td>
+                    Ne se lit sur aucune grille tarifaire, mais conditionne l'expérience réelle du
+                    contrat sur plusieurs décennies.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <p>
             Cette grille est aussi celle que nous appliquons dans notre analyse détaillée des frais et de
             la gestion pilotée d'un PER, à lire sur{" "}
-            <a href="/guide/per-bancaire-frais-gestion-horizon">PER bancaire : frais, gestion à horizon, supports maison</a>,
-            et elle prolonge la réflexion posée dans notre page{" "}
-            <a href="/strategies/per">la stratégie PER</a>.
+            <a href="/guide/per-bancaire-frais-gestion-horizon">PER bancaire : frais, gestion à horizon, supports maison</a>{" "}
+            si votre contrat a été ouvert en réseau et que vous voulez creuser les trois premiers
+            critères ci-dessus en détail, et elle prolonge la réflexion posée dans notre page{" "}
+            <a href="/strategies/per">la stratégie PER</a>, qui replace le choix d'un contrat dans la
+            construction plus large de votre épargne retraite.
           </p>
 
           <div className="note">
@@ -195,6 +233,50 @@ export default function GuideMeilleurPer() {
             <a href="/bilan-retraite">bilan retraite</a> que nous proposons : reprendre votre PER actuel
             (ou le projet de contrat qu'on vous soumet), point par point, plutôt que de vous renvoyer vers
             un nom tiré d'un classement dont vous ne connaîtrez jamais vraiment le mode de financement.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Existe-t-il quand même des labels ou certifications qui garantissent la qualité d'un PER ?</h3>
+          <p>
+            Il existe des labels professionnels et des certifications qui attestent du respect de
+            certains critères (transparence des frais, qualité de l'information précontractuelle), mais
+            aucun ne garantit une performance ni ne remplace l'examen des huit critères ci-dessus pour
+            votre situation personnelle. Un label est un indice, pas une conclusion.
+          </p>
+          <h3>Un PER individuel et un PER d'entreprise s'évaluent-ils avec la même grille ?</h3>
+          <p>
+            Oui dans l'ensemble : les huit critères s'appliquent aux deux. La différence tient surtout à
+            la marge de choix — un PER d'entreprise collectif propose souvent un nombre restreint de
+            contrats négociés par l'employeur, ce qui limite la comparaison possible, alors qu'un PER
+            individuel s'ouvre auprès de l'établissement de votre choix.
+          </p>
+          <h3>Peut-on changer de PER en cours de route si le contrat déçoit ?</h3>
+          <p>
+            Oui, un transfert vers un autre PER reste possible à tout moment, moyennant des frais de
+            transfert encadrés qui diminuent avec l'ancienneté du contrat. Ce transfert conserve
+            l'antériorité fiscale acquise ; il ne fait en revanche pas disparaître les frais de gestion
+            déjà supportés jusque-là.
+          </p>
+          <h3>La grille de 8 critères s'applique-t-elle aussi bien à un PER bancaire qu'assurantiel ?</h3>
+          <p>
+            Oui, les huit critères s'appliquent aux deux familles de contrats. Le premier critère
+            (assurantiel ou bancaire) détermine simplement lequel des sept autres pèse le plus : le
+            régime successoral et la clause bénéficiaire ne concernent, par construction, que les PER
+            assurantiels.
+          </p>
+          <h3>Un PER avec des frais de gestion plus élevés peut-il rester un bon choix ?</h3>
+          <p>
+            Oui, si ce qu'il finance en contrepartie — accompagnement, univers de supports plus large,
+            options de sortie plus souples — apporte davantage de valeur que ce qu'il coûte pour votre
+            situation. C'est précisément pour éviter de réduire la décision au seul niveau de frais que
+            cette grille comporte huit critères, et non un seul.
+          </p>
+          <h3>Faut-il se méfier d'un PER qui n'a que quelques supports au catalogue ?</h3>
+          <p>
+            Un catalogue restreint n'est pas disqualifiant en soi si les quelques supports proposés sont
+            de qualité et à frais raisonnables, mais il mérite une vigilance particulière : il ferme
+            l'accès à une diversification plus fine et peut signaler un univers dominé par des fonds
+            « maison » chargés, comme évoqué au quatrième critère du tableau.
           </p>
 
           <div className="note">

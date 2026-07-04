@@ -18,6 +18,18 @@ export default function GuideCoutInvestissementLocatif() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> un rendement brut affiché de l'ordre de{" "}
+              {pct(RENDEMENTS.locatifDirect.max)} se traduit souvent, une fois le crédit, les
+              charges, la gestion, la vacance locative et la fiscalité déduits, par un rendement
+              net de l'ordre de {pct(RENDEMENTS.locatifDirect.min)} à{" "}
+              {pct(RENDEMENTS.locatifDirect.moyen - 1)} seulement. L'écart tient à une dizaine de
+              postes de coûts, ponctuels ou récurrents, que cet article détaille un par un pour que
+              vous puissiez chiffrer votre propre projet plutôt que de vous fier au seul pourcentage
+              d'une annonce.
+            </p>
+          </div>
           <p>
             Une annonce affichant {pct(RENDEMENTS.locatifDirect.max - 1.5)} à{" "}
             {pct(RENDEMENTS.locatifDirect.max)} de rendement brut fait naturellement de l'œil.
@@ -40,6 +52,7 @@ export default function GuideCoutInvestissementLocatif() {
               <li><a href="#fiscalite">La fiscalité des loyers</a></li>
               <li><a href="#exemple">Un exemple chiffré, du brut au net</a></li>
               <li><a href="#tableau">Le récapitulatif en un tableau</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#conclusion">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -146,13 +159,64 @@ export default function GuideCoutInvestissementLocatif() {
             {pct(RENDEMENTS.locatifDirect.max)} — soit le haut de la fourchette{" "}
             {pct(RENDEMENTS.locatifDirect.min)}-{pct(RENDEMENTS.locatifDirect.max)} observée sur
             {" "}{RENDEMENTS.locatifDirect.periode} selon les villes ({RENDEMENTS.locatifDirect.source}
-            ). Une fois déduits, dans l'ordre : l'amortissement des frais de notaire répartis sur
-            la durée de détention, la gestion si elle est déléguée, une vacance locative même
-            réduite, l'entretien courant, puis l'impôt sur le revenu et les prélèvements sociaux
-            évoqués plus haut, ce même bien ne laisse plus, in fine, qu'un rendement net de
-            l'ordre de {pct(RENDEMENTS.locatifDirect.min)} à {pct(RENDEMENTS.locatifDirect.moyen - 1)}
-            . L'écart tient tout entier dans les postes détaillés ci-dessus : aucun d'eux n'est
-            exceptionnel, et c'est justement leur addition silencieuse qui change la donne.
+            ). Voici, poste par poste et dans l'ordre du tableau récapitulatif ci-dessous, comment
+            ce rendement brut affiché s'érode jusqu'au rendement net réellement perçu :
+          </p>
+          <ol>
+            <li>
+              <strong>Point de départ : {pct(RENDEMENTS.locatifDirect.max)} de rendement brut</strong>,
+              calculé sur le seul prix du bien, avant tout frais et avant tout impôt.
+            </li>
+            <li>
+              <strong>Frais de notaire, amortis sur la durée de détention.</strong> Les{" "}
+              {pct(FRAIS_TYPES.immobilierLocatif.fraisNotaireAncien.min)}-
+              {pct(FRAIS_TYPES.immobilierLocatif.fraisNotaireAncien.max)} du prix payés à l'achat ne
+              sont jamais récupérés : rapportés chaque année sur une détention longue, ils rognent
+              mécaniquement le rendement affiché dès la première ligne du calcul.
+            </li>
+            <li>
+              <strong>Intérêts d'emprunt et assurance emprunteur, si le bien est financé à crédit.</strong>{" "}
+              Ces deux lignes, variables selon le taux, la durée et le profil de l'emprunteur,
+              réduisent le flux de loyers disponible chaque mois, avant même de parler de charges ou
+              de fiscalité.
+            </li>
+            <li>
+              <strong>Charges récurrentes non récupérables</strong> — taxe foncière, quote-part de
+              charges de copropriété non refacturable au locataire, entretien courant — qui reviennent
+              chaque année, y compris les années sans incident particulier.
+            </li>
+            <li>
+              <strong>Gestion locative, déléguée ou assumée en direct.</strong> Une gestion déléguée
+              coûte en ordre de grandeur{" "}
+              {pct(FRAIS_TYPES.immobilierLocatif.fraisGestionLocative.min)}-
+              {pct(FRAIS_TYPES.immobilierLocatif.fraisGestionLocative.max)} des loyers encaissés ; une
+              gestion en direct déplace ce coût vers du temps passé plutôt que de le supprimer.
+            </li>
+            <li>
+              <strong>Vacance locative</strong>, même réduite : chaque mois sans occupant réduit
+              d'autant les loyers réellement perçus dans l'année, alors que la taxe foncière et le
+              crédit, eux, continuent de courir.
+            </li>
+            <li>
+              <strong>Impôt sur le revenu, selon la TMI et le régime fiscal choisi</strong> (fonciers
+              ou BIC), puis les prélèvements sociaux au taux de{" "}
+              {pct(FISCALITE.prelevementsSociaux.immobilier)} sur les revenus immobiliers (barème en
+              vigueur en {HYPOTHESES_MAJ}) — la dernière déduction, et souvent la plus sous-estimée
+              par les simulateurs grand public.
+            </li>
+            <li>
+              <strong>
+                Arrivée : un rendement net de l'ordre de {pct(RENDEMENTS.locatifDirect.min)} à{" "}
+                {pct(RENDEMENTS.locatifDirect.moyen - 1)}
+              </strong>{" "}
+              une fois l'ensemble de ces postes déduits.
+            </li>
+          </ol>
+          <p>
+            L'écart entre le point de départ et le point d'arrivée tient tout entier dans
+            l'addition de ces sept postes intermédiaires, détaillés plus haut dans l'article et
+            repris dans le tableau récapitulatif ci-dessous : aucun d'eux n'est exceptionnel pris
+            isolément, et c'est justement leur addition silencieuse qui change la donne.
           </p>
           <div className="note">
             <p>
@@ -262,6 +326,46 @@ export default function GuideCoutInvestissementLocatif() {
             Les ordres de grandeur de ce tableau sont ceux en vigueur en {HYPOTHESES_MAJ} ; les
             usages de marché comme les barèmes fiscaux évoluent, et chaque ligne doit être
             revérifiée au moment du projet.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Existe-t-il un rendement net « normal » à viser pour un investissement locatif ?</h3>
+          <p>
+            Non, il n'existe pas de seuil universel : le rendement net dépend de la ville, du
+            régime fiscal retenu, du montant du crédit et de la qualité de la gestion. Ce qui
+            compte, c'est de chiffrer votre propre projet poste par poste plutôt que de vous fier à
+            un pourcentage moyen évoqué en ligne.
+          </p>
+          <h3>Les frais de notaire sont-ils vraiment incompressibles ?</h3>
+          <p>
+            Pour l'essentiel oui : la plus grande partie correspond à des droits d'enregistrement
+            reversés au département et à l'État, pas à la rémunération du notaire, qui n'en
+            représente qu'une fraction limitée et peu négociable.
+          </p>
+          <h3>Faut-il privilégier un crédit long pour améliorer le rendement net ?</h3>
+          <p>
+            Cela dépend de l'objectif : une durée plus longue réduit la mensualité et peut améliorer
+            le cash-flow mensuel, mais elle augmente le coût total du crédit sur la durée, donc le
+            montant global des intérêts déduits du calcul de rendement net.
+          </p>
+          <h3>La vacance locative est-elle vraiment inévitable sur un bon emplacement ?</h3>
+          <p>
+            Un bon emplacement la réduit, mais ne l'élimine jamais totalement : même un bien
+            recherché connaît, tôt ou tard, une période entre deux locataires. L'intégrer au calcul
+            dès le départ évite de découvrir un rendement réel inférieur à celui annoncé.
+          </p>
+          <h3>Gérer soi-même son bien permet-il d'atteindre le rendement net le plus élevé possible ?</h3>
+          <p>
+            Cela supprime la ligne de frais de gestion déléguée, mais ne rend pas la gestion
+            gratuite : le temps passé à chercher un locataire, gérer un impayé ou intervenir en
+            urgence a une valeur réelle, à intégrer dans le calcul plutôt qu'à ignorer.
+          </p>
+          <h3>Le calcul du rendement net change-t-il selon qu'on loue nu ou meublé ?</h3>
+          <p>
+            Oui, les règles de charges déductibles et d'abattement diffèrent entre revenus fonciers
+            et BIC, ce qui modifie la dernière ligne du calcul. Notre guide{" "}
+            <a href="/guide/lmnp-ou-locatif-nu">LMNP ou locatif nu</a> détaille ce comparatif fiscal
+            en profondeur.
           </p>
 
           <h2 id="conclusion">Notre analyse, en synthèse</h2>

@@ -1,5 +1,12 @@
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
-import { FRAIS_TYPES, FISCALITE, HYPOTHESES_MAJ, pct } from "../components/hypotheses.js";
+import {
+  FRAIS_TYPES,
+  FISCALITE,
+  HYPOTHESES_MAJ,
+  SIMU_DEFAUTS,
+  euros,
+  pct,
+} from "../components/hypotheses.js";
 
 // Moyenne d'une fourchette { min, max } de hypotheses.js.
 const moy = (fourchette) => (fourchette.min + fourchette.max) / 2;
@@ -15,6 +22,27 @@ const totalInternetEtf =
   moy(FRAIS_TYPES.contratInternet.gestionAnnuelle) +
   moy(FRAIS_TYPES.contratInternet.fraisSupports);
 
+// Exemple illustratif unique du coût cumulé des frais, à hors performance :
+// simule uniquement le montant prélevé par les frais annuels sur un
+// versement mensuel constant, hors tout effet de rendement des marchés
+// (qui viendrait s'ajouter ou se retrancher par ailleurs). Paramètres de
+// durée et de versement issus de SIMU_DEFAUTS, jamais écrits en dur.
+function fraisCumulesIllustratifs(tauxFraisAnnuel) {
+  const versementAnnuel = SIMU_DEFAUTS.versementMensuel * 12;
+  let encours = 0;
+  let fraisCumules = 0;
+  for (let annee = 0; annee < SIMU_DEFAUTS.dureeAnnees; annee += 1) {
+    encours += versementAnnuel;
+    const fraisAnnee = encours * (tauxFraisAnnuel / 100);
+    fraisCumules += fraisAnnee;
+    encours -= fraisAnnee;
+  }
+  return fraisCumules;
+}
+
+const fraisCumulesBancaire = fraisCumulesIllustratifs(totalBancairePilote);
+const fraisCumulesInternet = fraisCumulesIllustratifs(totalInternetEtf);
+
 export default function GuideCoutPer() {
   return (
     <>
@@ -26,6 +54,18 @@ export default function GuideCoutPer() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> un PER coûte, tout compris (frais de gestion annuels,
+              frais des supports et, le cas échéant, surcoût de gestion pilotée), de l'ordre de{" "}
+              {pct(totalInternetEtf)} à {pct(totalBancairePilote)} par an selon le type de contrat
+              et le mode de gestion — auxquels s'ajoutent des frais sur versement et des frais
+              d'arbitrage variables selon le distributeur. Ce coût annuel, cumulé sur les dix,
+              vingt ou trente ans que dure un PER, mérite au moins autant d'attention que la
+              déduction fiscale obtenue à l'entrée.
+            </p>
+          </div>
+
           <p>
             La déduction fiscale à l'entrée occupe toute la place dans les discours sur le PER
             (Plan Épargne Retraite) : elle est visible, immédiate, facile à chiffrer sur un avis
@@ -47,6 +87,7 @@ export default function GuideCoutPer() {
               <li><a href="#tableau">La grille récapitulative</a></li>
               <li><a href="#cumul">Le cumul : ce que ça change sur la durée</a></li>
               <li><a href="#checklist">Check-list : retrouver les frais réels de son PER</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
           </div>
 
@@ -80,9 +121,12 @@ export default function GuideCoutPer() {
 
           <h2 id="supports">3. Les frais des supports</h2>
           <p>
-            Cet étage ne figure jamais dans la grille tarifaire du contrat, mais dans le DIC
-            (document d'informations clés, la fiche standardisée européenne de deux ou trois pages
-            que chaque fonds doit publier — cherchez la ligne « frais courants »). Un fonds
+            Cet étage ne figure jamais dans la grille tarifaire du contrat, mais dans le{" "}
+            <a href="https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/document-dinformations-cles-dic" target="_blank" rel="noopener noreferrer">
+              DIC (document d'informations clés)
+            </a>
+            , la fiche standardisée européenne de deux ou trois pages
+            que chaque fonds doit publier — cherchez la ligne « frais courants ». Un fonds
             « maison » classique, proposé par la société de gestion du même groupe que
             l'établissement distributeur, facture en ordre de grandeur{" "}
             {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.min)} à{" "}
@@ -205,16 +249,35 @@ export default function GuideCoutPer() {
             rien au risque pris ni à la qualité de l'allocation ; il change uniquement ce qui reste
             dans le plan chaque année, pendant toute la durée où l'argent y est bloqué.
           </p>
+          <div className="note">
+            <p>
+              <strong>Avertissement :</strong> l'exemple qui suit est purement illustratif et
+              pédagogique. Il isole le seul effet des frais annuels, à l'exclusion de tout
+              rendement des supports (positif ou négatif), sur un versement mensuel constant de{" "}
+              {euros(SIMU_DEFAUTS.versementMensuel)} pendant {SIMU_DEFAUTS.dureeAnnees} ans. Ce
+              n'est ni une projection ni une promesse de performance : dans la réalité, le
+              rendement des supports se cumule (ou se soustrait) à cet effet de frais, dans un sens
+              qui ne peut pas être anticipé.
+            </p>
+          </div>
           <p>
-            Ce point mérite d'être posé clairement, sans reprendre ici de calcul chiffré complet —
-            nos simulateurs dédiés sur <a href="/strategies/per">la page stratégie PER</a> et sur{" "}
+            Sur cette base, un PER de réseau traditionnel investi en fonds maison et en gestion
+            pilotée ({pct(totalBancairePilote)} de frais annuels tout compris) verrait environ{" "}
+            {euros(fraisCumulesBancaire)} prélevés au titre des seuls frais sur la période, contre
+            environ {euros(fraisCumulesInternet)} pour un PER en ligne investi en ETF, en gestion
+            libre ({pct(totalInternetEtf)} de frais annuels). L'écart entre les deux, de l'ordre de{" "}
+            {euros(fraisCumulesBancaire - fraisCumulesInternet)}, donne un ordre de grandeur de ce
+            que représente un écart de frais de ce type une fois cumulé et composé chaque année —
+            à comparer, au cas par cas, à l'avantage retiré de la déduction fiscale à l'entrée.
+          </p>
+          <p>
+            Ce point mérite d'être approfondi avec ses propres chiffres plutôt qu'avec cet exemple
+            générique — nos simulateurs dédiés sur <a href="/strategies/per">la page stratégie PER</a> et sur{" "}
             <a href="/guide/per-bancaire-frais-gestion-horizon">
               notre article sur le PER bancaire
             </a>{" "}
-            permettent de tester ses propres chiffres : sur une durée de détention de l'ordre de
-            vingt ans, un écart de frais annuels de ce type, cumulé et composé chaque année, peut
-            représenter un montant supérieur à l'avantage même de la déduction fiscale à
-            l'entrée. Ce n'est pas un argument contre le PER ; c'est un rappel que la déduction et le
+            permettent de tester son propre montant, sa propre durée et d'intégrer une hypothèse de
+            rendement. Ce n'est pas un argument contre le PER ; c'est un rappel que la déduction et le
             contenant se jugent sur deux échelles différentes, et qu'aucune des deux ne dispense de
             regarder l'autre.
           </p>
@@ -246,6 +309,50 @@ export default function GuideCoutPer() {
               l'entrée.
             </li>
           </ol>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Le PER a-t-il des frais de sortie ou de transfert ?</h3>
+          <p>
+            Un transfert vers un autre PER peut être soumis à des frais, plafonnés par la loi et
+            généralement nuls après cinq ans de détention ou lorsque le contrat a été ouvert
+            depuis peu chez un même distributeur — les conditions précises figurent dans les
+            conditions générales du contrat. La sortie en capital ou en rente à la retraite n'est,
+            elle, pas un « frais » au sens de cet article : elle relève de la fiscalité de sortie,
+            traitée sur <a href="/strategies/per">notre page dédiée au PER</a>.
+          </p>
+          <h3>Les frais d'un PER sont-ils négociables ?</h3>
+          <p>
+            Les frais sur versement le sont souvent, en particulier en réseau bancaire
+            traditionnel, à condition de le demander. Les frais de gestion annuels du contrat et
+            les frais des supports le sont beaucoup plus rarement, car ils relèvent de la grille
+            tarifaire générale de l'assureur ou du distributeur.
+          </p>
+          <h3>Un PER moins cher est-il toujours préférable ?</h3>
+          <p>
+            Pas nécessairement : un contrat plus cher peut se justifier par un accompagnement ou
+            une gestion pilotée dont la valeur ajoutée dépasse le surcoût facturé. Mais cela doit
+            se vérifier au cas par cas, pas se présumer — c'est tout l'objet de la grille et de la
+            check-list de cet article.
+          </p>
+          <h3>Comment savoir si mon PER est en gestion pilotée ou en gestion libre ?</h3>
+          <p>
+            La convention de gestion signée à l'ouverture du plan l'indique explicitement ; à
+            défaut de choix contraire du souscripteur, la réglementation prévoit une gestion
+            pilotée à horizon par défaut. Le relevé annuel de situation ou l'espace client en ligne
+            du contrat permet également de le vérifier.
+          </p>
+          <h3>Les frais d'un PER sont-ils les mêmes pour tous les distributeurs ?</h3>
+          <p>
+            Non, chaque assureur, banque ou courtier applique sa propre grille tarifaire, ce qui
+            justifie de comparer les postes un par un plutôt que de se fier à un seul chiffre
+            affiché en tête de plaquette commerciale.
+          </p>
+          <h3>Où trouver la synthèse des frais réellement prélevés sur mon PER l'année passée ?</h3>
+          <p>
+            Sur le relevé annuel de situation, que l'assureur ou le teneur de compte est tenu
+            d'adresser chaque année : il détaille en principe les frais prélevés sur la période,
+            en complément des conditions générales et du DIC de chaque support.
+          </p>
 
           <p>
             Un mauvais contrat déductible reste un mauvais contrat. La déduction fiscale à l'entrée

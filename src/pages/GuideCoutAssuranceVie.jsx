@@ -30,6 +30,19 @@ export default function GuideCoutAssuranceVie() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> une assurance-vie coûte entre presque rien et près
+              de {pct(totalBancairePilote)} par an, pour exactement le même produit — une
+              assurance-vie investie en actions. L'écart se joue dans cinq postes de frais
+              distincts (entrée, gestion annuelle du contrat, frais des supports, arbitrage,
+              surcoût de gestion pilotée), dont le plus lourd — les frais des supports — ne
+              figure jamais dans la grille tarifaire du contrat mais dans le document
+              d'informations clés (DIC) de chaque fonds. Ce qui compte n'est jamais le niveau de
+              frais isolé, mais la valeur nette reçue en échange.
+            </p>
+          </div>
+
           <p>
             La réponse honnête tient en une phrase : entre presque rien et près de{" "}
             {pct(totalBancairePilote)} par an, pour exactement le même produit — une assurance-vie
@@ -53,6 +66,7 @@ export default function GuideCoutAssuranceVie() {
               <li><a href="#tableau">La grille récapitulative</a></li>
               <li><a href="#cumul">Le cumul : ce que 2 points d'écart font sur 15 ans</a></li>
               <li><a href="#nuance">Frais élevés et frais justifiés : la vraie question</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#checklist">Check-list : retrouver ses frais en 10 minutes</a></li>
             </ol>
           </div>
@@ -95,7 +109,12 @@ export default function GuideCoutAssuranceVie() {
             figure pas dans la grille tarifaire du contrat, mais dans un document séparé : le DIC
             (document d'informations clés, la fiche standardisée européenne de deux ou trois pages
             que chaque fonds doit publier — cherchez la ligne « frais courants »). Ces frais sont
-            prélevés à l'intérieur même du fonds, avant le calcul de sa performance affichée.
+            prélevés à l'intérieur même du fonds, avant le calcul de sa performance affichée. Ce
+            document est imposé par la réglementation européenne PRIIPs ; l'
+            <a href="https://www.amf-france.org/fr/espace-epargnants/comprendre-nos-alertes/les-documents-dinformation-cles-dic" target="_blank" rel="noopener noreferrer">
+              AMF publie un guide de lecture du document d'informations clés
+            </a>{" "}
+            à destination des épargnants.
           </p>
           <p>
             Un fonds « maison » classique, proposé par la société de gestion du même groupe que
@@ -245,6 +264,49 @@ export default function GuideCoutAssuranceVie() {
             </a>{" "}
             détaille comment distinguer les deux, et ce qu'un accompagnement rémunéré doit
             concrètement vous apporter pour justifier son prix.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Les frais d'une assurance-vie sont-ils prélevés même si le contrat ne rapporte rien ?</h3>
+          <p>
+            Oui, pour la plupart des postes. Les frais de gestion annuels du contrat et les frais
+            des supports sont prélevés sur l'encours, qu'il progresse, stagne ou recule dans
+            l'année. Seuls les frais d'entrée et d'arbitrage dépendent d'un mouvement que vous
+            déclenchez vous-même.
+          </p>
+          <h3>Comment savoir si les frais de mon contrat sont dans la moyenne du marché ?</h3>
+          <p>
+            En comparant chaque poste — entrée, gestion annuelle, frais des supports, arbitrage,
+            éventuel surcoût de gestion pilotée — à la grille récapitulative de cet article, puis
+            en confrontant le total à celui d'un contrat en ligne équivalent. Un écart important
+            sur un seul poste mérite d'être questionné auprès de l'assureur ou du distributeur.
+          </p>
+          <h3>Le document d'informations clés (DIC) est-il obligatoire pour tous les supports ?</h3>
+          <p>
+            Oui, la réglementation européenne PRIIPs impose ce document standardisé pour
+            l'ensemble des produits d'investissement packagés proposés aux particuliers, dont les
+            unités de compte logées en assurance-vie. Il doit être remis avant toute souscription.
+          </p>
+          <h3>Un contrat sans frais d'entrée est-il automatiquement le moins cher ?</h3>
+          <p>
+            Non : l'absence de frais d'entrée ne dit rien des frais de gestion annuels ni des
+            frais des supports, qui pèsent davantage dans la durée. C'est le cumul des cinq
+            postes de cet article, pas un seul d'entre eux, qui détermine le coût réel d'un
+            contrat.
+          </p>
+          <h3>Les frais de gestion pilotée sont-ils toujours justifiés ?</h3>
+          <p>
+            Non, pas systématiquement. Ils se justifient quand l'allocation est réellement
+            construite et revue dans le temps ; ils le sont beaucoup moins pour un mandat mis en
+            place une fois puis jamais ajusté, alors que son coût, lui, continue d'être prélevé
+            chaque année.
+          </p>
+          <h3>Peut-on faire baisser les frais d'un contrat déjà ouvert ?</h3>
+          <p>
+            Directement, rarement : les frais de gestion annuels sont fixés par les conditions
+            générales du contrat et ne se renégocient pas facilement une fois signés. En
+            revanche, il est souvent possible d'arbitrer vers des supports moins coûteux
+            (ETF plutôt que fonds actifs, par exemple) à l'intérieur du même contrat.
           </p>
 
           <h2 id="checklist">Check-list : retrouver ses frais en 10 minutes</h2>

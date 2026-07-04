@@ -12,6 +12,19 @@ export default function GuidePerOuImmobilier() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> le PER assurantiel offre une transmission simple et
+              bornée par la loi — un abattement dédié par bénéficiaire, sans indivision ni acte
+              notarié à prévoir. L'immobilier locatif à crédit offre, lui, un effet de levier
+              puissant pendant la vie active, sécurisé par une assurance emprunteur qui solde tout
+              ou partie du prêt en cas de décès — mais sa transmission est plus complexe à
+              organiser, entre indivision entre héritiers, liquidité faible et fiscalité
+              successorale classique. Les deux outils sont, dans la plupart des cas, complémentaires
+              plutôt que concurrents.
+            </p>
+          </div>
+
           <p>
             La question revient souvent en rendez-vous, formulée presque toujours de la même
             façon : « Je peux ouvrir un PER ou investir dans un bien locatif, qu'est-ce qui
@@ -30,6 +43,7 @@ export default function GuidePerOuImmobilier() {
               <li><a href="#per-transmission">Le PER assurantiel comme outil de transmission</a></li>
               <li><a href="#immo-transmission">L'immobilier comme outil de transmission</a></li>
               <li><a href="#tableau">Le comparatif en un tableau</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#analyse">Notre analyse : deux outils complémentaires, pas concurrents</a></li>
             </ol>
           </div>
@@ -90,12 +104,19 @@ export default function GuidePerOuImmobilier() {
             L'immobilier locatif emprunte un chemin radicalement différent. Sa force de
             transmission ne vient pas d'un abattement fiscal dédié, mais de l'effet de levier du
             crédit : lorsqu'un investisseur finance un bien à crédit, il souscrit presque toujours
-            une assurance emprunteur qui solde le capital restant dû en cas de décès. Ses héritiers
-            reçoivent alors un bien immobilier déjà intégralement financé — sans avoir eu à en
-            rembourser un seul mois. C'est, dans notre analyse, l'atout de transmission le plus
-            sous-estimé de l'immobilier à crédit : la protection ne s'active pas au terme du prêt,
-            elle joue précisément pendant la période où le titulaire est encore en train de
-            rembourser. Notre page{" "}
+            une assurance emprunteur qui solde tout ou partie du capital restant dû en cas de
+            décès. Selon la quotité assurée retenue au moment de la souscription — un choix qui
+            peut être inférieur à 100 % du capital emprunté, notamment entre coemprunteurs —, les
+            héritiers reçoivent alors un bien immobilier partiellement ou intégralement financé,
+            sans nécessairement avoir eu à en rembourser la part couverte. C'est, dans notre
+            analyse, l'atout de transmission le plus sous-estimé de l'immobilier à crédit : la
+            protection ne s'active pas au terme du prêt, elle joue précisément pendant la période
+            où le titulaire est encore en train de rembourser. Cette protection n'est toutefois ni
+            automatique ni illimitée : l'assurance emprunteur comporte des questionnaires
+            médicaux, d'éventuelles exclusions de garantie selon l'état de santé ou l'âge à la
+            souscription, et des plafonds de capital assurable au-delà desquels une surprime ou un
+            refus d'assurance peuvent s'appliquer — des points à vérifier avant de considérer cette
+            protection comme acquise dans tous les cas. Notre page{" "}
             <a href="/strategies/immobilier-retraite">l'immobilier dans la stratégie retraite</a>{" "}
             revient sur cet effet de levier en détail.
           </p>
@@ -109,7 +130,12 @@ export default function GuidePerOuImmobilier() {
             réelle et fréquemment utilisée, mais sa mécanique fiscale précise — barème de l'usufruit
             selon l'âge, articulation avec les abattements de donation — dépend de nombreux
             paramètres propres à chaque situation ; elle s'étudie au cas par cas avec un
-            professionnel, et nous nous garderons ici d'en détailler le calcul.
+            professionnel, et nous nous garderons ici d'en détailler le calcul. Les fiches
+            pratiques de{" "}
+            <a href="https://www.notaires.fr/fr/donation-succession/succession/le-demembrement-de-propriete" target="_blank" rel="noopener noreferrer">
+              notaires.fr sur le démembrement de propriété
+            </a>{" "}
+            posent les bases de ce mécanisme, à affiner ensuite avec un professionnel.
           </p>
           <p>
             Mais l'immobilier en direct porte aussi des contraintes que le PER ignore
@@ -119,7 +145,11 @@ export default function GuidePerOuImmobilier() {
             plusieurs personnes détiennent ensemble un bien sans qu'aucune part ne soit
             physiquement délimitée) — chaque décision, de la vente à un simple ravalement de
             façade, doit alors faire l'objet d'un accord entre indivisaires, ce qui peut geler la
-            situation pendant des années en cas de désaccord. Ensuite la liquidité : un bien
+            situation pendant des années en cas de désaccord. La fiche{" "}
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F32744" target="_blank" rel="noopener noreferrer">
+              service-public.fr sur l'indivision
+            </a>{" "}
+            détaille les règles de majorité applicables à ces décisions. Ensuite la liquidité : un bien
             immobilier ne se vend pas en quelques jours comme on solde un contrat d'assurance-vie
             ou de PER, ce qui peut poser problème si la succession a besoin de trésorerie rapide,
             pour régler des droits par exemple. Enfin la fiscalité successorale : un bien transmis
@@ -179,6 +209,54 @@ export default function GuidePerOuImmobilier() {
             PER en sortie standard, {pct(FISCALITE.prelevementsSociaux.immobilier)} sur les revenus
             fonciers) ; rappelons qu'aucun de ces deux taux ne s'applique aux gains transmis par
             décès dans le cadre décrit plus haut.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>L'assurance emprunteur couvre-t-elle toujours 100 % du capital restant dû ?</h3>
+          <p>
+            Pas nécessairement. La quotité assurée — la part du capital couverte par
+            l'assurance — se choisit à la souscription, notamment entre coemprunteurs, où il est
+            fréquent de répartir la couverture (par exemple 50 % chacun ou 100 % chacun selon les
+            revenus respectifs). Une quotité inférieure à 100 % laisse une part du capital restant
+            dû à la charge de la succession en cas de décès. C'est un point à vérifier sur son
+            propre contrat, pas une garantie universelle.
+          </p>
+          <h3>Peut-on se voir refuser une assurance emprunteur, ou payer plus cher ?</h3>
+          <p>
+            Oui. Le questionnaire médical préalable peut conduire à des exclusions de garantie
+            ciblées, une surprime, ou plus rarement un refus, selon l'état de santé et l'âge à la
+            souscription. Des plafonds de capital assurable existent également au-delà d'un
+            certain montant ou d'un certain âge. Le droit à l'oubli et la convention AERAS
+            encadrent une partie de ces situations pour certaines pathologies, mais ne les
+            suppriment pas toutes.
+          </p>
+          <h3>Un PER bancaire bénéficie-t-il du même abattement successoral qu'un PER assurantiel ?</h3>
+          <p>
+            Non. Seul le PER assurantiel profite de la mécanique de transmission décrite dans cet
+            article. Un PER bancaire, ou la plupart des PER collectifs d'entreprise, fonctionne
+            comme un compte-titres : au décès, le capital entre dans la masse successorale
+            classique, sans abattement dédié.
+          </p>
+          <h3>L'indivision entre héritiers peut-elle bloquer la vente d'un bien transmis ?</h3>
+          <p>
+            Oui, potentiellement. Certains actes de disposition (vente du bien, par exemple)
+            requièrent l'accord d'une majorité qualifiée des indivisaires, voire l'unanimité selon
+            les cas, ce qui peut geler une décision pendant des années en cas de désaccord entre
+            héritiers.
+          </p>
+          <h3>Le démembrement de propriété évite-t-il totalement les droits de succession ?</h3>
+          <p>
+            Non, il ne les évite pas totalement mais peut en réduire l'assiette : transmettre la
+            nue-propriété de son vivant tout en conservant l'usufruit permet de calculer les droits
+            sur une valeur réduite (celle de la nue-propriété, selon un barème fiscal fonction de
+            l'âge de l'usufruitier), et non sur la pleine propriété. Le calcul précis dépend de
+            nombreux paramètres et s'étudie au cas par cas.
+          </p>
+          <h3>Faut-il choisir entre PER et immobilier, ou peut-on faire les deux ?</h3>
+          <p>
+            Les deux se combinent fréquemment dans les patrimoines que nous accompagnons : chacun
+            répond à un besoin différent, à des moments différents d'une même vie patrimoniale,
+            plutôt qu'à un choix exclusif.
           </p>
 
           <h2 id="analyse">Notre analyse : deux outils complémentaires, pas concurrents</h2>

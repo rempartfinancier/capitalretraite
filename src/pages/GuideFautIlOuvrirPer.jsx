@@ -7,6 +7,36 @@ import {
   pct,
 } from "../components/hypotheses.js";
 
+// Grille d'auto-diagnostic des 5 cas où ouvrir un PER est déconseillé —
+// utilisée dans le tableau de la section 1-5.
+const CAS_NON = [
+  {
+    situation: "Votre TMI est à 0 % ou 11 %",
+    probleme: "La déduction à l'entrée est marginale ou nulle",
+    ancre: "#tmi-faible",
+  },
+  {
+    situation: "Vous n'avez pas d'épargne de précaution constituée",
+    probleme: "L'argent versé sur un PER est bloqué jusqu'à la retraite",
+    ancre: "#precaution",
+  },
+  {
+    situation: "Vous pourriez avoir besoin de ces fonds avant la retraite",
+    probleme: "Hors déblocage anticipé légal, l'argent reste indisponible",
+    ancre: "#besoin-fonds",
+  },
+  {
+    situation: "« Payer moins d'impôts » est votre seul motif",
+    probleme: "La déduction est un report, pas un gain acquis",
+    ancre: "#seul-motif",
+  },
+  {
+    situation: "Le contrat proposé est un mauvais contrat",
+    probleme: "Frais élevés, gestion pilotée coûteuse, fonds en euros pour seul support",
+    ancre: "#mauvais-contrat",
+  },
+];
+
 export default function GuideFautIlOuvrirPer() {
   return (
     <>
@@ -18,6 +48,18 @@ export default function GuideFautIlOuvrirPer() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> ouvrir un PER n'est pas toujours une bonne idée. La
+              réponse est le plus souvent non si votre TMI est à 0 ou 11 %, si vous n'avez pas
+              d'épargne de précaution constituée, si vous pourriez avoir besoin de ces fonds avant
+              la retraite, si « payer moins d'impôts » est votre seul motif, ou si le contrat
+              proposé est mauvais (frais élevés, gestion pilotée coûteuse, fonds en euros comme
+              seul support). À l'inverse, le PER devient pertinent avec une TMI élevée amenée à
+              baisser à la retraite, et surtout pour un objectif rarement mis en avant : protéger
+              sa famille en cas de décès.
+            </p>
+          </div>
           <p>
             Un vendeur de PER (plan d'épargne retraite, l'enveloppe créée par la loi Pacte pour
             capitaliser en vue de la retraite) vous répondra toujours oui. C'est le produit qu'il
@@ -29,6 +71,7 @@ export default function GuideFautIlOuvrirPer() {
           <div className="sommaire">
             <strong>Sommaire</strong>
             <ol>
+              <li><a href="#grille">La grille d'auto-diagnostic en un coup d'œil</a></li>
               <li><a href="#tmi-faible">TMI à 0 ou 11 % : la déduction pèse peu</a></li>
               <li><a href="#precaution">Pas d'épargne de précaution constituée</a></li>
               <li><a href="#besoin-fonds">Besoin des fonds avant la retraite</a></li>
@@ -37,8 +80,36 @@ export default function GuideFautIlOuvrirPer() {
               <li><a href="#quand-oui">Et les cas où le PER excelle ?</a></li>
               <li><a href="#transmission">L'angle le moins connu : protection familiale et transmission</a></li>
               <li><a href="#enfants">Le cas particulier des enfants majeurs rattachés</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
+          </div>
+
+          <h2 id="grille">La grille d'auto-diagnostic : les 5 signaux qui doivent faire hésiter</h2>
+          <p>
+            Avant le détail de chaque cas, voici la grille de lecture rapide. Si une seule de ces
+            lignes correspond à votre situation, la section associée mérite d'être lue avant toute
+            décision.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Votre situation</th>
+                  <th>Pourquoi c'est un problème</th>
+                  <th>Détail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {CAS_NON.map((cas) => (
+                  <tr key={cas.ancre}>
+                    <td>{cas.situation}</td>
+                    <td>{cas.probleme}</td>
+                    <td><a href={cas.ancre}>Voir la section</a></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           <h2 id="tmi-faible">1. Votre TMI est à 0 ou 11 % : la déduction pèse peu</h2>
@@ -201,7 +272,8 @@ export default function GuideFautIlOuvrirPer() {
           <p>
             Un enfant majeur rattaché au foyer fiscal peut ouvrir son propre PER : chaque
             versement réduit alors le revenu imposable global du foyer, dans la limite du plafond
-            de déduction propre à l'enfant — de l'ordre de 4 710 € en {HYPOTHESES_MAJ} (montant à
+            de déduction propre à l'enfant — de l'ordre de{" "}
+            {euros(FISCALITE.perPlafondEnfantRattache)} en {HYPOTHESES_MAJ} (montant à
             vérifier avant toute décision, les plafonds étant révisés chaque année). Ce levier
             suppose deux précautions : que les versements soient clairement identifiés — présent
             d'usage ou don déclaré — et que la sortie future soit anticipée, puisqu'un déblocage
@@ -210,6 +282,47 @@ export default function GuideFautIlOuvrirPer() {
             sans réflexion sur la situation fiscale de l'enfant à moyen terme. Notre guide{" "}
             <a href="/guide/a-quel-age-commencer-per">à quel âge commencer un PER</a> revient sur
             ces questions de calendrier.
+          </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Peut-on retirer l'argent d'un PER avant la retraite en cas d'urgence ?</h3>
+          <p>
+            Seulement dans les six cas de déblocage anticipé prévus par la loi (décès du conjoint,
+            invalidité, surendettement, fin des droits au chômage, liquidation judiciaire de son
+            activité, achat de la résidence principale). En dehors de ces cas, l'argent reste
+            bloqué jusqu'à la retraite.
+          </p>
+          <h3>Que se passe-t-il si je change d'avis après avoir ouvert un PER ?</h3>
+          <p>
+            Un délai de renonciation légal existe à la souscription, mais passé ce délai, il n'est
+            pas possible de « fermer » un PER pour récupérer l'argent librement : seuls les cas de
+            déblocage anticipé ou la liquidation à la retraite permettent une sortie.
+          </p>
+          <h3>Un PER ouvert « pour l'impôt » à 30 % de TMI est-il toujours une erreur ?</h3>
+          <p>
+            Non, pas toujours : mais ce n'est pas non plus automatiquement une bonne affaire.
+            Tout dépend de l'écart réel entre votre TMI actuelle et votre TMI anticipée à la
+            retraite, et de la qualité du contrat — un mauvais contrat peut annuler l'avantage
+            fiscal.
+          </p>
+          <h3>Faut-il ouvrir un PER si on est proche de la retraite ?</h3>
+          <p>
+            Cela dépend surtout de l'horizon de placement restant et du mode de sortie envisagé,
+            pas uniquement de l'âge : un versement juste avant la liquidation profite pleinement
+            de la déduction, mais laisse peu de temps à l'épargne pour fructifier.
+          </p>
+          <h3>Le PER est-il plus intéressant que l'assurance-vie pour transmettre à mes enfants ?</h3>
+          <p>
+            Les deux offrent des abattements successoraux comparables dans certains cas, mais les
+            règles diffèrent (âge au décès pour le PER, date des versements pour l'assurance-vie).
+            Notre comparatif <a href="/guide/per-vs-assurance-vie-retraite">PER ou assurance-vie</a>{" "}
+            détaille ces différences.
+          </p>
+          <h3>Dois-je verser le maximum déductible chaque année ?</h3>
+          <p>
+            Non, ce n'est pas une obligation ni toujours une bonne pratique : le montant versé
+            doit rester cohérent avec votre épargne de précaution, vos autres projets et votre
+            capacité à immobiliser cette somme jusqu'à la retraite.
           </p>
 
           <h2 id="synthese">Notre analyse, en synthèse</h2>

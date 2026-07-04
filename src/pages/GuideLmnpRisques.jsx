@@ -17,6 +17,16 @@ export default function GuideLmnpRisques() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> le LMNP offre un avantage fiscal réel via l'amortissement,
+              mais chacun de ses six risques principaux a une contrepartie concrète — dépendance à un
+              exploitant, marché de revente plus étroit, vacance et coût comptable, et une réforme
+              récente qui alourdit la fiscalité de la plus-value à la revente. Nous ne chiffrons
+              volontairement pas l'ampleur exacte de cette réforme, faute de données fiables pour le
+              faire sérieusement : mieux vaut cette prudence qu'un chiffre approximatif.
+            </p>
+          </div>
           <p>
             Le statut LMNP (loueur en meublé non professionnel) figure parmi les arguments
             commerciaux les plus utilisés du marché immobilier, résidences de services en tête.
@@ -38,6 +48,8 @@ export default function GuideLmnpRisques() {
               <li><a href="#liquidite">La liquidité et la revente</a></li>
               <li><a href="#vacance">Vacance locative et comptabilité</a></li>
               <li><a href="#direct">Le LMNP en direct, hors résidence gérée</a></li>
+              <li><a href="#tableau">Les six risques en un tableau</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -168,6 +180,130 @@ export default function GuideLmnpRisques() {
             loyers {RENDEMENTS.lmnp.periode}) — un ordre de grandeur brut, hors vacance, travaux et
             fiscalité, qui ne préjuge en rien du rendement net réel de votre projet ni des
             performances futures du marché locatif local.
+          </p>
+
+          <h2 id="tableau">Les six risques en un tableau</h2>
+          <p>
+            Voici la synthèse des six mécanismes détaillés ci-dessus, à garder comme grille de
+            vigilance plutôt que comme motif d'écarter le statut par principe.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Risque</th>
+                  <th>Mécanisme</th>
+                  <th>Contre-mesure</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Charge comptable du régime réel</td>
+                  <td>
+                    Seul le régime réel donne accès à l'amortissement, mais il exige bilan et
+                    liasse fiscale, généralement confiés à un expert-comptable
+                  </td>
+                  <td>Budgéter ce coût récurrent dès le calcul de rentabilité initial</td>
+                </tr>
+                <tr>
+                  <td>Réforme fiscale sur la plus-value de revente</td>
+                  <td>
+                    Les amortissements pratiqués sont désormais réintégrés dans le calcul de la
+                    plus-value imposable à la revente, ce qui alourdit la fiscalité, surtout en
+                    cas de revente précoce
+                  </td>
+                  <td>
+                    Faire vérifier l'impact exact par un professionnel du chiffre avant tout achat
+                    ou arbitrage — nous ne publions volontairement aucun chiffre faute de données
+                    fiables pour le faire sérieusement
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dépendance à l'exploitant</td>
+                  <td>
+                    En résidence gérée, le loyer dépend de la solidité financière de l'exploitant
+                    et de sa position de force au renouvellement du bail commercial
+                  </td>
+                  <td>
+                    Étudier la solidité de l'exploitant avant achat ; savoir que changer
+                    d'exploitant suppose l'accord de l'ensemble des copropriétaires-bailleurs
+                  </td>
+                </tr>
+                <tr>
+                  <td>Liquidité et étroitesse du marché de revente</td>
+                  <td>
+                    Un bien en résidence gérée se revend surtout à d'autres investisseurs, qui
+                    scrutent le bail restant et la solidité de l'exploitant
+                  </td>
+                  <td>Anticiper un délai de revente plus long dans la construction de la stratégie</td>
+                </tr>
+                <tr>
+                  <td>Vacance locative</td>
+                  <td>
+                    Même garanti par bail commercial, un loyer n'est jamais à l'abri d'une
+                    défaillance, d'une renégociation ou d'une vacance en direct
+                  </td>
+                  <td>Intégrer une hypothèse de vacance réaliste au calcul de rentabilité dès l'achat</td>
+                </tr>
+                <tr>
+                  <td>Gestion réelle en LMNP direct</td>
+                  <td>
+                    Hors résidence gérée, la recherche de locataire, les impayés et l'entretien
+                    reviennent à l'investisseur ou à une agence rémunérée
+                  </td>
+                  <td>
+                    Valoriser le temps passé ou le coût d'une délégation avant de choisir cette
+                    voie par défaut
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Le LMNP est-il plus risqué que le locatif nu ?</h3>
+          <p>
+            Pas plus risqué dans l'absolu, mais différemment : le locatif nu n'a pas de dépendance
+            à un exploitant ni la même charge comptable, mais il n'offre pas non plus
+            l'amortissement. Notre guide{" "}
+            <a href="/guide/lmnp-ou-locatif-nu">LMNP ou locatif nu</a> détaille cet arbitrage
+            complet, au-delà des seuls risques traités ici.
+          </p>
+          <h3>Peut-on éviter tous ces risques en investissant en LMNP via une SCPI plutôt qu'en direct ?</h3>
+          <p>
+            Une SCPI mutualise le risque locatif et de gestion sur de nombreux biens, ce qui répond
+            à certains des risques évoqués ici (vacance, gestion), mais elle en introduit d'autres,
+            propres à ce véhicule (frais d'entrée, liquidité des parts). Le sujet mérite un examen
+            à part entière, que nous ne développons pas ici : voir{" "}
+            <a href="https://www.scpirentable.fr">scpirentable.fr</a>.
+          </p>
+          <h3>Faut-il éviter les résidences de services à cause du risque exploitant ?</h3>
+          <p>
+            Non, mais ce risque doit être étudié avant l'achat, pas découvert après : la solidité
+            financière de l'exploitant, son ancienneté sur ce type de résidence et les conditions du
+            bail commercial sont des points à vérifier systématiquement, pas des détails annexes.
+          </p>
+          <h3>La réintégration des amortissements à la revente s'applique-t-elle au micro-BIC ?</h3>
+          <p>
+            Non, cette réforme ne concerne que le régime réel, seul régime qui pratique
+            l'amortissement. Le micro-BIC, avec son abattement forfaitaire, n'est pas affecté par ce
+            mécanisme, mais il ne bénéficie pas non plus de l'avantage fiscal de l'amortissement en
+            phase de détention.
+          </p>
+          <h3>Un bien LMNP mal choisi peut-il devenir invendable ?</h3>
+          <p>
+            Invendable serait excessif, mais un bien en résidence gérée dont l'exploitant est
+            fragile ou le bail arrive à échéance peut voir son délai de revente s'allonger
+            fortement et son prix se négocier nettement à la baisse — d'où l'importance d'étudier
+            ces éléments avant l'achat plutôt qu'à la revente.
+          </p>
+          <h3>Faut-il renoncer au LMNP à cause de l'incertitude sur la réforme fiscale ?</h3>
+          <p>
+            Pas nécessairement : l'incertitude porte sur l'ampleur exacte de l'impact selon la durée
+            de détention, pas sur l'existence même de l'avantage fiscal en phase de détention, qui
+            reste réel. Elle justifie en revanche de faire vérifier l'impact par un professionnel
+            avant de s'engager, et de privilégier un horizon de détention long plutôt qu'une
+            revente rapide.
           </p>
 
           <h2 id="synthese">Notre analyse, en synthèse</h2>
