@@ -1,5 +1,5 @@
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
-import { FISCALITE, HYPOTHESES_MAJ, pct } from "../components/hypotheses.js";
+import { FISCALITE, HYPOTHESES_MAJ, RENDEMENTS, pct } from "../components/hypotheses.js";
 
 export default function GuideInconvenientsPea() {
   return (
@@ -12,6 +12,18 @@ export default function GuideInconvenientsPea() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> le PEA cumule six limites réelles — plafond de
+              versements, clôture du plan en cas de retrait avant {FISCALITE.peaExonerationIRApres}{" "}
+              ans, univers restreint aux actions européennes, clôture automatique et absence
+              d'abattement successoral au décès, frais variables selon l'établissement, et une
+              discipline de gestion qui ne va pas de soi. Aucune de ces limites n'est rédhibitoire
+              une fois connue et anticipée, et c'est précisément la raison pour laquelle le PEA
+              demeure, malgré elles, l'une des enveloppes les plus efficaces pour préparer des
+              revenus de retraite consommés par son titulaire.
+            </p>
+          </div>
           <p>
             Le PEA (plan d'épargne en actions) revient constamment dans nos recommandations pour
             préparer la retraite. Cela ne dispense pas de nommer ses limites. Une enveloppe fiscale
@@ -28,6 +40,8 @@ export default function GuideInconvenientsPea() {
               <li><a href="#deces">Le sort au décès : une enveloppe qui ne transmet pas</a></li>
               <li><a href="#frais">Des frais qui varient fortement selon l'établissement</a></li>
               <li><a href="#discipline">La discipline requise : l'enveloppe n'est pas la stratégie</a></li>
+              <li><a href="#tableau">Le tableau de synthèse des six inconvénients</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Malgré tout cela, pourquoi le PEA reste central</a></li>
             </ol>
           </div>
@@ -68,13 +82,19 @@ export default function GuideInconvenientsPea() {
             investi en actions, soit il en sort.
           </p>
           <p>
-            Cela signifie des baisses de 30 à 50 % déjà observées sur les marchés actions lors de
-            certaines périodes (2000-2002, 2008) — un fait historique, pas une prédiction, mais un
-            scénario qu'il ne faut jamais perdre de vue en y logeant son épargne. Un PEA détenu sur
-            un horizon court, ou destiné à financer un besoin daté avec précision, expose donc à un
-            risque de devoir vendre au mauvais moment. Les performances passées ne préjugent en rien
-            des performances futures : ce rappel vaut à chaque fois qu'un rendement ou une évolution
-            de marché est mentionné dans cet article.
+            Cela signifie qu'un PEA peut traverser des phases de baisse marquée : les grands indices
+            actions européens et mondiaux ont déjà connu, à plusieurs reprises au cours de leur
+            histoire, des replis de grande ampleur — pouvant représenter plusieurs dizaines de
+            pourcents de la valeur du portefeuille — avant de se redresser sur la durée. Ce n'est pas
+            une prédiction, mais un ordre de grandeur qu'il ne faut jamais perdre de vue en y logeant
+            son épargne : les rendements moyens de long terme évoqués plus haut pour les supports
+            actions ({pct(RENDEMENTS.ucActionsLongTerme.min)} à {pct(RENDEMENTS.ucActionsLongTerme.max)}{" "}
+            par an sur {RENDEMENTS.ucActionsLongTerme.periode}) s'obtiennent en acceptant de traverser
+            ce type d'épisode sans céder à la panique. Un PEA détenu sur un horizon court, ou destiné
+            à financer un besoin daté avec précision, expose donc à un risque de devoir vendre au
+            mauvais moment. Les performances passées ne préjugent en rien des performances futures :
+            ce rappel vaut à chaque fois qu'un rendement ou une évolution de marché est mentionné
+            dans cet article.
           </p>
           <p>
             Une conséquence pratique de cette restriction géographique : les indices mondiaux ou
@@ -138,6 +158,110 @@ export default function GuideInconvenientsPea() {
             fiscale avantageuse appliquée à une gestion approximative ne produit pas un bon résultat
             approximatif : elle produit, la plupart du temps, un résultat décevant à fiscalité
             allégée.
+          </p>
+
+          <h2 id="tableau">Le tableau de synthèse des six inconvénients</h2>
+          <p>
+            Pour une vue d'ensemble rapide, voici les six limites détaillées plus haut, avec leur
+            impact concret et la parade à connaître pour chacune.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Inconvénient</th>
+                  <th>Impact</th>
+                  <th>Parade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Plafond de versements strict</td>
+                  <td>150 000 € par personne, au-delà impossible de continuer à verser sur ce PEA</td>
+                  <td>Ouvrir un PEA-PME en complément, ou un second PEA au nom du conjoint</td>
+                </tr>
+                <tr>
+                  <td>Clôture en cas de retrait avant {FISCALITE.peaExonerationIRApres} ans</td>
+                  <td>Perte de l'avantage fiscal attaché à l'ancienneté, sauf exceptions légales</td>
+                  <td>« Prendre date » tôt : ouvrir le plan dès que possible, même avec un petit versement</td>
+                </tr>
+                <tr>
+                  <td>Univers d'investissement restreint</td>
+                  <td>Exposition aux seules actions européennes, aucune poche sécurisée possible</td>
+                  <td>Compléter avec une assurance-vie ou un PER pour la partie prudente de l'épargne</td>
+                </tr>
+                <tr>
+                  <td>Clôture automatique au décès</td>
+                  <td>Le plan ne se transmet pas ; les titres rejoignent la succession sans abattement propre</td>
+                  <td>Articuler le PEA avec une assurance-vie ou un PER pour la stratégie de transmission</td>
+                </tr>
+                <tr>
+                  <td>Frais variables selon l'établissement</td>
+                  <td>Écarts significatifs sur la performance nette, cumulés sur dix ou vingt ans</td>
+                  <td>Comparer les grilles tarifaires avant l'ouverture (voir notre guide banque ou courtier)</td>
+                </tr>
+                <tr>
+                  <td>Discipline de gestion exigeante</td>
+                  <td>Une allocation mal diversifiée ou des retraits paniques en baisse annulent l'avantage fiscal</td>
+                  <td>Diversifier les supports, tenir sa position en phase de baisse, être accompagné en cas de doute</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Puis-je éviter la clôture du PEA au décès du titulaire ?</h3>
+          <p>
+            Non : la clôture au décès est une règle légale attachée à l'enveloppe elle-même, pas une
+            option contractuelle sur laquelle on pourrait revenir. Ce qui se prépare, en revanche,
+            c'est la stratégie autour de cette règle — par exemple en équilibrant le PEA avec une
+            assurance-vie ou un PER, enveloppes qui offrent chacune un traitement successoral plus
+            favorable, pour que la transmission ne repose pas sur le PEA.
+          </p>
+          <h3>Le PEA-PME présente-t-il les mêmes inconvénients que le PEA classique ?</h3>
+          <p>
+            Oui, pour l'essentiel : même contrainte de durée de {FISCALITE.peaExonerationIRApres}{" "}
+            ans avant retrait sans clôture, même sort au décès, même exposition aux seules actions
+            (ici des petites et moyennes entreprises européennes, par nature plus volatiles que les
+            grandes capitalisations). Son plafond de versements est distinct de celui du PEA
+            classique, ce qui permet de les cumuler, mais il n'échappe à aucune des autres limites
+            décrites dans cet article.
+          </p>
+          <h3>Que deviennent les titres d'un PEA après la clôture au décès ?</h3>
+          <p>
+            Ils rejoignent le compte-titres ordinaire du défunt et entrent dans la masse successorale
+            au même titre que n'importe quel autre actif financier, sans abattement propre à
+            l'enveloppe. Les héritiers reçoivent des titres en compte-titres ordinaire, pas un PEA
+            qu'ils pourraient continuer à faire fructifier sous ce régime.
+          </p>
+          <h3>Un retrait après {FISCALITE.peaExonerationIRApres} ans a-t-il des conséquences sur le plan ?</h3>
+          <p>
+            Non : une fois ce cap franchi, les retraits, partiels ou totaux, n'entraînent plus la
+            fermeture du plan et ne sont plus soumis à l'impôt sur le revenu sur la part de gains
+            retirée — seuls les prélèvements sociaux restent dus. C'est précisément ce qui rend le
+            PEA flexible une fois l'ancienneté acquise.
+          </p>
+          <h3>Le plafond de versements inclut-il les gains accumulés ?</h3>
+          <p>
+            Non : le plafond de 150 000 € porte uniquement sur les sommes versées, pas sur la valeur
+            atteinte par le plan. Un PEA alimenté jusqu'au plafond peut valoir, des années plus tard,
+            bien davantage grâce à la performance des supports détenus — performance qui reste par
+            nature non garantie.
+          </p>
+          <h3>Faut-il renoncer au PEA à cause de ces inconvénients ?</h3>
+          <p>
+            Pas dans le cas général. Chacune de ces limites se gère une fois connue : elles
+            n'empêchent pas le PEA de rester, pour la plupart des épargnants, l'enveloppe la plus
+            efficace pour se constituer des revenus de retraite consommés de son vivant. La bonne
+            question n'est pas « faut-il un PEA », mais « comment l'articuler avec les autres
+            enveloppes » pour compenser ce qu'il ne fait pas — transmettre notamment.
+          </p>
+          <h3>Le risque de perte en capital du PEA est-il différent de celui d'un compte-titres ordinaire ?</h3>
+          <p>
+            Non, le risque de marché est identique à exposition égale : le PEA est une enveloppe
+            fiscale, pas un mécanisme de protection du capital. Sa seule différence avec un
+            compte-titres ordinaire porte sur la fiscalité et l'éligibilité des titres, pas sur le
+            niveau de risque des placements qu'il contient.
           </p>
 
           <h2 id="synthese">Malgré tout cela, pourquoi le PEA reste central</h2>

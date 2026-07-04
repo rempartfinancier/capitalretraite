@@ -12,6 +12,16 @@ export default function GuideCinqErreursLocatif() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> juger un bien à son seul prix au m² masque le rendement
+              net réel ; viser le cash-flow positif à tout prix pousse souvent vers un bien médiocre
+              mal situé ; sous-estimer la gestion et la vacance locative gonfle artificiellement le
+              rendement affiché ; empiler les crédits sans tenir compte du plafond d'endettement du
+              HCSF peut bloquer un projet en plein financement ; et négliger d'anticiper la sortie ou
+              la transmission reporte un problème sans jamais le résoudre.
+            </p>
+          </div>
           <p>
             L'investissement locatif reste, dans notre analyse, l'un des rares outils accessibles
             au grand public pour préparer sa retraite avec l'argent de la banque plutôt qu'avec le
@@ -29,6 +39,8 @@ export default function GuideCinqErreursLocatif() {
               <li><a href="#gestion">3. Sous-estimer la gestion et la vacance locative</a></li>
               <li><a href="#endettement">4. Ignorer les règles d'endettement et empiler les crédits</a></li>
               <li><a href="#sortie">5. Négliger la sortie et la transmission</a></li>
+              <li><a href="#recapitulatif">Les 5 erreurs en un coup d'œil</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -118,7 +130,15 @@ export default function GuideCinqErreursLocatif() {
             crédits immobiliers : le taux d'effort (la part des revenus mensuels consacrée au
             remboursement de l'ensemble des crédits) est plafonné à 35 % des revenus, et les loyers
             perçus ne sont retenus qu'à hauteur d'une fraction — généralement entre 70 et 90 % selon
-            les établissements — dans le calcul de ce ratio. Résultat concret : un investisseur déjà
+            les établissements — dans le calcul de ce ratio (voir la{" "}
+            <a
+              href="https://www.economie.gouv.fr/hcsf/mesures/mesure-relative-loctroi-de-credits-immobiliers"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              décision officielle du HCSF sur l'octroi de crédits immobiliers
+            </a>
+            ). Résultat concret : un investisseur déjà
             engagé sur plusieurs crédits atteint plus vite qu'auparavant le plafond au-delà duquel
             aucune banque ne prêtera davantage, quelle que soit la qualité de l'opération proposée.
             Empiler les crédits sans vision d'ensemble — sans anticiper ce plafond, sans consolider
@@ -155,6 +175,123 @@ export default function GuideCinqErreursLocatif() {
             l'objet de notre page sur{" "}
             <a href="/strategies/decumulation">la décumulation</a>, qui traite justement de
             l'organisation des retraits et de la consommation du patrimoine à la retraite.
+          </p>
+
+          <h2 id="recapitulatif">Les 5 erreurs en un coup d'œil</h2>
+          <p>
+            Le tableau ci-dessous reprend en synthèse visuelle ce que nous venons de détailler :
+            à conserver comme grille de relecture rapide avant de vous engager sur un projet locatif.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Erreur</th>
+                  <th>Coût réel</th>
+                  <th>Parade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1. Se fier au prix au m²</td>
+                  <td>
+                    Deux biens au même prix au m² peuvent afficher des rendements nets du simple au
+                    double une fois charges, vacance et fiscalité intégrées
+                  </td>
+                  <td>
+                    Raisonner en loyer net réellement encaissable rapporté au prix total de revient,
+                    notaire et travaux compris
+                  </td>
+                </tr>
+                <tr>
+                  <td>2. Viser le cash-flow positif à tout prix</td>
+                  <td>
+                    Oriente mécaniquement vers des biens moins chers, dans des zones où le risque
+                    locatif (impayés, vacance, dégradation) est plus élevé
+                  </td>
+                  <td>
+                    Considérer le cash-flow comme un critère de confort parmi d'autres, jamais
+                    l'objectif premier de l'acquisition
+                  </td>
+                </tr>
+                <tr>
+                  <td>3. Sous-estimer la gestion et la vacance locative</td>
+                  <td>
+                    Le rendement net réel, une fois vacance, impayés, frais de gestion et travaux
+                    déduits, est structurellement inférieur au rendement brut affiché
+                  </td>
+                  <td>
+                    Budgétiser ces postes en amont plutôt que de les découvrir en cours de détention
+                  </td>
+                </tr>
+                <tr>
+                  <td>4. Empiler les crédits sans vision d'ensemble</td>
+                  <td>
+                    Le plafond de taux d'effort du HCSF peut être atteint plus vite qu'anticipé,
+                    bloquant tout financement supplémentaire malgré un bien identifié
+                  </td>
+                  <td>
+                    Consolider sa capacité d'endettement globale avant chaque nouveau projet, plutôt
+                    que projet par projet isolément
+                  </td>
+                </tr>
+                <tr>
+                  <td>5. Négliger la sortie et la transmission</td>
+                  <td>
+                    Une fiscalité de plus-value non anticipée à la revente, ou des options de
+                    transmission plus limitées faute d'avoir organisé le démembrement en amont
+                  </td>
+                  <td>
+                    Esquisser dès l'achat une hypothèse de sortie — conserver, vendre ou transmettre
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Le taux d'effort de 35 % du HCSF s'applique-t-il aussi en location meublée (LMNP) ?</h3>
+          <p>
+            Oui, le plafond de taux d'effort s'applique quel que soit le régime locatif choisi, nu ou
+            meublé. Ce qui varie, c'est la part des loyers retenue par la banque dans le calcul du
+            ratio : les établissements appliquent généralement la même fourchette de 70 à 90 %, mais
+            certains se montrent plus prudents sur les loyers meublés jugés plus variables (locations
+            saisonnières ou étudiantes notamment).
+          </p>
+          <h3>Existe-t-il des exceptions au plafond HCSF de 35 % ?</h3>
+          <p>
+            Oui : les établissements bancaires disposent d'une marge de flexibilité leur permettant de
+            déroger au plafond pour une fraction de leur production trimestrielle de nouveaux crédits
+            immobiliers, réservée en priorité à l'achat de la résidence principale. Un investisseur
+            locatif ne doit donc pas compter sur cette marge par défaut : elle reste à la discrétion de
+            chaque banque et n'est pas acquise.
+          </p>
+          <h3>Le rendement brut affiché sur une annonce est-il un mensonge ?</h3>
+          <p>
+            Non, ce n'est pas un mensonge, mais un indicateur incomplet : il rapporte simplement le
+            loyer annuel théorique au prix d'achat, sans déduire la vacance, les impayés, la gestion ou
+            les travaux. Ce n'est trompeur que si on l'utilise seul pour décider, sans jamais le
+            recouper avec un calcul de rendement net.
+          </p>
+          <h3>Un cash-flow légèrement négatif chaque mois est-il forcément un mauvais signe ?</h3>
+          <p>
+            Non. Un effort d'épargne mensuel modéré et assumé, sur un bien bien situé et correctement
+            loué, peut être un choix parfaitement cohérent — c'est l'inverse, un cash-flow positif
+            obtenu au prix d'un bien médiocre ou mal placé, qui pose problème dans la durée.
+          </p>
+          <h3>Peut-on emprunter pour un investissement locatif une fois à la retraite ?</h3>
+          <p>
+            C'est possible mais plus contraint : la durée de crédit restante s'aligne rarement sur
+            l'horizon d'un retraité, et les banques regardent de près la pension perçue au moment
+            d'évaluer le taux d'effort. C'est une raison supplémentaire d'anticiper ce type de projet
+            avant la fin de la vie active plutôt qu'après.
+          </p>
+          <h3>Faut-il forcément vendre son bien locatif au moment de partir à la retraite ?</h3>
+          <p>
+            Non, il n'y a pas de règle unique : conserver, vendre ou transmettre dépendent de votre
+            fiscalité personnelle, de votre besoin de revenus complémentaires et de vos objectifs de
+            transmission. C'est précisément la question que traite notre page sur{" "}
+            <a href="/strategies/decumulation">la décumulation</a>.
           </p>
 
           <h2 id="synthese">Notre analyse, en synthèse</h2>

@@ -2,6 +2,7 @@ import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
 import {
   RENDEMENTS,
   FISCALITE,
+  GARANTIES,
   HYPOTHESES_MAJ,
   euros,
   pct,
@@ -18,6 +19,22 @@ export default function GuideRisquesAv() {
       </section>
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> l'assurance-vie n'est ni le placement sans risque que
+              certaines plaquettes commerciales laissent croire, ni le piège que décrivent certains
+              discours alarmistes. Votre épargne est une créance sur l'assureur, protégée jusqu'à{" "}
+              {euros(GARANTIES.fgapPlafondParAssureParAssureur)} par le FGAP en cas de défaillance
+              — un filet réel mais plafonné, qui
+              justifie de répartir un patrimoine important entre plusieurs assureurs. La loi Sapin 2
+              permet, en théorie, un blocage temporaire des rachats en cas de crise grave et avérée,
+              mais ce pouvoir n'a jamais été activé à l'échelle du marché. Les unités de compte ne
+              garantissent pas le capital, un rachat prend le plus souvent quelques jours à quelques
+              semaines (deux mois maximum), et l'inflation érode silencieusement un fonds en euros
+              trop prudent. Aucun de ces risques, correctement compris, ne disqualifie l'enveloppe —
+              mais aucun ne doit être ignoré non plus.
+            </p>
+          </div>
           <p>
             L'assurance-vie fait l'objet de deux discours qui se nourrissent l'un l'autre sans
             jamais se répondre. D'un côté, un catastrophisme qui fait de l'audience sur les
@@ -38,6 +55,8 @@ export default function GuideRisquesAv() {
               <li><a href="#delais">Les délais de rachat : l'assurance-vie n'est pas un compte courant</a></li>
               <li><a href="#risque-silencieux">Le risque silencieux : l'érosion par l'inflation</a></li>
               <li><a href="#gestion-pilotee">La gestion pilotée et les sorties au prorata</a></li>
+              <li><a href="#tableau-risques">Le tableau récapitulatif des risques</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
           </div>
@@ -57,33 +76,35 @@ export default function GuideRisquesAv() {
           <p>
             En cas de défaillance d'un assureur, un dispositif légal existe : le FGAP (Fonds de
             garantie des assurances de personnes), qui protège les épargnants jusqu'à un plafond
-            de 70 000 € par assuré et par assureur (plafond à vérifier avant publication, barème
-            en vigueur en {HYPOTHESES_MAJ}). C'est un filet de sécurité réel, mais un filet tout
+            de {euros(GARANTIES.fgapPlafondParAssureParAssureur)} par assuré et par assureur
+            (plafond à vérifier avant publication, barème en vigueur en {HYPOTHESES_MAJ}). C'est
+            un filet de sécurité réel, mais un filet tout
             de même : il ne couvre pas l'intégralité d'un patrimoine important logé chez un seul
             assureur, d'où l'intérêt, au-delà de certains montants, de répartir ses contrats.
           </p>
           <p>
             À titre de contraste, une phrase suffit : le régime luxembourgeois fonctionne
             autrement, via un mécanisme dit du triangle de sécurité qui ségrègue les actifs des
-            souscripteurs de ceux de l'assureur. Cette architecture ne change pas la nature
-            juridique de créance de l'épargnant, mais elle en modifie la portée ; nous ne la
-            développons pas ici — voir{" "}
-            <a href="https://assurancevie.lu" target="_blank" rel="noopener noreferrer">
-              assurancevie.lu
-            </a>{" "}
-            pour le détail de ce régime spécifique, réservé à des situations patrimoniales
-            particulières.
+            souscripteurs de ceux de l'assureur, sous le contrôle du Commissariat aux assurances
+            luxembourgeois. Cette architecture ne change pas la nature juridique de créance de
+            l'épargnant, mais elle en modifie la portée ; nous ne la développons pas ici — notre
+            guide dédié{" "}
+            <a href="/guide/assurance-vie-luxembourgeoise">l'assurance-vie luxembourgeoise</a>{" "}
+            détaille ce régime spécifique, réservé à des situations patrimoniales particulières.
           </p>
 
           <h2 id="sapin2">La loi Sapin 2 : un blocage possible, jamais activé</h2>
           <p>
-            La loi Sapin 2 (2016) a introduit une disposition précise : en cas de crise grave et
-            avérée du système financier, le Haut Conseil de stabilité financière peut décider de
-            limiter ou de bloquer temporairement les rachats sur les contrats d'assurance-vie,
-            afin d'éviter qu'une fuite massive des capitaux ne mette en péril les assureurs — et,
-            par ricochet, l'ensemble des épargnants restés dans le contrat. Il s'agit d'une
-            possibilité légale, pas d'une pratique courante : ce mécanisme n'a, à ce jour, jamais
-            été activé à l'échelle du marché.
+            La loi Sapin 2 (2016) a introduit une disposition précise, codifiée à l'article
+            L631-2-1 du Code monétaire et financier : en cas de crise grave et avérée du système
+            financier, le Haut Conseil de stabilité financière (HCSF) peut décider de limiter ou
+            de bloquer temporairement les rachats sur les contrats d'assurance-vie, afin d'éviter
+            qu'une fuite massive des capitaux ne mette en péril les assureurs — et, par ricochet,
+            l'ensemble des épargnants restés dans le contrat. Il s'agit d'une possibilité légale,
+            pas d'une pratique courante : selon les publications et rapports annuels du HCSF et de
+            l'Autorité de contrôle prudentiel et de résolution (ACPR), qui suivent chaque année la
+            situation du secteur de l'assurance-vie, ce pouvoir n'a, à ce jour, jamais été activé
+            à l'échelle du marché depuis son entrée en vigueur.
           </p>
           <p>
             Deux précisions s'imposent. D'abord, ce risque n'est pas propre aux contrats
@@ -168,6 +189,139 @@ export default function GuideRisquesAv() {
             </a>.
           </p>
 
+          <h2 id="tableau-risques">Le tableau récapitulatif des risques</h2>
+          <p>
+            Une synthèse des risques développés plus haut, à conserver comme grille de lecture :
+            aucun n'est théorique, mais aucun n'est non plus un motif suffisant pour écarter
+            l'enveloppe dans son ensemble.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Risque</th>
+                  <th>Probabilité / fréquence</th>
+                  <th>Comment s'en protéger</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Défaillance de l'assureur (créance non honorée)</td>
+                  <td>
+                    Très rare en France ; le FGAP couvre jusqu'à{" "}
+                    {euros(GARANTIES.fgapPlafondParAssureParAssureur)} par assuré et par assureur
+                    en cas de défaillance
+                  </td>
+                  <td>
+                    Choisir un assureur financièrement solide et, au-delà d'un certain montant,
+                    répartir son épargne entre plusieurs assureurs
+                  </td>
+                </tr>
+                <tr>
+                  <td>Blocage temporaire des rachats (loi Sapin 2)</td>
+                  <td>
+                    Possibilité légale depuis 2016, jamais activée à ce jour à l'échelle du
+                    marché selon les suivis du HCSF et de l'ACPR
+                  </td>
+                  <td>
+                    Ne jamais loger son épargne de précaution exclusivement en assurance-vie ;
+                    garder une réserve disponible sous quelques jours ailleurs
+                  </td>
+                </tr>
+                <tr>
+                  <td>Perte en capital sur les unités de compte</td>
+                  <td>
+                    Fréquent et normal : les UC fluctuent à la hausse comme à la baisse selon les
+                    marchés, sans garantie de capital
+                  </td>
+                  <td>
+                    Doser la part d'UC selon son horizon réel et sa tolérance au risque, jamais
+                    par défaut ni sur la seule promesse de rendement
+                  </td>
+                </tr>
+                <tr>
+                  <td>Délai de traitement d'un rachat</td>
+                  <td>
+                    Systématique : quelques jours à quelques semaines en pratique, deux mois au
+                    maximum légal
+                  </td>
+                  <td>
+                    Ne pas compter sur l'assurance-vie pour une dépense imprévue à régler dans
+                    l'heure ; prévoir une épargne de précaution sur un support plus liquide
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Et si mon assureur fait faillite, je perds tout ?</h3>
+          <p>
+            Non, dans l'immense majorité des cas. Le FGAP (Fonds de garantie des assurances de
+            personnes) protège chaque assuré jusqu'à{" "}
+            {euros(GARANTIES.fgapPlafondParAssureParAssureur)} par assureur en cas de défaillance
+            avérée. Ce plafond est un filet de sécurité réel, mais il ne couvre pas l'intégralité
+            d'un patrimoine important logé chez un seul assureur : c'est précisément la raison de
+            répartir ses contrats au-delà d'un certain montant plutôt que de tout concentrer chez
+            un unique assureur, même solide.
+          </p>
+          <h3>L'État peut-il bloquer mon argent du jour au lendemain ?</h3>
+          <p>
+            Un blocage n'est pas exclu par la loi, mais il n'a rien d'arbitraire ni d'immédiat.
+            Seul le Haut Conseil de stabilité financière peut activer ce pouvoir, et seulement en
+            cas de crise grave et avérée du système financier — pas sur simple décision politique
+            ni du jour au lendemain sans justification. Ce pouvoir existe depuis 2016 et n'a, à ce
+            jour, jamais été mis en œuvre à l'échelle du marché.
+          </p>
+          <h3>Le FGAP me protège-t-il complètement, quelle que soit la somme ?</h3>
+          <p>
+            Non. La protection est plafonnée à{" "}
+            {euros(GARANTIES.fgapPlafondParAssureParAssureur)} par assuré et par assureur, pas par
+            contrat ni sans limite. Au-delà de ce montant sur un même assureur, la part excédentaire
+            ne bénéficie plus de cette garantie légale en cas de défaillance — d'où l'intérêt de
+            diversifier les compagnies d'assurance pour un patrimoine conséquent.
+          </p>
+          <h3>Souscrire à l'étranger permet-il d'échapper à la loi Sapin 2 ?</h3>
+          <p>
+            Non, pas de façon fiable. Une bonne partie des fonds en euros commercialisés hors de
+            France reste réassurée sur le marché français, ce qui expose indirectement au même
+            risque réglementaire. Ce n'est donc pas un motif suffisant, à lui seul, pour préférer
+            un contrat étranger à un contrat français.
+          </p>
+          <h3>Puis-je perdre de l'argent même sur un fonds en euros, réputé sans risque ?</h3>
+          <p>
+            Pas en capital nominal : le fonds en euros garantit que le solde affiché ne baisse
+            jamais. Mais le pouvoir d'achat de ce capital peut s'éroder si le rendement net reste
+            durablement inférieur à l'inflation, sans qu'aucune ligne du relevé ne le signale
+            explicitement — un risque réel, mais silencieux, différent d'une perte en capital
+            visible sur les unités de compte.
+          </p>
+          <h3>Si je dois récupérer mon argent en urgence, combien de temps cela prend-il vraiment ?</h3>
+          <p>
+            En pratique, le plus souvent de quelques jours à quelques semaines pour un virement
+            effectif sur le compte bancaire, selon l'assureur et les supports concernés. Le délai
+            légal maximal est de deux mois. Ce n'est jamais instantané : l'assurance-vie n'est pas
+            conçue pour une dépense à régler dans l'heure, ce qui justifie de garder une épargne de
+            précaution disponible ailleurs.
+          </p>
+          <h3>Les unités de compte peuvent-elles me faire perdre tout mon capital ?</h3>
+          <p>
+            Une perte totale est théoriquement possible mais extrêmement improbable pour un
+            portefeuille diversifié sur des supports usuels (actions, obligations, immobilier) :
+            la baisse porte alors sur la valeur des supports, pas sur une disparition brutale de
+            la somme investie. Le risque réel est une baisse temporaire ou durable de la valeur du
+            contrat, d'autant plus significative que la part d'UC est élevée et l'horizon de
+            placement court.
+          </p>
+          <h3>Est-ce que je dois éviter l'assurance-vie à cause de ces risques ?</h3>
+          <p>
+            Pas nécessairement : chacun de ces risques, correctement compris, appelle une décision
+            précise (répartir ses contrats, doser les UC, garder une épargne de précaution
+            ailleurs) plutôt qu'un rejet de l'enveloppe dans son ensemble. L'assurance-vie reste,
+            dans notre analyse, l'une des enveloppes les plus polyvalentes du droit français pour
+            qui en maîtrise les mécanismes.
+          </p>
+
           <h2 id="synthese">Notre analyse, en synthèse</h2>
           <p>
             Aucun de ces risques, pris isolément, ne disqualifie l'assurance-vie. Elle demeure,
@@ -196,7 +350,24 @@ export default function GuideRisquesAv() {
               des constats passés datés et sourcés, et les performances passées ne préjugent pas
               des performances futures. Les prélèvements sociaux applicables à l'assurance-vie
               restent fixés à {pct(FISCALITE.prelevementsSociaux.assuranceVie)}, un taux que la
-              hausse introduite par la LFSS 2026 n'a pas concerné.
+              hausse introduite par la LFSS 2026 n'a pas concerné. Pour les textes de référence sur
+              la garantie des contrats et le mécanisme de la loi Sapin 2, voir les fiches officielles
+              de{" "}
+              <a
+                href="https://www.service-public.fr/particuliers/vosdroits/F32888"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                service-public.fr sur l'assurance-vie
+              </a>{" "}
+              et les publications de{" "}
+              <a
+                href="https://acpr.banque-france.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                l'ACPR
+              </a>.
             </p>
           </div>
           <AuthorBox />

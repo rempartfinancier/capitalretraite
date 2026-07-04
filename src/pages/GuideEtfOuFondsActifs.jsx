@@ -21,15 +21,29 @@ export default function GuideEtfOuFondsActifs() {
             existe de bons ETF, de mauvais ETF, de bons fonds actifs et des fonds actifs qui ne
             justifient pas leur prix — et le distinguer demande de sortir du slogan.
           </p>
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> pour la plupart des épargnants, l'ETF à bas coût est
+              difficile à battre sur le cœur d'un portefeuille actions destiné à la retraite, une
+              fois les frais réellement déduits — l'écart de frais avec la gestion active agit
+              chaque année, qu'il y ait ou non surperformance en face. La gestion active garde
+              cependant des arguments réels sur des poches spécifiques (l'obligataire notamment)
+              ou via de rares fonds de conviction assumés. La bonne question n'est donc pas « ETF
+              ou gestion active » de façon exclusive, mais quel rôle chaque support joue dans votre
+              allocation, à quel prix, et pour quel objectif.
+            </p>
+          </div>
+
           <div className="sommaire">
             <strong>Sommaire</strong>
             <ol>
               <li><a href="#definitions">ETF et gestion active : deux logiques, deux prix</a></li>
-              <li><a href="#chiffre-choc">Le chiffre-choc des « 93 % de gérants battus » et ses angles morts</a></li>
-              <li><a href="#ce-que-etf-ne-fait-pas">Ce que l'ETF ne fait pas</a></li>
+              <li><a href="#chiffre-choc">Le chiffre-choc de la sous-performance des gérants actifs, et ses angles morts</a></li>
+              <li><a href="#limites-etf">Les limites réelles de l'ETF : concentration, baisses de marché, absence de stratégie</a></li>
               <li><a href="#gestion-active">Où la gestion active garde des arguments</a></li>
-              <li><a href="#verdict">Le verdict pratique</a></li>
+              <li><a href="#comment-choisir">ETF ou gestion active : comment trancher pour son propre portefeuille ?</a></li>
               <li><a href="#tableau">Le comparatif en un tableau</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
           </div>
 
@@ -57,14 +71,20 @@ export default function GuideEtfOuFondsActifs() {
             plus de valeur pour simplement compenser ce qu'il facture en plus.
           </p>
 
-          <h2 id="chiffre-choc">Le chiffre-choc des « 93 % de gérants battus » et ses angles morts</h2>
+          <h2 id="chiffre-choc">Le chiffre-choc de la sous-performance des gérants actifs, et ses angles morts</h2>
           <p>
             Un chiffre revient sans cesse dans le débat : une écrasante majorité des gérants
             actifs feraient moins bien que leur indice de référence sur longue période. Ce constat
-            provient des études SPIVA (S&amp;P Dow Jones Indices — <strong>chiffre exact et
-            méthodologie à vérifier avant toute citation précise</strong>), et il est globalement
-            fondé sur de longues durées : la majorité des fonds actifs, en moyenne et dans la
-            durée, ne battent effectivement pas leur indice net de frais.
+            provient des études{" "}
+            <a href="https://www.spglobal.com/spdji/en/research-insights/spiva/" target="_blank" rel="noopener noreferrer">
+              SPIVA (S&amp;P Indices Versus Active, publiées par S&amp;P Dow Jones Indices)
+            </a>
+            , qui font référence sur le sujet — <strong>le pourcentage exact varie selon la zone
+            géographique, la classe d'actifs et le millésime du rapport, et doit être vérifié dans
+            l'édition SPIVA la plus récente avant toute citation précise</strong>. La tendance de
+            fond, elle, est constante depuis que ces études existent : la majorité des fonds
+            actifs, en moyenne et dans la durée, ne battent effectivement pas leur indice net de
+            frais.
           </p>
           <p>
             Mais un chiffre juste peut être mal interprété, et celui-ci mérite trois réserves.
@@ -94,14 +114,18 @@ export default function GuideEtfOuFondsActifs() {
           <div className="note">
             <p>
               <strong>Chiffres à vérifier avant publication :</strong> le pourcentage précis de
-              gérants sous-performants selon les rapports SPIVA (S&amp;P Dow Jones Indices)
-              n'est volontairement pas cité en valeur exacte dans cet article — il varie selon la
-              zone géographique, la classe d'actifs et le millésime du rapport, et doit être
-              confirmé à la source avant toute publication d'un chiffre précis.
+              gérants sous-performants selon les rapports{" "}
+              <a href="https://www.spglobal.com/spdji/en/research-insights/spiva/" target="_blank" rel="noopener noreferrer">
+                SPIVA
+              </a>{" "}
+              (S&amp;P Dow Jones Indices) n'est volontairement pas cité en valeur exacte dans cet
+              article — il varie selon la zone géographique, la classe d'actifs et le millésime du
+              rapport, et doit être confirmé à la source avant toute publication d'un chiffre
+              précis.
             </p>
           </div>
 
-          <h2 id="ce-que-etf-ne-fait-pas">Ce que l'ETF ne fait pas</h2>
+          <h2 id="limites-etf">Les limites réelles de l'ETF : concentration, baisses de marché, absence de stratégie</h2>
           <p>
             Répliquer un indice, c'est acheter tout l'indice sans discernement : les entreprises
             en forte croissance comme celles en déclin, dans les proportions que l'indice leur
@@ -145,11 +169,18 @@ export default function GuideEtfOuFondsActifs() {
             exigent une sélection au moins aussi rigoureuse que celle qu'ils prétendent appliquer
             aux titres qu'ils détiennent : un historique flatteur sur quelques années ne garantit
             rien pour la décennie suivante. Ce constat, comme les autres cités dans cet article,
-            porte sur des données passées et ne préjuge pas de l'avenir — un rappel que l'Autorité
-            des marchés financiers impose à juste titre sur toute communication de performance.
+            porte sur des données passées et ne préjuge pas de l'avenir — un rappel que{" "}
+            <a
+              href="https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/les-performances-passees-ne-prejugent-pas-des-performances-futures"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              l'Autorité des marchés financiers impose à juste titre
+            </a>{" "}
+            sur toute communication de performance.
           </p>
 
-          <h2 id="verdict">Le verdict pratique</h2>
+          <h2 id="comment-choisir">ETF ou gestion active : comment trancher pour son propre portefeuille ?</h2>
           <p>
             Pour le cœur d'un portefeuille actions destiné à préparer sa retraite, l'ETF à bas
             coût est difficile à surpasser une fois les frais réellement déduits : l'écart de
@@ -228,6 +259,63 @@ export default function GuideEtfOuFondsActifs() {
             </a>
             .
           </p>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Un ETF protège-t-il des baisses de marché ?</h3>
+          <p>
+            Non. Un ETF réplique son indice à la hausse comme à la baisse, sans marge de manœuvre
+            pour réduire l'exposition ou sécuriser des gains avant un repli : ce n'est pas sa
+            fonction. Se protéger d'une baisse suppose soit un arbitrage décidé en amont (par
+            l'épargnant ou un professionnel), soit un support construit pour amortir les
+            mouvements de marché, ce qu'un ETF indiciel classique n'est pas conçu pour faire.
+          </p>
+          <h3>ETF ou gestion active, que choisir pour son PER ?</h3>
+          <p>
+            La logique est la même que pour toute autre enveloppe : l'ETF à bas coût est un choix
+            pertinent pour le cœur d'un portefeuille actions sur un horizon long, celui typique
+            d'un plan d'épargne retraite (PER). La gestion active garde un intérêt sur des poches
+            spécifiques, notamment obligataires, ou via un nombre restreint de fonds de conviction
+            sélectionnés avec exigence. Le choix du support est distinct du choix de l'enveloppe :
+            notre <a href="/guide/quel-est-le-meilleur-per">comparatif sur le PER</a> détaille les
+            critères propres à cette enveloppe.
+          </p>
+          <h3>Un fonds actif plus cher est-il toujours moins performant qu'un ETF ?</h3>
+          <p>
+            Pas toujours, mais c'est l'exception plutôt que la règle une fois les frais réellement
+            déduits et sur longue période. Certains fonds de conviction véritables surperforment
+            durablement leur indice après frais ; le problème est qu'il est difficile d'identifier
+            à l'avance lesquels, et qu'un historique flatteur sur quelques années ne garantit rien
+            pour la décennie suivante. D'où l'exigence d'une sélection rigoureuse plutôt qu'un pari
+            sur la réputation d'une marque ou d'un gérant.
+          </p>
+          <h3>Le closet indexing, c'est grave ?</h3>
+          <p>
+            C'est surtout une mauvaise affaire pour l'épargnant qui le paie sans le savoir : un
+            fonds en closet indexing facture le tarif d'une gestion active alors qu'il réplique
+            son indice de très près, sans réel effort de sélection. Le signal à vérifier avant de
+            souscrire est l'écart de comportement du fonds par rapport à son indice de référence
+            dans la durée (parfois mesuré par un indicateur appelé « active share ») : plus cet
+            écart est faible, moins les frais facturés se justifient.
+          </p>
+          <h3>Faut-il tout mettre en ETF et ne jamais toucher à la gestion active ?</h3>
+          <p>
+            Non, ce serait retomber dans la caricature inverse de celle que cet article dénonce en
+            introduction. Le cœur actions d'un portefeuille retraite gagne, dans la plupart des
+            cas, à être construit autour d'ETF à bas coût. Mais certaines poches — l'obligataire en
+            particulier, ou une allocation ponctuelle vers un fonds de conviction sélectionné avec
+            exigence — peuvent justifier un recours ciblé à la gestion active, sans que cela
+            contredise le constat général sur le cœur du portefeuille.
+          </p>
+          <h3>Comment vérifier si un fonds actif justifie vraiment ses frais ?</h3>
+          <p>
+            En comparant sa performance nette de frais à celle de son indice de référence sur
+            plusieurs cycles de marché (au moins cinq à dix ans), pas sur une seule bonne année, et
+            en vérifiant que le fonds s'écarte réellement de son indice plutôt que de le suivre de
+            près pour le prix d'une vraie sélection. Le document d'informations clés (DIC) du fonds
+            et son prospectus indiquent l'indice de référence retenu et les frais courants
+            réellement prélevés.
+          </p>
+
           <div className="note">
             <p>
               Cette analyse est générale et ne constitue pas un conseil en investissement

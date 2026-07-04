@@ -121,6 +121,12 @@ export const ILLUSTRATIF = {
   source: "hypothèses d'illustration pédagogique, à réviser avec les autres — À VÉRIFIER",
 };
 
+// ---- Garanties en cas de défaillance d'un établissement ----
+export const GARANTIES = {
+  fgapPlafondParAssureParAssureur: 70000, // FGAP, plafond par assuré et par assureur (€)
+  source: "Fonds de garantie des assurances de personnes (FGAP), Code des assurances art. L423-1 et R423-1 — plafond en vigueur en vérification — À VÉRIFIER",
+};
+
 // ---- Transmission (donation et abattements successoraux) ----
 export const TRANSMISSION = {
   abattementDonationParEnfant: 100000, // abattement donation en ligne directe, par parent et par enfant (€)

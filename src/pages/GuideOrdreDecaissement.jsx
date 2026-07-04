@@ -83,18 +83,33 @@ export default function GuideOrdreDecaissement() {
 
       <section className="section">
         <div className="container prose">
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> à situation équivalente, l'ordre dans lequel vous
+              décaissez vos enveloppes pèse autant que la façon dont vous avez épargné. Un principe
+              indicatif — jamais une règle automatique — revient le plus souvent : puiser d'abord
+              dans le <strong>PEA</strong> (qui ne procure aucun avantage successoral et se clôture
+              de toute façon au décès), puis dans l'<strong>assurance-vie</strong> en étalant les
+              rachats pour profiter chaque année de l'abattement, et garder le <strong>PER</strong>{" "}
+              pour la fin, car sa fiscalité de sortie ne s'améliore pas avec le temps mais disparaît
+              s'il est transmis avant liquidation. Cet ordre peut s'inverser selon vos objectifs de
+              transmission ou votre situation fiscale — voir la section sur les limites de la règle.
+            </p>
+          </div>
+
           <div className="sommaire">
             <strong>Sommaire</strong>
             <ol>
               <li><a href="#pourquoi">Pourquoi l'ordre compte autant que le montant épargné</a></li>
               <li><a href="#principe">Le principe indicatif : PEA, puis assurance-vie, puis PER</a></li>
-              <li><a href="#scenario">Un scénario chiffré sur cinq ans</a></li>
+              <li><a href="#scenario">Dans quel ordre retirer son épargne à la retraite ? Un scénario chiffré sur cinq ans</a></li>
               <li><a href="#erreurs">Les erreurs dans le mauvais sens</a></li>
               <li><a href="#limites">Les limites de la règle</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
             </ol>
           </div>
 
-          <h2 id="pourquoi">Pourquoi l'ordre compte autant que le montant épargné</h2>
+          <h2 id="pourquoi">PEA, assurance-vie, PER : pourquoi l'ordre de retrait compte autant que le montant épargné</h2>
           <p>
             Deux couples arrivent à la retraite avec exactement le même patrimoine : un PEA (plan
             d'épargne en actions), une assurance-vie de plus de huit ans et un PER (plan d'épargne
@@ -145,14 +160,20 @@ export default function GuideOrdreDecaissement() {
             règle. La suite en chiffre la mécanique sur cinq ans, avant d'en présenter les exceptions.
           </div>
 
-          <h2 id="scenario">Un scénario chiffré sur cinq ans</h2>
+          <h2 id="scenario">Dans quel ordre retirer son épargne à la retraite ? Un scénario chiffré sur cinq ans</h2>
+          <div className="note">
+            <strong>Exemple composite et fictif.</strong> Le couple retraité décrit ci-dessous
+            n'est pas un cas réel documenté : c'est un exemple pédagogique composite, construit à
+            partir de montants ronds pour illustrer clairement un mécanisme fiscal, pas un client ou
+            une situation que nous aurions accompagnée.
+          </div>
           <p>
-            Prenons un couple retraité fictif, aux revenus déjà couverts pour l'essentiel par ses
-            pensions, qui souhaite un complément régulier pour financer voyages et loisirs pendant
-            les premières années de sa retraite : {euros(SCENARIO.retraitPea)} bruts par an. Il
-            détient un PEA ouvert depuis plus de {FISCALITE.peaExonerationIRApres} ans et un contrat
-            d'assurance-vie de plus de huit ans. Toutes les hypothèses ci-dessous sont arrondies et
-            simplifiées à des fins pédagogiques : elles ne décrivent aucun cas réel.
+            Prenons donc un couple retraité fictif, aux revenus déjà couverts pour l'essentiel par
+            ses pensions, qui souhaite un complément régulier pour financer voyages et loisirs
+            pendant les premières années de sa retraite : {euros(SCENARIO.retraitPea)} bruts par an.
+            Il détient un PEA ouvert depuis plus de {FISCALITE.peaExonerationIRApres} ans et un
+            contrat d'assurance-vie de plus de huit ans. Toutes les hypothèses ci-dessous sont
+            arrondies et simplifiées à des fins pédagogiques : elles ne décrivent aucun cas réel.
           </p>
 
           <h3>Années 1 à 4 : puiser dans le PEA</h3>
@@ -309,6 +330,66 @@ export default function GuideOrdreDecaissement() {
               une projection ou une promesse de résultat.
             </p>
           </div>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Que faire si je n'ai pas de PEA ?</h3>
+          <p>
+            Le principe s'applique simplement aux enveloppes que vous détenez réellement : sans PEA,
+            on démarre directement sur l'assurance-vie en étalant les rachats sous l'abattement
+            annuel, puis on garde le PER pour la fin. L'absence de PEA ne remet pas en cause la
+            logique de fond — préserver en dernier l'enveloppe la plus pénalisée si elle est
+            consommée trop tôt — elle raccourcit seulement la liste des étapes.
+          </p>
+          <h3>Cet ordre change-t-il si je suis marié sous le régime de la communauté ?</h3>
+          <p>
+            Le régime matrimonial influence surtout ce qui se passe au décès d'un des deux époux
+            (liquidation de la communauté, part revenant au conjoint survivant) plutôt que l'ordre de
+            décaissement du vivant du couple. En revanche, il peut modifier l'intérêt de préserver
+            telle ou telle enveloppe pour la transmission : un couple marié sous la communauté
+            universelle avec clause d'attribution intégrale, par exemple, a des enjeux successoraux
+            différents d'un couple séparé de biens. C'est un point à vérifier au cas par cas, avec
+            l'aide d'un professionnel, avant d'appliquer l'ordre indicatif sans réflexion.
+          </p>
+          <h3>Faut-il tout retirer d'une enveloppe avant de passer à la suivante ?</h3>
+          <p>
+            Pas nécessairement de façon rigide. L'ordre indicatif décrit une priorité, pas une
+            obligation d'épuiser totalement une enveloppe au centime près avant de toucher à la
+            suivante. Dans la pratique, on peut par exemple commencer à ouvrir de petits rachats sur
+            l'assurance-vie un peu avant la fin du PEA, pour lisser la transition ou profiter d'une
+            année où l'abattement serait autrement perdu. L'essentiel est de respecter la hiérarchie
+            de fond, pas un séquençage au jour près.
+          </p>
+          <h3>Que se passe-t-il si je retire plus que prévu une année, par exemple pour un imprévu ?</h3>
+          <p>
+            Rien d'irréversible : un retrait exceptionnel plus élevé une année donnée peut simplement
+            faire dépasser l'abattement disponible sur l'assurance-vie cette année-là, avec un impôt
+            correspondant sur le seul excédent (voir le calcul détaillé plus haut), ou consommer plus
+            vite le PEA. Cela ne remet pas en cause la stratégie pour les années suivantes : on
+            reprend le rythme initial dès que possible.
+          </p>
+          <h3>L'ordre est-il le même pour un célibataire et pour un couple ?</h3>
+          <p>
+            Le principe de fond est identique, seuls les montants d'abattement diffèrent : l'abattement
+            annuel sur les gains d'assurance-vie est de {euros(FISCALITE.avAbattementAnnuelSeul)} pour
+            une personne seule contre {euros(FISCALITE.avAbattementAnnuelCouple)} pour un couple
+            soumis à imposition commune (barèmes {HYPOTHESES_MAJ}). Un célibataire doit donc
+            généralement ajuster ses rachats à un montant plus faible pour rester sous l'abattement.
+          </p>
+          <h3>Le PER doit-il vraiment être consommé en dernier dans tous les cas ?</h3>
+          <p>
+            C'est le cas le plus fréquent, mais pas systématique : une TMI durablement basse à la
+            retraite, ou un besoin de trésorerie ponctuel sans autre solution disponible, peuvent
+            justifier d'y puiser plus tôt. La section sur les limites de la règle, plus haut, détaille
+            ces situations où l'ordre indicatif ne s'applique pas tel quel.
+          </p>
+          <h3>Cette hiérarchie s'applique-t-elle aussi à l'immobilier locatif ou aux SCPI ?</h3>
+          <p>
+            Non, ce guide traite spécifiquement des trois enveloppes financières les plus courantes à
+            la retraite (PEA, assurance-vie, PER). Les revenus fonciers ou de SCPI obéissent à une
+            fiscalité différente (revenus fonciers ou régime des BIC pour le LMNP) et s'articulent
+            avec ces enveloppes sans suivre la même logique de rachat par abattement — un sujet qui
+            dépasse le cadre de cet article et mérite un examen dédié à votre situation.
+          </p>
 
           <AuthorBox />
           <RiskNotice />
