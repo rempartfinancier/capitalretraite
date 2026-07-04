@@ -8,7 +8,7 @@ export const routesMeta = [
     path: "/",
     title: "Capital Retraite — Construisez votre capital retraite avec méthode",
     description:
-      "Conseil retraite indépendant pour cadres et fonctionnaires de 45 à 60 ans : PER, assurance-vie, PEA, décumulation, immobilier. Bilan retraite gratuit en 15 minutes.",
+      "Conseil retraite sur mesure pour cadres et fonctionnaires de 45 à 60 ans : PER, assurance-vie, PEA, décumulation, immobilier. Bilan retraite gratuit en 15 minutes.",
     breadcrumb: null,
   },
   {

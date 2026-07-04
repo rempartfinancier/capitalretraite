@@ -155,7 +155,7 @@ export default function StrategieAssuranceVie() {
             suffi de puiser dans la poche prudente. Cette rigidité peut transformer un simple
             besoin de liquidité en vente au pire moment. La gestion libre évite cet écueil, mais
             exige une méthode — définir son allocation, la tenir, la sécuriser progressivement —
-            ou un accompagnement : c'est précisément le rôle d'un conseil indépendant, qui
+            ou un accompagnement : c'est précisément le rôle d'un accompagnement personnalisé, qui
             construit l'allocation avec vous sans la figer dans un profil standard. Notre guide{" "}
             <a href="/guide/gestion-pilotee-ou-gestion-libre">
               gestion pilotée ou gestion libre

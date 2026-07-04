@@ -78,11 +78,10 @@ function Footer() {
 
 export function AuthorBox() {
   return (
-    <aside className="author-box" aria-label="À propos de l'auteure">
-      <strong>Fabienne</strong> — Conseillère en gestion de patrimoine, EXP Capital.
+    <aside className="author-box" aria-label="À propos de l'auteur">
+      <strong>Alexandre Pollet</strong> — Conseiller en gestion de patrimoine, EXP Capital.
       <br />
-      Formation : EDHEC, finance de marché. Expérience en cabinets de conseil indépendants.
-      Conseil en investissement financier délivré sous Épargne Plurielle, CIF — ORIAS 16003696.
+      Conseil en investissements financiers délivré via Épargne Plurielle, CIF — ORIAS 16003696.
     </aside>
   );
 }

@@ -41,7 +41,7 @@ export default function Home() {
       {/* HERO */}
       <section className="hero">
         <div className="container">
-          <span className="eyebrow">Conseil retraite indépendant</span>
+          <span className="eyebrow">Conseil retraite sur mesure</span>
           <h1>Construisez votre capital retraite avec méthode.</h1>
           <p className="sub">
             Vous avez travaillé dur. Votre retraite mérite une stratégie — pas un produit vendu à
@@ -190,12 +190,11 @@ export default function Home() {
           <span className="eyebrow">Pourquoi nous faire confiance</span>
           <h2>Un conseil qui montre son travail</h2>
           <ul className="reassurance-list">
-            <li>Conseil indépendant — aucun produit maison, aucune gamme à écouler.</li>
+            <li>Aucun produit maison, aucune gamme à écouler.</li>
             <li>EXP Capital, éditeur — ORIAS 25005915.</li>
             <li>
-              Conseil en investissement financier sous Épargne Plurielle, CIF — ORIAS 16003696.
+              Conseil en investissements financiers délivré via Épargne Plurielle, CIF — ORIAS 16003696.
             </li>
-            <li>Parcours : EDHEC finance de marché, expérience en cabinets indépendants.</li>
           </ul>
           <p style={{ marginTop: "1.5rem" }}>
             Notre cabinet de conseil patrimonial global :{" "}

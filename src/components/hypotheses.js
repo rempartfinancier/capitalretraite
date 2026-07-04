@@ -5,7 +5,7 @@
 // écrit en dur dans un composant ou une page. Tout chiffre
 // affiché ou utilisé par un simulateur vient de ce fichier.
 // Chaque bloc est daté et sourcé. TOUTES les valeurs doivent
-// être vérifiées par Fabienne avant publication, puis révisées
+// être vérifiées par Alexandre avant publication, puis révisées
 // à chaque millésime (rendements fonds euros, taux SCPI,
 // barèmes fiscaux, plafonds).
 // ============================================================
@@ -144,7 +144,7 @@ export const FISCALITE = {
   // ordinaire et les revenus du capital en général (art. 12 LFSS 2026), mais
   // EXCLUT explicitement l'assurance-vie et les revenus fonciers/immobiliers,
   // qui restent à 17,2 %. Taux différenciés par enveloppe — À VÉRIFIER avant
-  // publication (source à confirmer par Fabienne).
+  // publication (source à confirmer par Alexandre).
   prelevementsSociaux: {
     per: 18.6,
     pea: 18.6,
