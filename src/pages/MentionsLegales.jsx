@@ -6,12 +6,11 @@ export default function MentionsLegales() {
 
         <h2>Éditeur du site</h2>
         <p>
-          Éditeur du site : EXP Capital, SASU
+          Éditeur du site : EXP Capital, SASU au capital de 1 000 €
           <br />
-          Immatriculée ORIAS sous le numéro 25005915
+          Immatriculée au RCS de Versailles sous le numéro 987 986 247
           <br />
-          Conseil en investissement financier réalisé sous mandat de Épargne Plurielle, CIF
-          immatriculé ORIAS sous le numéro 16003696
+          Inscrite à l'ORIAS sous le numéro 25005915
           <br />
           Adresse : [ADRESSE À COMPLÉTER]
           <br />

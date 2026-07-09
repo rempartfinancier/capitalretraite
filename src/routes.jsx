@@ -508,7 +508,7 @@ export const routesMeta = [
     path: "/mentions-legales",
     title: "Mentions légales — Capital Retraite",
     description:
-      "Mentions légales du site capitalretraite.com, édité par EXP Capital (ORIAS 25005915), conseil en investissement financier sous Épargne Plurielle (ORIAS 16003696).",
+      "Mentions légales du site capitalretraite.com, édité par EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915.",
     breadcrumb: [["Accueil", "/"], ["Mentions légales", "/mentions-legales"]],
   },
   {

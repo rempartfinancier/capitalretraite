@@ -1,7 +1,7 @@
 # capitalretraite.com
 
 Site satellite retraite de l'écosystème Le Rempart Financier.
-Éditeur : EXP Capital (SASU) — ORIAS 25005915. CIF mandant : Épargne Plurielle — ORIAS 16003696.
+Éditeur : EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915.
 
 ## Stack
 
@@ -65,7 +65,7 @@ pour qu'ils correspondent.
 - [x] Canonicals absolus `https://capitalretraite.com/...`
 - [x] JSON-LD Organization en homepage (sameAs → lerempartfinancier.fr)
 - [x] JSON-LD BreadcrumbList sur chaque page intérieure
-- [x] Seuls les ORIAS 25005915 (EXP Capital, éditeur) et 16003696 (Épargne Plurielle, CIF) sont utilisés — aucun autre identifiant inventé, placeholders explicites pour adresse/SIRET
+- [x] Seule l'identité EXP Capital (SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915) est utilisée — jamais Épargne Plurielle ni aucun statut CIF/mandat, aucun autre identifiant inventé, placeholders explicites pour adresse/SIRET
 - [x] Aucune performance chiffrée ; aucun rendement promis ; mention de risque en pied de chaque contenu
 - [x] Formulaires sans clé API en clair (URL de formulaire Brevo via variable d'environnement)
 - [x] Prerendering SSG implémenté (`scripts/prerender.mjs`) — **à vérifier après `npm run build`** avec les commandes grep ci-dessus

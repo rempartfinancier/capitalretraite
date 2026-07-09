@@ -58,8 +58,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="container">
         <p className="footer-brand">© {year} capitalretraite.com — Un service Le Rempart Financier</p>
-        <p>EXP Capital, éditeur — ORIAS 25005915</p>
-        <p>Conseil en investissement financier sous Épargne Plurielle, CIF — ORIAS 16003696</p>
+        <p>EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915</p>
         <p className="footer-legal">
           Les informations publiées sur ce site ont un caractère pédagogique général. Elles ne
           constituent pas un conseil personnalisé en investissement. Tout investissement comporte
@@ -81,8 +80,6 @@ export function AuthorBox() {
   return (
     <aside className="author-box" aria-label="À propos de l'auteur">
       <strong>Alexandre Pollet</strong> — Conseiller en gestion de patrimoine, EXP Capital.
-      <br />
-      Conseil en investissements financiers délivré via Épargne Plurielle, CIF — ORIAS 16003696.
     </aside>
   );
 }

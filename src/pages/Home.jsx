@@ -194,10 +194,7 @@ export default function Home() {
           <h2>Un conseil qui montre son travail</h2>
           <ul className="reassurance-list">
             <li>Aucun produit maison, aucune gamme à écouler.</li>
-            <li>EXP Capital, éditeur — ORIAS 25005915.</li>
-            <li>
-              Conseil en investissements financiers délivré via Épargne Plurielle, CIF — ORIAS 16003696.
-            </li>
+            <li>EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915.</li>
           </ul>
           <p style={{ marginTop: "1.5rem" }}>
             Notre cabinet de conseil patrimonial global :{" "}
