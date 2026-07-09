@@ -22,7 +22,7 @@ const orgJsonLd = {
   "@type": "Organization",
   name: "Capital Retraite — Le Rempart Financier",
   url: SITE_URL,
-  sameAs: ["https://lerempartfinancier.fr"],
+  sameAs: ["https://rempartfinancier.fr"],
 };
 
 function breadcrumbJsonLd(breadcrumb) {

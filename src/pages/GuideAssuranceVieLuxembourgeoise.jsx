@@ -275,7 +275,7 @@ export default function GuideAssuranceVieLuxembourgeoise() {
             sélectionnés sur mesure. Certains fonds internes dédiés peuvent également intégrer une
             composante immobilière ; ce sujet mérite un traitement à part entière, que nous ne
             développons pas ici — pour une analyse dédiée à l'investissement immobilier, y compris
-            en SCPI, direction <a href="https://www.scpirentable.fr">scpirentable.fr</a>.
+            en SCPI, direction <a href="https://scpirentable.fr">scpirentable.fr</a>.
           </p>
           <p>
             Cet accès élargi a cependant deux limites structurelles à connaître avant de s'enthousiasmer. La

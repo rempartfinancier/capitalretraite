@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { CtaBanner } from "../components/Layout.jsx";
-import { CALENDLY_URL } from "../components/config.js";
+import { CALENDLY_URL, CALENDLY_CONFIGURED } from "../components/config.js";
 
 const strategies = [
   {
@@ -51,9 +51,15 @@ export default function Home() {
             <Link to="/bilan-retraite" className="btn btn-primary">
               Faire mon bilan retraite gratuit
             </Link>
-            <a href={CALENDLY_URL} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-              Prendre rendez-vous
-            </a>
+            {CALENDLY_CONFIGURED ? (
+              <a href={CALENDLY_URL} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                Prendre rendez-vous
+              </a>
+            ) : (
+              <Link to="/contact" className="btn btn-secondary">
+                Nous contacter
+              </Link>
+            )}
           </div>
           <p style={{ marginTop: "1rem" }}>
             <Link to="/simulateur-retraite">Ou estimez votre écart de revenus en 3 minutes →</Link>
@@ -198,7 +204,7 @@ export default function Home() {
           </ul>
           <p style={{ marginTop: "1.5rem" }}>
             Notre cabinet de conseil patrimonial global :{" "}
-            <a href="https://lerempartfinancier.fr" target="_blank" rel="noopener noreferrer">
+            <a href="https://rempartfinancier.fr" target="_blank" rel="noopener noreferrer">
               Le Rempart Financier
             </a>
             .

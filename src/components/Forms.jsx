@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { BREVO_FORM_ACTION_BILAN, BREVO_FORM_ACTION_CONTACT, CALENDLY_URL } from "./config.js";
+import {
+  BREVO_FORM_ACTION_BILAN,
+  BREVO_FORM_ACTION_CONTACT,
+  CALENDLY_URL,
+  CALENDLY_CONFIGURED,
+} from "./config.js";
 
 async function postToBrevo(actionUrl, data) {
   if (!actionUrl) {
     console.warn("URL de formulaire Brevo non configurée (voir src/components/config.js).");
-    return true; // en dev, on affiche quand même la confirmation
+    return false; // pas d'endpoint configuré : échec réel, pas de fausse confirmation
   }
   const body = new URLSearchParams(data);
   const res = await fetch(actionUrl, {
@@ -25,8 +30,12 @@ export function FormBilan() {
     setError(false);
     const data = Object.fromEntries(new FormData(e.target));
     try {
-      await postToBrevo(BREVO_FORM_ACTION_BILAN, data);
-      setSent(true);
+      const ok = await postToBrevo(BREVO_FORM_ACTION_BILAN, data);
+      if (ok) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
     } catch {
       setError(true);
     }
@@ -40,11 +49,15 @@ export function FormBilan() {
           Merci. Il ne reste qu'une étape : choisissez le créneau qui vous convient pour votre
           bilan de 15 minutes.
         </p>
-        <p style={{ marginTop: "1rem" }}>
-          <a className="btn btn-primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-            Choisir mon créneau
-          </a>
-        </p>
+        {CALENDLY_CONFIGURED ? (
+          <p style={{ marginTop: "1rem" }}>
+            <a className="btn btn-primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Choisir mon créneau
+            </a>
+          </p>
+        ) : (
+          <p style={{ marginTop: "1rem" }}>Nous revenons vers vous rapidement pour convenir d'un créneau.</p>
+        )}
       </div>
     );
   }
@@ -119,8 +132,12 @@ export function FormContact() {
     setError(false);
     const data = Object.fromEntries(new FormData(e.target));
     try {
-      await postToBrevo(BREVO_FORM_ACTION_CONTACT, data);
-      setSent(true);
+      const ok = await postToBrevo(BREVO_FORM_ACTION_CONTACT, data);
+      if (ok) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
     } catch {
       setError(true);
     }

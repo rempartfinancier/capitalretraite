@@ -275,7 +275,7 @@ export default function GuideLmnpRisques() {
             à certains des risques évoqués ici (vacance, gestion), mais elle en introduit d'autres,
             propres à ce véhicule (frais d'entrée, liquidité des parts). Le sujet mérite un examen
             à part entière, que nous ne développons pas ici : voir{" "}
-            <a href="https://www.scpirentable.fr">scpirentable.fr</a>.
+            <a href="https://scpirentable.fr">scpirentable.fr</a>.
           </p>
           <h3>Faut-il éviter les résidences de services à cause du risque exploitant ?</h3>
           <p>

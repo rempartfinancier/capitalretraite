@@ -428,7 +428,7 @@ export default function GuideIndependantsPerMadelin() {
             préparation retraite. Une partie des indépendants complète leur épargne par de
             l'immobilier locatif ou des SCPI (sociétés civiles de placement immobilier) — un sujet
             que nous ne développons pas ici et pour lequel{" "}
-            <a href="https://www.scpirentable.fr" target="_blank" rel="noopener noreferrer">scpirentable.fr</a>{" "}
+            <a href="https://scpirentable.fr" target="_blank" rel="noopener noreferrer">scpirentable.fr</a>{" "}
             propose une analyse dédiée.
           </p>
           <div className="note">

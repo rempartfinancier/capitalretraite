@@ -5,6 +5,10 @@
 // 1. Calendly — remplacer par l'URL réelle du type d'événement (bilan 15 min).
 export const CALENDLY_URL = "https://calendly.com/A-COMPLETER/bilan-retraite-15min";
 
+// Tant que l'URL ci-dessus n'a pas été remplacée par la vraie URL Calendly,
+// on masque/désactive tout lien "Prendre RDV" plutôt que d'afficher un lien mort.
+export const CALENDLY_CONFIGURED = !CALENDLY_URL.includes("A-COMPLETER");
+
 // 2. Brevo — SÉCURITÉ : sur un site 100 % statique, toute clé API présente
 //    dans une variable d'environnement Vite (VITE_*) finit dans le bundle
 //    livré au navigateur, donc publique. Ne JAMAIS utiliser la clé API Brevo ici.

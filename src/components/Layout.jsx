@@ -1,19 +1,26 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getMeta } from "../routes.jsx";
-import { CALENDLY_URL } from "./config.js";
+import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
+
+const HUB_URL = "https://rempartfinancier.fr";
 
 function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link to="/" className="brand" aria-label="Capital Retraite — accueil">
-          <span className="brand-name">
+        <div className="brand">
+          <Link to="/" className="brand-name" aria-label="Capital Retraite — accueil">
             Capital<em>Retraite</em>
+          </Link>
+          <span className="brand-sub">
+            Un service{" "}
+            <a href={HUB_URL} target="_blank" rel="noopener noreferrer">
+              Le Rempart Financier
+            </a>
           </span>
-          <span className="brand-sub">Un service Le Rempart Financier</span>
-        </Link>
+        </div>
         <button
           className="nav-toggle"
           aria-expanded={open}
@@ -57,7 +64,12 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <p className="footer-brand">© {year} capitalretraite.com — Un service Le Rempart Financier</p>
+        <p className="footer-brand">
+          © {year} capitalretraite.com — Un service{" "}
+          <a href={HUB_URL} target="_blank" rel="noopener noreferrer">
+            Le Rempart Financier
+          </a>
+        </p>
         <p>EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915</p>
         <p className="footer-legal">
           Les informations publiées sur ce site ont un caractère pédagogique général. Elles ne
@@ -67,9 +79,13 @@ function Footer() {
         <div className="footer-links">
           <Link to="/mentions-legales">Mentions légales</Link>
           <Link to="/confidentialite">Confidentialité</Link>
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-            Prendre RDV
-          </a>
+          {CALENDLY_CONFIGURED ? (
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              Prendre RDV
+            </a>
+          ) : (
+            <Link to="/contact">Nous contacter</Link>
+          )}
         </div>
       </div>
     </footer>
