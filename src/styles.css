@@ -467,6 +467,172 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .maj-note { font-size: 0.8rem; color: var(--marine-40); border-top: 1px dashed var(--gris-filet); padding-top: 0.7rem; margin-top: 0.6rem; }
 .table-scroll { overflow-x: auto; }
 
+/* ---------- Diagnostic retraite (parcours à étapes) ---------- */
+.sim-stepper {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.4rem;
+  padding: 0;
+}
+.sim-etape-puce button {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--gris-filet);
+  border-radius: 999px;
+  background: var(--blanc);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--marine-40);
+  cursor: pointer;
+}
+.sim-etape-puce button:disabled { cursor: default; opacity: 0.6; }
+.sim-etape-puce .sim-etape-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: var(--gris-filet);
+  color: var(--marine);
+  font-size: 0.72rem;
+}
+.sim-etape-puce.est-visitee button { color: var(--marine); }
+.sim-etape-puce.est-visitee .sim-etape-num { background: var(--cuivre-pale); color: var(--cuivre-fonce); }
+.sim-etape-puce.est-active button { border-color: var(--cuivre); color: var(--marine); background: var(--cuivre-pale); }
+.sim-etape-puce.est-active .sim-etape-num { background: var(--cuivre); color: var(--blanc); }
+@media (max-width: 640px) {
+  .sim-etape-puce .sim-etape-titre { display: none; }
+  .sim-etape-puce.est-active .sim-etape-titre { display: inline; }
+}
+
+/* Score retraite : jauge + niveau (verts/orange/rouge sémantiques) */
+.sim-score {
+  --score-couleur: var(--cuivre);
+  border: 1px solid var(--gris-filet);
+  border-left: 4px solid var(--score-couleur);
+  border-radius: var(--radius);
+  background: var(--blanc);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.sim-score-excellent { --score-couleur: #2e7d4f; }
+.sim-score-attention { --score-couleur: #c07f2a; }
+.sim-score-critique { --score-couleur: #b0402f; }
+.sim-score-tete {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sim-score-valeur {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--score-couleur);
+  line-height: 1;
+}
+.sim-score-valeur small { font-size: 1.2rem; color: var(--marine-40); font-weight: 500; }
+.sim-score-niveau { font-weight: 600; color: var(--score-couleur); }
+.sim-score-jauge {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--ivoire);
+  border: 1px solid var(--gris-filet);
+  margin: 0.7rem 0 0.6rem;
+  overflow: hidden;
+}
+.sim-score-jauge span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--score-couleur);
+  transition: width 0.3s ease;
+}
+.sim-score-detail { font-size: 0.88rem; color: var(--gris-texte); margin: 0; }
+
+/* Barres comparatives revenu / pension / objectif / écart */
+.sim-barres { margin: 1rem 0 0.6rem; display: grid; gap: 0.45rem; }
+.sim-barre-ligne {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+}
+.sim-barre-label { color: var(--marine); font-weight: 600; }
+.sim-barre-piste {
+  display: block;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--blanc);
+  border: 1px solid var(--gris-filet);
+  overflow: hidden;
+}
+.sim-barre { display: block; height: 100%; transition: width 0.3s ease; }
+.sim-barre-revenu { background: var(--marine); }
+.sim-barre-pension { background: var(--marine-40); }
+.sim-barre-objectif { background: var(--cuivre); }
+.sim-barre-ecart {
+  background: repeating-linear-gradient(45deg, #b0402f, #b0402f 6px, #d9836f 6px, #d9836f 12px);
+}
+.sim-barre-valeur { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--gris-texte); }
+@media (max-width: 560px) {
+  .sim-barre-ligne { grid-template-columns: 6rem 1fr auto; font-size: 0.78rem; }
+}
+
+/* Sélecteur d'objectif de niveau de vie */
+.sim-objectifs { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.6rem; }
+.sim-objectif-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--gris-filet);
+  border-radius: var(--radius);
+  background: var(--blanc);
+  font-family: var(--font-body);
+  cursor: pointer;
+  color: var(--gris-texte);
+}
+.sim-objectif-btn strong { font-size: 1.15rem; color: var(--marine); }
+.sim-objectif-btn span { font-size: 0.78rem; }
+.sim-objectif-btn.est-choisi { border-color: var(--cuivre); background: var(--cuivre-pale); }
+.sim-objectif-btn.est-choisi strong { color: var(--cuivre-fonce); }
+
+/* Tableaux du diagnostic : ligne d'hypothèse retenue, et tables sans
+   accent automatique sur la dernière ligne (scénarios, pistes) */
+.sim-ligne-retenue td { background: var(--cuivre-pale); }
+.sim-sans-accent tr:last-child td { background: transparent; color: inherit; font-weight: inherit; }
+
+.sim-whatif {
+  border: 1px dashed var(--cuivre);
+  border-radius: var(--radius);
+  background: var(--cuivre-pale);
+  color: var(--marine);
+  font-size: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  margin: 1rem 0 0;
+}
+
+.sim-feuille-route { margin: 0 0 0 1.3rem; display: grid; gap: 0.55rem; }
+.sim-feuille-route li strong { color: var(--marine); }
+
+.sim-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 /* ---------- Sommaire d'article (articles phares) ---------- */
 .sommaire {
   border: 1px solid var(--gris-filet);

@@ -20,9 +20,9 @@ export const routesMeta = [
   },
   {
     path: "/simulateur-retraite",
-    title: "Simulateur retraite gratuit : votre écart de revenus et le capital nécessaire",
+    title: "Simulateur retraite gratuit : votre score retraite sur 100 en 3 minutes",
     description:
-      "Estimez en 3 minutes votre écart de revenus à la retraite, le capital nécessaire pour le combler et l'effort d'épargne mensuel correspondant. Gratuit, sans compte, hypothèses affichées.",
+      "Diagnostic retraite en 6 étapes : votre score sur 100, la baisse de revenus qui vous attend, le capital nécessaire et l'effort d'épargne pour combler l'écart. Gratuit, sans compte, hypothèses affichées.",
     breadcrumb: [["Accueil", "/"], ["Simulateur retraite", "/simulateur-retraite"]],
   },
   {

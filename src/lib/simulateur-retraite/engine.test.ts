@@ -13,11 +13,17 @@ import {
   calculerEcartMensuel,
   calculerEffortMensuelSupplementaire,
   calculerPensionEstimee,
+  calculerPertes,
   calculerRendementOptimise,
+  calculerScoreRetraite,
   capitaliser,
   simulerRetraite,
 } from "./engine";
-import { HORIZON_DECUMULATION_ANNEES, OBJECTIF_NIVEAU_VIE_RETRAITE } from "./hypotheses";
+import {
+  HORIZON_DECUMULATION_ANNEES,
+  OBJECTIF_NIVEAU_VIE_RETRAITE,
+  SCORE_RETRAITE_SEUILS,
+} from "./hypotheses";
 
 describe("capitaliser", () => {
   test("taux mensuel nul : somme simple principal + versements", () => {
@@ -86,6 +92,64 @@ describe("calculerEffortMensuelSupplementaire", () => {
   });
 });
 
+describe("calculerPertes", () => {
+  test("3 800 € de revenu, 2 050 € de pension : 1 750 €/mois, 21 000 €/an, cumul sur l'horizon", () => {
+    const p = calculerPertes(3800, 2050, 25);
+    expect(p.mensuelle).toBe(1750);
+    expect(p.annuelle).toBe(21000);
+    expect(p.surHorizon).toBe(525000);
+    expect(p.horizonAnnees).toBe(25);
+  });
+
+  test("horizon par défaut = HORIZON_DECUMULATION_ANNEES", () => {
+    const p = calculerPertes(4000, 2200);
+    expect(p.horizonAnnees).toBe(HORIZON_DECUMULATION_ANNEES);
+    expect(p.surHorizon).toBe(1800 * 12 * HORIZON_DECUMULATION_ANNEES);
+  });
+
+  test("pension supérieure au revenu : perte plancher à 0", () => {
+    const p = calculerPertes(3000, 3200);
+    expect(p.mensuelle).toBe(0);
+    expect(p.annuelle).toBe(0);
+    expect(p.surHorizon).toBe(0);
+  });
+});
+
+describe("calculerScoreRetraite", () => {
+  test("couverture totale : score 100, niveau excellent", () => {
+    const s = calculerScoreRetraite(400000, 300000);
+    expect(s.valeur).toBe(100);
+    expect(s.niveau).toBe("excellent");
+  });
+
+  test("capital nécessaire nul (pension au niveau de l'objectif) : score 100", () => {
+    expect(calculerScoreRetraite(0, 0)).toEqual({ valeur: 100, niveau: "excellent" });
+  });
+
+  test("couverture partielle : 174 000 / 300 000 = 58/100, niveau attention", () => {
+    const s = calculerScoreRetraite(174000, 300000);
+    expect(s.valeur).toBe(58);
+    expect(s.niveau).toBe("attention");
+  });
+
+  test("couverture faible : 60 000 / 300 000 = 20/100, niveau critique", () => {
+    const s = calculerScoreRetraite(60000, 300000);
+    expect(s.valeur).toBe(20);
+    expect(s.niveau).toBe("critique");
+  });
+
+  test("les seuils de hypotheses.ts bornent exactement les niveaux", () => {
+    expect(calculerScoreRetraite(SCORE_RETRAITE_SEUILS.excellent, 100).niveau).toBe("excellent");
+    expect(calculerScoreRetraite(SCORE_RETRAITE_SEUILS.excellent - 1, 100).niveau).toBe("attention");
+    expect(calculerScoreRetraite(SCORE_RETRAITE_SEUILS.attention, 100).niveau).toBe("attention");
+    expect(calculerScoreRetraite(SCORE_RETRAITE_SEUILS.attention - 1, 100).niveau).toBe("critique");
+  });
+
+  test("capital projeté négatif (garde-fou) : score 0, niveau critique", () => {
+    expect(calculerScoreRetraite(-5000, 300000)).toEqual({ valeur: 0, niveau: "critique" });
+  });
+});
+
 describe("calculerRendementOptimise", () => {
   test("5 % + 1,5 pt = 6,5 % (sous le plafond)", () => {
     expect(calculerRendementOptimise(5)).toBe(6.5);
@@ -118,6 +182,12 @@ describe("simulerRetraite", () => {
     expect(r.capitalProjeteOptimise).toBeCloseTo(43562.74, 1);
     expect(r.trajectoire.length).toBe(21);
     expect(r.trajectoire[0]).toEqual({ age: 45, capitalActuel: 0, capitalOptimise: 0 });
+    expect(r.tauxRemplacement).toBeCloseTo(0.42, 10);
+    expect(r.pertes.mensuelle).toBe(1740);
+    expect(r.pertes.annuelle).toBe(20880);
+    expect(r.pertes.surHorizon).toBe(1740 * 12 * HORIZON_DECUMULATION_ANNEES);
+    expect(r.score.valeur).toBe(Math.round((r.capitalProjete / r.capitalNecessaire) * 100));
+    expect(r.score.niveau).toBe("critique");
   });
 
   test("scénario où le capital projeté couvre déjà le besoin : manque et effort nuls", () => {
@@ -134,6 +204,7 @@ describe("simulerRetraite", () => {
     expect(r.capitalProjete).toBeGreaterThan(r.capitalNecessaire);
     expect(r.capitalManquant).toBe(0);
     expect(r.effortMensuelSupplementaire).toBe(0);
+    expect(r.score).toEqual({ valeur: 100, niveau: "excellent" });
   });
 
   test("départ immédiat (ageDepart = ageActuel) : trajectoire réduite à un seul point, capital projeté = patrimoine actuel", () => {

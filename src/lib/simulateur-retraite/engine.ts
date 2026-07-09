@@ -12,11 +12,14 @@ import {
   MAJORATION_SCENARIO_OPTIMISE_PTS,
   OBJECTIF_NIVEAU_VIE_RETRAITE,
   REND_OPTIMISE_PLAFOND_PCT,
+  SCORE_RETRAITE_SEUILS,
   TAUX_REMPLACEMENT_PAR_STATUT,
   type StatutProfessionnel,
 } from "./hypotheses";
 
 export type { StatutProfessionnel };
+
+export type NiveauScoreRetraite = "excellent" | "attention" | "critique";
 
 export interface SimulationRetraiteInput {
   statut: StatutProfessionnel;
@@ -36,8 +39,24 @@ export interface PointTrajectoire {
   capitalOptimise: number;
 }
 
+export interface PertesRevenus {
+  /** Baisse brute de revenus à la retraite (revenu − pension), plancher 0. */
+  mensuelle: number;
+  annuelle: number;
+  /** Cumul sur l'horizon de décumulation retenu. */
+  surHorizon: number;
+  horizonAnnees: number;
+}
+
+export interface ScoreRetraite {
+  /** Taux de couverture capital projeté / capital nécessaire, plafonné à 100. */
+  valeur: number;
+  niveau: NiveauScoreRetraite;
+}
+
 export interface SimulationRetraiteResultat {
   pensionEstimeeMensuelle: number;
+  tauxRemplacement: number;
   ecartMensuel: number;
   nbMoisAvantDepart: number;
   capitalNecessaire: number;
@@ -46,6 +65,8 @@ export interface SimulationRetraiteResultat {
   effortMensuelSupplementaire: number;
   rendementOptimiseAnnuelPct: number;
   capitalProjeteOptimise: number;
+  pertes: PertesRevenus;
+  score: ScoreRetraite;
   trajectoire: PointTrajectoire[];
 }
 
@@ -107,6 +128,42 @@ export function calculerRendementOptimise(rendementAnnuelPct: number): number {
   return Math.min(rendementAnnuelPct + MAJORATION_SCENARIO_OPTIMISE_PTS, REND_OPTIMISE_PLAFOND_PCT);
 }
 
+// Baisse brute de revenus à la retraite (avant tout objectif de niveau de
+// vie) : c'est le chiffre « choc » du diagnostic — mensuel, annuel, cumulé
+// sur l'horizon de décumulation.
+export function calculerPertes(
+  revenuNetMensuel: number,
+  pensionEstimeeMensuelle: number,
+  horizonAnnees: number = HORIZON_DECUMULATION_ANNEES
+): PertesRevenus {
+  const mensuelle = Math.max(0, revenuNetMensuel - pensionEstimeeMensuelle);
+  return {
+    mensuelle,
+    annuelle: mensuelle * 12,
+    surHorizon: mensuelle * 12 * horizonAnnees,
+    horizonAnnees,
+  };
+}
+
+// Score retraite /100 : taux de couverture du capital nécessaire par le
+// capital projeté, plafonné à 100. capitalNecessaire nul (pension déjà au
+// niveau de l'objectif) → couverture totale, score 100.
+export function calculerScoreRetraite(
+  capitalProjete: number,
+  capitalNecessaire: number
+): ScoreRetraite {
+  const couverture =
+    capitalNecessaire > 0 ? Math.max(0, capitalProjete) / capitalNecessaire : 1;
+  const valeur = Math.round(Math.min(1, couverture) * 100);
+  const niveau: NiveauScoreRetraite =
+    valeur >= SCORE_RETRAITE_SEUILS.excellent
+      ? "excellent"
+      : valeur >= SCORE_RETRAITE_SEUILS.attention
+        ? "attention"
+        : "critique";
+  return { valeur, niveau };
+}
+
 export function simulerRetraite(input: SimulationRetraiteInput): SimulationRetraiteResultat {
   const {
     statut,
@@ -120,6 +177,8 @@ export function simulerRetraite(input: SimulationRetraiteInput): SimulationRetra
   } = input;
 
   const pensionEstimeeMensuelle = calculerPensionEstimee(revenuNetMensuel, statut);
+  const tauxRemplacement =
+    revenuNetMensuel > 0 ? pensionEstimeeMensuelle / revenuNetMensuel : 0;
   const ecartMensuel = calculerEcartMensuel(revenuNetMensuel, pensionEstimeeMensuelle, objectifNiveauViePct);
   const nbMoisAvantDepart = Math.max(0, (ageDepart - ageActuel) * 12);
   const tauxMensuel = rendementAnnuelPct / 100 / 12;
@@ -155,6 +214,7 @@ export function simulerRetraite(input: SimulationRetraiteInput): SimulationRetra
 
   return {
     pensionEstimeeMensuelle,
+    tauxRemplacement,
     ecartMensuel,
     nbMoisAvantDepart,
     capitalNecessaire,
@@ -163,6 +223,8 @@ export function simulerRetraite(input: SimulationRetraiteInput): SimulationRetra
     effortMensuelSupplementaire,
     rendementOptimiseAnnuelPct,
     capitalProjeteOptimise,
+    pertes: calculerPertes(revenuNetMensuel, pensionEstimeeMensuelle),
+    score: calculerScoreRetraite(capitalProjete, capitalNecessaire),
     trajectoire,
   };
 }

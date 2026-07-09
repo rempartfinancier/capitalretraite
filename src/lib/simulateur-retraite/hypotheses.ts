@@ -40,10 +40,13 @@ export const TAUX_REMPLACEMENT_SOURCE =
 // Fourchette usuelle retenue en conseil patrimonial (maintenir un train
 // de vie proche de l'activité, sans coûts professionnels ni épargne à
 // financer) — présentée en UI comme hypothèse indicative, pas une norme.
+// `options` : paliers proposés à l'utilisateur à l'étape « Votre objectif »
+// du diagnostic (choix pédagogique, dans la fourchette min–max).
 export const OBJECTIF_NIVEAU_VIE_RETRAITE = {
   min: 0.7,
   moyen: 0.85,
   max: 1.0,
+  options: [0.7, 0.8, 0.9, 1.0],
   source:
     "Fourchette usuelle de conseil patrimonial pour maintenir son niveau de vie à la retraite — hypothèse indicative, à ajuster selon la situation réelle (charges, fiscalité, statut du logement). À VÉRIFIER.",
 };
@@ -62,6 +65,28 @@ export const RENDEMENT_PORTEFEUILLE = {
 // crédible de portefeuille dynamique.
 export const MAJORATION_SCENARIO_OPTIMISE_PTS = 1.5;
 export const REND_OPTIMISE_PLAFOND_PCT = 9;
+
+// ---- Score retraite (indicateur pédagogique, pas un audit) ----
+// Score /100 = taux de couverture du capital nécessaire par le capital
+// projeté, plafonné à 100. Les seuils de lecture sont un choix éditorial
+// (pas une norme réglementaire) : ils servent uniquement à traduire le
+// score en trois niveaux immédiatement compréhensibles.
+export const SCORE_RETRAITE_SEUILS = {
+  excellent: 80, // score ≥ 80 → 🟢 trajectoire solide
+  attention: 45, // 45 ≤ score < 80 → 🟠 écart à surveiller ; en dessous → 🔴 écart important
+  source:
+    "Seuils de lecture pédagogiques (choix éditorial Capital Retraite) appliqués au taux de couverture capital projeté / capital nécessaire — pas une norme, pas un conseil personnalisé.",
+};
+
+// ---- Scénarios comparatifs affichés dans le diagnostic ----
+// Décalages d'âge de départ testés (« et si je partais plus tôt / plus
+// tard ? ») — valeurs pédagogiques usuelles des exercices de projection.
+export const SCENARIO_DEPART_AVANCE_ANS = 2;
+export const SCENARIO_DEPART_RETARDE_ANS = 3;
+
+// Incrément d'épargne du module « Et si vous épargniez un peu plus ? » —
+// pas mensuel arbitraire mais parlant, aligné sur le step du champ épargne.
+export const INCREMENT_EPARGNE_WHATIF = 100;
 
 // ---- Espérance de vie à 65 ans (mêmes valeurs et source que
 // src/components/hypotheses.js → DECUMULATION.esperanceVie65) ----
