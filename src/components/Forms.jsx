@@ -123,7 +123,7 @@ export function FormBilan() {
   );
 }
 
-export function FormContact() {
+export function FormContact({ onSuccess }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
 
@@ -135,6 +135,7 @@ export function FormContact() {
       const ok = await postToBrevo(BREVO_FORM_ACTION_CONTACT, data);
       if (ok) {
         setSent(true);
+        onSuccess?.(data);
       } else {
         setError(true);
       }
