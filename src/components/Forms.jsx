@@ -21,6 +21,22 @@ async function postToBrevo(actionUrl, data) {
   return res.ok || res.type === "opaque";
 }
 
+// CRM interne du groupe (rempart-crm), relayé par le proxy serverless
+// /api/notifier-crm.js — tourne EN PLUS de Brevo, jamais à sa place. Erreur
+// avalée en silence côté client : ne doit jamais affecter sent/error ci-dessus.
+function notifierCrmInterne(data) {
+  fetch("/api/notifier-crm", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: data.EMAIL,
+      prenom: data.PRENOM,
+      telephone: data.SMS,
+      message: data.MESSAGE,
+    }),
+  }).catch(() => {});
+}
+
 export function FormBilan() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
@@ -32,6 +48,7 @@ export function FormBilan() {
     try {
       const ok = await postToBrevo(BREVO_FORM_ACTION_BILAN, data);
       if (ok) {
+        notifierCrmInterne(data);
         setSent(true);
       } else {
         setError(true);
@@ -134,6 +151,7 @@ export function FormContact({ onSuccess }) {
     try {
       const ok = await postToBrevo(BREVO_FORM_ACTION_CONTACT, data);
       if (ok) {
+        notifierCrmInterne(data);
         setSent(true);
         onSuccess?.(data);
       } else {
