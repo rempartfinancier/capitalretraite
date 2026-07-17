@@ -46,6 +46,10 @@ export default function Contact() {
       <section className="section">
         <div className="container prose">
           <h2>Écrivez-nous</h2>
+          <p>
+            Vous préférez appeler ? Joignez-nous au{" "}
+            <a href="tel:+33184163791">01 84 16 37 91</a>.
+          </p>
           <FormContact onSuccess={handleBookingReady} />
         </div>
       </section>

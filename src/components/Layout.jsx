@@ -76,6 +76,9 @@ function Footer() {
           constituent pas un conseil personnalisé en investissement. Tout investissement comporte
           des risques, dont la perte partielle ou totale du capital investi.
         </p>
+        <p>
+          <a href="tel:+33184163791">01 84 16 37 91</a>
+        </p>
         <div className="footer-links">
           <Link to="/mentions-legales">Mentions légales</Link>
           <Link to="/confidentialite">Confidentialité</Link>
