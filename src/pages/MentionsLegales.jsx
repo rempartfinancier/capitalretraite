@@ -4,38 +4,19 @@ export default function MentionsLegales() {
       <div className="container prose">
         <h1>Mentions légales</h1>
 
-        <h2>Éditeur du site</h2>
+        {/* EN ATTENTE DE TA VALIDATION AVANT MISE EN PRODUCTION */}
         <p>
-          Éditeur du site : EXP Capital, SASU au capital de 1 000 €
+          Éditeur : EXP Capital, SASU au capital de 1 000 €, immatriculée au RCS de Versailles
+          sous le n° 987 986 247, siège social 25 bis rue de la Côte, 78220 Viroflay. Inscrite à
+          l'ORIAS sous le n° 25005915 (<a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer">www.orias.fr</a>).
+          Directeur de la publication : Alexandre Pollet.
           <br />
-          Immatriculée au RCS de Versailles sous le numéro 987 986 247
+          Hébergeur : Hostinger International Ltd.
           <br />
-          Inscrite à l'ORIAS sous le numéro 25005915
-          <br />
-          Adresse : [ADRESSE À COMPLÉTER]
-          <br />
-          SIRET : [SIRET À COMPLÉTER]
-        </p>
-        <p>
-          Le registre unique des intermédiaires en assurance, banque et finance (ORIAS) est
-          consultable sur <a href="https://www.orias.fr" target="_blank" rel="noopener noreferrer">www.orias.fr</a>.
-        </p>
-
-        <h2>Directeur de la publication</h2>
-        <p>[DIRECTEUR DE LA PUBLICATION À COMPLÉTER]</p>
-
-        <h2>Hébergement</h2>
-        <p>
-          Hostinger International Ltd — [COORDONNÉES HÉBERGEUR À COMPLÉTER selon l'offre souscrite]
-        </p>
-
-        <h2>Nature des informations publiées</h2>
-        <p>
-          Les informations publiées sur ce site ont un caractère pédagogique général. Elles ne
-          constituent ni une offre, ni une sollicitation, ni un conseil personnalisé en
-          investissement. Tout investissement comporte des risques, dont la perte partielle ou
-          totale du capital investi. Les performances passées ne préjugent pas des performances
-          futures.
+          Avertissement : les contenus publiés sur ce site ont une vocation exclusivement
+          informative et éducative. Ils ne constituent pas un conseil en investissement financier
+          au sens de la réglementation AMF. Tout investissement comporte un risque de perte en
+          capital. Les performances passées ne préjugent pas des performances futures.
         </p>
 
         <h2>Propriété intellectuelle</h2>
@@ -45,12 +26,10 @@ export default function MentionsLegales() {
           interdite.
         </p>
 
-        <h2>Réclamations et médiation</h2>
+        <h2>Réclamations</h2>
         <p>
           Pour toute réclamation, vous pouvez nous écrire via la page contact ou à l'adresse
-          postale ci-dessus. [PROCÉDURE DE RÉCLAMATION ET MÉDIATEUR COMPÉTENT À COMPLÉTER —
-          coordonnées du médiateur de l'AMF et/ou du médiateur de l'association professionnelle
-          selon les activités exercées.]
+          postale ci-dessus.
         </p>
       </div>
     </section>
