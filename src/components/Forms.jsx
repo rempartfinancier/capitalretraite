@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   BREVO_FORM_ACTION_BILAN,
   BREVO_FORM_ACTION_CONTACT,
+  BREVO_FORM_ACTION_GUIDE,
   CALENDLY_URL,
   CALENDLY_CONFIGURED,
 } from "./config.js";
@@ -24,7 +25,8 @@ async function postToBrevo(actionUrl, data) {
 // CRM interne du groupe (rempart-crm), relayé par le proxy serverless
 // /api/notifier-crm.js — tourne EN PLUS de Brevo, jamais à sa place. Erreur
 // avalée en silence côté client : ne doit jamais affecter sent/error ci-dessus.
-function notifierCrmInterne(data) {
+// `source` distingue l'origine du lead (bilan/contact vs lead magnet PDF) côté CRM.
+function notifierCrmInterne(data, source = "site") {
   fetch("/api/notifier-crm", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -33,6 +35,7 @@ function notifierCrmInterne(data) {
       prenom: data.PRENOM,
       telephone: data.SMS,
       message: data.MESSAGE,
+      source,
     }),
   }).catch(() => {});
 }
@@ -192,6 +195,63 @@ export function FormContact({ onSuccess }) {
       <p className="hint">
         Ces informations sont confidentielles et servent uniquement à répondre à votre demande.
       </p>
+    </form>
+  );
+}
+
+// Formulaire de capture pour un lead magnet PDF (guide téléchargeable).
+// Livraison double : téléchargement immédiat affiché ici à l'état succès
+// (le visiteur ne repart jamais les mains vides) — ce site n'envoie pas
+// d'email de confirmation (aucune API transactionnelle configurée), donc
+// cet écran de succès est le seul canal de livraison.
+export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError(false);
+    const data = Object.fromEntries(new FormData(e.target));
+    try {
+      const ok = await postToBrevo(BREVO_FORM_ACTION_GUIDE, data);
+      if (ok) {
+        notifierCrmInterne(data, "lead_magnet");
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    }
+  }
+
+  if (sent) {
+    return (
+      <div className="form-confirm" role="status">
+        <h3>Votre guide est prêt</h3>
+        <p>Merci. Téléchargez-le dès maintenant — ce lien reste valable, vous pouvez le reprendre à tout moment.</p>
+        <p style={{ marginTop: "1rem" }}>
+          <a className="btn btn-primary" href={pdfUrl} download={pdfNomFichier}>
+            Télécharger le guide (PDF)
+          </a>
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="g-email">Email</label>
+        <input id="g-email" name="EMAIL" type="email" required autoComplete="email" />
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Recevoir {guideTitre ? `« ${guideTitre} »` : "le guide"}
+      </button>
+      {error && (
+        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+      )}
+      <p className="hint">Vos données restent confidentielles. Pas de spam.</p>
     </form>
   );
 }

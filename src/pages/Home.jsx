@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CtaBanner } from "../components/Layout.jsx";
+import { FormLeadMagnet } from "../components/Forms.jsx";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "../components/config.js";
 
 const strategies = [
@@ -124,6 +125,29 @@ export default function Home() {
               <span className="card-more">Lire l'enquête →</span>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* GUIDE GRATUIT — lead magnet PDF (section additive, indépendante des autres) */}
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">Guide gratuit</span>
+          <h2>Assurance-vie : la grille d'audit en 20 points</h2>
+          <p style={{ maxWidth: "640px" }}>
+            Le PDF à télécharger pour savoir, en 20 minutes et avec votre relevé annuel en main,
+            si votre contrat vous coûte cher — un score sur 20 points, pas un argumentaire
+            commercial.
+          </p>
+          <div style={{ maxWidth: "480px", marginTop: "1.5rem" }}>
+            <FormLeadMagnet
+              pdfUrl="/guides/grille-audit-assurance-vie.pdf"
+              pdfNomFichier="grille-audit-assurance-vie.pdf"
+              guideTitre="la grille d'audit assurance-vie"
+            />
+          </div>
+          <p style={{ marginTop: "1rem" }}>
+            <Link to="/guide-audit-assurance-vie">Voir le détail du guide →</Link>
+          </p>
         </div>
       </section>
 

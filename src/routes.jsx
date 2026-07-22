@@ -19,6 +19,13 @@ export const routesMeta = [
     breadcrumb: [["Accueil", "/"], ["Bilan retraite", "/bilan-retraite"]],
   },
   {
+    path: "/guide-audit-assurance-vie",
+    title: "Grille d'audit assurance-vie en 20 points (PDF gratuit) — Capital Retraite",
+    description:
+      "Le guide PDF gratuit pour savoir en 20 minutes si votre assurance-vie vous coûte cher : checklist notée en 4 blocs (frais, supports, fiscalité, clause bénéficiaire), barème de référence et score sur 20 points.",
+    breadcrumb: [["Accueil", "/"], ["Guide gratuit : grille d'audit assurance-vie", "/guide-audit-assurance-vie"]],
+  },
+  {
     path: "/simulateur-retraite",
     title: "Simulateur retraite gratuit : votre score retraite sur 100 en 3 minutes",
     description:

@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { email, prenom, telephone, message } = req.body || {};
+  const { email, prenom, telephone, message, source } = req.body || {};
   if (!email || typeof email !== "string") {
     res.status(400).json({ error: "email_requis" });
     return;
@@ -36,7 +36,16 @@ export default async function handler(req, res) {
     const r = await fetch("https://rempart-crm.vercel.app/api/ingest/lead", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ sourceSite: "capitalretraite", email, prenom, telephone, message }),
+      body: JSON.stringify({
+        sourceSite: "capitalretraite",
+        // Distingue l'origine du lead côté CRM : "lead_magnet" (guide PDF) vs
+        // "site" par défaut (bilan/contact) — voir Forms.jsx notifierCrmInterne().
+        source: typeof source === "string" && source ? source : "site",
+        email,
+        prenom,
+        telephone,
+        message,
+      }),
     });
     if (!r.ok) {
       console.error("[notifier-crm] CRM interne a refusé le lead:", r.status, await r.text());
