@@ -12,6 +12,8 @@ export default function Contact() {
     // pour qu'il ne puisse pas le manquer.
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "generate_lead" });
     }
   }
 
