@@ -51,6 +51,12 @@ import GuideConseillerOuSeul from "./pages/GuideConseillerOuSeul.jsx";
 import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembourgeoise.jsx";
 import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx";
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
+import GuideInconvenientsPer from "./pages/GuideInconvenientsPer.jsx";
+import GuidePeePercol from "./pages/GuidePeePercol.jsx";
+import GuideScpiOuLocatifDirect from "./pages/GuideScpiOuLocatifDirect.jsx";
+import GuideTransfertPerArticle83 from "./pages/GuideTransfertPerArticle83.jsx";
+import GuideClauseBeneficiaireAv from "./pages/GuideClauseBeneficiaireAv.jsx";
+import GuideStrategieParAge from "./pages/GuideStrategieParAge.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -123,6 +129,12 @@ export default function App() {
           <Route path="/guide/assurance-vie-luxembourgeoise" element={<GuideAssuranceVieLuxembourgeoise />} />
           <Route path="/guide/donation-ou-assurance-vie-transmission" element={<GuideDonationOuAssuranceVie />} />
           <Route path="/guide/retraite-fonctionnaires-completer" element={<GuideRetraiteFonctionnaires />} />
+          <Route path="/guide/inconvenients-du-per" element={<GuideInconvenientsPer />} />
+          <Route path="/guide/pee-percol-retraite" element={<GuidePeePercol />} />
+          <Route path="/guide/scpi-ou-locatif-direct" element={<GuideScpiOuLocatifDirect />} />
+          <Route path="/guide/transfert-per-article-83" element={<GuideTransfertPerArticle83 />} />
+          <Route path="/guide/clause-beneficiaire-assurance-vie" element={<GuideClauseBeneficiaireAv />} />
+          <Route path="/guide/strategie-retraite-par-age" element={<GuideStrategieParAge />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
