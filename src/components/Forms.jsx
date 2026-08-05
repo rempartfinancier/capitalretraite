@@ -1,11 +1,23 @@
 import { useState } from "react";
 import {
-  BREVO_FORM_ACTION_BILAN,
-  BREVO_FORM_ACTION_CONTACT,
   BREVO_FORM_ACTION_GUIDE,
   CALENDLY_URL,
   CALENDLY_CONFIGURED,
 } from "./config.js";
+
+// Envoi serveur (Vercel Function /api/send-lead-email.js) pour Contact et
+// Bilan : ces 2 formulaires n'ont jamais eu d'URL d'action Brevo configurée
+// sur Vercel (contrairement à BREVO_FORM_ACTION_GUIDE ci-dessus, toujours
+// utilisée telle quelle par FormLeadMagnet). Contrairement à postToBrevo()
+// en no-cors ci-dessous, la réponse HTTP ici reflète un vrai succès/échec.
+async function envoyerLead(formulaire, data) {
+  const res = await fetch("/api/send-lead-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...data, formulaire }),
+  });
+  return res.ok;
+}
 
 async function postToBrevo(actionUrl, data) {
   if (!actionUrl) {
@@ -49,7 +61,7 @@ export function FormBilan() {
     setError(false);
     const data = Object.fromEntries(new FormData(e.target));
     try {
-      const ok = await postToBrevo(BREVO_FORM_ACTION_BILAN, data);
+      const ok = await envoyerLead("bilan", data);
       if (ok) {
         notifierCrmInterne(data);
         setSent(true);
@@ -152,7 +164,7 @@ export function FormContact({ onSuccess }) {
     setError(false);
     const data = Object.fromEntries(new FormData(e.target));
     try {
-      const ok = await postToBrevo(BREVO_FORM_ACTION_CONTACT, data);
+      const ok = await envoyerLead("contact", data);
       if (ok) {
         notifierCrmInterne(data);
         setSent(true);
