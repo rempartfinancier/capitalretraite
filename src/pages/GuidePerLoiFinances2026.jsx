@@ -26,12 +26,14 @@ export default function GuidePerLoiFinances2026() {
         <div className="container prose">
           <div className="resume-executif">
             <p>
-              <strong>L'essentiel :</strong> deux textes votés fin 2025 ont modifié le PER au 1er janvier
-              2026. La loi de financement de la Sécurité sociale (LFSS) 2026 a relevé le taux des
-              prélèvements sociaux applicable aux gains du PER de 17,2 % à{" "}
+              <strong>L'essentiel :</strong> deux lois distinctes ont modifié le PER avec effet au 1er
+              janvier 2026. La loi de financement de la Sécurité sociale (LFSS) 2026 — loi n° 2025-1403
+              du 30 décembre 2025, article 12 — a relevé le taux des prélèvements sociaux applicable aux
+              gains du PER de 17,2 % à{" "}
               {pct(FISCALITE.prelevementsSociaux.per)}, tout en excluant explicitement l'assurance-vie et
               l'immobilier de cette hausse, qui restent à {pct(FISCALITE.prelevementsSociaux.assuranceVie)}
-              . Séparément, la loi de finances 2026 a supprimé la déductibilité fiscale des versements
+              . Séparément, la loi de finances pour 2026 — promulguée plus tard, le 19 février 2026 — a
+              supprimé la déductibilité fiscale des versements
               volontaires effectués sur un PER par un souscripteur de {ageLimite} ans ou plus — les versements
               restent possibles, mais ils ne réduisent plus le revenu imposable. Aucune de ces deux
               mesures ne remet en cause l'intérêt du PER pour la majorité des épargnants qui versent
@@ -67,14 +69,16 @@ export default function GuidePerLoiFinances2026() {
 
           <h2 id="lfss-2026">Deux lois, deux mesures, un même 1er janvier 2026</h2>
           <p>
-            Deux textes distincts, votés à la fin de l'année 2025, sont entrés en vigueur le 1er janvier
-            2026 et touchent chacun un aspect différent du PER. La loi de financement de la Sécurité
-            sociale (LFSS) 2026 relève le taux global des prélèvements sociaux sur les revenus du
-            capital, avec un article dédié au PER, au PEA et au compte-titres ordinaire. La loi de
-            finances 2026, de son côté, modifie les règles de déduction fiscale des versements
-            volontaires selon l'âge du souscripteur. Les deux mesures sont indépendantes l'une de
-            l'autre : un même épargnant peut n'être concerné que par l'une, par les deux, ou par
-            aucune, selon son âge et le type de retrait envisagé.
+            Deux textes distincts touchent chacun un aspect différent du PER, avec un même point de
+            départ : le 1er janvier 2026. La loi de financement de la Sécurité sociale (LFSS) 2026 — loi
+            n° 2025-1403 du 30 décembre 2025, publiée au Journal officiel le 31 décembre 2025 — relève,
+            à son article 12, le taux global des prélèvements sociaux sur les revenus du capital, avec
+            un effet direct sur le PER, le PEA et le compte-titres ordinaire. La loi de finances pour
+            2026 — loi n° 2026-103, promulguée plus tardivement, le 19 février 2026 — modifie de son
+            côté les règles de déduction fiscale des versements volontaires selon l'âge du souscripteur,
+            avec un effet rétroactif au 1er janvier 2026 pour cette mesure. Les deux textes sont
+            indépendants l'un de l'autre : un même épargnant peut n'être concerné que par l'un, par les
+            deux, ou par aucun, selon son âge et le type de retrait envisagé.
           </p>
 
           <h2 id="prelevements-sociaux">
@@ -257,11 +261,15 @@ export default function GuidePerLoiFinances2026() {
           </ol>
           <div className="note">
             <p>
-              Cette analyse est générale et ne constitue pas un conseil personnalisé. Les taux et
-              règles cités sont ceux issus de la LFSS 2026 et de la loi de finances 2026, en vigueur au{" "}
-              {HYPOTHESES_MAJ} — à vérifier avant toute opération, la publication des décrets
-              d'application pouvant encore préciser certains points. Pour un point complet sur votre
-              situation, un{" "}
+              Cette analyse est générale et ne constitue pas un conseil personnalisé. Les taux de
+              prélèvements sociaux cités sont ceux de l'article 12 de la LFSS 2026 (loi n° 2025-1403 du
+              30 décembre 2025), vérifié sur Légifrance. La règle sur la fin de la déduction après{" "}
+              {ageLimite} ans provient de la loi de finances pour 2026 (loi n° 2026-103 du 19 février
+              2026) ; son mécanisme est confirmé par plusieurs sources spécialisées concordantes, mais
+              l'article exact du Code général des impôts qu'elle modifie n'a pas pu être confirmé
+              directement sur Légifrance et reste à vérifier. Barème {HYPOTHESES_MAJ} — à reconfirmer
+              avant toute opération, la publication de décrets d'application pouvant encore préciser
+              certains points. Pour un point complet sur votre situation, un{" "}
               <a href="/bilan-retraite">bilan retraite gratuit</a> permet de recalculer l'impact réel de
               ces changements sur votre contrat.
             </p>
