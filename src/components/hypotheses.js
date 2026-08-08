@@ -139,19 +139,26 @@ export const TRANSMISSION = {
 // ---- Fiscalité (barèmes en vigueur à la date de révision) ----
 export const FISCALITE = {
   pfuIR: 12.8, // prélèvement forfaitaire unique, part impôt sur le revenu (%)
-  // Prélèvements sociaux (CSG, CRDS et contributions annexes) : la LFSS 2026
-  // relève le taux de 17,2 % à 18,6 % pour le PER, le PEA, le compte-titres
-  // ordinaire et les revenus du capital en général (art. 12 LFSS 2026), mais
-  // EXCLUT explicitement l'assurance-vie et les revenus fonciers/immobiliers,
-  // qui restent à 17,2 %. Taux différenciés par enveloppe — À VÉRIFIER avant
-  // publication (source à confirmer par Alexandre).
+  // Prélèvements sociaux (CSG, CRDS et contributions annexes) : l'article 12 de
+  // la loi n° 2025-1403 du 30 décembre 2025 de financement de la sécurité sociale
+  // pour 2026 (LFSS 2026, JORF n°306 du 31 décembre 2025) modifie l'article
+  // L. 136-8 du Code de la sécurité sociale et relève la CSG de 9,2 % à 10,6 %
+  // sur les revenus mentionnés aux articles L. 136-6 et L. 136-7 du CSS, portant
+  // le total des prélèvements sociaux (CSG 10,6 % + CRDS 0,5 % + prélèvement de
+  // solidarité 7,5 %) de 17,2 % à 18,6 % — pour le PER, le PEA, le compte-titres
+  // ordinaire et les plus-values mobilières en général. Le IV de l'art. L. 136-8
+  // maintient le taux de 9,2 % de CSG (soit 17,2 % au total) pour l'assurance-vie
+  // et les contrats de capitalisation, le PEL/CEL ouverts après 2018, le PEP, et
+  // les revenus fonciers/plus-values immobilières. Vérifié sur Légifrance
+  // (JORFTEXT000053226384, art. 12) le 8 août 2026 — taux à reconfirmer avant
+  // publication en cas de décret d'application ultérieur.
   prelevementsSociaux: {
     per: 18.6,
     pea: 18.6,
     cto: 18.6,
     assuranceVie: 17.2,
     immobilier: 17.2,
-    source: "LFSS 2026, art. 12 — hausse de 17,2 % à 18,6 % au 1er janvier 2026, à l'exclusion de l'assurance-vie et des revenus fonciers/immobiliers (maintenus à 17,2 %) — À VÉRIFIER",
+    source: "LFSS 2026 (loi n° 2025-1403 du 30 décembre 2025), art. 12, modifiant l'art. L. 136-8 du Code de la sécurité sociale — hausse de 17,2 % à 18,6 % au 1er janvier 2026, à l'exclusion de l'assurance-vie et des revenus fonciers/immobiliers (maintenus à 17,2 %). Vérifié sur Légifrance le 8 août 2026.",
   },
   avTauxReduitApres8Ans: 7.5, // taux IR réduit sur gains, contrats > 8 ans, versements < 150 000 € (%)
   avAbattementAnnuelSeul: 4600, // abattement annuel sur gains après 8 ans, personne seule (€)
@@ -162,6 +169,22 @@ export const FISCALITE = {
   // (10 % de 8 fois le PASS de l'année précédente, plafond spécifique bas du barème
   // PER individuel) — À VÉRIFIER, ce plafond est révisé chaque année.
   perPlafondEnfantRattache: 4710,
+  // Loi de finances pour 2026 (loi n° 2026-103 du 19 février 2026, JORF n°0043
+  // du 20 février 2026 — promulguée après la LFSS 2026 ci-dessus, à ne pas
+  // confondre avec elle) : les versements volontaires effectués sur un PER par
+  // un souscripteur ayant atteint cet âge au jour du versement ne sont plus
+  // déductibles du revenu imposable, avec effet au 1er janvier 2026 (tous types
+  // de PER : individuel, PERE collectif, PER obligatoire). Les versements
+  // restent possibles ; seule la déduction fiscale à l'entrée disparaît. En
+  // contrepartie, le capital correspondant à ces versements non déduits est
+  // exonéré d'IR et de prélèvements sociaux à la sortie (seules les plus-values
+  // restent soumises au PFU). Âge et mécanisme confirmés par recoupement de
+  // plusieurs sources spécialisées (juillet-août 2026) ; le numéro exact de
+  // l'article de la loi et de l'article du CGI modifié (163 quatervicies ou
+  // voisin) N'A PAS PU être confirmé sur Légifrance le 8 août 2026 (résultats
+  // contradictoires selon les recherches) — À VÉRIFIER PAR ALEXANDRE avant
+  // toute citation d'article précis.
+  perAgeLimiteDeductibiliteVersements: 70,
   source: "barèmes en vigueur à la date de révision des hypothèses — À VÉRIFIER avant publication",
 };
 

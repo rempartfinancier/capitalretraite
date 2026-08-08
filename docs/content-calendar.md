@@ -66,6 +66,15 @@ La liste exhaustive et à jour est `src/routes.jsx` (chemins commençant par `/g
 `/strategies/`). Avant de choisir un sujet, **toujours lire ce fichier en premier** pour éviter tout
 doublon thématique, même avec un angle différent.
 
+### Run du 2026-08-08 — 1 article ajouté (actualité prioritaire sur le backlog)
+
+- `/guide/per-loi-de-finances-2026` — Coûts / Mécanique retraite : la LFSS 2026 (hausse des
+  prélèvements sociaux du PER à 18,6 %, assurance-vie et immobilier épargnés à 17,2 %) et la loi de
+  finances 2026 (fin de la déductibilité des versements PER après 70 ans), entrées en vigueur au 1er
+  janvier 2026. Ajout du champ `perAgeLimiteDeductibiliteVersements` dans `hypotheses.js`. Sujet
+  choisi lors de la veille de tendances (actualité réelle et récente, vérifiée par plusieurs sources
+  concordantes) plutôt que le premier item du backlog, conformément à la règle de priorité.
+
 ### Run du 2026-08-02 — 6 articles ajoutés
 
 - `/guide/inconvenients-du-per` — Risques : les inconvénients du PER (blocage, report fiscal, pari
@@ -117,3 +126,6 @@ _(Ajouté automatiquement par chaque exécution : date, sujet traité, lien PR.)
 
 - **2026-08-02** — Rédaction initiale : 6 articles (voir liste ci-dessus). PR de mise en place de la
   routine automatique bihebdomadaire (mardi/vendredi 8h, mode PR systématique).
+- **2026-08-08** — 1 article : `/guide/per-loi-de-finances-2026` (voir « Sujets déjà publiés »
+  ci-dessus pour le détail). PR : https://github.com/rempartfinancier/capitalretraite/pull/2
+  (empilée sur la PR #1, `content/seo-batch-2026-08-02`, non encore mergée).

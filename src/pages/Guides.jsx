@@ -136,6 +136,11 @@ const categories = [
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
       },
+      {
+        to: "/guide/per-loi-de-finances-2026",
+        title: "PER 2026 : prélèvements sociaux à 18,6 % et fin de la déduction après 70 ans",
+        text: "Ce que la LFSS 2026 et la loi de finances 2026 changent vraiment, et pour qui.",
+      },
     ],
   },
   {
