@@ -162,6 +162,14 @@ export const FISCALITE = {
   // (10 % de 8 fois le PASS de l'année précédente, plafond spécifique bas du barème
   // PER individuel) — À VÉRIFIER, ce plafond est révisé chaque année.
   perPlafondEnfantRattache: 4710,
+  // Depuis le 1er janvier 2026 (loi de finances 2026), les versements volontaires
+  // effectués sur un PER par un souscripteur ayant atteint cet âge au jour du
+  // versement ne sont plus déductibles du revenu imposable (tous types de PER :
+  // individuel, PERE collectif, PER obligatoire). Les versements restent possibles ;
+  // seule la déduction fiscale à l'entrée disparaît. En contrepartie, le capital
+  // correspondant à ces versements non déduits est exonéré d'IR et de prélèvements
+  // sociaux à la sortie (seules les plus-values restent soumises au PFU) — À VÉRIFIER.
+  perAgeLimiteDeductibiliteVersements: 70,
   source: "barèmes en vigueur à la date de révision des hypothèses — À VÉRIFIER avant publication",
 };
 

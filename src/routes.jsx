@@ -571,6 +571,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/per-loi-de-finances-2026",
+    title: "PER 2026 : prélèvements sociaux à 18,6 % et fin de la déduction après 70 ans",
+    description:
+      "LFSS 2026 et loi de finances 2026 : la hausse des prélèvements sociaux du PER à 18,6 % (assurance-vie épargnée) et la fin de la déduction des versements après 70 ans, expliquées et chiffrées.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PER : ce qui change en 2026", "/guide/per-loi-de-finances-2026"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
