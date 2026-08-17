@@ -48,6 +48,7 @@ function notifierCrmInterne(data, source = "site") {
       telephone: data.SMS,
       message: data.MESSAGE,
       source,
+      pageUrl: window.location.href,
     }),
   }).catch(() => {});
 }

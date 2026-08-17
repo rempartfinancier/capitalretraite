@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { email, prenom, telephone, message, source } = req.body || {};
+  const { email, prenom, telephone, message, source, pageUrl } = req.body || {};
   if (!email || typeof email !== "string") {
     res.status(400).json({ error: "email_requis" });
     return;
@@ -45,6 +45,7 @@ export default async function handler(req, res) {
         prenom,
         telephone,
         message,
+        pageUrl,
       }),
     });
     if (!r.ok) {
