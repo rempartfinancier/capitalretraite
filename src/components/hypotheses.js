@@ -219,6 +219,44 @@ export const REGIME_GENERAL = {
   source: "Code de la sécurité sociale, régime général — service-public.fr / info-retraite.fr — À VÉRIFIER selon la génération et le régime d'affiliation",
 };
 
+// ---- Suspension du calendrier de la réforme des retraites de 2023 ----
+// L'article 105 de la LFSS 2026 (loi n° 2025-1403 du 30 décembre 2025) gèle
+// temporairement le calendrier de relèvement de l'âge légal et de la durée
+// d'assurance requise instauré par la loi n° 2023-270 du 14 avril 2023, pour
+// les pensions prenant effet à compter du 1er septembre 2026. Un décret
+// d'application (décret n° 2026-345 du 7 mai 2026) en précise les modalités,
+// notamment pour les carrières longues, les catégories actives/super-actives
+// de la fonction publique, les militaires et certains infirmiers. Seules les
+// générations 1964 à 1968 sont concernées ; à partir de la génération 1969,
+// le calendrier de la réforme de 2023 s'applique sans changement (âge légal
+// de 64 ans). La suspension est présentée comme temporaire, jusqu'en janvier
+// 2028, date à laquelle le calendrier initial devrait reprendre son cours —
+// sauf nouvelle intervention du législateur d'ici là, ce qui reste une
+// inconnue politique et non un fait acquis.
+export const SUSPENSION_REFORME_RETRAITES = {
+  loi: "loi n° 2025-1403 du 30 décembre 2025 de financement de la sécurité sociale pour 2026 (LFSS 2026), art. 105",
+  decret: "décret n° 2026-345 du 7 mai 2026",
+  dateEffet: "1er septembre 2026",
+  finSuspensionAnnoncee: "janvier 2028",
+  generationsConcernees: "1964 à 1968",
+  // Âge légal et durée d'assurance (trimestres) avant/après la suspension,
+  // régime général — recoupement de plusieurs sources concordantes
+  // (info-retraite.fr/CNAV, Previssima, centres de gestion de la fonction
+  // publique) en août 2026. Les CDG confirment l'extension aux catégories
+  // actives de la fonction publique territoriale et hospitalière. À
+  // reconfirmer avant publication en cas de circulaire CNAV ultérieure.
+  parGeneration: [
+    { generation: "1964", ageAvant: "63 ans", ageApres: "62 ans et 9 mois", trimestresAvant: 171, trimestresApres: 170 },
+    { generation: "1965 (né(e) au 1er trimestre)", ageAvant: "63 ans et 3 mois", ageApres: "62 ans et 9 mois", trimestresAvant: 172, trimestresApres: 170 },
+    { generation: "1965 (né(e) à partir du 2e trimestre)", ageAvant: "63 ans et 3 mois", ageApres: "63 ans", trimestresAvant: 172, trimestresApres: 171 },
+    { generation: "1966", ageAvant: "63 ans et 6 mois", ageApres: "63 ans et 3 mois", trimestresAvant: 172, trimestresApres: 172 },
+    { generation: "1967", ageAvant: "63 ans et 9 mois", ageApres: "63 ans et 6 mois", trimestresAvant: 172, trimestresApres: 172 },
+    { generation: "1968", ageAvant: "64 ans", ageApres: "63 ans et 9 mois", trimestresAvant: 172, trimestresApres: 172 },
+  ],
+  source:
+    "LFSS 2026 (loi n° 2025-1403 du 30 décembre 2025), art. 105, et décret n° 2026-345 du 7 mai 2026 — recoupement de plusieurs sources spécialisées concordantes (info-retraite.fr, Previssima, centres de gestion de la fonction publique) en août 2026. À reconfirmer par Alexandre avant publication, notamment le détail par trimestre de naissance qui peut encore être précisé par circulaire.",
+};
+
 // ---- Valeurs par défaut des simulateurs (modifiables à l'écran) ----
 export const SIMU_DEFAUTS = {
   versementMensuel: 300,
