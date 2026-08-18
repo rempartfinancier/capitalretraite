@@ -261,6 +261,11 @@ const categories = [
         title: "Surcote ou décote : comment ça se calcule ?",
         text: "1,25 % par trimestre, dans un sens ou dans l'autre — un mécanisme à anticiper, pas à subir.",
       },
+      {
+        to: "/guide/suspension-reforme-retraites-2026",
+        title: "Suspension de la réforme des retraites : générations 1964-1968",
+        text: "L'âge légal et la durée d'assurance gelés dès le 1er septembre 2026 — le calendrier détaillé génération par génération.",
+      },
     ],
   },
   {

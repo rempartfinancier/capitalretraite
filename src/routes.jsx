@@ -582,6 +582,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/suspension-reforme-retraites-2026",
+    title: "Suspension de la réforme des retraites : ce qui change pour les générations 1964-1968",
+    description:
+      "LFSS 2026, article 105 : l'âge légal et la durée d'assurance sont gelés pour les générations 1964 à 1968, pensions à effet du 1er septembre 2026. Le calendrier détaillé génération par génération.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Suspension de la réforme des retraites", "/guide/suspension-reforme-retraites-2026"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
