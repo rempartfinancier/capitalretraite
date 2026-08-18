@@ -139,3 +139,6 @@ _(Ajouté automatiquement par chaque exécution : date, sujet traité, lien PR.)
 - **2026-08-08** — 1 article : `/guide/per-loi-de-finances-2026` (voir « Sujets déjà publiés »
   ci-dessus pour le détail). PR : https://github.com/rempartfinancier/capitalretraite/pull/2
   (empilée sur la PR #1, `content/seo-batch-2026-08-02`, non encore mergée).
+- **2026-08-18** — 1 article : `/guide/suspension-reforme-retraites-2026` (voir « Sujets déjà
+  publiés » ci-dessus pour le détail). PR : https://github.com/rempartfinancier/capitalretraite/pull/3
+  (empilée sur la PR #2, `content/per-loi-de-finances-2026-2026-08-08`, elle-même non encore mergée).
