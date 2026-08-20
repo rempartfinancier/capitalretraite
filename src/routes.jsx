@@ -142,6 +142,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/deblocage-anticipe-per",
+    title: "Déblocage anticipé du PER : les 6 cas, la fiscalité et les pièges",
+    description:
+      "Les six cas légaux de déblocage d'un PER avant la retraite, leur fiscalité réelle et les deux pièges les plus coûteux : les compartiments non débloquables et l'effet du retrait sur votre tranche marginale.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Déblocage anticipé du PER", "/guide/deblocage-anticipe-per"],
+    ],
+  },
+  {
     path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
     title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
     description:

@@ -107,6 +107,11 @@ const categories = [
         text: "Impôt sur le revenu, prélèvements sociaux, fractionnement : un sujet technique rendu lisible.",
       },
       {
+        to: "/guide/deblocage-anticipe-per",
+        title: "Déblocage anticipé du PER : les 6 cas et leur fiscalité",
+        text: "Accidents de la vie ou achat de la résidence principale : deux régimes fiscaux très différents, et deux pièges coûteux.",
+      },
+      {
         to: "/guide/a-quel-age-commencer-per",
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
