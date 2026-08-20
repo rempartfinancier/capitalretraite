@@ -212,6 +212,11 @@ const categories = [
     name: "Comprendre le système de retraite",
     items: [
       {
+        to: "/guide/verifier-releve-de-carriere-retraite",
+        title: "Relevé de carrière : comment le vérifier et corriger les erreurs",
+        text: "Le document qui conditionne tout le reste — et les six périodes où les oublis se concentrent.",
+      },
+      {
         to: "/guide/combien-coute-rachat-trimestres-retraite",
         title: "Combien coûte le rachat de trimestres pour la retraite ?",
         text: "Ce qui détermine le prix d'un trimestre racheté, et quand l'opération est vraiment rentable.",
