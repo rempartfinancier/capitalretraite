@@ -111,6 +111,11 @@ const categories = [
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
       },
+      {
+        to: "/guide/deblocage-anticipe-per",
+        title: "Déblocage anticipé du PER : les 6 cas pour récupérer son épargne",
+        text: "Décès du conjoint, invalidité, chômage, résidence principale : les cas légaux, et la fiscalité de chacun.",
+      },
     ],
   },
   {

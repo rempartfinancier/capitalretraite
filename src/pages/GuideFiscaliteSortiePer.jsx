@@ -29,6 +29,13 @@ export default function GuideFiscaliteSortiePer() {
 
       <section className="section">
         <div className="container prose">
+          <p>
+            Ce guide porte sur la sortie à l'échéance de la retraite. Si vous cherchez à savoir dans
+            quels cas récupérer votre épargne avant la retraite (décès du conjoint, invalidité,
+            chômage, achat de la résidence principale...), consultez notre guide{" "}
+            <a href="/guide/deblocage-anticipe-per">déblocage anticipé du PER</a>, dont la fiscalité
+            diffère sensiblement de la sortie classique décrite ci-dessous.
+          </p>
           <div className="resume-executif">
             <p>
               <strong>L'essentiel :</strong> si vous avez déduit vos versements PER à l'entrée, la

@@ -505,6 +505,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/deblocage-anticipe-per",
+    title: "Déblocage anticipé du PER : les 6 cas pour récupérer son épargne",
+    description:
+      "Décès du conjoint, invalidité, surendettement, chômage, liquidation judiciaire, achat de la résidence principale : les 6 cas légaux de déblocage anticipé du PER, et la fiscalité de chacun.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Déblocage anticipé du PER", "/guide/deblocage-anticipe-per"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
