@@ -171,6 +171,17 @@ export default function GuideDeblocageAnticipePer() {
             familial est en revanche large, puisqu'il couvre aussi les enfants — un point rarement
             mis en avant.
           </p>
+          <p>
+            Trois autres nuances sont fréquemment mal comprises. D'abord, le décès n'ouvre ce droit
+            que pour le conjoint marié ou le partenaire de Pacs : un concubin, même après de
+            nombreuses années de vie commune, n'y a pas droit. Ensuite, le cas « chômage » ne se
+            déclenche pas dès la perte d'un emploi, mais seulement une fois les droits à l'assurance
+            chômage entièrement épuisés — une confusion fréquente qui conduit certains épargnants à
+            solliciter un déblocage trop tôt, et à essuyer un refus du gestionnaire. Enfin, seule une
+            liquidation judiciaire de l'activité non salariée ouvre ce droit ; une procédure de
+            sauvegarde ou de redressement judiciaire, tant qu'elle n'a pas abouti à une liquidation,
+            ne le permet pas.
+          </p>
 
           <h2 id="residence">L'achat de la résidence principale : le seul cas où la facture peut être lourde</h2>
           <p>
