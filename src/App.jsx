@@ -47,6 +47,7 @@ import GuideIndependantsPerMadelin from "./pages/GuideIndependantsPerMadelin.jsx
 import GuideCoutRachatTrimestres from "./pages/GuideCoutRachatTrimestres.jsx";
 import GuideCumulEmploiRetraite from "./pages/GuideCumulEmploiRetraite.jsx";
 import GuideSurcoteDecote from "./pages/GuideSurcoteDecote.jsx";
+import GuideVerifierReleveCarriere from "./pages/GuideVerifierReleveCarriere.jsx";
 import GuideGestionPiloteeOuLibre from "./pages/GuideGestionPiloteeOuLibre.jsx";
 import GuideConseillerOuSeul from "./pages/GuideConseillerOuSeul.jsx";
 import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembourgeoise.jsx";
@@ -120,6 +121,7 @@ export default function App() {
           <Route path="/guide/combien-coute-rachat-trimestres-retraite" element={<GuideCoutRachatTrimestres />} />
           <Route path="/guide/cumul-emploi-retraite-comment-ca-marche" element={<GuideCumulEmploiRetraite />} />
           <Route path="/guide/surcote-decote-retraite" element={<GuideSurcoteDecote />} />
+          <Route path="/guide/verifier-releve-de-carriere-retraite" element={<GuideVerifierReleveCarriere />} />
           <Route path="/guide/gestion-pilotee-ou-gestion-libre" element={<GuideGestionPiloteeOuLibre />} />
           <Route path="/guide/conseiller-ou-gerer-seul-sa-retraite" element={<GuideConseillerOuSeul />} />
           <Route path="/guide/assurance-vie-luxembourgeoise" element={<GuideAssuranceVieLuxembourgeoise />} />

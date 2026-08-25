@@ -260,7 +260,13 @@ export default function GuideSurcoteDecote() {
             qu'à 61 ou 62 ans, laisse le temps de corriger des anomalies (trimestres de stage non
             reportés, période d'apprentissage mal comptabilisée, erreur d'employeur) et de
             construire une stratégie sur plusieurs années. Découvrir un manque de trimestres à
-            deux ans du départ souhaité laisse beaucoup moins d'options.
+            deux ans du départ souhaité laisse beaucoup moins d'options. La marche à suivre — où
+            trouver le relevé, quelles périodes contrôler en priorité, comment faire rectifier une
+            anomalie sur justificatifs — est détaillée dans{" "}
+            <a href="/guide/verifier-releve-de-carriere-retraite">
+              notre guide sur la vérification du relevé de carrière
+            </a>
+            .
           </p>
           <p>
             <strong>Racheter des trimestres manquants.</strong> Le rachat de trimestres (verser

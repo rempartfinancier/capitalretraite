@@ -461,6 +461,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/verifier-releve-de-carriere-retraite",
+    title: "Relevé de carrière : comment le vérifier et corriger les erreurs",
+    description:
+      "Trimestres oubliés, employeurs disparus, périodes à l'étranger : où trouver son relevé de carrière, quelles anomalies y chercher, et comment les faire rectifier sur justificatifs — gratuitement.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Vérifier son relevé de carrière", "/guide/verifier-releve-de-carriere-retraite"],
+    ],
+  },
+  {
     path: "/guide/gestion-pilotee-ou-gestion-libre",
     title: "Gestion pilotée ou gestion libre : que choisir pour son épargne retraite ?",
     description:
