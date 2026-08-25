@@ -159,6 +159,10 @@ export default function GuideFautIlOuvrirPer() {
             imposable — seuls les gains le sont. Pour l'achat de la résidence principale, en
             revanche, comme pour une sortie classique à la retraite, les versements déduits sont
             réintégrés au barème : un déblocage mal anticipé peut faire bondir l'impôt de l'année.
+            Notre guide{" "}
+            <a href="/guide/deblocage-anticipe-per">déblocage anticipé du PER</a> détaille les six
+            cas, leur fiscalité respective et les compartiments qui restent bloqués quoi qu'il
+            arrive.
           </p>
 
           <h2 id="seul-motif">4. Ouvrir un PER « pour payer moins d'impôts » : un mauvais calcul, même à TMI élevée</h2>

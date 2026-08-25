@@ -190,9 +190,10 @@ export default function GuideAgeCommencerPer() {
             Par principe, les sommes versées sur un PER sont bloquées jusqu'au départ à la
             retraite, sauf cas de déblocage anticipé prévus par la loi (achat de la résidence
             principale, invalidité, décès du conjoint, surendettement, expiration des droits au
-            chômage, cessation d'activité non salariée à la suite d'une liquidation judiciaire).
-            Plus le PER est ouvert tard, plus cette échéance de déblocage se rapproche
-            mécaniquement.
+            chômage, cessation d'activité non salariée à la suite d'une liquidation judiciaire),
+            que détaille notre guide{" "}
+            <a href="/guide/deblocage-anticipe-per">déblocage anticipé du PER</a>. Plus le PER est
+            ouvert tard, plus cette échéance de déblocage se rapproche mécaniquement.
           </p>
           <h3>Est-il trop tard à 55 ans pour ouvrir un PER ?</h3>
           <p>

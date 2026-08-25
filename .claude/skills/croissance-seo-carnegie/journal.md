@@ -5,7 +5,26 @@ part de l'état décrit ici et ne refait pas une recherche déjà faite.
 
 ---
 
-## Cycle 001 — clôturé le 2026-08-20
+## Note opérationnelle : incident de doublon du cycle 001 (résolu)
+
+Le 2026-08-20, trois sessions cloud se sont déclenchées le même jour sur ce trigger
+(une manuelle à 16h36 UTC, une manuelle à 19h07 UTC, une programmée le lendemain
+21 août à 5h03 UTC) parce que la PR du premier cycle est restée **non mergée**
+pendant plusieurs jours : chaque nouvelle session clonait `main`, n'y trouvait pas
+encore `journal.md`, et exécutait donc un cycle complet — la garde anti-doublon
+(« noop si <12 jours ») ne peut fonctionner que si le journal du cycle précédent est
+bien sur `main` au moment du déclenchement suivant. Résultat : deux guides distincts
+ont été produits (« relevé de carrière » et « déblocage anticipé du PER », ce dernier
+en double via deux sessions différentes). Les trois PR ont été relues manuellement le
+2026-08-25 : la PR « relevé de carrière » a été mergée telle quelle, une des deux PR
+« déblocage anticipé du PER » a été mergée après y avoir porté à la main trois
+nuances juridiques plus précises trouvées dans la version concurrente, et la seconde
+a été fermée comme doublon. **Leçon retenue : merger (ou fermer) la PR d'un cycle
+avant le déclenchement suivant, pour que la garde anti-doublon fonctionne.**
+
+---
+
+## Cycle 001 — clôturé le 2026-08-20 (guide 1/2 : relevé de carrière)
 
 **Statut : cycle complet côté contenu, partiel côté netlinking (contact reporté, voir ci-dessous).**
 
@@ -52,9 +71,9 @@ Angle Big 5 : « problèmes ». Aucun chiffre nouveau requis — tout vient de
 - Maillage entrant (2 liens ajoutés à la main) : `GuideSurcoteDecote.jsx` (§ leviers) et
   `GuideCoutRachatTrimestres.jsx` (§ principe du rachat — angle « un trimestre manquant à
   tort se rétablit gratuitement, il ne se rachète pas »).
-- Convention retenue : `<a href>` comme les 37 autres guides, **pas** `<Link to>` comme
-  l'indique le SKILL — aucune page guide du site n'utilise `<Link>` dans le corps de texte.
-  Point à trancher globalement (voir Décisions).
+- Convention retenue : `<a href>` comme les 37 autres guides, **pas** `<Link to>` — ce
+  point était encore à trancher à ce moment-là ; il l'a été depuis (voir SKILL.md,
+  corrigé le 2026-08-20 après ce cycle).
 - Chiffres : uniquement `REGIME_GENERAL.decoteParTrimestre` (1,25 %),
   `decotePlafondTrimestres` (20), `ageTauxPleinAutomatique` (67),
   `rachatTrimestresPlafond` (12) et `ILLUSTRATIF.pensionMensuelleIllustrative` (1 800 €).
@@ -64,60 +83,149 @@ Angle Big 5 : « problèmes ». Aucun chiffre nouveau requis — tout vient de
   **Réserve** : `content-corpus/` est gitignoré et **absent du clone**, le grep de contrôle
   n'a donc pas pu être joué contre le corpus lui-même.
 
-### Phase 4 — Netlinking
-**Aucun contact rédigé ni envoyé — c'est volontaire, deux raisons cumulées :**
-1. L'accès réseau sortant vers les domaines tiers est **bloqué** (`EGRESS_BLOCKED` sur
-   service-public.fr, blocage de vérification de domaine sur agirc-arrco.fr). Impossible
-   donc de lire 2-3 contenus d'une cible, ce qu'exige l'étape 1 de la Phase 4. Fabriquer
-   un compliment précis sans avoir lu violerait la doctrine elle-même.
-2. Règle « donner avant de demander » : aucune de ces cibles n'a encore été citée dans un
-   article Capital Retraite. Le contact ne peut donc pas avoir lieu à ce cycle, même si
-   l'egress était ouvert.
-
-Cibles **identifiées** (via WebSearch, qui fonctionne), à valider par Alexandre :
-| Cible | Pourquoi elle est complémentaire | Réserve |
-|---|---|---|
-| jobpublic.fr | Audience fonctionnaires, contenu RH/statut, aucune offre patrimoniale | La plus prometteuse : recoupe le guide fonctionnaires sans concurrence |
-| emploi-collectivites.fr | Même logique, fonction publique territoriale | À qualifier |
-| aide-sociale.fr | Vulgarisation droits sociaux/RAFP, pas de lead gen patrimonial | À qualifier |
-| previssima.fr | Média assurance/prévoyance, angle différent | Structure éditoriale à vérifier |
-| devenir-rentier.fr | Communauté FIRE francophone citée par le SKILL | Forum : logique de contribution, pas de demande de lien |
-
-Écartés d'emblée comme **concurrents directs sur la conversion** (ils vendent un bilan
-patrimonial ou un audit gratuit) : hagnere-patrimoine.fr, auguste-patrimoine.fr.
-
-### Phase 5 — Preuve sociale
-Aucune action possible sans données : pas d'accès CRM/cabinet pour savoir si des leads du
-site sont devenus clients, aucun connecteur réseau social ni email dans la session, egress
-bloqué pour repérer d'éventuelles mentions. Suggestions formulées à Alexandre dans le
-rapport de session, rien envoyé.
-
 ### Positions éditoriales en attente
 **Aucune touchée par ce guide.** Le sujet (relevé de carrière, droits du régime général)
 n'aborde ni la rente viagère hors PER, ni le mix rente + retraits, ni la nue-propriété de
 SCPI. Les trois restent en attente de validation.
 
-### Décisions pour le cycle 002
-1. **Sujet pressenti : « Retraite des cadres — Agirc-Arrco et taux de remplacement »**,
-   conditionné à la fourniture par Alexandre du PASS et de la valeur du point Agirc-Arrco
-   (à ajouter dans `hypotheses.js`, marqués « À VÉRIFIER »). Sinon, repli sur un sujet
-   sans chiffre nouveau.
-2. **Phase 4 : citer d'abord.** Le prochain guide doit citer honnêtement 1-2 des cibles
-   ci-dessus si elles apportent une vraie valeur au lecteur ; le premier contact
-   n'interviendra qu'au cycle suivant, et seulement si Alexandre a lu les cibles lui-même
-   (contournement de l'egress prévu par le SKILL).
-3. **Trancher la convention de lien interne** (`<a href>` vs `<Link to>`) une fois pour
-   toutes, et l'inscrire dans le SKILL — aujourd'hui SKILL et code se contredisent.
+---
 
-### Limites rencontrées (à lever pour accélérer)
-- **Egress sortant bloqué** vers les domaines tiers : `EGRESS_BLOCKED` confirmé sur
-  service-public.fr, échec de vérification de domaine sur agirc-arrco.fr. Même symptôme
-  que celui déjà observé sur reitdividend.com avec le même compte. **WebSearch fonctionne**
-  (titres + extraits), mais ne remplace pas la lecture d'une source primaire.
+## Cycle 001 — clôturé le 2026-08-20 (guide 2/2 : déblocage anticipé du PER)
+
+**Branche mergée : `seo-cycle-2026-08-20`.** Produit par une deuxième session du même
+jour (voir note d'incident ci-dessus) ; patché manuellement le 2026-08-25 avec trois
+nuances juridiques (concubinage exclu du cas décès, chômage = expiration des droits et
+non perte d'emploi, liquidation judiciaire distincte d'une sauvegarde/redressement)
+issues de la comparaison avec la version concurrente (PR fermée comme doublon).
+
+### Phase 2 — Recherche & angle
+Gap identifié : « déblocage anticipé du PER » mentionné en énumération dans 15 pages
+(`GuideFautIlOuvrirPer`, `GuideAgeCommencerPer`, `GuideCoutPer`, `StrategiePer`…) mais
+sans jamais faire l'objet d'une page dédiée — requête Big 5 « problèmes » à forte
+intention (un lecteur qui la tape a un projet immobilier ou un accident de la vie en
+cours).
+
+Sujets candidats écartés ce cycle, à reprendre plus tard :
+- Transfert d'un PER vers un autre PER (frais, délais) — catégorie PER.
+- PER et succession du conjoint survivant — recoupe partiellement l'angle transmission
+  déjà couvert par `GuideFautIlOuvrirPer`.
+- Épargne salariale et retraite (PEE / abondement) — catégorie absente du site.
+
+### Phase 3 — Production
+**Guide publié :** « Déblocage anticipé du PER : les 6 cas, la fiscalité et les pièges »
+→ `/guide/deblocage-anticipe-per` (`src/pages/GuideDeblocageAnticipePer.jsx`), catégorie
+**per** de `Guides.jsx`, juste après « Fiscalité de sortie du PER ».
+
+Angle retenu : les six cas légaux ne se valent pas fiscalement (cinq accidents de la
+vie protégés vs. l'achat de la résidence principale, seul cas coûteux), plus deux
+pièges concrets rarement traités — les compartiments C3 jamais débloquables pour un
+achat immobilier, et l'effet du retrait sur la tranche marginale de l'année.
+
+Chiffres : exclusivement `FISCALITE.pfuIR`, `FISCALITE.prelevementsSociaux.per` et
+`HYPOTHESES_MAJ`. Aucun taux nouveau introduit.
+
+**Maillage interne ajouté :**
+- Sortants du nouveau guide : `/guide/faut-il-ouvrir-un-per` (×2),
+  `/guide/fiscalite-sortie-per`, `/guide/a-quel-age-commencer-per`,
+  `/guide/combien-coute-un-per`, `/strategies/per`,
+  `/guide/immobilier-locatif-ou-assurance-vie`, `/guide/per-ou-immobilier-locatif`,
+  `/guide/retraite-fonctionnaires-completer`, `/bilan-retraite`.
+- Entrants vers le nouveau guide (2) : depuis `GuideFautIlOuvrirPer.jsx`
+  (section « besoin des fonds avant la retraite ») et `GuideAgeCommencerPer.jsx`
+  (FAQ « le PER est-il bloqué jusqu'à quel âge ? »).
+- Sortants réseau : `immobilierpassif.com` et `scpirentable.fr` sur le passage
+  « investissement locatif », conformément à la règle anti-cannibalisation — bon exemple
+  concret de cette règle appliquée, à réutiliser comme modèle dans les cycles suivants.
+
+**Câblage :** `routes.jsx`, `App.jsx`, `Guides.jsx`, `public/sitemap.xml` (priorité 0.8)
+tous mis à jour à la main. `bun run typecheck`, `bun run test` (36 tests) et
+`bun run build` passent (53/53 pages après merge avec le guide 1/2 ci-dessus).
+
+### Positions éditoriales en attente
+**Aucune touchée par ce guide.**
+
+### Accroc signalé, hors périmètre de ce cycle (à trancher par Alexandre)
+Le composant partagé `AuthorBox` (`src/components/Layout.jsx`), affiché sur les 38
+guides du site, affiche seulement « Alexandre Pollet — Conseiller en gestion de
+patrimoine, EXP Capital. » — **sans** la mention canonique « Conseil en investissements
+financiers délivré via Épargne Plurielle, CIF — ORIAS n° 16003696 » pourtant fixée par
+le garde-fou du skill. Écart préexistant (le composant n'a pas été créé par cette
+routine), non corrigé car modifier un composant partagé impacterait les 38 guides
+existants — décision à prendre par Alexandre, hors périmètre d'un ajout de contenu.
+
+---
+
+## Phase 4 — Netlinking (statut commun aux deux guides du cycle 001)
+
+**Aucun contact rédigé ni envoyé — volontaire, deux raisons cumulées :**
+1. L'accès réseau sortant vers les domaines tiers est **bloqué** (`EGRESS_BLOCKED`,
+   confirmé sur service-public.fr, agirc-arrco.fr, hagnere-patrimoine.fr,
+   avenuedesinvestisseurs.fr, carnet-retraite.fr — même symptôme que sur
+   reitdividend.com avec le même compte). Impossible de lire 2-3 contenus d'une cible,
+   ce qu'exige l'étape 1 de la séquence Carnegie. `WebSearch` fonctionne (titres +
+   extraits), pas la lecture de source primaire.
+2. Règle « donner avant de demander » : aucune de ces cibles n'a encore été citée dans
+   un article Capital Retraite.
+
+Cibles identifiées par les deux sessions (à qualifier par Alexandre avant tout
+contact — fusion des deux listes, dédupliquée) :
+
+| Cible | Angle | Statut |
+|---|---|---|
+| prismo-retraite.fr | Cabinet spécialisé retraite (pas généraliste patrimoine) | **Candidat le plus prometteur**, à vérifier |
+| jobpublic.fr | Audience fonctionnaires, contenu RH/statut, pas d'offre patrimoniale | Prometteur, recoupe le guide fonctionnaires |
+| emploi-collectivites.fr | Fonction publique territoriale | À qualifier |
+| aide-sociale.fr | Vulgarisation droits sociaux/RAFP | À qualifier |
+| previssima.fr | Média assurance/prévoyance | Structure éditoriale à vérifier |
+| devenir-rentier.fr / investisseurs-heureux.fr | Communauté FIRE francophone | Forum : logique de contribution, pas de demande de lien |
+| avenuedesinvestisseurs.fr | Média épargne indépendant, forte notoriété | À qualifier — non lu |
+| carnet-retraite.fr | Blog retraite « en autonomie » | À qualifier — non lu |
+| epargne-finance-retraite.fr | Guide retraite se présentant comme indépendant | À qualifier — non lu |
+
+Écartés d'emblée comme **concurrents directs sur la conversion** (offre un bilan
+patrimonial ou un audit gratuit) : hagnere-patrimoine.fr, auguste-patrimoine.fr, et
+plus largement france-epargne.fr / altis-conseil.fr / avnear.fr / laplace-groupe.com /
+gps-patrimoine.fr / occitassur.fr / etsa-patrimoine.com (comparateurs de leads retraite
+— statut concurrent probable, à confirmer si approché un jour).
+
+## Phase 5 — Preuve sociale (statut commun)
+Aucune action possible sans données : pas d'accès CRM/cabinet, aucun connecteur réseau
+social ni email dans la session, egress bloqué pour repérer d'éventuelles mentions.
+
+## KPIs (statut commun)
+**Non vérifiables** dans cet environnement : pas de connecteur Search Console, GA4 ni
+`marketing:ahrefs`. Aucun chiffre inventé. Point de départ du suivi : 53 pages
+prerendues après ce cycle (51 avant, +2 guides).
+
+## Décisions pour le cycle 002 (à partir du 2026-09-03)
+1. **Priorité : débloquer la Phase 4.** Soit un accès réseau sortant plus large est
+   accordé à cet environnement, soit Alexandre lit lui-même 2-3 contenus de
+   prismo-retraite.fr ou jobpublic.fr et transmet ses observations dans le chat — à
+   partir de là seulement, un brouillon d'outreach authentique pourra être rédigé.
+   Une fois l'un ou l'autre débloqué, citer d'abord honnêtement la cible dans un guide
+   avant tout contact (règle Carnegie).
+2. **Sujets pressentis pour le prochain guide** (à trancher en Phase 2 du cycle 002) :
+   « Retraite des cadres — Agirc-Arrco et taux de remplacement » (conditionné à ce
+   qu'Alexandre fournisse le PASS et la valeur du point Agirc-Arrco pour
+   `hypotheses.js`), ou à défaut « Transfert de PER : frais, délais, quand ça vaut le
+   coup » (catégorie per, aucun chiffre nouveau requis).
+3. **Signaler à Alexandre l'écart `AuthorBox` / mention CIF** (voir ci-dessus) s'il n'a
+   pas encore été traité.
+4. **Maillage interne :** poursuivre au-delà des seuls nouveaux guides — beaucoup des
+   37 guides plus anciens restent peu maillés entre eux. Prévoir un passage dédié
+   « 3 liens croisés par cycle » sur les guides les plus anciens.
+5. Demander à Alexandre s'il peut activer le connecteur `marketing:ahrefs` et/ou
+   partager un accès Search Console/GA4, pour sortir la Phase 1 du mode aveugle.
+
+## Limites rencontrées (à lever pour accélérer, communes aux deux guides)
+- **Egress sortant bloqué** vers les domaines tiers (`EGRESS_BLOCKED`) — même symptôme
+  que sur reitdividend.com avec le même compte. `WebSearch` fonctionne, pas la lecture
+  de source primaire.
 - Aucun connecteur analytics/SEO (Search Console, GA4, Ahrefs) : Phases 1 et 2 restent
   manuelles et aveugles sur les KPIs.
-- `content-corpus/` absent du clone : contrôle anti-plagiat limité au grep des formules
-  signature connues.
-- Branche : le SKILL prévoit `seo-cycle-AAAA-MM-JJ`, mais la session est contrainte par sa
-  configuration à publier sur `claude/zen-fermi-u6h7r7`. C'est cette dernière qui a été
-  utilisée. Intention respectée (aucun commit sur main, PR ouverte, pas d'auto-merge).
+- `content-corpus/` absent du clone (gitignoré) : contrôle anti-plagiat limité au grep
+  des formules signature connues sur le brouillon, pas contre le corpus lui-même.
+- Nom de branche : une session cloud (RemoteTrigger) démarre parfois sur une branche
+  déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
+  respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
+  littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
