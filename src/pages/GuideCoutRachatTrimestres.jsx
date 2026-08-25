@@ -120,6 +120,16 @@ export default function GuideCoutRachatTrimestres() {
             rachat ne rapporte jamais de trimestres « en plus » de ce qui vous manque réellement :
             il ne fait que combler un vide identifié sur votre relevé de carrière.
           </p>
+          <p>
+            D'où un préalable qui vaut d'être posé avant tout chiffrage : un trimestre absent du
+            relevé par erreur de report n'a pas à être racheté, il doit être rétabli sur
+            justificatifs — et cette rectification, elle, est gratuite. Contrôler son relevé avant
+            d'envisager un versement est donc le premier réflexe, décrit pas à pas dans{" "}
+            <a href="/guide/verifier-releve-de-carriere-retraite">
+              notre guide sur la vérification du relevé de carrière
+            </a>
+            .
+          </p>
 
           <h2 id="options">Les deux options de rachat : taux seul, ou taux et durée d'assurance</h2>
           <p>
