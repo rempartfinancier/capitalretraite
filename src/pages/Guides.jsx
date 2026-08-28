@@ -29,6 +29,11 @@ const categories = [
         title: "Faut-il un conseiller en gestion de patrimoine, ou peut-on tout gérer seul ?",
         text: "Ce qu'on peut vraiment faire seul aujourd'hui, et ce qui devient difficile sans accompagnement.",
       },
+      {
+        to: "/guide/strategie-retraite-par-age",
+        title: "Quelle stratégie retraite selon votre âge : 45, 50, 55, 60 ans",
+        text: "L'horizon disponible change ce qui est faisable — notre cadre de décision par tranche d'âge.",
+      },
     ],
   },
   {
@@ -75,12 +80,32 @@ const categories = [
         title: "Donation ou assurance-vie : comment transmettre à ses enfants ?",
         text: "Deux logiques de transmission différentes, souvent complémentaires plutôt que concurrentes.",
       },
+      {
+        to: "/guide/scpi-ou-locatif-direct",
+        title: "SCPI ou investissement locatif direct : lequel choisir ?",
+        text: "Mutualisation et frais d'entrée contre effet de levier et gestion active, avec le point sur la liquidité des SCPI.",
+      },
     ],
   },
   {
     id: "per",
     name: "PER",
     items: [
+      {
+        to: "/guide/inconvenients-du-per",
+        title: "Les inconvénients du PER qu'on ne vous dit pas toujours",
+        text: "Blocage jusqu'à la retraite, pari sur la TMI future : six points de vigilance sans filtre commercial.",
+      },
+      {
+        to: "/guide/transfert-per-article-83",
+        title: "Transférer un ancien contrat article 83 vers un PER",
+        text: "Frais plafonnés à 1 % depuis octobre 2024, nuls après 5 ans : ce qui a changé, et quand transférer.",
+      },
+      {
+        to: "/guide/pee-percol-retraite",
+        title: "PEE, PERCOL : faut-il les utiliser pour préparer sa retraite ?",
+        text: "L'abondement de l'employeur, souvent le placement le plus rentable auquel vous ayez accès.",
+      },
       {
         to: "/guide/faut-il-ouvrir-un-per",
         title: "Faut-il ouvrir un PER ? Les cas où la réponse est non",
@@ -146,6 +171,11 @@ const categories = [
         to: "/guide/assurance-vie-luxembourgeoise",
         title: "Assurance-vie luxembourgeoise : pour qui ?",
         text: "Triangle de sécurité, neutralité fiscale : ce que ça change vraiment, et pour quels patrimoines.",
+      },
+      {
+        to: "/guide/clause-beneficiaire-assurance-vie",
+        title: "Clause bénéficiaire : les erreurs qui coûtent cher",
+        text: "Clause type jamais actualisée, démembrement mal rédigé : les cinq erreurs qui annulent l'avantage fiscal.",
       },
     ],
   },

@@ -527,6 +527,72 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/inconvenients-du-per",
+    title: "Les inconvénients du PER qu'on ne vous dit pas toujours",
+    description:
+      "Blocage jusqu'à la retraite, avantage fiscal qui n'est qu'un report, pari sur la baisse de la tranche marginale : les six points de vigilance du PER, sans filtre commercial.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Les inconvénients du PER", "/guide/inconvenients-du-per"],
+    ],
+  },
+  {
+    path: "/guide/pee-percol-retraite",
+    title: "PEE, PERCOL : faut-il les utiliser pour préparer sa retraite ?",
+    description:
+      "Abondement de l'employeur, disponibilité, fiscalité : ce que sont vraiment le PEE et le PERCOL, et comment les articuler avec un PER individuel.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PEE, PERCOL et retraite", "/guide/pee-percol-retraite"],
+    ],
+  },
+  {
+    path: "/guide/scpi-ou-locatif-direct",
+    title: "SCPI ou investissement locatif direct : lequel choisir pour la retraite ?",
+    description:
+      "Mutualisation et frais d'entrée contre effet de levier et gestion active : le comparatif SCPI / locatif direct, avec le point sur la crise de liquidité des SCPI en 2025-2026.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI ou locatif direct", "/guide/scpi-ou-locatif-direct"],
+    ],
+  },
+  {
+    path: "/guide/transfert-per-article-83",
+    title: "Transférer un ancien contrat article 83 vers un PER : coûts et intérêt réel",
+    description:
+      "Frais de transfert plafonnés à 1 % depuis octobre 2024, nuls après 5 ans : ce qui a changé pour transférer un ancien contrat retraite d'entreprise vers un PER, et quand le faire.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer un article 83 vers un PER", "/guide/transfert-per-article-83"],
+    ],
+  },
+  {
+    path: "/guide/clause-beneficiaire-assurance-vie",
+    title: "Clause bénéficiaire d'assurance-vie : les erreurs qui coûtent cher",
+    description:
+      "Clause type jamais actualisée, démembrement sans convention de quasi-usufruit, absence de répartition chiffrée : les cinq erreurs de rédaction qui peuvent annuler l'avantage fiscal.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Clause bénéficiaire assurance-vie", "/guide/clause-beneficiaire-assurance-vie"],
+    ],
+  },
+  {
+    path: "/guide/strategie-retraite-par-age",
+    title: "Quelle stratégie retraite selon votre âge : 45, 50, 55, 60 ans",
+    description:
+      "L'horizon disponible change ce qui est faisable : notre cadre de décision retraite par tranche d'âge, de l'allocation dynamique à 45 ans au choix du mode de sortie à 60 ans.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Stratégie retraite par âge", "/guide/strategie-retraite-par-age"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

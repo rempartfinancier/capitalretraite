@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "capitalretraite-dev",
-      "runtimeExecutable": "/Users/alexmacmini/.bun/bin/bun",
+      "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev"],
       "port": 5173
     }
