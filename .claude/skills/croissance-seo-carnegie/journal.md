@@ -197,6 +197,140 @@ social ni email dans la session, egress bloqué pour repérer d'éventuelles men
 `marketing:ahrefs`. Aucun chiffre inventé. Point de départ du suivi : 53 pages
 prerendues après ce cycle (51 avant, +2 guides).
 
+## Cycle 002 — clôturé le 2026-09-04 (guide : transfert de PER)
+
+**Statut : cycle complet côté contenu et maillage, Phase 4 toujours bloquée (egress sortant), KPIs toujours non vérifiables.**
+
+### Phase 1 — Bilan
+`journal.md` bien présent sur `main` au déclenchement (leçon de l'incident de doublon du cycle 001
+suivie : les deux PR du cycle 001 étaient mergées avant ce déclenchement). Dernier cycle clôturé le
+2026-08-20, soit 15 jours avant ce cycle — au-delà du seuil de 12 jours, cycle complet exécuté.
+
+KPIs **toujours non vérifiables** : aucun connecteur Search Console, GA4 ni `marketing:ahrefs`
+disponible dans cette session (`ListConnectors` renvoie une liste vide). Aucun chiffre inventé.
+
+Écart signalé au cycle 001 **toujours non corrigé** : `AuthorBox` (`src/components/Layout.jsx`,
+partagé par tous les guides) affiche seulement « Alexandre Pollet — Conseiller en gestion de
+patrimoine, EXP Capital. », sans la mention canonique CIF. Non corrigé ici pour la même raison
+qu'au cycle 001 (impact site entier, hors périmètre d'un ajout de contenu) — **à signaler à nouveau
+à Alexandre**, deuxième cycle consécutif sans traitement.
+
+### Phase 2 — Recherche & angle
+Le premier candidat pressenti au cycle 001 (« Retraite des cadres — Agirc-Arrco et taux de
+remplacement ») restait conditionné à ce qu'Alexandre fournisse le PASS et la valeur du point
+Agirc-Arrco pour `hypotheses.js` — aucune donnée transmise (cycle automatique, sans échange
+interactif possible). **Toujours écarté, reste candidat pour un cycle où Alexandre peut transmettre
+ces valeurs dans le chat.**
+
+**Sujet retenu : le transfert de PER** (candidat de repli identifié au cycle 001, ne nécessitant
+aucun chiffre nouveau côté marché). Gap confirmé : aucun guide dédié n'existait sur `/guide/*`
+(vérifié sur `routes.jsx`), alors que le sujet est mentionné en creux dans au moins deux guides
+existants (`GuideCoutPer.jsx` avait déjà une FAQ « Le PER a-t-il des frais de sortie ou de
+transfert ? » sans page de destination, `GuidePerBancaire.jsx` évoque un plan à « transférer » dans
+sa check-list). Angle Big 5 : « coûts/problèmes ». Aucune cannibalisation SCPI ou multi-actifs.
+
+Recherche factuelle : `WebSearch` a permis de recouper le plafond légal (1 % des droits transférés,
+gratuit après 5 ans pour un transfert PER vers PER, après 10 ans pour un ancien contrat retraite
+type PERP/Madelin/article 83/PERCO depuis le décret du 4 juillet 2024) et les délais usuels (délai
+légal de 3 mois pour la valeur de transfert, ~2 mois en pratique PER vers PER, ~4 mois depuis un
+ancien contrat) sur plusieurs sources concordantes (goodvest.fr, leshermines.fr,
+avenuedesinvestisseurs.fr, cosedia-patrimoine.fr). **`WebFetch` vers Légifrance a été testé et confirmé
+bloqué (`EGRESS_BLOCKED` sur www.legifrance.gouv.fr)** — impossible de vérifier le texte exact de
+l'article L224-40 CMF et du décret n° 2024-682 à la source primaire. Ces chiffres sont donc entrés
+dans `hypotheses.js` avec la mention « À VÉRIFIER », comme tous les autres blocs du fichier, sans
+aucune exception.
+
+### Phase 3 — Production
+- Nouveau guide : `/guide/transfert-per-frais-delais`
+  (`src/pages/GuideTransfertPer.jsx`), catégorie **per** de `Guides.jsx`, juste après « à quel âge
+  ouvrir un PER ».
+- Nouveau bloc `TRANSFERT_PER` dans `hypotheses.js` (plafond de frais, délais de gratuité, délais de
+  traitement), sourcé et marqué « À VÉRIFIER » — voir réserve Phase 2 ci-dessus.
+- Câblage complet : `routes.jsx`, `App.jsx` (import + Route), `Guides.jsx`, `public/sitemap.xml`
+  (priorité 0,7). `bun install` (node_modules absent au démarrage de la session), puis
+  `bun run typecheck` ✅, `bun run test` (36/36) ✅, `bun run build` ✅ — **54/54 pages** prerendues
+  (53 avant), nouvelle page vérifiée non vide (21 706 octets, placeholder `<!--app-html-->` bien
+  remplacé).
+- Maillage sortant (6 liens) : deblocage-anticipe-per (×2), combien-coute-un-per,
+  per-bancaire-frais-gestion-horizon, /bilan-retraite (×2), /strategies/per non répété (déjà présent
+  ailleurs sur le site).
+- Maillage entrant (2 liens ajoutés à la main, directement vers le nouveau guide) :
+  `GuideCoutPer.jsx` (FAQ transfert, existante mais sans lien jusqu'ici) et `GuidePerBancaire.jsx`
+  (check-list, mot « transféré »).
+- Maillage croisé additionnel entre guides anciens (décision du cycle 001, point 4) : 1 lien ajouté
+  `GuideMeilleurPer.jsx` → `GuideCoutPer.jsx` (grille de frais poste par poste, absent jusqu'ici).
+  **Partiel** : la cible « 3 liens croisés par cycle sur les guides plus anciens » n'est atteinte
+  qu'à hauteur d'1 lien réellement indépendant du nouveau guide (les 2 autres ajouts servent aussi de
+  maillage entrant vers le nouveau guide) — à poursuivre au cycle 003.
+- Anti-plagiat : formules signature du corpus absentes du brouillon (grep). `content-corpus/`
+  toujours gitignoré et absent du clone — même réserve qu'aux cycles précédents.
+
+### Positions éditoriales en attente
+**Aucune touchée par ce guide.** Le transfert de PER est un sujet purement mécanique/procédural ;
+il n'aborde ni la rente viagère hors PER, ni le mix rente + retraits, ni la nue-propriété de SCPI.
+Les trois restent en attente de validation par Alexandre.
+
+## Phase 4 — Netlinking (cycle 002)
+
+**Toujours aucun contact rédigé — le blocage est identique à celui des cycles précédents,
+retesté explicitement ce cycle :** `WebFetch` vers `www.prismo-retraite.fr` (cible la mieux placée
+du cycle 001) a été retenté et renvoie de nouveau `EGRESS_BLOCKED`, comme vers Légifrance en Phase 2.
+`WebSearch` continue de fonctionner (titres + extraits), pas la lecture de source primaire d'un site
+cible — l'étape 1 de la séquence Carnegie (lire réellement 2-3 contenus récents) reste impossible à
+honorer honnêtement dans cet environnement.
+
+Aucune cible nouvelle qualifiée ce cycle (pas de recherche de mots-clés élargie, faute de connecteur
+SEO). La liste de cibles du cycle 001 (voir tableau ci-dessous, section Phase 4 cycle 001) reste
+valable et n'a pas été modifiée.
+
+## Phase 5 — Preuve sociale (cycle 002)
+Aucune action possible, mêmes raisons qu'au cycle 001 : pas d'accès CRM/cabinet ni de connecteur
+réseau social ou email dans la session, egress bloqué pour repérer d'éventuelles mentions externes.
+
+## KPIs (cycle 002)
+**Non vérifiables**, mêmes raisons qu'au cycle 001. Point de suivi : 54 pages prerendues après ce
+cycle (53 avant, +1 guide), 40 guides recensés dans `Guides.jsx` (39 avant).
+
+## Décisions pour le cycle 003 (à partir du 2026-09-18)
+1. **Priorité inchangée : débloquer la Phase 4.** Le blocage `EGRESS_BLOCKED` a maintenant été
+   retesté et confirmé sur trois cycles consécutifs, sur des domaines différents
+   (service-public.fr, agirc-arrco.fr, legifrance.gouv.fr, prismo-retraite.fr…). Soit un accès
+   réseau sortant plus large est accordé à cet environnement, soit Alexandre lit lui-même 2-3
+   contenus d'une cible (prismo-retraite.fr en priorité) et transmet ses observations dans le chat.
+2. **Sujet pressenti pour le prochain guide** : « Retraite des cadres — Agirc-Arrco et taux de
+   remplacement », toujours conditionné à ce qu'Alexandre fournisse le PASS et la valeur du point
+   Agirc-Arrco pour `hypotheses.js` (aucune donnée de marché ne doit être inventée). À défaut,
+   candidats de repli à ré-évaluer en Phase 2 du cycle 003 : transfert d'un ancien contrat vers un
+   autre ancien contrat hors PER (rare, probablement trop de niche), ou épargne salariale et
+   retraite (PEE/abondement, catégorie encore absente du site, mentionnée comme gap au cycle 001).
+3. **Signaler à nouveau à Alexandre l'écart `AuthorBox` / mention CIF** — deuxième cycle consécutif
+   sans traitement, toujours hors périmètre d'un ajout de contenu isolé.
+4. **Poursuivre le maillage croisé des guides anciens** : seul 1 lien réellement indépendant du
+   nouveau guide a été ajouté ce cycle (`GuideMeilleurPer.jsx` → `GuideCoutPer.jsx`), sur un objectif
+   informel de 3 par cycle fixé au cycle 001. Prévoir un passage dédié au cycle 003, indépendant de
+   la production du nouveau guide.
+5. Demander à Alexandre s'il peut activer le connecteur `marketing:ahrefs` et/ou partager un accès
+   Search Console/GA4 — toujours sans réponse après deux cycles.
+6. **Nouveau point opérationnel** : `node_modules` était absent au démarrage de cette session
+   (`bun install` nécessaire avant `bun run typecheck`/`test`/`build`) — probablement propre à
+   chaque nouvel environnement cloud plutôt qu'un état persistant, à garder en tête si un futur
+   cycle échoue sur `Cannot find module`.
+
+## Limites rencontrées (cycle 002, cumulatif avec les cycles précédents)
+- **Egress sortant bloqué** vers les domaines tiers (`EGRESS_BLOCKED`), reconfirmé ce cycle sur
+  `legifrance.gouv.fr` et `prismo-retraite.fr`. `WebSearch` fonctionne, pas la lecture de source
+  primaire.
+- Aucun connecteur analytics/SEO (`ListConnectors` renvoie une liste vide pour les mots-clés
+  ahrefs/search console/analytics/GA4/seo) : Phases 1 et 2 restent manuelles et aveugles sur les
+  KPIs.
+- `content-corpus/` absent du clone (gitignoré) : contrôle anti-plagiat limité au grep des formules
+  signature connues sur le brouillon, pas contre le corpus lui-même.
+- Chiffres du nouveau bloc `TRANSFERT_PER` recoupés uniquement sur des sources secondaires
+  (WebSearch), pas sur Légifrance — marqués « À VÉRIFIER », à confirmer par Alexandre avant
+  publication comme tout le reste du fichier `hypotheses.js`.
+
+---
+
 ## Décisions pour le cycle 002 (à partir du 2026-09-03)
 1. **Priorité : débloquer la Phase 4.** Soit un accès réseau sortant plus large est
    accordé à cet environnement, soit Alexandre lit lui-même 2-3 contenus de

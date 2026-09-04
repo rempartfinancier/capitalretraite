@@ -208,6 +208,18 @@ export const SIMU_DEFAUTS = {
   ageDepart: 65,
 };
 
+// ---- Transfert d'un PER vers un autre PER, ou d'un ancien contrat retraite vers un PER ----
+export const TRANSFERT_PER = {
+  fraisPlafondAvant5Ans: 1.0, // plafond légal des frais de transfert PER vers PER avant 5 ans de détention (%)
+  delaiGratuiteAnneesPerVersPer: 5, // au-delà, le transfert est gratuit
+  fraisPlafondAnciensContrats: 1.0, // même plafond pour un transfert PERP/Madelin/article 83/PERCO vers un PER, depuis le 24/10/2024 (%)
+  delaiGratuiteAnneesAncienContrat: 10, // au-delà, le transfert est gratuit pour ces anciens contrats
+  delaiLegalReponseValeurMois: 3, // délai légal maximal pour la communication de la valeur de transfert par le gestionnaire (mois)
+  delaiUsuelPerVersPerMois: 2, // délai usuel constaté pour un transfert PER vers PER (mois) — variable selon établissements
+  delaiUsuelAncienContratMois: 4, // délai usuel constaté depuis un ancien contrat retraite (mois) — variable selon établissements
+  source: "Code monétaire et financier, art. L224-40, et décret n° 2024-682 du 4 juillet 2024 — plafonds et délais recoupés sur plusieurs sources spécialisées concordantes, mais non vérifiés directement sur Légifrance dans cet environnement (accès sortant bloqué) — À VÉRIFIER par Alexandre avant publication, y compris auprès d'un gestionnaire pour les délais réels constatés",
+};
+
 // ---- Rémunération du conseil en gestion de patrimoine ----
 export const CONSEIL = {
   retrocessionAnnuelleTypique: { min: 0.5, max: 1.0 },

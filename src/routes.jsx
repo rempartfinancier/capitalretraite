@@ -153,6 +153,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transfert-per-frais-delais",
+    title: "Transférer son PER : frais, délais, et quand ça vaut le coup",
+    description:
+      "PER vers PER ou ancien contrat retraite (PERP, Madelin, article 83, PERCO) vers un PER : frais plafonnés par la loi, délais réels, et les deux pièges qui coûtent le plus cher.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer son PER", "/guide/transfert-per-frais-delais"],
+    ],
+  },
+  {
     path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
     title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
     description:

@@ -202,7 +202,9 @@ export default function GuideMeilleurPer() {
             la gestion pilotée d'un PER, à lire sur{" "}
             <a href="/guide/per-bancaire-frais-gestion-horizon">PER bancaire : frais, gestion à horizon, supports maison</a>{" "}
             si votre contrat a été ouvert en réseau et que vous voulez creuser les trois premiers
-            critères ci-dessus en détail, et elle prolonge la réflexion posée dans notre page{" "}
+            critères ci-dessus en détail — voir aussi notre grille récapitulative poste par poste dans{" "}
+            <a href="/guide/combien-coute-un-per">combien coûte un PER</a> — et elle prolonge la
+            réflexion posée dans notre page{" "}
             <a href="/strategies/per">la stratégie PER</a>, qui replace le choix d'un contrat dans la
             construction plus large de votre épargne retraite.
           </p>

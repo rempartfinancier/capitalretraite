@@ -116,6 +116,11 @@ const categories = [
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
       },
+      {
+        to: "/guide/transfert-per-frais-delais",
+        title: "Transférer son PER : frais, délais, quand ça vaut le coup",
+        text: "PER vers PER ou ancien contrat retraite vers un PER : le plafond légal des frais, les délais réels, et les deux pièges les plus coûteux.",
+      },
     ],
   },
   {
