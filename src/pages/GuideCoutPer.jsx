@@ -314,11 +314,13 @@ export default function GuideCoutPer() {
           <h3>Le PER a-t-il des frais de sortie ou de transfert ?</h3>
           <p>
             Un transfert vers un autre PER peut être soumis à des frais, plafonnés par la loi et
-            généralement nuls après cinq ans de détention ou lorsque le contrat a été ouvert
-            depuis peu chez un même distributeur — les conditions précises figurent dans les
-            conditions générales du contrat. La sortie en capital ou en rente à la retraite n'est,
-            elle, pas un « frais » au sens de cet article : elle relève de la fiscalité de sortie,
-            traitée sur <a href="/strategies/per">notre page dédiée au PER</a>.
+            généralement nuls après cinq ans de détention — les conditions précises figurent dans
+            les conditions générales du contrat. Notre guide{" "}
+            <a href="/guide/transfert-per-frais-delais">transférer son PER</a> détaille le plafond
+            légal, les délais réels et les deux pièges qui coûtent le plus cher lors d'un transfert.
+            La sortie en capital ou en rente à la retraite n'est, elle, pas un « frais » au sens de
+            cet article : elle relève de la fiscalité de sortie, traitée sur{" "}
+            <a href="/strategies/per">notre page dédiée au PER</a>.
           </p>
           <h3>Les frais d'un PER sont-ils négociables ?</h3>
           <p>

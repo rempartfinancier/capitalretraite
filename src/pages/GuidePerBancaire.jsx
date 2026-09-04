@@ -495,8 +495,10 @@ export default function GuidePerBancaire() {
           </ol>
           <p>
             Quinze minutes suffisent pour savoir si votre plan mérite d'être conservé tel quel,
-            renégocié ou transféré. La décision, elle, se prend au regard de l'ensemble — fiscalité,
-            succession, autres enveloppes — jamais sur un critère isolé.
+            renégocié ou{" "}
+            <a href="/guide/transfert-per-frais-delais">transféré</a>. La décision, elle, se prend
+            au regard de l'ensemble — fiscalité, succession, autres enveloppes — jamais sur un
+            critère isolé.
           </p>
 
           <h2 id="faq">Questions fréquentes</h2>
