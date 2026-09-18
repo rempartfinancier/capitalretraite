@@ -174,7 +174,12 @@ export default function GuideDeblocageAnticipePer() {
           <p>
             Trois autres nuances sont fréquemment mal comprises. D'abord, le décès n'ouvre ce droit
             que pour le conjoint marié ou le partenaire de Pacs : un concubin, même après de
-            nombreuses années de vie commune, n'y a pas droit. Ensuite, le cas « chômage » ne se
+            nombreuses années de vie commune, n'y a pas droit — comme pour la pension de réversion,
+            détaillée dans notre guide{" "}
+            <a href="/guide/pacs-concubinage-retraite">
+              couple pacsé ou en concubinage : ce qui change pour votre retraite
+            </a>
+            . Ensuite, le cas « chômage » ne se
             déclenche pas dès la perte d'un emploi, mais seulement une fois les droits à l'assurance
             chômage entièrement épuisés — une confusion fréquente qui conduit certains épargnants à
             solliciter un déblocage trop tôt, et à essuyer un refus du gestionnaire. Enfin, seule une

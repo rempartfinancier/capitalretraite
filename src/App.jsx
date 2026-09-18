@@ -53,6 +53,7 @@ import GuideConseillerOuSeul from "./pages/GuideConseillerOuSeul.jsx";
 import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembourgeoise.jsx";
 import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx";
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
+import GuidePacsConcubinageRetraite from "./pages/GuidePacsConcubinageRetraite.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -127,6 +128,7 @@ export default function App() {
           <Route path="/guide/assurance-vie-luxembourgeoise" element={<GuideAssuranceVieLuxembourgeoise />} />
           <Route path="/guide/donation-ou-assurance-vie-transmission" element={<GuideDonationOuAssuranceVie />} />
           <Route path="/guide/retraite-fonctionnaires-completer" element={<GuideRetraiteFonctionnaires />} />
+          <Route path="/guide/pacs-concubinage-retraite" element={<GuidePacsConcubinageRetraite />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />

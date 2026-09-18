@@ -229,3 +229,177 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-09-18 (guide : couple pacsé / concubinage et retraite)
+
+**Statut : cycle complet côté contenu et maillage, partiel côté vérification technique
+locale (registre npm inaccessible cette session, voir Limites) et côté netlinking
+(inchangé, toujours bloqué).**
+
+### Phase 1 — Bilan
+Cycle 001 bien mergé sur `main` avant ce déclenchement (commit `3b27ae5`, PR #5) — la
+leçon de l'incident de doublon a été respectée, la garde anti-doublon a donc fonctionné
+normalement (29 jours écoulés depuis la clôture du 2026-08-20, cycle dû).
+
+KPIs **toujours non vérifiables** : `ListConnectors` ne renvoie aucun connecteur
+`marketing:ahrefs`/Search Console/GA4 pour ce compte (liste vide). Aucun chiffre de
+trafic, conversion ou backlink n'a été relevé ni inventé — décision n°5 du cycle 001
+(activer un connecteur analytics) toujours sans suite à ce jour, à reposer à Alexandre.
+
+Accroc `AuthorBox` / mention CIF (signalé au cycle 001) : **toujours non corrigé** dans
+`src/components/Layout.jsx` — deuxième cycle consécutif où ce guard-rail éditorial reste
+non appliqué sur les désormais 39 guides du site. Toujours hors périmètre d'un ajout de
+contenu ; remonté une nouvelle fois ci-dessous pour arbitrage par Alexandre.
+
+### Phase 2 — Recherche & angle
+Sujets pressentis par le cycle 001 réexaminés en premier :
+- **« Retraite des cadres — Agirc-Arrco »** : toujours écarté. `hypotheses.js` ne
+  contient toujours aucune donnée Agirc-Arrco (PASS, valeur du point) — vérifié par
+  `grep` avant de commencer. Reste conditionné à ce qu'Alexandre fournisse ces valeurs.
+- **« Transfert de PER »** : écarté cette fois pour une raison différente de la simple
+  disponibilité des cibles. `hypotheses.js` ne contient aucun paramètre de frais de
+  transfert de PER (plafond légal, seuil des 5 ans) ; le seul mention existante sur le
+  site (`GuideMeilleurPer.jsx`, FAQ) reste volontairement vague (« frais de transfert
+  encadrés qui diminuent avec l'ancienneté », sans taux). Écrire l'article aurait donc
+  nécessité soit d'inventer un chiffre non sourcé (interdit par le garde-fou), soit de
+  se limiter à la même comparaison de frais banque/internet déjà traitée en profondeur
+  dans `per-bancaire-frais-gestion-horizon` et `combien-coute-un-per` — risque de
+  cannibalisation élevé, du même ordre que celui qui avait fait écarter « combien coûte
+  un PEA » au cycle 001. **Écarté : donnée manquante + cannibalisation probable.**
+- Autre candidat écarté : **« Quel est le meilleur PEA ? »** (calquer l'angle « grille de
+  critères, pas de classement » de `GuideMeilleurPer.jsx` sur le PEA, catégorie la plus
+  mince du site). Écarté ce cycle : le PEA a déjà deux check-lists d'audit existantes
+  (`GuidePeaBanqueCourtier.jsx` § « check-list d'audit », `GuideInconvenientsPea.jsx`
+  § « tableau de synthèse ») — un troisième article de type grille risquait de
+  cannibaliser les deux à la fois. À reprendre seulement avec un angle clairement
+  distinct des deux grilles existantes.
+
+**Sujet retenu : couple pacsé ou en concubinage et retraite.** Gap identifié dans la
+catégorie **profils-specifiques** (la plus mince du site avec seulement 2 guides,
+indépendants et fonctionnaires — aucun guide organisé autour du statut marital). Motif
+décisif, trouvé via `WebSearch` (queries : réversion Agirc-Arrco pacsé/concubin,
+succession PACS/concubinage, donation entre pacsés) : la pension de réversion est
+réservée aux couples mariés dans **tous** les régimes de retraite français (régime
+général, Agirc-Arrco, fonction publique) — aucun droit pour le PACS ni le concubinage,
+même après des décennies de vie commune. Ce point n'était mentionné nulle part sur le
+site (le mot « réversion » n'apparaissait que pour la réversion contractuelle d'une
+rente viagère, un mécanisme différent). Angle Big 5 : « problèmes ». Aucune
+cannibalisation SCPI.
+
+### Phase 3 — Production
+- Nouveau guide : `/guide/pacs-concubinage-retraite`
+  (`src/pages/GuidePacsConcubinageRetraite.jsx`), catégorie **profils-specifiques**,
+  juste après « Retraite des fonctionnaires ».
+- Câblage complet : `routes.jsx`, `App.jsx` (import + Route), `Guides.jsx`,
+  `public/sitemap.xml` (priorité 0,7).
+- Maillage sortant (5 liens) : `donation-ou-assurance-vie-transmission`,
+  `risques-assurance-vie`, `deblocage-anticipe-per`, `rente-viagere-ou-retraits-programmes`,
+  `inconvenients-rente-viagere`, + `/bilan-retraite`. Légèrement au-dessus de la
+  fourchette « 2 à 4 » du skill (page à vocation de hub de profil, jugé justifié).
+- Maillage entrant (2 liens ajoutés à la main) : `GuideDeblocageAnticipePer.jsx` (§ les
+  trois nuances, à l'endroit exact où le cas « concubin exclu » était déjà mentionné) et
+  `GuideDonationOuAssuranceVie.jsx` (FAQ « petits-enfants, neveux, concubin »).
+- Chiffres : exclusivement `TRANSMISSION.abattementSuccessionAvParBeneficiaire`
+  (152 500 €) déjà présent dans `hypotheses.js`, réutilisé tel quel. **Aucun chiffre
+  nouveau introduit** : le taux de taxation successorale entre concubins et l'abattement
+  de donation spécifique aux partenaires de PACS (trouvés via `WebSearch`, avec une
+  confiance raisonnable, mais non vérifiables contre une source primaire à cause de
+  l'egress bloqué) ont été **volontairement omis de l'article** plutôt qu'ajoutés en dur
+  — conformément au garde-fou « si une donnée manque, la signaler en Phase 6 plutôt que
+  l'inventer ». Voir « Données à ajouter à hypotheses.js » ci-dessous.
+- Anti-plagiat : grep des formules signature du corpus sur le brouillon — aucune trouvée.
+  Même réserve que le cycle 001 : `content-corpus/` absent du clone, grep de contrôle non
+  joué contre le corpus lui-même.
+
+### Données à ajouter à `hypotheses.js` (à vérifier par Alexandre avant tout cycle futur)
+Trouvées via `WebSearch` cette session (sources secondaires, non vérifiées contre
+Légifrance/BOFiP faute d'egress) — **ne pas les considérer comme fiables sans
+vérification** :
+- Taux de taxation des successions entre concubins non pacsés (barème le plus lourd du
+  CGI, hors ligne directe).
+- Abattement de donation entre partenaires de PACS (article 790 F du CGI, distinct de
+  l'abattement en ligne directe parent-enfant déjà dans `TRANSMISSION`).
+
+### Positions éditoriales en attente
+**Touchée légèrement : rente viagère hors PER.** La section « Pourquoi la capitalisation
+compte double sans réversion » mentionne, comme option possible parmi d'autres, une
+rente viagère avec option de réversion contractuelle pour un couple non marié — présentée
+explicitement comme neutre (« sans recommandation de notre part »), avec renvoi vers les
+deux guides existants déjà neutralisés sur le sujet. **Aucune position tranchée n'a été
+prise.** Signalé ici pour validation d'Alexandre, conformément au garde-fou. Le mix
+rente + retraits programmés et la nue-propriété de SCPI ne sont pas abordés dans ce
+guide.
+
+## Phase 4 — Netlinking (cycle 002)
+**Statut inchangé : toujours bloqué.** Re-testé explicitement ce cycle : `curl` vers
+`service-public.fr` renvoie une erreur de tunnel CONNECT (403, « policy denial or
+upstream failure » selon `/__agentproxy/status`, `recentRelayFailures` horodaté
+2026-09-18T05:01Z) — symptôme identique à celui documenté au cycle 001 et sur
+reitdividend.com. Aucune cible n'a été lue ni contactée. Le nouveau guide de ce cycle ne
+cite aucun site tiers (voir Phase 3) : la liste de cibles à qualifier reste donc
+strictement celle du cycle 001, inchangée et toujours non fusionnée par Alexandre :
+
+| Cible | Statut |
+|---|---|
+| prismo-retraite.fr | Candidat le plus prometteur, à vérifier |
+| jobpublic.fr | Prometteur, recoupe le guide fonctionnaires |
+| emploi-collectivites.fr | À qualifier |
+| aide-sociale.fr | À qualifier |
+| previssima.fr | À qualifier |
+| devenir-rentier.fr / investisseurs-heureux.fr | Forum, logique de contribution |
+| avenuedesinvestisseurs.fr | À qualifier — non lu |
+| carnet-retraite.fr | À qualifier — non lu |
+| epargne-finance-retraite.fr | À qualifier — non lu |
+
+Rien n'a été envoyé, aucun brouillon d'outreach n'a été rédigé cette session faute de
+cible déjà citée honnêtement (règle Carnegie « donner avant de demander »).
+
+## Phase 5 — Preuve sociale (cycle 002)
+Statut inchangé : aucune action possible sans accès CRM/réseaux sociaux/email dans cette
+session.
+
+## KPIs (cycle 002)
+**Non vérifiables**, mêmes raisons qu'au cycle 001 (`ListConnectors` vide). Point de
+suivi : 54 pages attendues après ce cycle (53 avant, +1 guide) — **non confirmé par un
+build local** cette fois, voir Limites ci-dessous.
+
+## Décisions pour le cycle 003 (à partir du 2026-10-02)
+1. **Toujours débloquer la Phase 4** — inchangé depuis le cycle 001, priorité n°1.
+2. **Ajouter à `hypotheses.js`** les deux données identifiées ci-dessus (taxation
+   concubinage, abattement donation PACS) une fois vérifiées par Alexandre, pour
+   permettre un futur approfondissement chiffré de ce guide ou un guide dédié à la
+   transmission entre partenaires non mariés.
+3. **Sujets pressentis** : « Transfert de PER » redevient possible dès que le plafond
+   légal de frais de transfert est ajouté à `hypotheses.js` ; sinon, explorer la
+   catégorie **immobilier** (seulement 4 guides) ou **décumulation** (3 guides) pour le
+   prochain gap.
+4. **Toujours signaler l'écart `AuthorBox` / mention CIF** — deux cycles consécutifs sans
+   correction.
+5. **Maillage interne « 3 liens croisés »** (décision n°4 du cycle 001) : toujours pas
+   fait en tant que passage dédié — reporté une nouvelle fois faute de temps ce cycle-ci,
+   à prioriser au cycle 003 si aucun nouveau guide urgent ne s'impose.
+6. **Vérifier que `bun install` fonctionne** au démarrage du cycle 003 avant toute
+   production de contenu (voir Limites) — si le registre npm est de nouveau inaccessible,
+   le signaler immédiatement plutôt que de découvrir le problème en fin de cycle.
+
+## Limites rencontrées (cycle 002)
+- **Egress sortant bloqué** vers les domaines tiers — inchangé, re-confirmé (voir Phase 4).
+- **Registre npm inaccessible cette session** (nouveau) : `registry.npmjs.org` figure
+  dans la liste `noProxy` de l'agent-proxy (routage direct, hors politique d'egress) mais
+  répond par un timeout puis un statut 503 sur toutes les tentatives (3 essais espacés).
+  `node_modules/` était vide au démarrage de la session (aucune dépendance pré-installée)
+  et `bun install` a échoué intégralement. Conséquence concrète : **`bun run test` et
+  `bun run build` n'ont pas pu être exécutés localement** cette session — seul
+  `bun run typecheck` a pu tourner (une erreur préexistante et sans rapport avec ce
+  cycle : module `vitest` introuvable, confirmée présente aussi sur `main` non modifié
+  via `git stash`). À défaut, chaque fichier modifié a été passé individuellement dans
+  `bun build --target=browser` : tous échouent uniquement à la résolution de `react`/
+  `react-router-dom` (dépendances non installées), pas à l'analyse syntaxique JSX — signe
+  que la syntaxe est valide, mais **ce n'est pas un substitut à un build complet
+  (vite + SSR + prerender) ni à la suite de tests**. La CI GitHub Actions de la PR, qui
+  dispose probablement d'un accès registre normal, devra donc servir de première
+  vérification réelle avant toute fusion — à surveiller en priorité sur cette PR.
+- Aucun connecteur analytics/SEO — inchangé.
+- `content-corpus/` absent du clone — inchangé.
