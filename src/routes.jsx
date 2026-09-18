@@ -527,6 +527,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/pacs-concubinage-retraite",
+    title: "Couple pacsé ou en concubinage : ce qui change pour votre retraite",
+    description:
+      "Réversion réservée au mariage, succession sans droits automatiques, clause bénéficiaire à rédiger avec soin : ce que le PACS et le concubinage changent vraiment pour la retraite d'un couple, par contraste avec le mariage.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PACS, concubinage et retraite", "/guide/pacs-concubinage-retraite"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

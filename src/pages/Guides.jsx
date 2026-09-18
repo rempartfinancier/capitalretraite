@@ -252,6 +252,11 @@ const categories = [
         title: "Retraite des fonctionnaires : comment la compléter ?",
         text: "Calcul sur les 6 derniers mois, RAFP : ce qui distingue la fonction publique du régime général.",
       },
+      {
+        to: "/guide/pacs-concubinage-retraite",
+        title: "Couple pacsé ou en concubinage : ce qui change pour votre retraite",
+        text: "Réversion réservée au mariage, succession sans testament, clause bénéficiaire : ce que le PACS protège, et ce qu'il ne protège pas.",
+      },
     ],
   },
 ];

@@ -379,7 +379,13 @@ export default function GuideDonationOuAssuranceVie() {
             bénéficiaire. L'abattement de {euros(TRANSMISSION.abattementSuccessionAvParBeneficiaire)}{" "}
             s'apprécie par bénéficiaire, quel que soit son lien de parenté avec le souscripteur, ce qui
             distingue nettement l'assurance-vie du régime de la donation, plus favorable en ligne
-            directe.
+            directe. Pour un partenaire de PACS ou un concubin, la rédaction précise de cette clause
+            devient même l'outil de protection principal, faute de statut d'héritier légal — nous
+            détaillons ce cas dans notre guide{" "}
+            <a href="/guide/pacs-concubinage-retraite">
+              couple pacsé ou en concubinage : ce qui change pour votre retraite
+            </a>
+            .
           </p>
           <h3>Que se passe-t-il si je ne désigne aucun bénéficiaire particulier sur mon assurance-vie ?</h3>
           <p>
