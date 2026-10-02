@@ -19,6 +19,7 @@ import GuidePerVsAv from "./pages/GuidePerVsAv.jsx";
 import GuideFiscaliteSortiePer from "./pages/GuideFiscaliteSortiePer.jsx";
 import GuideAgeCommencerPer from "./pages/GuideAgeCommencerPer.jsx";
 import GuideDeblocageAnticipePer from "./pages/GuideDeblocageAnticipePer.jsx";
+import GuideTransfertPer from "./pages/GuideTransfertPer.jsx";
 import GuideAvRapportePeu from "./pages/GuideAvRapportePeu.jsx";
 import GuidePerBancaire from "./pages/GuidePerBancaire.jsx";
 import GuidePeaBanqueCourtier from "./pages/GuidePeaBanqueCourtier.jsx";
@@ -93,6 +94,7 @@ export default function App() {
           <Route path="/guide/fiscalite-sortie-per" element={<GuideFiscaliteSortiePer />} />
           <Route path="/guide/a-quel-age-commencer-per" element={<GuideAgeCommencerPer />} />
           <Route path="/guide/deblocage-anticipe-per" element={<GuideDeblocageAnticipePer />} />
+          <Route path="/guide/transfert-per" element={<GuideTransfertPer />} />
           <Route path="/guide/pourquoi-votre-assurance-vie-rapporte-peu" element={<GuideAvRapportePeu />} />
           <Route path="/guide/per-bancaire-frais-gestion-horizon" element={<GuidePerBancaire />} />
           <Route path="/guide/pea-banque-ou-courtier" element={<GuidePeaBanqueCourtier />} />

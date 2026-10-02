@@ -523,7 +523,9 @@ export default function GuidePerBancaire() {
           <p>
             Un PER se transfère d'un établissement à l'autre, y compris entre un PER bancaire et
             un PER assurantiel, moyennant des frais de transfert plafonnés par la loi et nuls
-            au-delà de cinq ans de détention (règles en vigueur en {HYPOTHESES_MAJ}, à vérifier).
+            au-delà de cinq ans de détention (règles en vigueur en {HYPOTHESES_MAJ}, à vérifier). Le
+            détail de la démarche et des vérifications à faire figure dans notre guide sur le{" "}
+            <a href="/guide/transfert-per">transfert de PER</a>.
           </p>
           <h3>Un PER bancaire donne-t-il droit à la même déduction fiscale qu'un PER assurantiel ?</h3>
           <p>

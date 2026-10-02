@@ -229,3 +229,54 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-10-02
+
+**Branche : `seo-cycle-2026-10-02` (PR vers main, non mergée au moment de la clôture).**
+Écart avec le cycle précédent : 43 jours (le trigger hebdomadaire n'a pas produit de cycle
+entre le 2026-08-20 et ce jour dans le dépôt).
+
+### Phase 1 — Bilan
+KPIs **non vérifiables** (pas de Search Console, GA4, Ahrefs ; egress tiers non testé à
+nouveau, voir Phase 4). Aucun chiffre inventé. Aucun contact d'outreach n'ayant été envoyé
+au cycle 001, rien à relancer ni à abandonner.
+
+### Phase 2 — Recherche & angle
+Sujet « Agirc-Arrco / taux de remplacement des cadres » toujours **bloqué** : `hypotheses.js`
+ne contient ni PASS ni valeur du point Agirc-Arrco, et Alexandre ne les a pas fournis.
+Sujet de repli retenu, comme prévu : **transfert de PER** (gap Big 5 « problèmes/coût » ;
+`GuideCoutPer` et `GuidePerBancaire` n'en parlaient qu'en une phrase de FAQ).
+
+### Phase 3 — Production
+- Nouveau guide : `/guide/transfert-per` (`src/pages/GuideTransfertPer.jsx`), catégorie
+  **per** de `Guides.jsx`, après « Déblocage anticipé du PER ». Sitemap priorité 0,8.
+- Câblage : `routes.jsx`, `App.jsx`, `Guides.jsx`, `public/sitemap.xml`.
+  Build **54/54 pages** (53 avant). Typecheck OK, 36 tests OK.
+- Maillage sortant : fiscalite-sortie-per, deblocage-anticipe-per, combien-coute-un-per,
+  retraite-independants-per-ou-madelin, per-bancaire-frais-gestion-horizon,
+  per-vs-assurance-vie-retraite, quel-est-le-meilleur-per, bilan-retraite.
+- Maillage entrant (2) : `GuideCoutPer.jsx` (FAQ transfert) et `GuidePerBancaire.jsx`
+  (FAQ « change d'établissement »).
+- Chiffres : **aucun taux nouveau**. Seules règles juridiques qualitatives reprises :
+  gratuité après cinq ans (déjà sur le site), plafonnement légal sans valeur citée, délai
+  « de l'ordre de deux mois » (**à vérifier par Alexandre**, absent de `hypotheses.js`).
+- Anti-plagiat : `content-corpus/` absent du clone, grep contre le corpus impossible.
+
+### Positions éditoriales en attente
+Aucune touchée (rente hors PER, mix rente/retraits, nue-propriété SCPI).
+
+### Phase 4 — Netlinking
+Aucun brouillon rédigé : pas de lecture des sites cibles possible sans accès tiers, et aucune
+cible n'a encore été citée dans un guide (règle « donner avant de demander »). Voir le
+rapport de session pour la suite.
+
+### Phase 5 — Preuve sociale
+Aucune donnée disponible (pas de CRM, pas de connecteur).
+
+### Décisions pour le cycle 003
+1. Alexandre : fournir PASS + valeur du point Agirc-Arrco pour débloquer le guide cadres.
+2. Alexandre : lire 2-3 contenus de prismo-retraite.fr / jobpublic.fr, ou autoriser l'egress.
+3. Trancher l'écart `AuthorBox` (mention CIF / Épargne Plurielle absente), toujours ouvert.
+4. **Merger la PR avant le prochain déclenchement** (garde anti-doublon).

@@ -112,6 +112,11 @@ const categories = [
         text: "Accidents de la vie ou achat de la résidence principale : deux régimes fiscaux très différents, et deux pièges coûteux.",
       },
       {
+        to: "/guide/transfert-per",
+        title: "Transfert de PER : frais, délais et vérifications",
+        text: "Changer de contrat sans impôt : ce que la loi garantit, ce que le transfert coûte, et ce qu'on peut perdre en route.",
+      },
+      {
         to: "/guide/a-quel-age-commencer-per",
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
