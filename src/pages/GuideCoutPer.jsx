@@ -316,7 +316,8 @@ export default function GuideCoutPer() {
             Un transfert vers un autre PER peut être soumis à des frais, plafonnés par la loi et
             généralement nuls après cinq ans de détention ou lorsque le contrat a été ouvert
             depuis peu chez un même distributeur — les conditions précises figurent dans les
-            conditions générales du contrat. La sortie en capital ou en rente à la retraite n'est,
+            conditions générales du contrat (voir notre guide sur le{" "}
+            <a href="/guide/transfert-per">transfert de PER</a>). La sortie en capital ou en rente à la retraite n'est,
             elle, pas un « frais » au sens de cet article : elle relève de la fiscalité de sortie,
             traitée sur <a href="/strategies/per">notre page dédiée au PER</a>.
           </p>

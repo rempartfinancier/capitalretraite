@@ -153,6 +153,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transfert-per",
+    title: "Transfert de PER : frais, délais et vérifications avant de changer de contrat",
+    description:
+      "Transférer un PER vers un autre PER : pas d'impôt, frais plafonnés puis nuls après cinq ans, délais, anciens contrats PERP et Madelin — et les sept vérifications à faire avant de signer.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transfert de PER", "/guide/transfert-per"],
+    ],
+  },
+  {
     path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
     title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
     description:
