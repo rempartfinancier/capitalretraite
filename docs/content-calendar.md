@@ -172,5 +172,5 @@ _(Ajouté automatiquement par chaque exécution : date, sujet traité, lien PR.)
   publiés » ci-dessus pour le détail). PR : https://github.com/rempartfinancier/capitalretraite/pull/10 (empilée sur la PR #3,
   `content/suspension-reforme-retraites-2026-08-18`, non encore mergée).
 - **2026-10-08 (second run)** — 1 article : `/guide/per-capital-ou-rente` (voir « Sujets déjà publiés »
-  ci-dessus). PR : à compléter (empilée sur la PR #10, `content/abattement-10-pensions-plf-2027-2026-10-08`,
+  ci-dessus). PR : https://github.com/rempartfinancier/capitalretraite/pull/11 (empilée sur la PR #10, `content/abattement-10-pensions-plf-2027-2026-10-08`,
   non encore mergée).
