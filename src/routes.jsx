@@ -593,6 +593,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/abattement-10-pourcent-retraites-plf-2027",
+    title: "Abattement de 10 % des retraités plafonné à 3 000 € : qui paierait plus ? (PLF 2027)",
+    description:
+      "PLF 2027, article 3 : le plafond de l'abattement de 10 % sur les pensions passerait de 4 439 € à 3 000 € par foyer. Seuils, impôt en plus selon la TMI, effets sur les rentes de PER et calendrier du vote.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Abattement de 10 % des retraités (PLF 2027)", "/guide/abattement-10-pourcent-retraites-plf-2027"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

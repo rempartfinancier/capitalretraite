@@ -257,6 +257,45 @@ export const SUSPENSION_REFORME_RETRAITES = {
     "LFSS 2026 (loi n° 2025-1403 du 30 décembre 2025), art. 105, et décret n° 2026-345 du 7 mai 2026 — recoupement de plusieurs sources spécialisées concordantes (info-retraite.fr, Previssima, centres de gestion de la fonction publique) en août 2026. À reconfirmer par Alexandre avant publication, notamment le détail par trimestre de naissance qui peut encore être précisé par circulaire.",
 };
 
+// ---- Abattement de 10 % sur les pensions de retraite (art. 158, 5-a CGI) ----
+// Droit en vigueur pour les revenus 2025 (déclaration 2026) : abattement de
+// 10 % sur les pensions, avec un plancher par pensionné et un plafond global
+// par foyer fiscal, tous deux indexés chaque année sur la première tranche du
+// barème de l'IR. Valeurs recoupées sur plusieurs sources concordantes
+// (octobre 2026).
+// Projet de loi de finances pour 2027, article 3 (texte déposé à l'Assemblée
+// nationale début octobre 2026) : ajoute un sous-plafond propre aux pensions
+// de retraite, sans toucher aux pensions alimentaires et d'invalidité qui
+// gardent le plafond général. Entrée en vigueur prévue (art. 33 du PLF) pour
+// l'imposition des revenus 2026. L'article 3 a été SUPPRIMÉ en commission des
+// finances le 7 octobre 2026, mais le PLF est discuté en séance sur le texte du
+// gouvernement (art. 42 de la Constitution) : la mesure reste en débat jusqu'au
+// vote final. À REVÉRIFIER À CHAQUE ÉTAPE PARLEMENTAIRE.
+export const ABATTEMENT_PENSIONS = {
+  taux: 10, // %
+  plancherParPensionne: 454, // € — revenus 2025
+  plafondFoyerActuel: 4439, // € — revenus 2025
+  sousPlafondPlf2027: 3000, // € — valeur du texte déposé, qui serait indexée comme le plafond actuel
+  revenusConcernesPlf2027: "revenus 2026 (déclaration du printemps 2027)",
+  foyersConcernesPlf2027: "4,6 millions", // estimation gouvernementale reprise par la presse
+  rendementPlf2027: "1,4 milliard d'euros", // estimation gouvernementale reprise par la presse
+  dateSuppressionCommission: "7 octobre 2026",
+  source:
+    "CGI art. 158, 5-a (plancher 454 € et plafond 4 439 € pour les revenus 2025) ; PLF 2027, art. 3 et 33, déposé début octobre 2026 ; suppression en commission des finances de l'Assemblée nationale le 7 octobre 2026 (LCP, Legifiscal, LCL Banque privée, CFDT Retraités, octobre 2026). Texte en cours de discussion — À REVÉRIFIER avant et après le vote définitif.",
+};
+
+// ---- Revalorisation des pensions de base 2027 (PLFSS 2027, art. 35) ----
+// Projet de revalorisation différenciée au 1er janvier 2027 : pleine
+// revalorisation sous un seuil, revalorisation réduite puis gel au-delà, par
+// paliers. Les seuils intermédiaires rapportés par la presse divergent
+// (2 000 € ou 2 034 € selon les sources) : seul le seuil bas, concordant, est
+// retenu ici. Texte en discussion — À REVÉRIFIER.
+export const REVALORISATION_PENSIONS_2027 = {
+  seuilPleineRevalorisationMensuelBrut: 1260, // € bruts/mois, environ 85 % du SMIC selon le projet
+  source:
+    "PLFSS 2027, art. 35, déposé le 1er octobre 2026 — recoupement presse spécialisée (CFDT Retraités, Toutsurmesfinances, octobre 2026). Projet non voté, seuils à reconfirmer.",
+};
+
 // ---- Valeurs par défaut des simulateurs (modifiables à l'écran) ----
 export const SIMU_DEFAUTS = {
   versementMensuel: 300,

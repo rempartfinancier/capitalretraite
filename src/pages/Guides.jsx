@@ -240,6 +240,11 @@ const categories = [
         title: "L'ordre de décaissement : l'erreur qui coûte cher à la retraite",
         text: "Par quelle enveloppe commencer quand vient le moment de consommer son capital.",
       },
+      {
+        to: "/guide/abattement-10-pourcent-retraites-plf-2027",
+        title: "Abattement de 10 % des retraités plafonné à 3 000 € (PLF 2027)",
+        text: "Qui serait touché, combien d'impôt en plus selon la TMI, et l'effet sur les rentes de PER — mesure encore en débat.",
+      },
     ],
   },
   {
