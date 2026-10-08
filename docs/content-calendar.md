@@ -66,6 +66,14 @@ La liste exhaustive et à jour est `src/routes.jsx` (chemins commençant par `/g
 `/strategies/`). Avant de choisir un sujet, **toujours lire ce fichier en premier** pour éviter tout
 doublon thématique, même avec un angle différent.
 
+### Run du 2026-10-08 (second run) — 1 article ajouté (backlog n°1)
+
+- `/guide/per-capital-ou-rente` — Avis : sortie du PER en capital ou en rente, cadre « rentiser un
+  plancher, sortir le reste en capital ». Ajout du bloc `SORTIE_PER` dans `hypotheses.js` (fractions des
+  rentes à titre onéreux, seuil de 110 €/mois pour les versements obligatoires). La veille de tendances
+  n'a pas fait émerger d'actualité nouvelle fiable au-delà des sujets déjà traités. Le taux de
+  prélèvements sociaux sur la rente est volontairement non chiffré (sources divergentes 17,2 % / 18,6 %).
+
 ### Run du 2026-10-08 — 1 article ajouté (actualité prioritaire sur le backlog)
 
 - `/guide/abattement-10-pourcent-retraites-plf-2027` — Coûts / Mécanique retraite : l'article 3 du
@@ -114,36 +122,33 @@ doublon thématique, même avec un angle différent.
 
 ## Backlog priorisé (à consommer dans cet ordre, sauf actualité plus pertinente)
 
-1. **Avis** — Faut-il sortir son PER en capital ou en rente ? Notre avis tranché (distinct de
-   `/guide/fiscalite-sortie-per`, qui reste un article de mécanique fiscale — celui-ci est un
-   article de décision, façon « Avis » Big 5).
-2. **Comparatif** — Compte-titres ordinaire (CTO) ou PEA : que faire au-delà du plafond de
+1. **Comparatif** — Compte-titres ordinaire (CTO) ou PEA : que faire au-delà du plafond de
    150 000 € ? (gap identifié, non traité même dans `/guide/inconvenients-du-pea`).
-3. **Risques** — Les pièges d'un rachat partiel d'assurance-vie avant 8 ans : fiscalité et mauvais
+2. **Risques** — Les pièges d'un rachat partiel d'assurance-vie avant 8 ans : fiscalité et mauvais
    timing.
-4. **Comparatif** — PER individuel ou PER d'entreprise obligatoire (ex-« article 83 nouvelle
+3. **Comparatif** — PER individuel ou PER d'entreprise obligatoire (ex-« article 83 nouvelle
    formule ») pour un dirigeant qui peut choisir : lequel privilégier.
-5. **Coûts** — Combien coûte un changement de régime matrimonial pour protéger son conjoint à la
+4. **Coûts** — Combien coûte un changement de régime matrimonial pour protéger son conjoint à la
    retraite (angle patrimonial connexe, à vérifier avec un notaire avant publication).
-6. **Avis** — Faut-il consolider tous ses vieux contrats retraite en un seul PER, ou les garder
+5. **Avis** — Faut-il consolider tous ses vieux contrats retraite en un seul PER, ou les garder
    séparés ? Angle pratique, complémentaire à `/guide/transfert-per-article-83`.
-7. **Best of** — Quelle allocation d'actifs pour un PER selon son profil de risque (au-delà de la
+6. **Best of** — Quelle allocation d'actifs pour un PER selon son profil de risque (au-delà de la
    seule gestion pilotée par défaut).
-8. **Risques** — Les pièges de la donation-partage entre enfants de lits différents (famille
+7. **Risques** — Les pièges de la donation-partage entre enfants de lits différents (famille
    recomposée), en complément de `/guide/donation-ou-assurance-vie-transmission`.
-9. **Comparatif** — Rente Madelin/article 83 déjà liquidée vs capital d'un PER : peut-on encore
+8. **Comparatif** — Rente Madelin/article 83 déjà liquidée vs capital d'un PER : peut-on encore
    arbitrer une fois la rente commencée ?
-10. **Mécanique retraite** — Trimestres validés à l'étranger et retraite en France : ce qui compte,
+9. **Mécanique retraite** — Trimestres validés à l'étranger et retraite en France : ce qui compte,
     ce qui ne compte pas (profils expatriés/frontaliers, audience potentiellement présente sur ce
     site).
-11. **Mécanique retraite (actualité)** — PLFSS 2027, art. 35 : revalorisation différenciée des
+10. **Mécanique retraite (actualité)** — PLFSS 2027, art. 35 : revalorisation différenciée des
     pensions de base au 1er janvier 2027 (pleine sous ~1 260 € bruts/mois, réduite puis gel au-delà
     par paliers). À traiter une fois les paliers stabilisés (les sources divergent à 2 000 € ou
     2 034 € en octobre 2026) — idéalement après le vote de la LFSS 2027.
-12. **Mécanique retraite (actualité)** — PLFSS 2027, art. 34 : passage de la majoration de pension
+11. **Mécanique retraite (actualité)** — PLFSS 2027, art. 34 : passage de la majoration de pension
     pour enfants d'un système proportionnel à un forfait (prévu en juillet 2027) — qui gagne, qui
     perd parmi les cadres parents de 3 enfants et plus.
-13. **Transmission (actualité)** — PLF 2027, art. 4 : dispositif temporaire de dons exonérés
+12. **Transmission (actualité)** — PLF 2027, art. 4 : dispositif temporaire de dons exonérés
     (premier semestre 2027) annoncé dans le budget — à vérifier précisément avant rédaction.
 
 Quand un sujet de ce backlog est traité, le retirer de cette liste. Quand la veille de tendances
@@ -166,3 +171,6 @@ _(Ajouté automatiquement par chaque exécution : date, sujet traité, lien PR.)
 - **2026-10-08** — 1 article : `/guide/abattement-10-pourcent-retraites-plf-2027` (voir « Sujets déjà
   publiés » ci-dessus pour le détail). PR : https://github.com/rempartfinancier/capitalretraite/pull/10 (empilée sur la PR #3,
   `content/suspension-reforme-retraites-2026-08-18`, non encore mergée).
+- **2026-10-08 (second run)** — 1 article : `/guide/per-capital-ou-rente` (voir « Sujets déjà publiés »
+  ci-dessus). PR : à compléter (empilée sur la PR #10, `content/abattement-10-pensions-plf-2027-2026-10-08`,
+  non encore mergée).

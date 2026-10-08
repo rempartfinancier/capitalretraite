@@ -245,6 +245,11 @@ const categories = [
         title: "Abattement de 10 % des retraités plafonné à 3 000 € (PLF 2027)",
         text: "Qui serait touché, combien d'impôt en plus selon la TMI, et l'effet sur les rentes de PER — mesure encore en débat.",
       },
+      {
+        to: "/guide/per-capital-ou-rente",
+        title: "PER : sortir en capital ou en rente ? Notre avis tranché",
+        text: "Ce que le contrat permet, la fiscalité de chaque option, le prix réel d'une rente et un cadre de décision par profil.",
+      },
     ],
   },
   {
