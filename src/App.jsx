@@ -59,6 +59,7 @@ import GuideClauseBeneficiaireAv from "./pages/GuideClauseBeneficiaireAv.jsx";
 import GuideStrategieParAge from "./pages/GuideStrategieParAge.jsx";
 import GuidePerLoiFinances2026 from "./pages/GuidePerLoiFinances2026.jsx";
 import GuideSuspensionReformeRetraites from "./pages/GuideSuspensionReformeRetraites.jsx";
+import GuideAbattementRetraitesPlf2027 from "./pages/GuideAbattementRetraitesPlf2027.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -139,6 +140,7 @@ export default function App() {
           <Route path="/guide/strategie-retraite-par-age" element={<GuideStrategieParAge />} />
           <Route path="/guide/per-loi-de-finances-2026" element={<GuidePerLoiFinances2026 />} />
           <Route path="/guide/suspension-reforme-retraites-2026" element={<GuideSuspensionReformeRetraites />} />
+          <Route path="/guide/abattement-10-pourcent-retraites-plf-2027" element={<GuideAbattementRetraitesPlf2027 />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />

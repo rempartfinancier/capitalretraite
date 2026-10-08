@@ -66,6 +66,18 @@ La liste exhaustive et à jour est `src/routes.jsx` (chemins commençant par `/g
 `/strategies/`). Avant de choisir un sujet, **toujours lire ce fichier en premier** pour éviter tout
 doublon thématique, même avec un angle différent.
 
+### Run du 2026-10-08 — 1 article ajouté (actualité prioritaire sur le backlog)
+
+- `/guide/abattement-10-pourcent-retraites-plf-2027` — Coûts / Mécanique retraite : l'article 3 du
+  PLF 2027 (déposé début octobre 2026) abaisse le plafond de l'abattement de 10 % sur les pensions de
+  retraite de 4 439 € à 3 000 € par foyer, dès les revenus 2026. Article supprimé en commission des
+  finances le 7 octobre 2026 mais rediscuté en séance sur le texte du gouvernement : **page à mettre
+  à jour après le vote définitif de la loi de finances 2027**. Ajout des blocs `ABATTEMENT_PENSIONS`
+  et `REVALORISATION_PENSIONS_2027` dans `hypotheses.js` (`HYPOTHESES_MAJ` volontairement laissé à
+  « juillet 2026 », les autres hypothèses n'ayant pas été revues). Sujet choisi lors de la veille de
+  tendances (budget 2027 visant directement les retraités aux pensions moyennes et élevées) plutôt
+  que le premier item du backlog.
+
 ### Run du 2026-08-18 — 1 article ajouté (actualité prioritaire sur le backlog)
 
 - `/guide/suspension-reforme-retraites-2026` — Mécanique retraite : l'article 105 de la LFSS 2026 (loi
@@ -124,6 +136,15 @@ doublon thématique, même avec un angle différent.
 10. **Mécanique retraite** — Trimestres validés à l'étranger et retraite en France : ce qui compte,
     ce qui ne compte pas (profils expatriés/frontaliers, audience potentiellement présente sur ce
     site).
+11. **Mécanique retraite (actualité)** — PLFSS 2027, art. 35 : revalorisation différenciée des
+    pensions de base au 1er janvier 2027 (pleine sous ~1 260 € bruts/mois, réduite puis gel au-delà
+    par paliers). À traiter une fois les paliers stabilisés (les sources divergent à 2 000 € ou
+    2 034 € en octobre 2026) — idéalement après le vote de la LFSS 2027.
+12. **Mécanique retraite (actualité)** — PLFSS 2027, art. 34 : passage de la majoration de pension
+    pour enfants d'un système proportionnel à un forfait (prévu en juillet 2027) — qui gagne, qui
+    perd parmi les cadres parents de 3 enfants et plus.
+13. **Transmission (actualité)** — PLF 2027, art. 4 : dispositif temporaire de dons exonérés
+    (premier semestre 2027) annoncé dans le budget — à vérifier précisément avant rédaction.
 
 Quand un sujet de ce backlog est traité, le retirer de cette liste. Quand la veille de tendances
 (étape de la routine) fait émerger une actualité plus porteuse (changement réglementaire, LFSS,
@@ -142,3 +163,6 @@ _(Ajouté automatiquement par chaque exécution : date, sujet traité, lien PR.)
 - **2026-08-18** — 1 article : `/guide/suspension-reforme-retraites-2026` (voir « Sujets déjà
   publiés » ci-dessus pour le détail). PR : https://github.com/rempartfinancier/capitalretraite/pull/3
   (empilée sur la PR #2, `content/per-loi-de-finances-2026-2026-08-08`, elle-même non encore mergée).
+- **2026-10-08** — 1 article : `/guide/abattement-10-pourcent-retraites-plf-2027` (voir « Sujets déjà
+  publiés » ci-dessus pour le détail). PR : lien à venir (empilée sur la PR #3,
+  `content/suspension-reforme-retraites-2026-08-18`, non encore mergée).
