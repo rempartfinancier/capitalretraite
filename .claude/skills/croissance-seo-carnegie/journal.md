@@ -229,3 +229,35 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-10-09 (guide : transfert de PER)
+
+**Statut : contenu produit et câblé (PR en attente de relecture) ; netlinking, preuve sociale et KPIs non réalisables (voir limites).** Premier déclenchement dû depuis le cycle 001 (50 jours écoulés). Branche assignée par la plateforme : `claude/zen-fermi-ypaq05`.
+
+### Phase 1 — Bilan
+KPIs **non vérifiables** (pas de Search Console, GA4, Ahrefs). Aucun chiffre inventé. Aucune cible de netlinking n'avait été contactée au cycle 001, donc rien à relancer ni à abandonner.
+
+### Phase 2/3 — Sujet et production
+Sujet retenu : « Transfert de PER : frais, délais et pièges » (le sujet Agirc-Arrco reste bloqué faute de PASS/valeur du point dans `hypotheses.js`). Le transfert n'était traité qu'en FAQ dans 3 guides, sans page dédiée.
+- `/guide/transfert-per` (`src/pages/GuideTransfertPer.jsx`), catégorie **per** de `Guides.jsx`, après « Déblocage anticipé ». Câblé dans `routes.jsx`, `App.jsx`, `Guides.jsx`, `public/sitemap.xml` (priorité 0.8). Build : **54/54 pages** (53 avant).
+- Aucun taux chiffré : seuls « plafonnés par la loi », « nuls après cinq ans » (formulation déjà présente sur le site) et `HYPOTHESES_MAJ`.
+- Maillage sortant : deblocage-anticipe-per, fiscalite-sortie-per, combien-coute-un-per, per-bancaire-frais-gestion-horizon, faut-il-ouvrir-un-per, quel-est-le-meilleur-per, retraite-independants-per-ou-madelin, strategies/per, bilan-retraite.
+- Maillage entrant (3, à la main) : `GuideCoutPer.jsx` (FAQ frais), `GuideMeilleurPer.jsx` (FAQ changer de PER), `GuidePerBancaire.jsx` (FAQ changer d'établissement).
+- Garde-fou plagiat : formules signature absentes ; `content-corpus/` toujours absent du clone.
+- Aucune source tierce citée avec lien (egress bloqué, impossible de vérifier les URL) → aucune graine de netlinking nouvelle.
+
+### Points à faire vérifier par Alexandre (juridique, non vérifiables hors ligne)
+Délai réglementaire du transfert (formulé « de l'ordre de quelques semaines, à vérifier »), conditions de transfert depuis un PER collectif/obligatoire (formulées « à confirmer auprès du gestionnaire » ; la PerBancaire dit « tous les trois ans », non repris ici), transfert après mise en service d'une rente.
+
+### Positions éditoriales en attente
+Aucune touchée (rente hors PER, mix rente/retraits, nue-propriété SCPI).
+
+### Phases 4 et 5
+Egress sortant toujours bloqué (service-public.fr → code 000) : aucun site cible lisible, aucun brouillon d'outreach rédigé (inventer une citation personnalisée violerait la doctrine). Aucune preuve sociale possible (pas d'accès CRM/avis).
+
+### Décisions pour le cycle 003 (à partir du 2026-10-23)
+1. Merger/fermer la PR de ce cycle avant le prochain déclenchement (garde anti-doublon).
+2. Alexandre : lire 2-3 contenus de prismo-retraite.fr ou jobpublic.fr et les transmettre pour débloquer la Phase 4 ; fournir PASS/valeur du point Agirc-Arrco ; trancher l'écart `AuthorBox` (mention CIF absente).
+3. Sujets suivants : Agirc-Arrco (si données), « PER et succession du conjoint », épargne salariale PEE/abondement ; passage « 3 liens croisés » sur les guides anciens.

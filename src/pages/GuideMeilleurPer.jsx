@@ -255,7 +255,7 @@ export default function GuideMeilleurPer() {
             Oui, un transfert vers un autre PER reste possible à tout moment, moyennant des frais de
             transfert encadrés qui diminuent avec l'ancienneté du contrat. Ce transfert conserve
             l'antériorité fiscale acquise ; il ne fait en revanche pas disparaître les frais de gestion
-            déjà supportés jusque-là.
+            déjà supportés jusque-là. Notre guide <a href="/guide/transfert-per">transfert de PER</a> détaille les frais, les délais et les pièges.
           </p>
           <h3>La grille de 8 critères s'applique-t-elle aussi bien à un PER bancaire qu'assurantiel ?</h3>
           <p>
