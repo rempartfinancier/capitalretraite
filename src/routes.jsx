@@ -153,6 +153,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transfert-per",
+    title: "Transfert de PER : frais, délais et pièges avant de changer de contrat",
+    description:
+      "Peut-on changer de PER sans perdre l'avantage fiscal ? Ce que le transfert conserve, les frais plafonnés, et les cinq pièges à vérifier : temps hors marché, garanties d'un ancien contrat, abondement employeur.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transfert de PER", "/guide/transfert-per"],
+    ],
+  },
+  {
     path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
     title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
     description:
