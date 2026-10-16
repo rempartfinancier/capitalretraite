@@ -153,6 +153,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transfert-per-frais-delais",
+    title: "Transférer son PER : frais, délais et pièges avant de changer de contrat",
+    description:
+      "Frais de transfert plafonnés puis nuls après cinq ans, délai légal de deux mois, neutralité fiscale : ce que coûte vraiment un transfert de PER et les pièges à éviter avant de changer de contrat.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer son PER", "/guide/transfert-per-frais-delais"],
+    ],
+  },
+  {
     path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
     title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
     description:

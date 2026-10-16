@@ -229,3 +229,36 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-10-16 (guide : transfert de PER)
+
+**Statut : contenu produit (PR en attente de relecture) ; netlinking et KPIs non réalisables (egress bloqué, aucun connecteur analytics).**
+Écart de 57 jours depuis le cycle 001 (déclenchement tardif) : aucun cycle intermédiaire n'a eu lieu.
+
+### Phase 1 — Bilan
+KPIs **non vérifiables** (pas de Search Console, GA4 ni Ahrefs). Aucun contact Phase 4 n'ayant été envoyé au cycle 001, aucun suivi/relance à faire. Point de départ : 53 pages prerendues avant ce cycle, 54 après.
+
+### Phase 2 — Recherche
+Sujet retenu : « Transfert de PER : frais, délais, pièges » (candidat pressenti au cycle 001, aucun chiffre nouveau requis). Motif : le sujet n'était traité qu'en FAQ de 3 guides (`GuideCoutPer`, `GuideMeilleurPer`, `GuidePerBancaire`) sans page dédiée. Cadrage via connaissances juridiques générales (WebSearch/lecture sources non utilisés : egress bloqué).
+« Retraite des cadres — Agirc-Arrco » reste en attente des valeurs PASS/point Agirc-Arrco.
+
+### Phase 3 — Production
+- `/guide/transfert-per-frais-delais` (`GuideTransfertPer.jsx`), catégorie **per** de `Guides.jsx`. Câblage : `routes.jsx`, `App.jsx`, `Guides.jsx`, `public/sitemap.xml` (0,8). Build 54/54.
+- Sortants : combien-coute-un-per, quel-est-le-meilleur-per, fiscalite-sortie-per, per-bancaire-frais-gestion-horizon, a-quel-age-commencer-per, retraite-fonctionnaires-completer, strategies/per, bilan-retraite.
+- Entrants (2) : `GuideCoutPer.jsx` (FAQ frais), `GuideMeilleurPer.jsx` (FAQ changer de PER).
+- Sources citées : legifrance.gouv.fr, service-public.fr (liens racine, non lus faute d'accès).
+- **Données juridiques écrites en dur dans le texte, hors `hypotheses.js`, À FAIRE VÉRIFIER par Alexandre** : plafond de 1 % avant 5 ans, gratuité après 5 ans, délai de 2 mois du gestionnaire cédant. Aucun taux de rendement.
+- Positions éditoriales en attente : aucune touchée.
+
+### Phase 4 — Netlinking
+Aucun brouillon : egress bloqué (curl service-public.fr → échec), règle « citer avant de demander ». Cibles inchangées (voir cycle 001 : prismo-retraite.fr, jobpublic.fr…). Legifrance/service-public.fr cités mais non contactables (institutions).
+
+### Phase 5 — Preuve sociale
+Aucune donnée disponible (pas de CRM ni de réseau social).
+
+### Décisions cycle 003 (à partir de ~2026-10-30 après merge)
+1. Merger la PR avant le déclenchement suivant (garde anti-doublon).
+2. Alexandre : valider les 3 données juridiques du transfert ; lire 2-3 contenus de prismo-retraite.fr/jobpublic.fr pour débloquer la Phase 4 ; fournir PASS/point Agirc-Arrco.
+3. Toujours en suspens : mention CIF dans `AuthorBox` (écart persistant, 39 guides concernés maintenant).
