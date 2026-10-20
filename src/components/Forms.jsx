@@ -1,15 +1,8 @@
 import { useRef, useState } from "react";
-import {
-  BREVO_FORM_ACTION_GUIDE,
-  CALENDLY_URL,
-  CALENDLY_CONFIGURED,
-} from "./config.js";
+import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
 
 // Envoi serveur (Vercel Function /api/send-lead-email.js) pour Contact et
-// Bilan : ces 2 formulaires n'ont jamais eu d'URL d'action Brevo configurée
-// sur Vercel (contrairement à BREVO_FORM_ACTION_GUIDE ci-dessus, toujours
-// utilisée telle quelle par FormLeadMagnet). Contrairement à postToBrevo()
-// en no-cors ci-dessous, la réponse HTTP ici reflète un vrai succès/échec.
+// Bilan. La réponse HTTP reflète un vrai succès/échec.
 async function envoyerLead(formulaire, data) {
   const res = await fetch("/api/send-lead-email", {
     method: "POST",
@@ -19,19 +12,16 @@ async function envoyerLead(formulaire, data) {
   return res.ok;
 }
 
-async function postToBrevo(actionUrl, data) {
-  if (!actionUrl) {
-    console.warn("URL de formulaire Brevo non configurée (voir src/components/config.js).");
-    return false; // pas d'endpoint configuré : échec réel, pas de fausse confirmation
-  }
-  const body = new URLSearchParams(data);
-  const res = await fetch(actionUrl, {
+// Inscription à une liste Brevo via la fonction serveur /api/subscribe (clé API
+// côté serveur uniquement). `source` choisit la liste (voir api/subscribe.js).
+// Le code HTTP reflète un vrai succès/échec, contrairement à l'ancien envoi no-cors.
+export async function inscrire(source, data) {
+  const res = await fetch("/api/subscribe", {
     method: "POST",
-    mode: "no-cors", // les endpoints de formulaire Brevo ne renvoient pas de CORS
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...data, source }),
   });
-  return res.ok || res.type === "opaque";
+  return res.ok;
 }
 
 // CRM interne du groupe (rempart-crm), relayé par le proxy serverless
@@ -234,11 +224,10 @@ export function FormContact({ onSuccess }) {
 }
 
 // Formulaire de capture pour un lead magnet PDF (guide téléchargeable).
-// Livraison double : téléchargement immédiat affiché ici à l'état succès
-// (le visiteur ne repart jamais les mains vides) — ce site n'envoie pas
-// d'email de confirmation (aucune API transactionnelle configurée), donc
-// cet écran de succès est le seul canal de livraison.
-export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
+// Le téléchargement immédiat s'affiche à l'état succès (le visiteur ne repart
+// jamais les mains vides) ; l'inscription Brevo déclenche l'email J0 de la
+// séquence (voir docs/emails/). `source` : clé de api/subscribe.js.
+export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre, source = "lead_magnet_av" }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const debut = useRef(Date.now());
@@ -248,9 +237,9 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
     setError(false);
     const data = lireFormulaire(e, debut.current);
     try {
-      const ok = await postToBrevo(BREVO_FORM_ACTION_GUIDE, data);
+      const ok = await inscrire(source, data);
       if (ok) {
-        notifierCrmInterne(data, "lead_magnet");
+        notifierCrmInterne(data, source === "lead_magnet_av" ? "lead_magnet" : source);
         setSent(true);
       } else {
         setError(true);

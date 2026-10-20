@@ -54,6 +54,14 @@ Brevo** (Contacts → Formulaires → créer le formulaire → copier l'attribut
 Cette URL ne contient aucun secret. Créer un formulaire Brevo pour le bilan (liste
 dédiée) et un pour le contact, puis renseigner les deux URLs dans `.env`.
 
+**Inscriptions aux listes (lead magnets, outils)** : la fonction serveur
+`api/subscribe.js` crée ou met à jour le contact via l'API Brevo (`POST /v3/contacts`) et
+l'inscrit à la liste de sa `source`. Variables Vercel (jamais `VITE_*`) : `BREVO_API_KEY`
+et un identifiant de liste par source — `BREVO_LIST_ID_LEAD_MAGNET_AV`,
+`BREVO_LIST_ID_LEAD_MAGNET_CHECKLIST`, `BREVO_LIST_ID_SIMULATEUR`, `BREVO_LIST_ID_OUTILS`,
+`BREVO_LIST_ID_BILAN`, `BREVO_LIST_ID_NEWSLETTER` (voir `.env.example`). Les textes des
+séquences email à configurer dans Brevo sont dans `docs/emails/`.
+
 Champs attendus côté Brevo : `PRENOM`, `EMAIL`, `SMS`, `TRANCHE_AGE`,
 `TRANCHE_PATRIMOINE`, `SITUATION` (bilan) ; `PRENOM`, `EMAIL`, `MESSAGE` (contact).
 Adapter les attributs Brevo ou les `name` des champs dans `src/components/Forms.jsx`
