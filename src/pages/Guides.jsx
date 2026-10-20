@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CtaBanner } from "../components/Layout.jsx";
+import { articles, cheminArticle } from "../content/articles.js";
 
 // Chaque guide n'apparaît qu'une fois, classé dans sa catégorie la plus utile
 // pour un visiteur qui découvre le site. Nouveau guide → ajouter une ligne ici.
+const guidesAuto = articles
+  .filter((a) => a.meta.type === "guide")
+  .map(({ meta }) => ({ to: cheminArticle(meta), title: meta.h1 || meta.title, text: meta.description }));
+
 const categories = [
   {
     id: "vue-ensemble",
@@ -255,6 +260,10 @@ const categories = [
     ],
   },
 ];
+
+if (guidesAuto.length) {
+  categories.push({ id: "nouveaux", name: "Nouveaux guides", items: guidesAuto });
+}
 
 const CATEGORY_IDS = categories.map((c) => c.id);
 

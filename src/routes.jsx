@@ -3,6 +3,8 @@
 
 export const SITE_URL = "https://www.capitalretraite.com";
 
+import { articles, cheminArticle } from "./content/articles.js";
+
 export const routesMeta = [
   {
     path: "/",
@@ -549,6 +551,67 @@ export const routesMeta = [
     breadcrumb: [["Accueil", "/"], ["Confidentialité", "/confidentialite"]],
   },
 ];
+
+// ---- Articles data-driven (src/content/articles/*.jsx) ----
+function jsonLdArticle(m, path) {
+  const url = SITE_URL + path;
+  const out = [
+    {
+      "@context": "https://schema.org",
+      "@type": m.type === "actualite" ? "NewsArticle" : "Article",
+      headline: m.h1 || m.title,
+      description: m.description,
+      datePublished: m.datePublication,
+      dateModified: m.dateMiseAJour,
+      inLanguage: "fr-FR",
+      mainEntityOfPage: url,
+      author: { "@type": "Organization", name: "Capital Retraite", url: SITE_URL },
+      publisher: { "@type": "Organization", name: "Capital Retraite", url: SITE_URL },
+    },
+  ];
+  if (m.faq?.length) {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: m.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  return out;
+}
+
+if (articles.some((a) => a.meta.type === "actualite")) {
+  routesMeta.push({
+    path: "/actualites",
+    title: "Actualités retraite : ce qui change pour vous — Capital Retraite",
+    description:
+      "L'actualité retraite décryptée : réformes, barèmes, plafonds. Ce qui change, pour qui, avec des chiffres sourcés et datés.",
+    breadcrumb: [["Accueil", "/"], ["Actualités", "/actualites"]],
+    lastmod: articles.find((a) => a.meta.type === "actualite").meta.dateMiseAJour,
+  });
+}
+
+for (const { meta } of articles) {
+  const path = cheminArticle(meta);
+  routesMeta.push({
+    path,
+    title: meta.title,
+    description: meta.description,
+    breadcrumb: [
+      ["Accueil", "/"],
+      meta.type === "actualite" ? ["Actualités", "/actualites"] : ["Guides", "/guides"],
+      [meta.h1 || meta.title, path],
+    ],
+    jsonld: jsonLdArticle(meta, path),
+    lastmod: meta.dateMiseAJour,
+    datePublication: meta.datePublication,
+    article: true,
+    h1: meta.h1 || meta.title,
+  });
+}
 
 export function getMeta(pathname) {
   return routesMeta.find((r) => r.path === pathname) || routesMeta[0];
