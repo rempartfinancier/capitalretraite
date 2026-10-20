@@ -6,6 +6,8 @@
 // dans Forms.jsx), jamais à sa place : toujours 200, jamais bloquant pour le
 // visiteur, erreur avalée et loguée côté serveur.
 
+import { estSpam } from "./_antispam.js";
+
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "https://www.capitalretraite.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -29,6 +31,10 @@ export default async function handler(req, res) {
   const { email, prenom, telephone, message, source, pageUrl } = req.body || {};
   if (!email || typeof email !== "string") {
     res.status(400).json({ error: "email_requis" });
+    return;
+  }
+  if (estSpam(req.body)) {
+    res.status(200).json({ ok: true });
     return;
   }
 

@@ -11,6 +11,8 @@
 // toujours 200), ici le code HTTP renvoyé DOIT refléter un vrai succès/échec
 // Brevo : c'est le seul canal d'envoi pour ces deux formulaires.
 
+import { estSpam } from "./_antispam.js";
+
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "https://www.capitalretraite.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -50,6 +52,12 @@ export default async function handler(req, res) {
 
   if (!email || typeof email !== "string") {
     res.status(400).json({ error: "email_requis" });
+    return;
+  }
+
+  if (estSpam(req.body)) {
+    console.warn("[send-lead-email] Lead rejeté (anti-spam):", email);
+    res.status(200).json({ ok: true });
     return;
   }
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   BREVO_FORM_ACTION_GUIDE,
   CALENDLY_URL,
@@ -43,6 +43,8 @@ function notifierCrmInterne(data, source = "site") {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
+      SITE_WEB: data.SITE_WEB,
+      _elapsed: data._elapsed,
       email: data.EMAIL,
       prenom: data.PRENOM,
       telephone: data.SMS,
@@ -53,14 +55,30 @@ function notifierCrmInterne(data, source = "site") {
   }).catch(() => {});
 }
 
+// Anti-spam : champ piège invisible (SITE_WEB) + durée de remplissage, relus côté
+// serveur par api/_antispam.js. Un humain ne remplit jamais le champ caché.
+function ChampPiege() {
+  return (
+    <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", height: 0, overflow: "hidden" }}>
+      <label htmlFor="site-web">Ne pas remplir</label>
+      <input id="site-web" name="SITE_WEB" type="text" tabIndex={-1} autoComplete="off" />
+    </div>
+  );
+}
+
+function lireFormulaire(e, debut) {
+  return { ...Object.fromEntries(new FormData(e.target)), _elapsed: Date.now() - debut };
+}
+
 export function FormBilan() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(false);
-    const data = Object.fromEntries(new FormData(e.target));
+    const data = lireFormulaire(e, debut.current);
     try {
       const ok = await envoyerLead("bilan", data);
       if (ok) {
@@ -97,6 +115,7 @@ export function FormBilan() {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
       <div>
         <label htmlFor="b-prenom">Prénom</label>
         <input id="b-prenom" name="PRENOM" type="text" required autoComplete="given-name" />
@@ -159,11 +178,12 @@ export function FormBilan() {
 export function FormContact({ onSuccess }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(false);
-    const data = Object.fromEntries(new FormData(e.target));
+    const data = lireFormulaire(e, debut.current);
     try {
       const ok = await envoyerLead("contact", data);
       if (ok) {
@@ -189,6 +209,7 @@ export function FormContact({ onSuccess }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
       <div>
         <label htmlFor="c-prenom">Prénom</label>
         <input id="c-prenom" name="PRENOM" type="text" required autoComplete="given-name" />
@@ -220,11 +241,12 @@ export function FormContact({ onSuccess }) {
 export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(false);
-    const data = Object.fromEntries(new FormData(e.target));
+    const data = lireFormulaire(e, debut.current);
     try {
       const ok = await postToBrevo(BREVO_FORM_ACTION_GUIDE, data);
       if (ok) {
@@ -254,6 +276,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
       <div>
         <label htmlFor="g-email">Email</label>
         <input id="g-email" name="EMAIL" type="email" required autoComplete="email" />
