@@ -24,7 +24,7 @@ export const routesMeta = [
     path: "/guide-audit-assurance-vie",
     title: "Grille d'audit assurance-vie en 20 points (PDF gratuit) — Capital Retraite",
     description:
-      "Le guide PDF gratuit pour savoir en 20 minutes si votre assurance-vie vous coûte cher : checklist notée en 4 blocs (frais, supports, fiscalité, clause bénéficiaire), barème de référence et score sur 20 points.",
+      "Le guide PDF gratuit pour savoir en 20 minutes si votre assurance-vie vous coûte cher : checklist en 4 blocs (frais, supports, fiscalité, clause bénéficiaire) et score sur 20.",
     breadcrumb: [["Accueil", "/"], ["Guide gratuit : grille d'audit assurance-vie", "/guide-audit-assurance-vie"]],
   },
   {

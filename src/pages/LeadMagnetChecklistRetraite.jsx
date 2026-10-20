@@ -42,7 +42,7 @@ const BLOCS = [
   {
     titre: "Dans la dernière année : les démarches",
     items: [
-      ["Vérifier auprès de chaque caisse le délai pour déposer votre demande de retraite (variable selon le régime : à vérifier).", null],
+      ["Déposer votre demande de retraite : l'Assurance retraite indique 5 mois avant la date de départ souhaitée (à confirmer auprès de chaque caisse complémentaire ou spéciale).", null],
       ["Rassembler les justificatifs demandés par vos caisses (identité, relevés, situation familiale).", null],
       ["Faire relire l'ensemble par un tiers si un doute subsiste.", "/bilan-retraite", "Demander un bilan retraite gratuit"],
     ],

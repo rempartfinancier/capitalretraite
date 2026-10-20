@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
 import { FISCALITE, HYPOTHESES_MAJ } from "../components/hypotheses.js";
 
@@ -23,6 +24,18 @@ export default function GuideCumulEmploiRetraite() {
               pension dans la plupart des régimes — une bascule qui change la donne par rapport à
               ce que beaucoup d'actifs croient encore, et qu'il faut vérifier au cas par cas
               auprès de sa caisse.
+            </p>
+          </div>
+          <div className="resume-executif">
+            <p>
+              <strong>Réforme à venir :</strong> selon service-public, la loi de financement de la
+              sécurité sociale pour 2026 supprime à compter du 1er janvier 2027 la distinction entre
+              cumul intégral et cumul plafonné : seul l'âge compterait (revenus d'activité déduits de
+              la pension avant l'âge légal ; pension intégrale entre l'âge légal et 67 ans si les
+              revenus restent sous un seuil fixé par décret, environ 7 000 € bruts par an annoncés,
+              à confirmer ; cumul libre dès 67 ans). Ce guide décrit le dispositif en vigueur en 2026 ;
+              voir{" "}
+              <Link to="/actualites/cumul-emploi-retraite-nouvelles-regles-2027">notre décryptage</Link>.
             </p>
           </div>
           <p>
