@@ -74,6 +74,7 @@ export function FormBilan() {
       const ok = await envoyerLead("bilan", data);
       if (ok) {
         notifierCrmInterne(data);
+        pushEvent("generate_lead", { lead_source: "bilan" });
         setSent(true);
       } else {
         setError(true);
@@ -93,7 +94,13 @@ export function FormBilan() {
         </p>
         {CALENDLY_CONFIGURED ? (
           <p style={{ marginTop: "1rem" }}>
-            <a className="btn btn-primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn btn-primary"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => pushEvent("rdv_click", { emplacement: "confirmation_bilan" })}
+            >
               Choisir mon créneau
             </a>
           </p>
@@ -179,6 +186,7 @@ export function FormContact({ onSuccess }) {
       const ok = await envoyerLead("contact", data);
       if (ok) {
         notifierCrmInterne(data);
+        pushEvent("generate_lead", { lead_source: "contact" });
         setSent(true);
         onSuccess?.(data);
       } else {
@@ -290,6 +298,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre, source = "le
       const ok = await inscrire(source, data);
       if (ok) {
         notifierCrmInterne(data, source === "lead_magnet_av" ? "lead_magnet" : source);
+        pushEvent("generate_lead", { lead_source: source });
         setSent(true);
       } else {
         setError(true);
@@ -305,7 +314,12 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre, source = "le
         <h3>Votre guide est prêt</h3>
         <p>Merci. Téléchargez-le dès maintenant — ce lien reste valable, vous pouvez le reprendre à tout moment.</p>
         <p style={{ marginTop: "1rem" }}>
-          <a className="btn btn-primary" href={pdfUrl} download={pdfNomFichier}>
+          <a
+            className="btn btn-primary"
+            href={pdfUrl}
+            download={pdfNomFichier}
+            onClick={() => pushEvent("lead_magnet_download", { lead_source: source })}
+          >
             Télécharger le guide (PDF)
           </a>
         </p>
