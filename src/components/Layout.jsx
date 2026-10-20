@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getMeta } from "../routes.jsx";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
+import { pushEvent } from "./tracking.js";
 
 
 function Header() {
@@ -27,7 +28,11 @@ function Header() {
           <Link to="/simulateur-retraite">Simulateur</Link>
           <Link to="/guides">Guides</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/bilan-retraite" className="btn btn-primary">
+          <Link
+            to="/bilan-retraite"
+            className="btn btn-primary"
+            onClick={() => pushEvent("rdv_click", { emplacement: "en_tete" })}
+          >
             Bilan retraite gratuit
           </Link>
         </nav>
@@ -71,7 +76,12 @@ function Footer() {
           <Link to="/mentions-legales">Mentions légales</Link>
           <Link to="/confidentialite">Confidentialité</Link>
           {CALENDLY_CONFIGURED ? (
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => pushEvent("rdv_click", { emplacement: "pied_de_page" })}
+            >
               Prendre RDV
             </a>
           ) : (
@@ -102,15 +112,36 @@ export function RiskNotice() {
   );
 }
 
+// `petitPas` (facultatif) : { title, button, to } — un outil ou lead magnet proposé
+// AVANT le bilan ; le bilan reste accessible juste dessous. Sans `petitPas`, le
+// comportement historique est inchangé.
 export function CtaBanner({
   title = "Votre situation est unique. Votre stratégie devrait l'être aussi.",
   button = "Bilan retraite gratuit (15 min)",
   to = "/bilan-retraite",
+  petitPas,
 }) {
+  const suivreRdv = () => pushEvent("rdv_click", { emplacement: "cta_banner" });
+  if (petitPas) {
+    return (
+      <section className="section-marine cta-banner">
+        <h2>{petitPas.title || title}</h2>
+        <Link to={petitPas.to} className="btn btn-light">
+          {petitPas.button}
+        </Link>
+        <p className="cta-suite">
+          Envie d'un regard extérieur ?{" "}
+          <Link to={to} onClick={suivreRdv}>
+            {button}
+          </Link>
+        </p>
+      </section>
+    );
+  }
   return (
     <section className="section-marine cta-banner">
       <h2>{title}</h2>
-      <Link to={to} className="btn btn-light">
+      <Link to={to} className="btn btn-light" onClick={to === "/bilan-retraite" ? suivreRdv : undefined}>
         {button}
       </Link>
     </section>

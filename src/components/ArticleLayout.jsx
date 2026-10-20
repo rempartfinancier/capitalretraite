@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AuthorBox, CtaBanner, RiskNotice } from "./Layout.jsx";
 import { articles, cheminArticle } from "../content/articles.js";
+import { petitPasPour } from "./petitsPas.js";
 
 const formatDate = (iso) =>
   new Date(`${iso}T12:00:00Z`).toLocaleDateString("fr-FR", {
@@ -79,7 +80,7 @@ export default function ArticleLayout({ meta, children }) {
           <AuthorBox />
         </div>
       </section>
-      <CtaBanner />
+      <CtaBanner petitPas={petitPasPour(meta)} />
     </>
   );
 }
