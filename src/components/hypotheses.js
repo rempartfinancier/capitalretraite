@@ -189,7 +189,7 @@ export const DECUMULATION = {
 // la génération et le régime d'affiliation avant publication.
 export const REGIME_GENERAL = {
   surcoteParTrimestre: 1.25, // majoration du taux plein par trimestre cotisé au-delà de la durée requise et de l'âge légal (%)
-  decoteParTrimestre: 1.25, // minoration par trimestre manquant par rapport à la durée requise, régime général (%)
+  decoteParTrimestre: 0.625, // minoration par trimestre manquant, régime général (%) — corrigé le 2026-10-20 (était 1,25), service-public.gouv.fr F19666
   decotePlafondTrimestres: 20, // nombre maximal de trimestres de décote pris en compte
   ageTauxPleinAutomatique: 67, // âge d'annulation automatique de la décote, régime général
   rachatTrimestresPlafond: 12, // nombre maximal de trimestres rachetables (versement pour la retraite, ex « rachat Fillon »)

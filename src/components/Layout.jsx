@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getMeta } from "../routes.jsx";
+import { articles } from "../content/articles.js";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
 import { pushEvent } from "./tracking.js";
 
@@ -27,6 +28,8 @@ function Header() {
           <Link to="/strategies">Stratégies</Link>
           <Link to="/simulateur-retraite">Simulateur</Link>
           <Link to="/guides">Guides</Link>
+          {articles.some((a) => a.meta.type === "actualite") && <Link to="/actualites">Actualités</Link>}
+          <Link to="/outils/frais-per-assurance-vie">Outils</Link>
           <Link to="/contact">Contact</Link>
           <Link
             to="/bilan-retraite"

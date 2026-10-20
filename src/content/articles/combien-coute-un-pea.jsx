@@ -14,10 +14,10 @@ export const meta = {
   type: "guide",
   big5: "prix",
   categorie: "pea",
-  title: "Quel est le coût réel d'un PEA ? Frais et exemple chiffré",
+  title: "Combien coûte un PEA ? Frais réels et exemple chiffré",
   description:
     "Frais d'un PEA : tenue de compte, ordres, supports, transfert. Exemple chiffré sur 15 ans, hypothèses explicites, questions à poser avant d'ouvrir.",
-  h1: "Quel est le coût réel d'un PEA ?",
+  h1: "Combien coûte un PEA ?",
   resume:
     "Le coût d'un PEA se décompose en trois lignes : la tenue de compte de l'établissement, les frais d'ordres de bourse et les frais courants des supports choisis ; ce dernier poste est le plus lourd sur la durée, car il est prélevé chaque année sur tout l'encours.",
   datePublication: "2026-10-20",

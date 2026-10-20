@@ -476,7 +476,7 @@ export const routesMeta = [
     path: "/guide/surcote-decote-retraite",
     title: "Surcote ou décote à la retraite : comment ça se calcule ?",
     description:
-      "1,25 % par trimestre de surcote, autant en décote plafonnée à 20 trimestres : le mécanisme qui peut faire gagner ou perdre plusieurs centaines d'euros par mois de pension, et comment l'anticiper.",
+      "1,25 % par trimestre de surcote, 0,625 % par trimestre de décote (plafonnée à 20 trimestres) : le mécanisme qui peut faire gagner ou perdre plusieurs centaines d'euros par mois de pension, et comment l'anticiper.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],

@@ -239,7 +239,7 @@ const categories = [
       {
         to: "/guide/surcote-decote-retraite",
         title: "Surcote ou décote : comment ça se calcule ?",
-        text: "1,25 % par trimestre, dans un sens ou dans l'autre — un mécanisme à anticiper, pas à subir.",
+        text: "1,25 % de surcote ou 0,625 % de décote par trimestre — un mécanisme à anticiper, pas à subir.",
       },
     ],
   },

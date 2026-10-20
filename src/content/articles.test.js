@@ -4,7 +4,7 @@ import { articles } from "./articles.js";
 // Cohérence SEO/éditoriale de chaque article publié. Vide tant qu'aucun article
 // n'existe : le test passe, et se durcit automatiquement à chaque ajout.
 const INTERDIT_MARQUE = /pollet|rempart/i;
-const TUTOIEMENT = /\b(tu|ton|ta|tes|toi|te)\b/i;
+const TUTOIEMENT = /(?<![\p{L}])(tu|ton|ta|tes|toi|te)(?![\p{L}])/iu;
 const slugs = new Set();
 
 describe.each(articles.map((a) => [a.meta.slug, a]))("article %s", (slug, { meta }) => {
