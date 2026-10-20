@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { getMeta } from "../routes.jsx";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
 
-const HUB_URL = "https://rempartfinancier.fr";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -14,12 +13,6 @@ function Header() {
           <Link to="/" className="brand-name" aria-label="Capital Retraite — accueil">
             Capital<em>Retraite</em>
           </Link>
-          <span className="brand-sub">
-            Un service{" "}
-            <a href={HUB_URL} target="_blank" rel="noopener noreferrer">
-              Le Rempart Financier
-            </a>
-          </span>
         </div>
         <button
           className="nav-toggle"
@@ -64,12 +57,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <p className="footer-brand">
-          © {year} capitalretraite.com — Un service{" "}
-          <a href={HUB_URL} target="_blank" rel="noopener noreferrer">
-            Le Rempart Financier
-          </a>
-        </p>
+        <p className="footer-brand">© {year} capitalretraite.com</p>
         <p>EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915</p>
         <p className="footer-legal">
           Les informations publiées sur ce site ont un caractère pédagogique général. Elles ne
@@ -98,7 +86,8 @@ function Footer() {
 export function AuthorBox() {
   return (
     <aside className="author-box" aria-label="À propos de l'auteur">
-      <strong>Alexandre Pollet</strong> — Conseiller en gestion de patrimoine, EXP Capital.
+      <strong>La rédaction de Capital Retraite</strong> — conseillers en gestion de patrimoine.
+      Contenu pédagogique, relu avant publication.
     </aside>
   );
 }

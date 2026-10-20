@@ -539,6 +539,7 @@ export const routesMeta = [
     description:
       "Mentions légales du site capitalretraite.com, édité par EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915.",
     breadcrumb: [["Accueil", "/"], ["Mentions légales", "/mentions-legales"]],
+    noindex: true,
   },
   {
     path: "/confidentialite",

@@ -226,13 +226,6 @@ export default function Home() {
             <li>Aucun produit maison, aucune gamme à écouler.</li>
             <li>EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915.</li>
           </ul>
-          <p style={{ marginTop: "1.5rem" }}>
-            Notre cabinet de conseil patrimonial global :{" "}
-            <a href="https://rempartfinancier.fr" target="_blank" rel="noopener noreferrer">
-              Le Rempart Financier
-            </a>
-            .
-          </p>
         </div>
       </section>
 

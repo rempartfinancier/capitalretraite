@@ -20,9 +20,8 @@ const template = fs.readFileSync(path.join(dist, "index.html"), "utf-8");
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Capital Retraite — Le Rempart Financier",
+  name: "Capital Retraite",
   url: SITE_URL,
-  sameAs: ["https://rempartfinancier.fr"],
 };
 
 function breadcrumbJsonLd(breadcrumb) {
@@ -42,6 +41,7 @@ function buildHead(meta) {
   const canonical = SITE_URL + (meta.path === "/" ? "/" : meta.path);
   const jsonld = meta.path === "/" ? orgJsonLd : breadcrumbJsonLd(meta.breadcrumb);
   return [
+    meta.noindex ? `<meta name="robots" content="noindex, follow" />` : null,
     `<title>${meta.title}</title>`,
     `<meta name="description" content="${meta.description.replace(/"/g, "&quot;")}" />`,
     `<link rel="canonical" href="${canonical}" />`,
@@ -49,9 +49,11 @@ function buildHead(meta) {
     `<meta property="og:description" content="${meta.description.replace(/"/g, "&quot;")}" />`,
     `<meta property="og:url" content="${canonical}" />`,
     `<meta property="og:type" content="website" />`,
+    `<meta property="og:site_name" content="Capital Retraite" />`,
+    `<meta name="twitter:card" content="summary" />`,
     `<meta property="og:locale" content="fr_FR" />`,
     `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>`,
-  ].join("\n    ");
+  ].filter(Boolean).join("\n    ");
 }
 
 let ok = 0;
