@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
+import { pushEvent } from "./tracking.js";
 
 // Envoi serveur (Vercel Function /api/send-lead-email.js) pour Contact et
 // Bilan. La réponse HTTP reflète un vrai succès/échec.
@@ -219,6 +220,55 @@ export function FormContact({ onSuccess }) {
       <p className="hint">
         Ces informations sont confidentielles et servent uniquement à répondre à votre demande.
       </p>
+    </form>
+  );
+}
+
+// Porte d'entrée email des outils en libre-service : le résultat est déjà affiché
+// à l'écran, l'email n'est demandé que pour recevoir le détail et la suite.
+export function FormEmailOutil({ source, texteBouton = "Recevoir le détail par email", leadMagnet = false }) {
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError(false);
+    const data = lireFormulaire(e, debut.current);
+    try {
+      const ok = await inscrire(source, data);
+      if (ok) {
+        notifierCrmInterne(data, source);
+        pushEvent("generate_lead", { lead_source: source });
+        if (leadMagnet) pushEvent("lead_magnet_download", { lead_source: source });
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    }
+  }
+
+  if (sent) {
+    return (
+      <div className="form-confirm" role="status">
+        <h3>C'est noté</h3>
+        <p>Merci. Vous recevrez un email avec le mode d'emploi et les articles associés. Votre résultat reste affiché ci-dessus.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
+      <div>
+        <label htmlFor="o-email">Email</label>
+        <input id="o-email" name="EMAIL" type="email" required autoComplete="email" />
+      </div>
+      <button type="submit" className="btn btn-primary">{texteBouton}</button>
+      {error && <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>}
+      <p className="hint">Votre résultat est déjà affiché ci-dessus. Vos données restent confidentielles ; désinscription possible à tout moment.</p>
     </form>
   );
 }

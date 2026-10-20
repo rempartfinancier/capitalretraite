@@ -28,6 +28,27 @@ export const routesMeta = [
     breadcrumb: [["Accueil", "/"], ["Guide gratuit : grille d'audit assurance-vie", "/guide-audit-assurance-vie"]],
   },
   {
+    path: "/checklist-retraite-5-ans",
+    title: "Checklist : préparer sa retraite à 5 ans de l'échéance",
+    description:
+      "Une checklist gratuite en 5 étapes, de cinq ans avant le départ aux démarches : relevé de carrière, trimestres, frais, enveloppes, modes de sortie et fiscalité.",
+    breadcrumb: [["Accueil", "/"], ["Checklist retraite à 5 ans", "/checklist-retraite-5-ans"]],
+  },
+  {
+    path: "/outils/frais-per-assurance-vie",
+    title: "Calculateur de frais PER et assurance-vie : leur coût réel",
+    description:
+      "Estimez en fourchette l'effet cumulé des frais de votre PER ou de votre assurance-vie sur la durée. Gratuit, résultat immédiat, hypothèses affichées.",
+    breadcrumb: [["Accueil", "/"], ["Calculateur de frais", "/outils/frais-per-assurance-vie"]],
+  },
+  {
+    path: "/outils/decote-surcote-trimestres",
+    title: "Estimateur de décote, surcote et trimestres manquants",
+    description:
+      "Estimez l'effet de votre âge de départ sur votre pension de base : trimestres manquants, décote ou surcote. Gratuit, sans email, limites de l'outil indiquées.",
+    breadcrumb: [["Accueil", "/"], ["Décote et surcote", "/outils/decote-surcote-trimestres"]],
+  },
+  {
     path: "/simulateur-retraite",
     title: "Simulateur retraite gratuit : votre score retraite sur 100 en 3 minutes",
     description:

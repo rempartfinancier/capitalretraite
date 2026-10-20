@@ -6,6 +6,9 @@ import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import BilanRetraite from "./pages/BilanRetraite.jsx";
 import LeadMagnetAuditAssuranceVie from "./pages/LeadMagnetAuditAssuranceVie.jsx";
+import LeadMagnetChecklistRetraite from "./pages/LeadMagnetChecklistRetraite.jsx";
+import OutilFrais from "./pages/OutilFrais.jsx";
+import OutilDecoteSurcote from "./pages/OutilDecoteSurcote.jsx";
 import SimulateurRetraite from "./pages/SimulateurRetraite.jsx";
 import Strategies from "./pages/Strategies.jsx";
 import Guides from "./pages/Guides.jsx";
@@ -97,6 +100,9 @@ export default function App() {
           ))}
           <Route path="/bilan-retraite" element={<BilanRetraite />} />
           <Route path="/guide-audit-assurance-vie" element={<LeadMagnetAuditAssuranceVie />} />
+          <Route path="/checklist-retraite-5-ans" element={<LeadMagnetChecklistRetraite />} />
+          <Route path="/outils/frais-per-assurance-vie" element={<OutilFrais />} />
+          <Route path="/outils/decote-surcote-trimestres" element={<OutilDecoteSurcote />} />
           <Route path="/simulateur-retraite" element={<SimulateurRetraite />} />
           <Route path="/strategies" element={<Strategies />} />
           <Route path="/guides" element={<Guides />} />
