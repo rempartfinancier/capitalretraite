@@ -362,6 +362,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transferer-son-per",
+    title: "Transférer son PER : frais, délais et quand cela vaut le coup",
+    description:
+      "Frais de transfert plafonnés, règle des cinq ans, anciens contrats PERP, Madelin et article 83 : la check-list à parcourir avant de changer de PER, et les cas où mieux vaut rester.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer son PER", "/guide/transferer-son-per"],
+    ],
+  },
+  {
     path: "/guide/combien-coute-un-per",
     title: "Combien coûte un PER, vraiment ?",
     description:

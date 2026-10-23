@@ -229,3 +229,49 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-10-23 (guide : transférer son PER)
+
+**Statut : contenu complet (en attente de relecture), netlinking et KPIs bloqués (accès).**
+Intervalle depuis le cycle 001 : 64 jours (le déclencheur ne s'est pas exécuté utilement entre-temps ou le cycle n'était pas dû).
+Branche : `seo-cycle-2026-10-23`, PR vers main, non mergée.
+
+### Phase 1 — Bilan
+KPIs non vérifiables : pas de Search Console, GA4, Ahrefs. Aucun chiffre inventé.
+Point de départ pages prerendues : 53 avant, 54 après (+1).
+
+### Phase 2 — Recherche & angle
+Sujet retenu : « Transférer son PER : frais, délais et quand cela vaut le coup » (catégorie per),
+sujet pressenti au cycle 001, aucun taux de marché nouveau. Vérifié par WebSearch (egress direct bloqué) :
+plafond 1 % et gratuité après 5 ans (L224-6 CMF, service-public) ; anciens contrats : décret 2024-682
+(gratuité après 10 ans). **Non confirmé** : le délai légal de traitement (2 ou 3 mois selon les sources) —
+volontairement non chiffré dans le guide.
+Sources tierces à citer dans un prochain guide (non encore citées en lien sortant) : service-public.gouv.fr, Légifrance,
+La Retraite en Clair, médiateur de l'AMF.
+
+### Phase 3 — Production
+- `src/pages/GuideTransfertPer.jsx`, route `/guide/transferer-son-per`, catégorie PER de `Guides.jsx`.
+- Chiffres centralisés dans `hypotheses.js` (nouveau bloc `TRANSFERT_PER`, marqué À VÉRIFIER).
+- Maillage sortant : deblocage-anticipe-per, combien-coute-un-per, quel-est-le-meilleur-per,
+  retraite-independants-per-ou-madelin, faut-il-ouvrir-un-per, strategies/per, fiscalite-sortie-per, per-vs-assurance-vie.
+- Maillage retour (3) : GuideCoutPer (FAQ), GuideMeilleurPer (FAQ), GuidePerBancaire (FAQ).
+- `public/sitemap.xml` : entrée ajoutée. Build : 54/54 pages. typecheck et tests OK.
+
+### Positions éditoriales en attente
+Aucune touchée (ni rente viagère hors PER, ni mix rente + retraits, ni nue-propriété SCPI).
+Point à valider : le guide mentionne les anciens contrats (PERP, Madelin, art. 83) et la gratuité à 10 ans du
+décret 2024-682 — à confirmer par Alexandre.
+
+### Phase 4 — Netlinking
+Aucun brouillon rédigé : egress sortant bloqué (403 proxy) ET le guide ne cite encore aucune cible tierce
+(règle « citer avant de demander »). Rien d'inventé. Cibles toujours à lire : voir cycle 001.
+
+### Phase 5 — Preuve sociale
+Aucune action possible (pas d'accès CRM/réseaux).
+
+### Décisions pour le cycle 003
+1. Alexandre lit 2-3 contenus de prismo-retraite.fr ou jobpublic.fr et transmet ses observations ; citer d'abord la cible dans un guide.
+2. Sujet pressenti : Agirc-Arrco / taux de remplacement des cadres (nécessite PASS et valeur du point pour `hypotheses.js`).
+3. Mergez ou fermez la PR avant le prochain déclenchement (anti-doublon) ; toujours en suspens : mention CIF dans `AuthorBox`.
