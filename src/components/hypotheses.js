@@ -208,6 +208,16 @@ export const SIMU_DEFAUTS = {
   ageDepart: 65,
 };
 
+// ---- Transfert d'un PER vers un autre PER ----
+// Plafonds légaux (pas des taux de marché) : frais de transfert limités à 1 % des
+// droits acquis et nuls cinq ans après le premier versement dans le plan.
+export const TRANSFERT_PER = {
+  plafondFraisPct: 1,
+  gratuitApresAnnees: 5,
+  anciensContratsGratuitApresAnnees: 10,
+  source: "art. L224-6 du Code monétaire et financier ; service-public.gouv.fr (PER individuel). Régime spécifique des anciens contrats (PERP, Madelin, article 83) : décret n° 2024-682 du 4 juillet 2024 — À VÉRIFIER",
+};
+
 // ---- Rémunération du conseil en gestion de patrimoine ----
 export const CONSEIL = {
   retrocessionAnnuelleTypique: { min: 0.5, max: 1.0 },
