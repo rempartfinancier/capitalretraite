@@ -604,6 +604,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/per-capital-ou-rente",
+    title: "PER : sortir en capital ou en rente ? Notre avis tranché",
+    description:
+      "Capital, rente ou mix : ce que le PER permet, la fiscalité de chaque option (versements déduits ou non), le prix réel d'une rente en années, et un cadre de décision par profil.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PER : capital ou rente ?", "/guide/per-capital-ou-rente"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

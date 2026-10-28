@@ -296,6 +296,32 @@ export const REVALORISATION_PENSIONS_2027 = {
     "PLFSS 2027, art. 35, déposé le 1er octobre 2026 — recoupement presse spécialisée (CFDT Retraités, Toutsurmesfinances, octobre 2026). Projet non voté, seuils à reconfirmer.",
 };
 
+// ---- Sortie du PER : capital ou rente (régime en vigueur en 2026) ----
+// Sources : service-public.gouv.fr (fiche PER, mise à jour du 18 juin 2026),
+// recoupée avec plusieurs sites spécialisés (octobre 2026). Versements
+// déduits : rente imposée comme une pension (abattement de 10 %), capital
+// = versements au barème de l'IR sans abattement de 10 % + gains au PFU.
+// Versements non déduits : rente taxée comme une rente viagère à titre
+// onéreux (fraction imposable selon l'âge au premier versement), capital =
+// versements exonérés, seuls les gains au PFU. Fraction imposable des rentes
+// viagères à titre onéreux (art. 158, 6 CGI) : 70 % avant 50 ans, 50 % de 50
+// à 59 ans, 40 % de 60 à 69 ans, 30 % à partir de 70 ans — les prélèvements
+// sociaux de la rente suivent la même logique de fraction selon l'âge ; leur
+// taux exact n'est volontairement pas chiffré dans l'article (sources
+// divergentes entre 17,2 % et 18,6 %) — À REVÉRIFIER.
+export const SORTIE_PER = {
+  fractionRenteOnereuxParAge: [
+    { age: "moins de 50 ans", fraction: 70 },
+    { age: "50 à 59 ans", fraction: 50 },
+    { age: "60 à 69 ans", fraction: 40 },
+    { age: "70 ans et plus", fraction: 30 },
+  ],
+  seuilConversionRenteObligatoireMensuel: 110, // € / mois : en dessous, versement en capital possible
+  ageDepartIllustratif: 65, // âge d'ouverture de la rente dans l'illustration de l'article
+  source:
+    "service-public.gouv.fr (fiche « PER : conditions de sortie », mise à jour du 18 juin 2026) ; art. 158, 6 CGI pour les fractions des rentes à titre onéreux ; recoupement presse spécialisée (octobre 2026). À REVÉRIFIER, notamment le taux des prélèvements sociaux sur la rente.",
+};
+
 // ---- Valeurs par défaut des simulateurs (modifiables à l'écran) ----
 export const SIMU_DEFAUTS = {
   versementMensuel: 300,
