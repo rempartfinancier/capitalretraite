@@ -1,49 +1,20 @@
 import { useRef, useState } from "react";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
 import { pushEvent } from "./tracking.js";
+import { envoyerFiable } from "../lib/envoi-fiable.js";
 
-// Envoi serveur (Vercel Function /api/send-lead-email.js) pour Contact et
-// Bilan. La réponse HTTP reflète un vrai succès/échec.
+// Envoi serveur (Vercel Functions /api/send-lead-email et /api/subscribe) : chacune
+// relaie vers Brevo ET le CRM interne et ne répond 200 que si au moins un canal a
+// confirmé. Côté navigateur, envoyerFiable garde la saisie en localStorage et la rejoue
+// tant que le serveur n'a pas confirmé. `true` = reçu ; `false` = en attente de rejeu.
 async function envoyerLead(formulaire, data) {
-  const res = await fetch("/api/send-lead-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...data, formulaire }),
-  });
-  return res.ok;
+  return envoyerFiable("/api/send-lead-email", { ...data, formulaire, pageUrl: window.location.href });
 }
 
-// Inscription à une liste Brevo via la fonction serveur /api/subscribe (clé API
-// côté serveur uniquement). `source` choisit la liste (voir api/subscribe.js).
-// Le code HTTP reflète un vrai succès/échec, contrairement à l'ancien envoi no-cors.
+// Inscription à une liste Brevo + CRM via /api/subscribe. `source` choisit la liste
+// (voir api/subscribe.js).
 export async function inscrire(source, data) {
-  const res = await fetch("/api/subscribe", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...data, source }),
-  });
-  return res.ok;
-}
-
-// CRM interne du groupe (rempart-crm), relayé par le proxy serverless
-// /api/notifier-crm.js — tourne EN PLUS de Brevo, jamais à sa place. Erreur
-// avalée en silence côté client : ne doit jamais affecter sent/error ci-dessus.
-// `source` distingue l'origine du lead (bilan/contact vs lead magnet PDF) côté CRM.
-function notifierCrmInterne(data, source = "site") {
-  fetch("/api/notifier-crm", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      SITE_WEB: data.SITE_WEB,
-      _elapsed: data._elapsed,
-      email: data.EMAIL,
-      prenom: data.PRENOM,
-      telephone: data.SMS,
-      message: data.MESSAGE,
-      source,
-      pageUrl: window.location.href,
-    }),
-  }).catch(() => {});
+  return envoyerFiable("/api/subscribe", { ...data, source, pageUrl: window.location.href });
 }
 
 // Anti-spam : champ piège invisible (SITE_WEB) + durée de remplissage, relus côté
@@ -73,7 +44,6 @@ export function FormBilan() {
     try {
       const ok = await envoyerLead("bilan", data);
       if (ok) {
-        notifierCrmInterne(data);
         pushEvent("generate_lead", { lead_source: "bilan" });
         setSent(true);
       } else {
@@ -163,7 +133,7 @@ export function FormBilan() {
       <button type="submit" className="btn btn-primary">Demander mon bilan gratuit</button>
       {error && (
         <p role="alert">
-          L'envoi n'a pas abouti. Réessayez, ou écrivez-nous via la page contact.
+          L'envoi n'a pas abouti pour le moment. Votre demande est conservée sur cet appareil et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.
         </p>
       )}
       <p className="hint">
@@ -185,7 +155,6 @@ export function FormContact({ onSuccess }) {
     try {
       const ok = await envoyerLead("contact", data);
       if (ok) {
-        notifierCrmInterne(data);
         pushEvent("generate_lead", { lead_source: "contact" });
         setSent(true);
         onSuccess?.(data);
@@ -223,7 +192,7 @@ export function FormContact({ onSuccess }) {
       </div>
       <button type="submit" className="btn btn-primary">Envoyer</button>
       {error && (
-        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+        <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
       <p className="hint">
         Ces informations sont confidentielles et servent uniquement à répondre à votre demande.
@@ -246,7 +215,6 @@ export function FormEmailOutil({ source, texteBouton = "Recevoir le détail par 
     try {
       const ok = await inscrire(source, data);
       if (ok) {
-        notifierCrmInterne(data, source);
         pushEvent("generate_lead", { lead_source: source });
         if (leadMagnet) pushEvent("lead_magnet_download", { lead_source: source });
         setSent(true);
@@ -275,7 +243,7 @@ export function FormEmailOutil({ source, texteBouton = "Recevoir le détail par 
         <input id="o-email" name="EMAIL" type="email" required autoComplete="email" />
       </div>
       <button type="submit" className="btn btn-primary">{texteBouton}</button>
-      {error && <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>}
+      {error && <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>}
       <p className="hint">Votre résultat est déjà affiché ci-dessus. Vos données restent confidentielles ; désinscription possible à tout moment.</p>
     </form>
   );
@@ -297,7 +265,6 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre, source = "le
     try {
       const ok = await inscrire(source, data);
       if (ok) {
-        notifierCrmInterne(data, source === "lead_magnet_av" ? "lead_magnet" : source);
         pushEvent("generate_lead", { lead_source: source });
         setSent(true);
       } else {
@@ -338,7 +305,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre, source = "le
         Recevoir {guideTitre ? `« ${guideTitre} »` : "le guide"}
       </button>
       {error && (
-        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+        <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
       <p className="hint">Vos données restent confidentielles. Pas de spam.</p>
     </form>

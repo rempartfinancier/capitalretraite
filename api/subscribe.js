@@ -4,6 +4,7 @@
 // reflète un vrai succès/échec Brevo.
 
 import { estSpam } from "./_antispam.js";
+import { envoyerAuCrm } from "./_crm.js";
 
 // source -> variable d'environnement contenant l'identifiant numérique de la liste Brevo.
 export const SOURCES = {
@@ -53,11 +54,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.BREVO_API_KEY;
-  if (!apiKey) {
-    console.error("[subscribe] BREVO_API_KEY absente — contact non enregistré.");
-    res.status(500).json({ error: "brevo_non_configure" });
-    return;
-  }
+  if (!apiKey) console.error("[subscribe] BREVO_API_KEY absente — contact non enregistré dans Brevo, CRM seul.");
 
   const prep = preparerContact(req.body);
   if (prep.erreur) {
@@ -76,22 +73,40 @@ export default async function handler(req, res) {
     console.error(`[subscribe] ${SOURCES[prep.source]} absente ou invalide : contact créé sans liste.`);
   }
 
-  try {
-    const r = await fetch("https://api.brevo.com/v3/contacts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json", "api-key": apiKey },
-      body: JSON.stringify(prep.charge),
-    });
-    if (!r.ok) {
-      console.error("[subscribe] Brevo a refusé le contact:", r.status, await r.text());
-      res.status(502).json({ error: "brevo_echec" });
-      return;
+  // Brevo (avec un nouvel essai) et CRM en parallèle ; succès si au moins un confirme.
+  const inscrireBrevo = async () => {
+    if (!apiKey) return false;
+    for (let essai = 1; essai <= 2; essai++) {
+      try {
+        const r = await fetch("https://api.brevo.com/v3/contacts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json", "api-key": apiKey },
+          body: JSON.stringify(prep.charge),
+        });
+        if (r.ok) return true;
+        console.error("[subscribe] Brevo a refusé le contact:", r.status, await r.text());
+      } catch (e) {
+        console.error("[subscribe] Erreur réseau vers Brevo:", e);
+      }
+      if (essai < 2) await new Promise((ok) => setTimeout(ok, 500));
     }
-  } catch (e) {
-    console.error("[subscribe] Erreur réseau vers Brevo:", e);
-    res.status(502).json({ error: "brevo_erreur_reseau" });
+    return false;
+  };
+  const [brevoOk, crmOk] = await Promise.all([
+    inscrireBrevo(),
+    envoyerAuCrm({
+      email: prep.charge.email,
+      prenom: prep.charge.attributes?.PRENOM,
+      source: prep.source === "lead_magnet_av" ? "lead_magnet" : prep.source,
+      pageUrl: req.body?.pageUrl,
+    }),
+  ]);
+  if (!brevoOk && !crmOk) {
+    console.error("[subscribe] ÉCHEC TOTAL (Brevo + CRM):", prep.charge.email, prep.source);
+    res.status(502).json({ error: "echec_total" });
     return;
   }
+  if (!brevoOk || !crmOk) console.error(`[subscribe] Canal dégradé : brevo=${brevoOk} crm=${crmOk} (${prep.source})`);
 
-  res.status(200).json({ ok: true });
+  res.status(200).json({ ok: true, brevo: brevoOk, crm: crmOk });
 }
