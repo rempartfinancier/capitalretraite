@@ -11,6 +11,8 @@
 // toujours 200), ici le code HTTP renvoyé DOIT refléter un vrai succès/échec
 // Brevo : c'est le seul canal d'envoi pour ces deux formulaires.
 
+import { envoyerAuCrm } from "./_crm.js";
+
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "https://www.capitalretraite.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -26,11 +28,7 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.BREVO_API_KEY;
-  if (!apiKey) {
-    console.error("[send-lead-email] BREVO_API_KEY absente sur Vercel — email non envoyé.");
-    res.status(500).json({ error: "brevo_non_configure" });
-    return;
-  }
+  if (!apiKey) console.error("[send-lead-email] BREVO_API_KEY absente sur Vercel — email non envoyé, CRM seul.");
 
   // Mêmes noms de champs que ceux déjà postés à Brevo/notifierCrmInterne
   // depuis Forms.jsx (attributs de formulaire Brevo, en majuscules) :
@@ -54,13 +52,16 @@ export default async function handler(req, res) {
   }
 
   const estBilan = formulaire === "bilan";
-  const sujet = estBilan
+  const estGuide = formulaire === "lead_magnet";
+  const sujet = estGuide
+    ? "Nouveau lead Guide PDF — Capital Retraite"
+    : estBilan
     ? "Nouveau lead Bilan — Capital Retraite"
     : "Nouveau lead Contact — Capital Retraite";
 
   // Corps texte : reprend toutes les informations soumises par le prospect.
   const lignes = [
-    `Formulaire : ${estBilan ? "Bilan retraite gratuit" : "Contact"}`,
+    `Formulaire : ${estBilan ? "Bilan retraite gratuit" : estGuide ? "Guide PDF" : "Contact"}`,
     `Prénom : ${prenom || "(non renseigné)"}`,
     `Email : ${email}`,
     telephone ? `Téléphone : ${telephone}` : null,
@@ -70,28 +71,49 @@ export default async function handler(req, res) {
     message ? `Message :\n${message}` : null,
   ].filter(Boolean);
 
-  try {
-    const r = await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "api-key": apiKey },
-      body: JSON.stringify({
-        sender: { name: "Capital Retraite", email: "contact@capitalretraite.com" },
-        to: [{ email: "contact@capitalretraite.com" }, { email: "alexandre.pollet@uptimi.fr" }],
-        replyTo: { email, name: prenom || undefined },
-        subject: sujet,
-        textContent: lignes.join("\n"),
-      }),
-    });
-    if (!r.ok) {
-      console.error("[send-lead-email] Brevo a refusé l'envoi:", r.status, await r.text());
-      res.status(502).json({ error: "brevo_echec" });
-      return;
+  // Deux canaux indépendants lancés ensemble : email Brevo (avec un nouvel essai) et CRM.
+  // Succès si au moins un a confirmé ; 502 (le client garde alors le lead en attente) sinon.
+  const envoyerEmail = async () => {
+    if (!apiKey) return false;
+    for (let essai = 1; essai <= 2; essai++) {
+      try {
+        const r = await fetch("https://api.brevo.com/v3/smtp/email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "api-key": apiKey },
+          body: JSON.stringify({
+            sender: { name: "Capital Retraite", email: "contact@capitalretraite.com" },
+            to: [{ email: "contact@capitalretraite.com" }, { email: "alexandre.pollet@uptimi.fr" }],
+            replyTo: { email, name: prenom || undefined },
+            subject: sujet,
+            textContent: lignes.join("\n"),
+          }),
+        });
+        if (r.ok) return true;
+        console.error("[send-lead-email] Brevo a refusé l'envoi:", r.status, await r.text());
+      } catch (e) {
+        console.error("[send-lead-email] Erreur réseau vers Brevo:", e);
+      }
+      if (essai < 2) await new Promise((ok) => setTimeout(ok, 500));
     }
-  } catch (e) {
-    console.error("[send-lead-email] Erreur réseau vers Brevo:", e);
-    res.status(502).json({ error: "brevo_erreur_reseau" });
+    return false;
+  };
+  const [emailOk, crmOk] = await Promise.all([
+    envoyerEmail(),
+    envoyerAuCrm({
+      email,
+      prenom,
+      telephone,
+      source: estGuide ? "lead_magnet" : estBilan ? "bilan" : "contact",
+      message: lignes.filter((l) => !l.startsWith("Prénom") && !l.startsWith("Email") && !l.startsWith("Téléphone")).join("\n"),
+      pageUrl: req.body?.pageUrl,
+    }),
+  ]);
+  if (!emailOk && !crmOk) {
+    console.error("[send-lead-email] ÉCHEC TOTAL (Brevo + CRM) — lead à retenter côté client:", email);
+    res.status(502).json({ error: "echec_total" });
     return;
   }
+  if (!emailOk || !crmOk) console.error(`[send-lead-email] Canal dégradé : email=${emailOk} crm=${crmOk} (${email})`);
 
-  res.status(200).json({ ok: true });
+  res.status(200).json({ ok: true, email: emailOk, crm: crmOk });
 }

@@ -1,56 +1,12 @@
 import { useState } from "react";
-import {
-  BREVO_FORM_ACTION_GUIDE,
-  CALENDLY_URL,
-  CALENDLY_CONFIGURED,
-} from "./config.js";
+import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
+import { envoyerFiable } from "../lib/envoi-fiable.js";
 
-// Envoi serveur (Vercel Function /api/send-lead-email.js) pour Contact et
-// Bilan : ces 2 formulaires n'ont jamais eu d'URL d'action Brevo configurée
-// sur Vercel (contrairement à BREVO_FORM_ACTION_GUIDE ci-dessus, toujours
-// utilisée telle quelle par FormLeadMagnet). Contrairement à postToBrevo()
-// en no-cors ci-dessous, la réponse HTTP ici reflète un vrai succès/échec.
+// Envoi serveur (Vercel Function /api/send-lead-email) : relaie vers Brevo (email) ET
+// le CRM interne, répond 200 si au moins un canal a confirmé. envoyerFiable garde la
+// saisie en localStorage et la rejoue tant que le serveur n'a pas confirmé.
 async function envoyerLead(formulaire, data) {
-  const res = await fetch("/api/send-lead-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...data, formulaire }),
-  });
-  return res.ok;
-}
-
-async function postToBrevo(actionUrl, data) {
-  if (!actionUrl) {
-    console.warn("URL de formulaire Brevo non configurée (voir src/components/config.js).");
-    return false; // pas d'endpoint configuré : échec réel, pas de fausse confirmation
-  }
-  const body = new URLSearchParams(data);
-  const res = await fetch(actionUrl, {
-    method: "POST",
-    mode: "no-cors", // les endpoints de formulaire Brevo ne renvoient pas de CORS
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
-  });
-  return res.ok || res.type === "opaque";
-}
-
-// CRM interne du groupe (rempart-crm), relayé par le proxy serverless
-// /api/notifier-crm.js — tourne EN PLUS de Brevo, jamais à sa place. Erreur
-// avalée en silence côté client : ne doit jamais affecter sent/error ci-dessus.
-// `source` distingue l'origine du lead (bilan/contact vs lead magnet PDF) côté CRM.
-function notifierCrmInterne(data, source = "site") {
-  fetch("/api/notifier-crm", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: data.EMAIL,
-      prenom: data.PRENOM,
-      telephone: data.SMS,
-      message: data.MESSAGE,
-      source,
-      pageUrl: window.location.href,
-    }),
-  }).catch(() => {});
+  return envoyerFiable("/api/send-lead-email", { ...data, formulaire, pageUrl: window.location.href });
 }
 
 export function FormBilan() {
@@ -64,7 +20,6 @@ export function FormBilan() {
     try {
       const ok = await envoyerLead("bilan", data);
       if (ok) {
-        notifierCrmInterne(data);
         setSent(true);
       } else {
         setError(true);
@@ -146,7 +101,7 @@ export function FormBilan() {
       <button type="submit" className="btn btn-primary">Demander mon bilan gratuit</button>
       {error && (
         <p role="alert">
-          L'envoi n'a pas abouti. Réessayez, ou écrivez-nous via la page contact.
+          L'envoi n'a pas abouti pour le moment. Votre demande est conservée sur cet appareil et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.
         </p>
       )}
       <p className="hint">
@@ -167,7 +122,6 @@ export function FormContact({ onSuccess }) {
     try {
       const ok = await envoyerLead("contact", data);
       if (ok) {
-        notifierCrmInterne(data);
         setSent(true);
         onSuccess?.(data);
       } else {
@@ -203,7 +157,7 @@ export function FormContact({ onSuccess }) {
       </div>
       <button type="submit" className="btn btn-primary">Envoyer</button>
       {error && (
-        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+        <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
       <p className="hint">
         Ces informations sont confidentielles et servent uniquement à répondre à votre demande.
@@ -226,9 +180,8 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
     setError(false);
     const data = Object.fromEntries(new FormData(e.target));
     try {
-      const ok = await postToBrevo(BREVO_FORM_ACTION_GUIDE, data);
+      const ok = await envoyerLead("lead_magnet", data);
       if (ok) {
-        notifierCrmInterne(data, "lead_magnet");
         setSent(true);
       } else {
         setError(true);
@@ -262,7 +215,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
         Recevoir {guideTitre ? `« ${guideTitre} »` : "le guide"}
       </button>
       {error && (
-        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+        <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
       <p className="hint">Vos données restent confidentielles. Pas de spam.</p>
     </form>
