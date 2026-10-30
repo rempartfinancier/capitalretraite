@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getMeta } from "../routes.jsx";
+import { articles } from "../content/articles.js";
 import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
+import { pushEvent } from "./tracking.js";
 
-const HUB_URL = "https://rempartfinancier.fr";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -14,12 +15,6 @@ function Header() {
           <Link to="/" className="brand-name" aria-label="Capital Retraite — accueil">
             Capital<em>Retraite</em>
           </Link>
-          <span className="brand-sub">
-            Un service{" "}
-            <a href={HUB_URL} target="_blank" rel="noopener noreferrer">
-              Le Rempart Financier
-            </a>
-          </span>
         </div>
         <button
           className="nav-toggle"
@@ -33,8 +28,14 @@ function Header() {
           <Link to="/strategies">Stratégies</Link>
           <Link to="/simulateur-retraite">Simulateur</Link>
           <Link to="/guides">Guides</Link>
+          {articles.some((a) => a.meta.type === "actualite") && <Link to="/actualites">Actualités</Link>}
+          <Link to="/outils/frais-per-assurance-vie">Outils</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/bilan-retraite" className="btn btn-primary">
+          <Link
+            to="/bilan-retraite"
+            className="btn btn-primary"
+            onClick={() => pushEvent("rdv_click", { emplacement: "en_tete" })}
+          >
             Bilan retraite gratuit
           </Link>
         </nav>
@@ -64,12 +65,7 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
-        <p className="footer-brand">
-          © {year} capitalretraite.com — Un service{" "}
-          <a href={HUB_URL} target="_blank" rel="noopener noreferrer">
-            Le Rempart Financier
-          </a>
-        </p>
+        <p className="footer-brand">© {year} capitalretraite.com</p>
         <p>EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915</p>
         <p className="footer-legal">
           Les informations publiées sur ce site ont un caractère pédagogique général. Elles ne
@@ -83,7 +79,12 @@ function Footer() {
           <Link to="/mentions-legales">Mentions légales</Link>
           <Link to="/confidentialite">Confidentialité</Link>
           {CALENDLY_CONFIGURED ? (
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => pushEvent("rdv_click", { emplacement: "pied_de_page" })}
+            >
               Prendre RDV
             </a>
           ) : (
@@ -98,7 +99,8 @@ function Footer() {
 export function AuthorBox() {
   return (
     <aside className="author-box" aria-label="À propos de l'auteur">
-      <strong>Alexandre Pollet</strong> — Conseiller en gestion de patrimoine, EXP Capital.
+      <strong>La rédaction de Capital Retraite</strong> — conseillers en gestion de patrimoine.
+      Contenu pédagogique, relu avant publication.
     </aside>
   );
 }
@@ -113,15 +115,36 @@ export function RiskNotice() {
   );
 }
 
+// `petitPas` (facultatif) : { title, button, to } — un outil ou lead magnet proposé
+// AVANT le bilan ; le bilan reste accessible juste dessous. Sans `petitPas`, le
+// comportement historique est inchangé.
 export function CtaBanner({
   title = "Votre situation est unique. Votre stratégie devrait l'être aussi.",
   button = "Bilan retraite gratuit (15 min)",
   to = "/bilan-retraite",
+  petitPas,
 }) {
+  const suivreRdv = () => pushEvent("rdv_click", { emplacement: "cta_banner" });
+  if (petitPas) {
+    return (
+      <section className="section-marine cta-banner">
+        <h2>{petitPas.title || title}</h2>
+        <Link to={petitPas.to} className="btn btn-light">
+          {petitPas.button}
+        </Link>
+        <p className="cta-suite">
+          Envie d'un regard extérieur ?{" "}
+          <Link to={to} onClick={suivreRdv}>
+            {button}
+          </Link>
+        </p>
+      </section>
+    );
+  }
   return (
     <section className="section-marine cta-banner">
       <h2>{title}</h2>
-      <Link to={to} className="btn btn-light">
+      <Link to={to} className="btn btn-light" onClick={to === "/bilan-retraite" ? suivreRdv : undefined}>
         {button}
       </Link>
     </section>

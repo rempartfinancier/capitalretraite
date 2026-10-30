@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { CtaBanner } from "../components/Layout.jsx";
+import { pushEvent } from "../components/tracking.js";
 import { capitaliser, simulerRetraite } from "../lib/simulateur-retraite/engine";
 import {
   HORIZON_DECUMULATION_ANNEES,
@@ -222,6 +223,8 @@ export default function SimulateurRetraite({ etapeInitiale = 1 }) {
   };
   const suivant = () => {
     const n = Math.min(etape + 1, ETAPES.length);
+    if (etape === 1) pushEvent("simulateur_start", { outil: "simulateur_retraite" });
+    if (n === ETAPES.length && etape !== n) pushEvent("simulateur_complete", { outil: "simulateur_retraite" });
     setEtape(n);
     setMaxVisitee((m) => Math.max(m, n));
   };

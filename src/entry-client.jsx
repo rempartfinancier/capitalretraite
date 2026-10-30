@@ -2,6 +2,7 @@ import { hydrateRoot, createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./styles.css";
+import { demarrerRejeu } from "./lib/envoi-fiable.js";
 
 const container = document.getElementById("root");
 const app = (
@@ -16,3 +17,5 @@ if (container.hasChildNodes()) {
 } else {
   createRoot(container).render(app);
 }
+
+demarrerRejeu();

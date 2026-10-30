@@ -6,6 +6,9 @@ import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import BilanRetraite from "./pages/BilanRetraite.jsx";
 import LeadMagnetAuditAssuranceVie from "./pages/LeadMagnetAuditAssuranceVie.jsx";
+import LeadMagnetChecklistRetraite from "./pages/LeadMagnetChecklistRetraite.jsx";
+import OutilFrais from "./pages/OutilFrais.jsx";
+import OutilDecoteSurcote from "./pages/OutilDecoteSurcote.jsx";
 import SimulateurRetraite from "./pages/SimulateurRetraite.jsx";
 import Strategies from "./pages/Strategies.jsx";
 import Guides from "./pages/Guides.jsx";
@@ -53,6 +56,9 @@ import GuideConseillerOuSeul from "./pages/GuideConseillerOuSeul.jsx";
 import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembourgeoise.jsx";
 import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx";
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
+import Actualites from "./pages/Actualites.jsx";
+import ArticleLayout from "./components/ArticleLayout.jsx";
+import { articles, cheminArticle } from "./content/articles.js";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -78,8 +84,25 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          {articles.some((a) => a.meta.type === "actualite") && (
+            <Route path="/actualites" element={<Actualites />} />
+          )}
+          {articles.map(({ meta, Composant }) => (
+            <Route
+              key={meta.slug}
+              path={cheminArticle(meta)}
+              element={
+                <ArticleLayout meta={meta}>
+                  <Composant />
+                </ArticleLayout>
+              }
+            />
+          ))}
           <Route path="/bilan-retraite" element={<BilanRetraite />} />
           <Route path="/guide-audit-assurance-vie" element={<LeadMagnetAuditAssuranceVie />} />
+          <Route path="/checklist-retraite-5-ans" element={<LeadMagnetChecklistRetraite />} />
+          <Route path="/outils/frais-per-assurance-vie" element={<OutilFrais />} />
+          <Route path="/outils/decote-surcote-trimestres" element={<OutilDecoteSurcote />} />
           <Route path="/simulateur-retraite" element={<SimulateurRetraite />} />
           <Route path="/strategies" element={<Strategies />} />
           <Route path="/guides" element={<Guides />} />

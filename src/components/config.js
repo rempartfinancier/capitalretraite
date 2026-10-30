@@ -18,6 +18,5 @@ export const CALENDLY_CONFIGURED = !CALENDLY_URL.includes("A-COMPLETER");
 //    À défaut, passer par un petit proxy serverless qui détient la clé.
 export const BREVO_FORM_ACTION_BILAN = import.meta.env.VITE_BREVO_FORM_ACTION_BILAN || "";
 export const BREVO_FORM_ACTION_CONTACT = import.meta.env.VITE_BREVO_FORM_ACTION_CONTACT || "";
-// Formulaire dédié au lead magnet PDF (liste Brevo distincte des deux ci-dessus,
-// pour tracer l'origine "guide téléchargeable" séparément du bilan et du contact).
-export const BREVO_FORM_ACTION_GUIDE = import.meta.env.VITE_BREVO_FORM_ACTION_GUIDE || "";
+// Les lead magnets passent désormais par /api/subscribe (api/subscribe.js) :
+// listes Brevo choisies par variables serveur BREVO_LIST_ID_* (voir .env.example).

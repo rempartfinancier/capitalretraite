@@ -3,6 +3,8 @@
 
 export const SITE_URL = "https://www.capitalretraite.com";
 
+import { articles, cheminArticle } from "./content/articles.js";
+
 export const routesMeta = [
   {
     path: "/",
@@ -22,8 +24,29 @@ export const routesMeta = [
     path: "/guide-audit-assurance-vie",
     title: "Grille d'audit assurance-vie en 20 points (PDF gratuit) — Capital Retraite",
     description:
-      "Le guide PDF gratuit pour savoir en 20 minutes si votre assurance-vie vous coûte cher : checklist notée en 4 blocs (frais, supports, fiscalité, clause bénéficiaire), barème de référence et score sur 20 points.",
+      "Le guide PDF gratuit pour savoir en 20 minutes si votre assurance-vie vous coûte cher : checklist en 4 blocs (frais, supports, fiscalité, clause bénéficiaire) et score sur 20.",
     breadcrumb: [["Accueil", "/"], ["Guide gratuit : grille d'audit assurance-vie", "/guide-audit-assurance-vie"]],
+  },
+  {
+    path: "/checklist-retraite-5-ans",
+    title: "Checklist : préparer sa retraite à 5 ans de l'échéance",
+    description:
+      "Une checklist gratuite en 5 étapes, de cinq ans avant le départ aux démarches : relevé de carrière, trimestres, frais, enveloppes, modes de sortie et fiscalité.",
+    breadcrumb: [["Accueil", "/"], ["Checklist retraite à 5 ans", "/checklist-retraite-5-ans"]],
+  },
+  {
+    path: "/outils/frais-per-assurance-vie",
+    title: "Calculateur de frais PER et assurance-vie : leur coût réel",
+    description:
+      "Estimez en fourchette l'effet cumulé des frais de votre PER ou de votre assurance-vie sur la durée. Gratuit, résultat immédiat, hypothèses affichées.",
+    breadcrumb: [["Accueil", "/"], ["Calculateur de frais", "/outils/frais-per-assurance-vie"]],
+  },
+  {
+    path: "/outils/decote-surcote-trimestres",
+    title: "Estimateur de décote, surcote et trimestres manquants",
+    description:
+      "Estimez l'effet de votre âge de départ sur votre pension de base : trimestres manquants, décote ou surcote. Gratuit, sans email, limites de l'outil indiquées.",
+    breadcrumb: [["Accueil", "/"], ["Décote et surcote", "/outils/decote-surcote-trimestres"]],
   },
   {
     path: "/simulateur-retraite",
@@ -453,7 +476,7 @@ export const routesMeta = [
     path: "/guide/surcote-decote-retraite",
     title: "Surcote ou décote à la retraite : comment ça se calcule ?",
     description:
-      "1,25 % par trimestre de surcote, autant en décote plafonnée à 20 trimestres : le mécanisme qui peut faire gagner ou perdre plusieurs centaines d'euros par mois de pension, et comment l'anticiper.",
+      "1,25 % par trimestre de surcote, 0,625 % par trimestre de décote (plafonnée à 20 trimestres) : le mécanisme qui peut faire gagner ou perdre plusieurs centaines d'euros par mois de pension, et comment l'anticiper.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -539,6 +562,7 @@ export const routesMeta = [
     description:
       "Mentions légales du site capitalretraite.com, édité par EXP Capital, SASU au capital de 1 000 €, RCS Versailles 987 986 247, ORIAS n° 25005915.",
     breadcrumb: [["Accueil", "/"], ["Mentions légales", "/mentions-legales"]],
+    noindex: true,
   },
   {
     path: "/confidentialite",
@@ -548,6 +572,67 @@ export const routesMeta = [
     breadcrumb: [["Accueil", "/"], ["Confidentialité", "/confidentialite"]],
   },
 ];
+
+// ---- Articles data-driven (src/content/articles/*.jsx) ----
+function jsonLdArticle(m, path) {
+  const url = SITE_URL + path;
+  const out = [
+    {
+      "@context": "https://schema.org",
+      "@type": m.type === "actualite" ? "NewsArticle" : "Article",
+      headline: m.h1 || m.title,
+      description: m.description,
+      datePublished: m.datePublication,
+      dateModified: m.dateMiseAJour,
+      inLanguage: "fr-FR",
+      mainEntityOfPage: url,
+      author: { "@type": "Organization", name: "Capital Retraite", url: SITE_URL },
+      publisher: { "@type": "Organization", name: "Capital Retraite", url: SITE_URL },
+    },
+  ];
+  if (m.faq?.length) {
+    out.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: m.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  return out;
+}
+
+if (articles.some((a) => a.meta.type === "actualite")) {
+  routesMeta.push({
+    path: "/actualites",
+    title: "Actualités retraite : ce qui change pour vous — Capital Retraite",
+    description:
+      "L'actualité retraite décryptée : réformes, barèmes, plafonds. Ce qui change, pour qui, avec des chiffres sourcés et datés.",
+    breadcrumb: [["Accueil", "/"], ["Actualités", "/actualites"]],
+    lastmod: articles.find((a) => a.meta.type === "actualite").meta.dateMiseAJour,
+  });
+}
+
+for (const { meta } of articles) {
+  const path = cheminArticle(meta);
+  routesMeta.push({
+    path,
+    title: meta.title,
+    description: meta.description,
+    breadcrumb: [
+      ["Accueil", "/"],
+      meta.type === "actualite" ? ["Actualités", "/actualites"] : ["Guides", "/guides"],
+      [meta.h1 || meta.title, path],
+    ],
+    jsonld: jsonLdArticle(meta, path),
+    lastmod: meta.dateMiseAJour,
+    datePublication: meta.datePublication,
+    article: true,
+    h1: meta.h1 || meta.title,
+  });
+}
 
 export function getMeta(pathname) {
   return routesMeta.find((r) => r.path === pathname) || routesMeta[0];

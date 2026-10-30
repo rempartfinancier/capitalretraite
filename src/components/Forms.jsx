@@ -1,70 +1,50 @@
-import { useState } from "react";
-import {
-  BREVO_FORM_ACTION_GUIDE,
-  CALENDLY_URL,
-  CALENDLY_CONFIGURED,
-} from "./config.js";
+import { useRef, useState } from "react";
+import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
+import { pushEvent } from "./tracking.js";
+import { envoyerFiable } from "../lib/envoi-fiable.js";
 
-// Envoi serveur (Vercel Function /api/send-lead-email.js) pour Contact et
-// Bilan : ces 2 formulaires n'ont jamais eu d'URL d'action Brevo configurée
-// sur Vercel (contrairement à BREVO_FORM_ACTION_GUIDE ci-dessus, toujours
-// utilisée telle quelle par FormLeadMagnet). Contrairement à postToBrevo()
-// en no-cors ci-dessous, la réponse HTTP ici reflète un vrai succès/échec.
+// Envoi serveur (Vercel Functions /api/send-lead-email et /api/subscribe) : chacune
+// relaie vers Brevo ET le CRM interne et ne répond 200 que si au moins un canal a
+// confirmé. Côté navigateur, envoyerFiable garde la saisie en localStorage et la rejoue
+// tant que le serveur n'a pas confirmé. `true` = reçu ; `false` = en attente de rejeu.
 async function envoyerLead(formulaire, data) {
-  const res = await fetch("/api/send-lead-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...data, formulaire }),
-  });
-  return res.ok;
+  return envoyerFiable("/api/send-lead-email", { ...data, formulaire, pageUrl: window.location.href });
 }
 
-async function postToBrevo(actionUrl, data) {
-  if (!actionUrl) {
-    console.warn("URL de formulaire Brevo non configurée (voir src/components/config.js).");
-    return false; // pas d'endpoint configuré : échec réel, pas de fausse confirmation
-  }
-  const body = new URLSearchParams(data);
-  const res = await fetch(actionUrl, {
-    method: "POST",
-    mode: "no-cors", // les endpoints de formulaire Brevo ne renvoient pas de CORS
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
-  });
-  return res.ok || res.type === "opaque";
+// Inscription à une liste Brevo + CRM via /api/subscribe. `source` choisit la liste
+// (voir api/subscribe.js).
+export async function inscrire(source, data) {
+  return envoyerFiable("/api/subscribe", { ...data, source, pageUrl: window.location.href });
 }
 
-// CRM interne du groupe (rempart-crm), relayé par le proxy serverless
-// /api/notifier-crm.js — tourne EN PLUS de Brevo, jamais à sa place. Erreur
-// avalée en silence côté client : ne doit jamais affecter sent/error ci-dessus.
-// `source` distingue l'origine du lead (bilan/contact vs lead magnet PDF) côté CRM.
-function notifierCrmInterne(data, source = "site") {
-  fetch("/api/notifier-crm", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: data.EMAIL,
-      prenom: data.PRENOM,
-      telephone: data.SMS,
-      message: data.MESSAGE,
-      source,
-      pageUrl: window.location.href,
-    }),
-  }).catch(() => {});
+// Anti-spam : champ piège invisible (SITE_WEB) + durée de remplissage, relus côté
+// serveur par api/_antispam.js. Un humain ne remplit jamais le champ caché.
+function ChampPiege() {
+  return (
+    <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", height: 0, overflow: "hidden" }}>
+      <label htmlFor="site-web">Ne pas remplir</label>
+      <input id="site-web" name="SITE_WEB" type="text" tabIndex={-1} autoComplete="off" />
+    </div>
+  );
+}
+
+function lireFormulaire(e, debut) {
+  return { ...Object.fromEntries(new FormData(e.target)), _elapsed: Date.now() - debut };
 }
 
 export function FormBilan() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(false);
-    const data = Object.fromEntries(new FormData(e.target));
+    const data = lireFormulaire(e, debut.current);
     try {
       const ok = await envoyerLead("bilan", data);
       if (ok) {
-        notifierCrmInterne(data);
+        pushEvent("generate_lead", { lead_source: "bilan" });
         setSent(true);
       } else {
         setError(true);
@@ -84,7 +64,13 @@ export function FormBilan() {
         </p>
         {CALENDLY_CONFIGURED ? (
           <p style={{ marginTop: "1rem" }}>
-            <a className="btn btn-primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              className="btn btn-primary"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => pushEvent("rdv_click", { emplacement: "confirmation_bilan" })}
+            >
               Choisir mon créneau
             </a>
           </p>
@@ -97,6 +83,7 @@ export function FormBilan() {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
       <div>
         <label htmlFor="b-prenom">Prénom</label>
         <input id="b-prenom" name="PRENOM" type="text" required autoComplete="given-name" />
@@ -146,7 +133,7 @@ export function FormBilan() {
       <button type="submit" className="btn btn-primary">Demander mon bilan gratuit</button>
       {error && (
         <p role="alert">
-          L'envoi n'a pas abouti. Réessayez, ou écrivez-nous via la page contact.
+          L'envoi n'a pas abouti pour le moment. Votre demande est conservée sur cet appareil et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.
         </p>
       )}
       <p className="hint">
@@ -159,15 +146,16 @@ export function FormBilan() {
 export function FormContact({ onSuccess }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(false);
-    const data = Object.fromEntries(new FormData(e.target));
+    const data = lireFormulaire(e, debut.current);
     try {
       const ok = await envoyerLead("contact", data);
       if (ok) {
-        notifierCrmInterne(data);
+        pushEvent("generate_lead", { lead_source: "contact" });
         setSent(true);
         onSuccess?.(data);
       } else {
@@ -189,6 +177,7 @@ export function FormContact({ onSuccess }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
       <div>
         <label htmlFor="c-prenom">Prénom</label>
         <input id="c-prenom" name="PRENOM" type="text" required autoComplete="given-name" />
@@ -203,7 +192,7 @@ export function FormContact({ onSuccess }) {
       </div>
       <button type="submit" className="btn btn-primary">Envoyer</button>
       {error && (
-        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+        <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
       <p className="hint">
         Ces informations sont confidentielles et servent uniquement à répondre à votre demande.
@@ -212,23 +201,71 @@ export function FormContact({ onSuccess }) {
   );
 }
 
-// Formulaire de capture pour un lead magnet PDF (guide téléchargeable).
-// Livraison double : téléchargement immédiat affiché ici à l'état succès
-// (le visiteur ne repart jamais les mains vides) — ce site n'envoie pas
-// d'email de confirmation (aucune API transactionnelle configurée), donc
-// cet écran de succès est le seul canal de livraison.
-export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
+// Porte d'entrée email des outils en libre-service : le résultat est déjà affiché
+// à l'écran, l'email n'est demandé que pour recevoir le détail et la suite.
+export function FormEmailOutil({ source, texteBouton = "Recevoir le détail par email", leadMagnet = false }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     setError(false);
-    const data = Object.fromEntries(new FormData(e.target));
+    const data = lireFormulaire(e, debut.current);
     try {
-      const ok = await postToBrevo(BREVO_FORM_ACTION_GUIDE, data);
+      const ok = await inscrire(source, data);
       if (ok) {
-        notifierCrmInterne(data, "lead_magnet");
+        pushEvent("generate_lead", { lead_source: source });
+        if (leadMagnet) pushEvent("lead_magnet_download", { lead_source: source });
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    }
+  }
+
+  if (sent) {
+    return (
+      <div className="form-confirm" role="status">
+        <h3>C'est noté</h3>
+        <p>Merci. Vous recevrez un email avec le mode d'emploi et les articles associés. Votre résultat reste affiché ci-dessus.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
+      <div>
+        <label htmlFor="o-email">Email</label>
+        <input id="o-email" name="EMAIL" type="email" required autoComplete="email" />
+      </div>
+      <button type="submit" className="btn btn-primary">{texteBouton}</button>
+      {error && <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>}
+      <p className="hint">Votre résultat est déjà affiché ci-dessus. Vos données restent confidentielles ; désinscription possible à tout moment.</p>
+    </form>
+  );
+}
+
+// Formulaire de capture pour un lead magnet PDF (guide téléchargeable).
+// Le téléchargement immédiat s'affiche à l'état succès (le visiteur ne repart
+// jamais les mains vides) ; l'inscription Brevo déclenche l'email J0 de la
+// séquence (voir docs/emails/). `source` : clé de api/subscribe.js.
+export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre, source = "lead_magnet_av" }) {
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+  const debut = useRef(Date.now());
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError(false);
+    const data = lireFormulaire(e, debut.current);
+    try {
+      const ok = await inscrire(source, data);
+      if (ok) {
+        pushEvent("generate_lead", { lead_source: source });
         setSent(true);
       } else {
         setError(true);
@@ -244,7 +281,12 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
         <h3>Votre guide est prêt</h3>
         <p>Merci. Téléchargez-le dès maintenant — ce lien reste valable, vous pouvez le reprendre à tout moment.</p>
         <p style={{ marginTop: "1rem" }}>
-          <a className="btn btn-primary" href={pdfUrl} download={pdfNomFichier}>
+          <a
+            className="btn btn-primary"
+            href={pdfUrl}
+            download={pdfNomFichier}
+            onClick={() => pushEvent("lead_magnet_download", { lead_source: source })}
+          >
             Télécharger le guide (PDF)
           </a>
         </p>
@@ -254,6 +296,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <ChampPiege />
       <div>
         <label htmlFor="g-email">Email</label>
         <input id="g-email" name="EMAIL" type="email" required autoComplete="email" />
@@ -262,7 +305,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
         Recevoir {guideTitre ? `« ${guideTitre} »` : "le guide"}
       </button>
       {error && (
-        <p role="alert">L'envoi n'a pas abouti. Réessayez dans un instant.</p>
+        <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
       <p className="hint">Vos données restent confidentielles. Pas de spam.</p>
     </form>

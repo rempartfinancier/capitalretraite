@@ -139,30 +139,32 @@ export const TRANSMISSION = {
 // ---- Fiscalité (barèmes en vigueur à la date de révision) ----
 export const FISCALITE = {
   pfuIR: 12.8, // prélèvement forfaitaire unique, part impôt sur le revenu (%)
-  // Prélèvements sociaux (CSG, CRDS et contributions annexes) : la LFSS 2026
-  // relève le taux de 17,2 % à 18,6 % pour le PER, le PEA, le compte-titres
-  // ordinaire et les revenus du capital en général (art. 12 LFSS 2026), mais
-  // EXCLUT explicitement l'assurance-vie et les revenus fonciers/immobiliers,
-  // qui restent à 17,2 %. Taux différenciés par enveloppe — À VÉRIFIER avant
-  // publication (source à confirmer par Alexandre).
+  // Prélèvements sociaux (CSG, CRDS et contributions annexes). LFSS 2026 (loi 2025-1403,
+  // art. 12) : cas général 18,6 % (PEA, compte-titres, PER) ; assurance-vie, revenus
+  // fonciers et plus-values immobilières restent à 17,2 %. Vérifié le 2026-10-20 sur
+  // service-public.gouv.fr F2329 (vérifiée le 30/06/2026) et F22414 (assurance-vie,
+  // vérifiée le 15/04/2026). Le PER : A18841 (taux de 17,2 % à 18,6 % pour les sommes
+  // récupérées depuis le 01/01/2026) ; l'application exacte à la seule part de gains
+  // en sortie capital n'est pas détaillée par la source.
   prelevementsSociaux: {
     per: 18.6,
     pea: 18.6,
     cto: 18.6,
     assuranceVie: 17.2,
     immobilier: 17.2,
-    source: "LFSS 2026, art. 12 — hausse de 17,2 % à 18,6 % au 1er janvier 2026, à l'exclusion de l'assurance-vie et des revenus fonciers/immobiliers (maintenus à 17,2 %) — À VÉRIFIER",
+    source: "service-public.gouv.fr F2329 (30/06/2026) et F22414 (15/04/2026) ; LFSS 2026, art. 12 — 18,6 % cas général (PEA, compte-titres, PER), 17,2 % assurance-vie et revenus fonciers",
   },
   avTauxReduitApres8Ans: 7.5, // taux IR réduit sur gains, contrats > 8 ans, versements < 150 000 € (%)
   avAbattementAnnuelSeul: 4600, // abattement annuel sur gains après 8 ans, personne seule (€)
   avAbattementAnnuelCouple: 9200, // idem, couple soumis à imposition commune (€)
   peaExonerationIRApres: 5, // années avant exonération d'IR des plus-values du PEA
   tmiOptions: [0, 11, 30, 41, 45], // tranches marginales du barème IR (%)
-  // Plafond de déduction propre à un enfant majeur rattaché ouvrant son propre PER
-  // (10 % de 8 fois le PASS de l'année précédente, plafond spécifique bas du barème
-  // PER individuel) — À VÉRIFIER, ce plafond est révisé chaque année.
+  // Plancher du plafond de déduction PER : 4 710 € s'applique quand 10 % des revenus
+  // d'activité est inférieur à ce montant, et aux personnes sans revenus professionnels
+  // (service-public.gouv.fr F34982, vérifiée le 12/10/2026). Maximum 37 680 €. Révisé
+  // chaque année. (Nom historique de la constante : usage enfant rattaché.)
   perPlafondEnfantRattache: 4710,
-  source: "barèmes en vigueur à la date de révision des hypothèses — À VÉRIFIER avant publication",
+  source: "barèmes en vigueur à la date de révision des hypothèses ; abattements assurance-vie et taux de 7,5 % vérifiés sur service-public.gouv.fr F22414 (15/04/2026) ; abattement de donation (100 000 €) à reconfirmer sur impots.gouv.fr",
 };
 
 // ---- Décumulation ----
@@ -177,9 +179,9 @@ export const DECUMULATION = {
   },
   rendementCapitalPendantRetraits: 3.0, // hypothèse par défaut, capital resté investi prudemment (%)
   esperanceVie65: {
-    femmes: 23,
-    hommes: 19,
-    source: "espérance de vie à 65 ans, INSEE, données 2023-2024 — À VÉRIFIER",
+    femmes: 23.6,
+    hommes: 20.0,
+    source: "espérance de vie à 65 ans en 2025 (données provisoires), INSEE, publiée le 13/01/2026 — insee.fr/fr/statistiques/2416631",
   },
 };
 
@@ -189,7 +191,7 @@ export const DECUMULATION = {
 // la génération et le régime d'affiliation avant publication.
 export const REGIME_GENERAL = {
   surcoteParTrimestre: 1.25, // majoration du taux plein par trimestre cotisé au-delà de la durée requise et de l'âge légal (%)
-  decoteParTrimestre: 1.25, // minoration par trimestre manquant par rapport à la durée requise, régime général (%)
+  decoteParTrimestre: 0.625, // minoration par trimestre manquant, régime général (%) — corrigé le 2026-10-20 (était 1,25), service-public.gouv.fr F19666
   decotePlafondTrimestres: 20, // nombre maximal de trimestres de décote pris en compte
   ageTauxPleinAutomatique: 67, // âge d'annulation automatique de la décote, régime général
   rachatTrimestresPlafond: 12, // nombre maximal de trimestres rachetables (versement pour la retraite, ex « rachat Fillon »)
