@@ -12,10 +12,13 @@ async function envoyerLead(formulaire, data) {
 export function FormBilan() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [envoi, setEnvoi] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (envoi) return; // évite le double envoi
     setError(false);
+    setEnvoi(true);
     const data = Object.fromEntries(new FormData(e.target));
     try {
       const ok = await envoyerLead("bilan", data);
@@ -26,6 +29,8 @@ export function FormBilan() {
       }
     } catch {
       setError(true);
+    } finally {
+      setEnvoi(false);
     }
   }
 
@@ -62,7 +67,7 @@ export function FormBilan() {
       </div>
       <div>
         <label htmlFor="b-tel">Téléphone</label>
-        <input id="b-tel" name="SMS" type="tel" required autoComplete="tel" />
+        <input id="b-tel" name="SMS" type="tel" inputMode="tel" required autoComplete="tel" />
       </div>
       <div>
         <label htmlFor="b-age">Âge approximatif</label>
@@ -98,7 +103,7 @@ export function FormBilan() {
           <option>Autre</option>
         </select>
       </div>
-      <button type="submit" className="btn btn-primary">Demander mon bilan gratuit</button>
+      <button type="submit" className="btn btn-primary" disabled={envoi} aria-busy={envoi}>Demander mon bilan gratuit</button>
       {error && (
         <p role="alert">
           L'envoi n'a pas abouti pour le moment. Votre demande est conservée sur cet appareil et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.
@@ -114,10 +119,13 @@ export function FormBilan() {
 export function FormContact({ onSuccess }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [envoi, setEnvoi] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (envoi) return; // évite le double envoi
     setError(false);
+    setEnvoi(true);
     const data = Object.fromEntries(new FormData(e.target));
     try {
       const ok = await envoyerLead("contact", data);
@@ -129,6 +137,8 @@ export function FormContact({ onSuccess }) {
       }
     } catch {
       setError(true);
+    } finally {
+      setEnvoi(false);
     }
   }
 
@@ -155,7 +165,7 @@ export function FormContact({ onSuccess }) {
         <label htmlFor="c-message">Message</label>
         <textarea id="c-message" name="MESSAGE" required />
       </div>
-      <button type="submit" className="btn btn-primary">Envoyer</button>
+      <button type="submit" className="btn btn-primary" disabled={envoi} aria-busy={envoi}>Envoyer</button>
       {error && (
         <p role="alert">L'envoi n'a pas abouti pour le moment. Votre demande est conservée et sera renvoyée automatiquement ; vous pouvez aussi nous appeler au 01 84 16 37 91.</p>
       )}
@@ -174,10 +184,13 @@ export function FormContact({ onSuccess }) {
 export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [envoi, setEnvoi] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (envoi) return; // évite le double envoi
     setError(false);
+    setEnvoi(true);
     const data = Object.fromEntries(new FormData(e.target));
     try {
       const ok = await envoyerLead("lead_magnet", data);
@@ -188,6 +201,8 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
       }
     } catch {
       setError(true);
+    } finally {
+      setEnvoi(false);
     }
   }
 
@@ -211,7 +226,7 @@ export function FormLeadMagnet({ pdfUrl, pdfNomFichier, guideTitre }) {
         <label htmlFor="g-email">Email</label>
         <input id="g-email" name="EMAIL" type="email" required autoComplete="email" />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary" disabled={envoi} aria-busy={envoi}>
         Recevoir {guideTitre ? `« ${guideTitre} »` : "le guide"}
       </button>
       {error && (
