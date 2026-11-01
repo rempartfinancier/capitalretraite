@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { CtaBanner } from "../components/Layout.jsx";
 import { FormLeadMagnet } from "../components/Forms.jsx";
-import { CALENDLY_URL, CALENDLY_CONFIGURED } from "../components/config.js";
 
 const strategies = [
   {
@@ -52,15 +51,9 @@ export default function Home() {
             <Link to="/bilan-retraite" className="btn btn-primary">
               Faire mon bilan retraite gratuit
             </Link>
-            {CALENDLY_CONFIGURED ? (
-              <a href={CALENDLY_URL} className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                Prendre rendez-vous
-              </a>
-            ) : (
-              <Link to="/contact" className="btn btn-secondary">
-                Nous contacter
-              </Link>
-            )}
+            <Link to="/contact" className="btn btn-secondary">
+              Nous contacter
+            </Link>
           </div>
           <p style={{ marginTop: "1rem" }}>
             <Link to="/simulateur-retraite">Ou estimez votre écart de revenus en 3 minutes →</Link>

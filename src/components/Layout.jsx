@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getMeta } from "../routes.jsx";
-import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
 
 const HUB_URL = "https://rempartfinancier.fr";
 
@@ -82,13 +81,7 @@ function Footer() {
         <div className="footer-links">
           <Link to="/mentions-legales">Mentions légales</Link>
           <Link to="/confidentialite">Confidentialité</Link>
-          {CALENDLY_CONFIGURED ? (
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Prendre RDV
-            </a>
-          ) : (
-            <Link to="/contact">Nous contacter</Link>
-          )}
+          <Link to="/contact">Nous contacter</Link>
         </div>
       </div>
     </footer>

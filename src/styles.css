@@ -368,7 +368,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .form-confirm h3 { color: var(--cuivre-fonce); }
 
-/* ---------- Bannière de prise de RDV (widget iClosed) ---------- */
+/* ---------- Bannière de prise de RDV (widget Cal.com) ---------- */
 .booking-banner {
   border: 1px solid var(--cuivre);
   background: var(--cuivre-pale);
@@ -377,7 +377,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   margin: 1.5rem 0 2.5rem;
 }
 .booking-banner h2 { margin-top: 0; }
-.iclosed-widget {
+.booking-banner #cal-contact {
   border: 1px solid var(--gris-filet);
   border-radius: var(--radius);
   overflow: hidden;
@@ -411,7 +411,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .site-footer a { color: #e8b98a; }
 
 /* ---------- Divers ---------- */
-.calendly-placeholder {
+.rdv-placeholder {
   border: 1px dashed var(--gris-filet);
   border-radius: var(--radius);
   padding: 2.5rem 1.5rem;
