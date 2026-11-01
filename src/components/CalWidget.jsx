@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 // Même compte cal.com que rempartfinancier (écosystème Rempart Financier) —
-// voir CalWidget.tsx dans ce repo pour le snippet d'origine.
+// voir CalWidget.tsx dans le repo rempartfinancier.
 const CAL_LINK = "rempartfinancier/30min";
 const CAL_NAMESPACE = "30min";
 const SITE_SLUG = "capitalretraite";
