@@ -61,8 +61,7 @@ export function CalWidget({
     document.body.appendChild(script);
 
     // Cal.com poste ce message sur window une fois la réservation confirmée
-    // (protocole documenté @calcom/embed-core, équivalent du
-    // "calendly.event_scheduled" utilisé précédemment avec Calendly).
+    // (protocole documenté @calcom/embed-core).
     function onCalMessage(event) {
       if (event.data?.type !== "CAL:bookingSuccessful") return;
       onBookingSuccessful?.();
