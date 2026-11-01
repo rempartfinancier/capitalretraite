@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CALENDLY_URL, CALENDLY_CONFIGURED } from "./config.js";
 import { envoyerFiable } from "../lib/envoi-fiable.js";
 
 // Envoi serveur (Vercel Function /api/send-lead-email) : relaie vers Brevo (email) ET
@@ -42,15 +41,11 @@ export function FormBilan() {
           Merci. Il ne reste qu'une étape : choisissez le créneau qui vous convient pour votre
           bilan de 15 minutes.
         </p>
-        {CALENDLY_CONFIGURED ? (
-          <p style={{ marginTop: "1rem" }}>
-            <a className="btn btn-primary" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-              Choisir mon créneau
-            </a>
-          </p>
-        ) : (
-          <p style={{ marginTop: "1rem" }}>Nous revenons vers vous rapidement pour convenir d'un créneau.</p>
-        )}
+        <p style={{ marginTop: "1rem" }}>
+          <a className="btn btn-primary" href="https://cal.com/rempartfinancier/30min" target="_blank" rel="noopener noreferrer">
+            Choisir mon créneau
+          </a>
+        </p>
       </div>
     );
   }

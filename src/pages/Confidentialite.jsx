@@ -34,7 +34,7 @@ export default function Confidentialite() {
         <h2>Sous-traitants</h2>
         <p>
           Les données de formulaires sont traitées via Brevo (gestion des contacts et emails) et
-          la prise de rendez-vous via Calendly. Ces prestataires agissent en qualité de
+          la prise de rendez-vous via Cal.com. Ces prestataires agissent en qualité de
           sous-traitants et présentent des garanties de conformité au RGPD.
         </p>
 

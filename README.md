@@ -36,8 +36,7 @@ Optionnel : configurer `404.html` comme page d'erreur pour couvrir les URL incon
 
 | Élément | Fichier |
 |---|---|
-| URL Calendly | `src/components/config.js` (`CALENDLY_URL`) |
-| Widget Calendly inline (optionnel) | `src/pages/Contact.jsx` (bloc commenté) |
+| Prise de rendez-vous Cal.com (`rempartfinancier/30min`) | `src/components/CalWidget.jsx` (`SITE_SLUG`) |
 | URLs d'action formulaires Brevo | `.env` (copier `.env.example`) |
 | Adresse, SIRET, directeur de publication, hébergeur, médiateur | `src/pages/MentionsLegales.jsx` |
 | Email contact RGPD | `src/pages/Confidentialite.jsx` |

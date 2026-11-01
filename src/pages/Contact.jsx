@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FormContact } from "../components/Forms.jsx";
-import { IClosedWidget } from "../components/IClosedWidget.jsx";
+import { CalWidget } from "../components/CalWidget.jsx";
 
 export default function Contact() {
   const [rdvPret, setRdvPret] = useState(false);
@@ -29,7 +29,17 @@ export default function Contact() {
                 Votre message est bien parti. Si vous préférez fixer l'échange tout de suite
                 plutôt que d'attendre notre retour, réservez directement ci-dessous.
               </p>
-              <IClosedWidget height={720} />
+              <CalWidget
+                containerId="cal-contact"
+                minHeight={720}
+                onBookingSuccessful={() => {
+                  window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({ event: "generate_lead", lead_source: "cal_booking" });
+                }}
+              />
+              <p style={{ marginTop: "1rem" }}>
+                Un souci d'affichage ? Appelez-nous au <a href="tel:+33184163791">01 84 16 37 91</a>.
+              </p>
             </div>
           </div>
         </section>
