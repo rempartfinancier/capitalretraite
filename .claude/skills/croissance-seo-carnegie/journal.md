@@ -229,3 +229,99 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-10-23 (guide : transférer son PER)
+
+**Statut : contenu complet (en attente de relecture), netlinking et KPIs bloqués (accès).**
+Intervalle depuis le cycle 001 : 64 jours (le déclencheur ne s'est pas exécuté utilement entre-temps ou le cycle n'était pas dû).
+Branche : `seo-cycle-2026-10-23`, PR vers main, non mergée.
+
+### Phase 1 — Bilan
+KPIs non vérifiables : pas de Search Console, GA4, Ahrefs. Aucun chiffre inventé.
+Point de départ pages prerendues : 53 avant, 54 après (+1).
+
+### Phase 2 — Recherche & angle
+Sujet retenu : « Transférer son PER : frais, délais et quand cela vaut le coup » (catégorie per),
+sujet pressenti au cycle 001, aucun taux de marché nouveau. Vérifié par WebSearch (egress direct bloqué) :
+plafond 1 % et gratuité après 5 ans (L224-6 CMF, service-public) ; anciens contrats : décret 2024-682
+(gratuité après 10 ans). **Non confirmé** : le délai légal de traitement (2 ou 3 mois selon les sources) —
+volontairement non chiffré dans le guide.
+Sources tierces à citer dans un prochain guide (non encore citées en lien sortant) : service-public.gouv.fr, Légifrance,
+La Retraite en Clair, médiateur de l'AMF.
+
+### Phase 3 — Production
+- `src/pages/GuideTransfertPer.jsx`, route `/guide/transferer-son-per`, catégorie PER de `Guides.jsx`.
+- Chiffres centralisés dans `hypotheses.js` (nouveau bloc `TRANSFERT_PER`, marqué À VÉRIFIER).
+- Maillage sortant : deblocage-anticipe-per, combien-coute-un-per, quel-est-le-meilleur-per,
+  retraite-independants-per-ou-madelin, faut-il-ouvrir-un-per, strategies/per, fiscalite-sortie-per, per-vs-assurance-vie.
+- Maillage retour (3) : GuideCoutPer (FAQ), GuideMeilleurPer (FAQ), GuidePerBancaire (FAQ).
+- `public/sitemap.xml` : entrée ajoutée. Build : 54/54 pages. typecheck et tests OK.
+
+### Positions éditoriales en attente
+Aucune touchée (ni rente viagère hors PER, ni mix rente + retraits, ni nue-propriété SCPI).
+Point à valider : le guide mentionne les anciens contrats (PERP, Madelin, art. 83) et la gratuité à 10 ans du
+décret 2024-682 — à confirmer par Alexandre.
+
+### Phase 4 — Netlinking
+Aucun brouillon rédigé : egress sortant bloqué (403 proxy) ET le guide ne cite encore aucune cible tierce
+(règle « citer avant de demander »). Rien d'inventé. Cibles toujours à lire : voir cycle 001.
+
+### Phase 5 — Preuve sociale
+Aucune action possible (pas d'accès CRM/réseaux).
+
+### Décisions pour le cycle 003
+1. Alexandre lit 2-3 contenus de prismo-retraite.fr ou jobpublic.fr et transmet ses observations ; citer d'abord la cible dans un guide.
+2. Sujet pressenti : Agirc-Arrco / taux de remplacement des cadres (nécessite PASS et valeur du point pour `hypotheses.js`).
+3. Mergez ou fermez la PR avant le prochain déclenchement (anti-doublon) ; toujours en suspens : mention CIF dans `AuthorBox`.
+
+---
+
+## Cycle 003 — clôturé le 2026-11-13 (cycle partiel : bilan + blocage, pas de nouveau guide)
+
+**Statut : cycle partiel. Aucun nouveau guide produit, volontairement.** Intervalle depuis le cycle 002 (clôturé le 2026-10-23) : 21 jours, donc cycle dû.
+Branche : `claude/zen-fermi-u5yr5l` (branche assignée à la session ; pas de `seo-cycle-AAAA-MM-JJ`). PR vers main : journal seul.
+
+### Phase 1 — Bilan
+**Constat principal : la garde anti-doublon est cassée.** Le cycle 002 a été exécuté **cinq fois** sur des branches distinctes, toutes encore ouvertes :
+- PR #7 `seo-cycle-2026-09-04` (guide transfert de PER)
+- PR #9 `seo-cycle-2026-10-02` (guide transfert de PER)
+- PR #12 `claude/zen-fermi-ypaq05` (guide transfert de PER)
+- PR #13 `seo-cycle-2026-10-16` (guide transfert de PER)
+- PR #15 `seo-cycle-2026-10-23` (guide « Transférer son PER » — la version la plus complète de la série)
+- PR #8 `claude/zen-fermi-7aan86` : **variante différente** du cycle 002 (guide PACS/concubinage et retraite), non comparée ici.
+
+Aucune de ces PR n'est mergée, donc **aucun journal de cycle n'est sur main** : chaque déclenchement repart de zéro. C'est la même cause que l'incident du cycle 001, en pire. Le cycle 003 de ce run a lui-même été exécuté sans avoir pu lire un journal sur main. **Action requise d'Alexandre : merger une seule version et fermer les autres.** Cette session n'a ni fermé ni mergé de PR.
+
+Autres PR de contenu ouvertes sur main, à arbitrer (touchent les mêmes fichiers de routage) : #1, #2, #3 (suspension réforme), #10 (abattement 10 % PLF 2027), #11 (PER capital ou rente — **touche la position « rente » en attente**), #14 (refonte leads / 10 articles).
+
+KPIs : **non vérifiables**. Aucun connecteur Search Console, GA4 ou Ahrefs n'est disponible (`plugin:marketing:ahrefs` en échec de connexion proxy 403). Aucun chiffre inventé. Pages prerendues sur main : 53 (cycle 002 non mergé, donc 54 avec la PR #15).
+
+### Phase 2 — Recherche & angle
+Aucun sujet retenu, pour trois raisons.
+1. **Agirc-Arrco / taux de remplacement des cadres** (sujet pressenti au cycle 002) : bloqué. `src/components/hypotheses.js` ne contient ni le PASS ni la valeur du point Agirc-Arrco (grep confirmé). Ces valeurs ne peuvent pas être inventées. Dépend d'Alexandre.
+2. **Transfert de PER** : déjà rédigé 5 fois (cf. Phase 1). Ne pas le reproposer.
+3. **PER et conjoint survivant**, **épargne salariale (PEE/PERCOL)** : non rédigés sur main (absents des routes), mais aucune source primaire lisible (egress bloqué) pour les points juridiques. Pistes pour un cycle où l'accès sera rétabli.
+
+### Phase 3 — Production
+**Non réalisée.** Un sixième guide sur un cycle non fermé ajouterait une PR qui touche `routes.jsx`, `App.jsx`, `Guides.jsx` et `sitemap.xml`, déjà touchés par une dizaine de PR ouvertes : non mergeable sans fusion manuelle. Le sujet pressenti n'a pas ses données. Rien n'a donc été écrit ni câblé ; aucune vérification build/typecheck n'a été nécessaire pour ce commit, qui ne touche que le journal.
+
+### Phase 4 — Netlinking
+**Bloqué, sans contact rédigé.** Le proxy bloque l'egress vers les domaines tiers (`curl` vers service-public.gouv.fr et agirc-arrco.fr : code 000, proxy actif). Impossible de lire 2 à 3 contenus de cible (étape 1 Carnegie). Règle « donner avant de demander » : aucune cible n'a encore été citée dans un guide. Cibles inchangées (cf. cycle 001).
+
+### Phase 5 — Preuve sociale
+Aucune action possible (pas d'accès CRM, réseaux ni email). Aucune mention repérée.
+
+### Positions éditoriales en attente
+**Non tranchées, non touchées par ce run.** Note : la PR #11 « PER : sortir en capital ou en rente ? » est ouverte et touche la question de la rente. À examiner par Alexandre avant merge.
+
+### Accroc `AuthorBox` (toujours ouvert)
+Mention CIF canonique (« Conseil en investissements financiers délivré via Épargne Plurielle, CIF — ORIAS n° 16003696 ») toujours absente de `AuthorBox` (`src/components/Layout.jsx`). Décision d'Alexandre, inchangée.
+
+### Décisions pour le cycle 004
+1. **Prioritaire, avant tout nouveau contenu :** merger la version retenue du cycle 002 (recommandation : PR #15) et fermer les PR #7, #9, #12, #13 comme doublons. Ensuite seulement, le journal est sur main et la garde anti-doublon fonctionne.
+2. Fournir à `hypotheses.js` le PASS et la valeur du point Agirc-Arrco pour débloquer le sujet cadres.
+3. Accès réseau sortant aux domaines tiers, ou lecture manuelle par Alexandre de 2 à 3 contenus de prismo-retraite.fr ou jobpublic.fr (Phase 4).
+4. Connecteur Ahrefs ou accès Search Console/GA4 pour sortir la Phase 1 du mode aveugle.
+5. Arbitrer la PR #8 (PACS/concubinage), qui est une variante du cycle 002 jamais comparée.
