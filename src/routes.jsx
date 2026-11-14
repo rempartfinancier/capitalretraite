@@ -538,6 +538,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/retraite-complementaire-agirc-arrco-cadres-calcul",
+    title: "Retraite Agirc-Arrco des cadres : le calcul en 2026",
+    description:
+      "Salaire, points, pension : le calcul de la retraite complémentaire Agirc-Arrco d'un cadre, avec la valeur du point (1,4587 €) et les paramètres 2026.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Agirc-Arrco des cadres", "/guide/retraite-complementaire-agirc-arrco-cadres-calcul"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

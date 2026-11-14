@@ -133,6 +133,12 @@ export default function GuideSurcoteDecote() {
             propres règles de minoration, parfois temporaires et distinctes de celles du régime
             général — un sujet qui dépasse le cadre de cet article et mérite d'être vérifié
             spécifiquement lors d'un bilan retraite.
+            Pour la complémentaire, le calcul des points et les coefficients de minoration sont
+            détaillés dans{" "}
+            <a href="/guide/retraite-complementaire-agirc-arrco-cadres-calcul">
+              notre guide sur la retraite Agirc-Arrco des cadres
+            </a>
+            .
           </p>
 
           <h2 id="surcote">Qu'est-ce que la surcote, et comment se calcule-t-elle ?</h2>

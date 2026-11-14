@@ -59,6 +59,11 @@ export default function GuideCombienEpargner() {
             revenu d'activité. C'est la donnée qui structure tout le reste. Sa logique est
             connue : plus vos revenus sont élevés, plus ce taux diminue, car les régimes
             complémentaires couvrent proportionnellement moins bien les tranches hautes de salaire.
+            Le mécanisme est chiffré, tranche par tranche, dans{" "}
+            <a href="/guide/retraite-complementaire-agirc-arrco-cadres-calcul">
+              notre guide sur le calcul de la retraite Agirc-Arrco des cadres
+            </a>
+            .
             Un cadre supérieur du privé doit donc s'attendre à un décrochage de revenus nettement
             plus marqué qu'un salarié au revenu médian — c'est précisément cet écart que votre
             épargne doit combler. Le choix de l'enveloppe qui accueillera cette épargne (PER,

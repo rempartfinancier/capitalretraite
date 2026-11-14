@@ -222,6 +222,11 @@ const categories = [
     name: "Comprendre le système de retraite",
     items: [
       {
+        to: "/guide/retraite-complementaire-agirc-arrco-cadres-calcul",
+        title: "Retraite Agirc-Arrco des cadres : comment est-elle calculée ?",
+        text: "Du salaire aux points, des points à la pension : le calcul pas à pas avec les paramètres 2026.",
+      },
+      {
         to: "/guide/verifier-releve-de-carriere-retraite",
         title: "Relevé de carrière : comment le vérifier et corriger les erreurs",
         text: "Le document qui conditionne tout le reste — et les six périodes où les oublis se concentrent.",

@@ -40,6 +40,7 @@ import GuideImmobilierOuAv from "./pages/GuideImmobilierOuAv.jsx";
 import GuidePerOuImmobilier from "./pages/GuidePerOuImmobilier.jsx";
 import GuideCoutPer from "./pages/GuideCoutPer.jsx";
 import GuidePlafondPerVersement2026 from "./pages/GuidePlafondPerVersement2026.jsx";
+import GuideAgircArrcoCadres from "./pages/GuideAgircArrcoCadres.jsx";
 import GuideInconvenientsRenteViagere from "./pages/GuideInconvenientsRenteViagere.jsx";
 import GuideRenteOuRetraitsProgrammes from "./pages/GuideRenteOuRetraitsProgrammes.jsx";
 import GuideOrdreDecaissement from "./pages/GuideOrdreDecaissement.jsx";
@@ -134,6 +135,10 @@ export default function App() {
           <Route
             path="/guide/plafond-per-versement-avant-31-decembre-2026"
             element={<GuidePlafondPerVersement2026 />}
+          />
+          <Route
+            path="/guide/retraite-complementaire-agirc-arrco-cadres-calcul"
+            element={<GuideAgircArrcoCadres />}
           />
           <Route path="*" element={<Home />} />
         </Routes>

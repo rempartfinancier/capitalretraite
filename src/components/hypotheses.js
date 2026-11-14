@@ -205,6 +205,59 @@ export const PER_PLAFOND_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (14 novembre 2026)",
 };
 
+// ---- Retraite complémentaire Agirc-Arrco (salariés du privé, cadres et non-cadres) ----
+// Vérifié le 14 novembre 2026. Points acquis = salaire de la tranche × taux de calcul
+// des points ÷ valeur d'achat du point ; pension annuelle brute = points × valeur de
+// service du point. Aucun de ces montants n'est écrit en dur dans les pages.
+export const AGIRC_ARRCO = {
+  pass2026: 48060, // plafond annuel de la sécurité sociale 2026 = limite supérieure de la tranche 1 (€)
+  multiplePassTranche2: 8, // la tranche 2 va de 1 à 8 PASS
+  tauxCalculPointsT1: 6.2, // taux de calcul des points, tranche 1 (%)
+  tauxCalculPointsT2: 17, // taux de calcul des points, tranche 2 (%)
+  tauxAppel: 127, // taux d'appel : cotisation prélevée = 127 % du taux de calcul des points
+  tauxCotisationT1: { global: 7.87, patronale: 4.72, salariale: 3.15 }, // cotisation de retraite tranche 1 (%)
+  tauxCotisationT2: { global: 21.59, patronale: 12.95, salariale: 8.64 }, // cotisation de retraite tranche 2 (%)
+  cegT1: { global: 2.15, patronale: 1.29, salariale: 0.86 }, // contribution d'équilibre général, tranche 1 (%) — sans points
+  cegT2: { global: 2.7, patronale: 1.62, salariale: 1.08 }, // contribution d'équilibre général, tranche 2 (%) — sans points
+  cet: { global: 0.35, patronale: 0.21, salariale: 0.14 }, // contribution d'équilibre technique, tranches 1 + 2 si le salaire dépasse le PASS (%) — sans points
+  apec: { global: 0.06, patronale: 0.036, salariale: 0.024, multiplePassAssiette: 4 }, // cotisation Apec des cadres, dans la limite de 4 PASS (%) — sans points
+  valeurAchatPoint2026: 20.1877, // valeur d'achat du point (« salaire de référence ») à compter du 1er janvier 2026 (€)
+  valeurServicePoint: 1.4587, // valeur de service du point à compter du 1er novembre 2026 (€)
+  valeurServicePointPrecedente: 1.4386, // valeur de service du 1er novembre 2024 au 31 octobre 2026 (€)
+  tauxRevalorisationNovembre2026: 1.4, // revalorisation décidée le 14 octobre 2026 (%)
+  ageSansMinoration: 67, // âge auquel la retraite complémentaire est versée sans minoration quelle que soit la durée d'assurance
+  ageMinimumAnticipation: 57, // âge le plus précoce de liquidation, avec minoration définitive
+  // Coefficients d'anticipation « carrière courte » : retraite de base obtenue à taux minoré,
+  // moins de 20 trimestres manquants (extrait du barème Agirc-Arrco, édition de septembre 2026).
+  minorationTrimestresManquants: [
+    { trimestres: 4, coefficient: 0.96 },
+    { trimestres: 8, coefficient: 0.92 },
+    { trimestres: 12, coefficient: 0.88 },
+    { trimestres: 16, coefficient: 0.83 },
+    { trimestres: 20, coefficient: 0.78 },
+  ],
+  coefficientAnticipation62Ans: 0.78, // coefficient d'anticipation pour âge à 62 ans, sans retraite de base à taux plein
+  majorationTroisEnfants: 10, // majoration des points obtenus depuis 2012 pour 3 enfants ou plus (%)
+  majorationEnfantACharge: 5, // majoration par enfant à charge au moment du départ (%)
+  plafondMajorationTroisEnfantsNov2025: 2367.48, // plafond annuel brut de la majoration pour 3 enfants ou plus, au 1er novembre 2025 (€)
+  seuilVersementUnique: 100, // jusqu'à 100 points : versement en une seule fois
+  seuilVersementAnnuel: 200, // de 101 à 200 points : versement annuel
+  tauxPleinRetraiteDeBase: 50, // taux plein de la retraite de base, appliqué au salaire annuel moyen plafonné au PASS (%)
+  maj: "14 novembre 2026",
+  source:
+    "Agirc-Arrco, circulaire 2025-16-SG-DRJ du 30 octobre 2025 (paramètres 2026) et communiqué du 14 octobre 2026 ; barème des coefficients de minoration (édition de septembre 2026) ; service-public.gouv.fr, fiches F15396 (vérifiée le 1er novembre 2026) et F21552 (vérifiée le 1er septembre 2026)",
+};
+
+// Hypothèses purement illustratives du guide « retraite complémentaire des cadres »
+// (composites pédagogiques, sans lien avec un cas réel). Salaires = bruts annuels 2026.
+export const AGIRC_ARRCO_EXEMPLES = {
+  salaireBrutPasAPas: 80000, // salaire de l'exemple pas à pas
+  salairesComparaison: [40000, 60000, 80000, 120000], // grille « une année de travail »
+  pointsCarriere: [5000, 8000, 12000, 15000], // grille « nombre de points → pension »
+  dureeCarriereAnnees: 43, // 172 trimestres, durée d'assurance requise pour les générations nées à partir de 1966
+  source: "hypothèses d'illustration pédagogique (14 novembre 2026)",
+};
+
 // ---- Décumulation ----
 export const DECUMULATION = {
   // Taux de conversion indicatif d'un capital en rente viagère à 65 ans,
