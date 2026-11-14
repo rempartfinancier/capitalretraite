@@ -97,6 +97,11 @@ const categories = [
         text: "La grille des frais poste par poste, du versement à la sortie.",
       },
       {
+        to: "/guide/plafond-per-versement-avant-31-decembre-2026",
+        title: "Plafond PER 2026 : jusqu'à quand verser, et combien déduire ?",
+        text: "Date limite du 31 décembre, plancher et plafond, ligne à lire sur l'avis d'impôt, reports sur 3 ou 5 ans.",
+      },
+      {
         to: "/guide/quel-est-le-meilleur-per",
         title: "Quel est le meilleur PER ?",
         text: "Pourquoi nous ne publions pas de classement — et la grille pour juger n'importe quel contrat.",

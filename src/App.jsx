@@ -39,6 +39,7 @@ import GuideCinqErreursLocatif from "./pages/GuideCinqErreursLocatif.jsx";
 import GuideImmobilierOuAv from "./pages/GuideImmobilierOuAv.jsx";
 import GuidePerOuImmobilier from "./pages/GuidePerOuImmobilier.jsx";
 import GuideCoutPer from "./pages/GuideCoutPer.jsx";
+import GuidePlafondPerVersement2026 from "./pages/GuidePlafondPerVersement2026.jsx";
 import GuideInconvenientsRenteViagere from "./pages/GuideInconvenientsRenteViagere.jsx";
 import GuideRenteOuRetraitsProgrammes from "./pages/GuideRenteOuRetraitsProgrammes.jsx";
 import GuideOrdreDecaissement from "./pages/GuideOrdreDecaissement.jsx";
@@ -130,6 +131,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
+          <Route
+            path="/guide/plafond-per-versement-avant-31-decembre-2026"
+            element={<GuidePlafondPerVersement2026 />}
+          />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>

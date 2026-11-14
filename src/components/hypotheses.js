@@ -165,6 +165,46 @@ export const FISCALITE = {
   source: "barèmes en vigueur à la date de révision des hypothèses — À VÉRIFIER avant publication",
 };
 
+// ---- Plafond de déduction des versements volontaires sur un PER (salariés) ----
+// Vérifié le 14 novembre 2026. Règle : 10 % des revenus d'activité professionnelle
+// de l'année précédente (nets de frais), retenus dans la limite de 8 PASS de cette
+// même année, avec un plancher de 10 % du PASS (CGI, art. 163 quatervicies).
+// Les montants plancher/plafond se calculent depuis ces paramètres, jamais en dur.
+export const PER_PLAFOND = {
+  tauxRevenusActivite: 10, // % des revenus d'activité nets de frais de l'année précédente
+  multiplePassMaximum: 8, // revenus retenus dans la limite de 8 fois le PASS
+  tauxPlancherPass: 10, // plancher : 10 % du PASS de l'année précédente
+  pass2025: 47100, // PASS 2025 → plafonds des versements effectués en 2026 (€)
+  pass2026: 48060, // PASS 2026 (arrêté du 22 décembre 2025) → versements 2027, à législation constante (€)
+  reportAnneesPlafondsJusqua2025: 3, // durée de report des plafonds non utilisés de 2023, 2024 et 2025 (années)
+  reportAnneesPlafondsDepuis2026: 5, // durée de report des plafonds non utilisés à partir de celui de 2026 (années)
+  ageFinDeduction: 70, // âge à partir duquel les versements ne sont plus déductibles (depuis le 1er janvier 2026)
+  tauxAbattementFraisProfessionnels: 10, // abattement forfaitaire pour frais professionnels sur les salaires (%)
+  maj: "14 novembre 2026",
+  source:
+    "CGI, art. 163 quatervicies (version en vigueur depuis le 21 février 2026, loi n° 2026-103 du 19 février 2026 de finances pour 2026, art. 10) ; service-public.gouv.fr, fiches F34982 (vérifiée le 12 octobre 2026) et F14709 (vérifiée le 15 avril 2026) ; arrêté du 22 décembre 2025 fixant le plafond de la sécurité sociale pour 2026",
+};
+
+// Profils purement illustratifs du guide « plafond PER 2026 » (composites
+// pédagogiques, sans lien avec un cas réel). Salaires = nets imposables 2025.
+export const PER_PLAFOND_EXEMPLES = {
+  profilA: { salaireNetImposable2025: 38000 },
+  profilB: {
+    salaireNetImposable2025: 72000,
+    nonUtilise2023: 3000,
+    nonUtilise2024: 4200,
+    nonUtilise2025: 4600,
+    versementIllustratif2026: 9000,
+  },
+  profilC: {
+    salaireNetImposable2025: 130000,
+    cotisationsRetraiteObligatoiresEntreprise: 3000,
+    abondementEmployeurPereco: 1500,
+  },
+  versementUnitaire: 1000, // base de l'illustration « économie d'impôt pour 1 000 € versés »
+  source: "hypothèses d'illustration pédagogique (14 novembre 2026)",
+};
+
 // ---- Décumulation ----
 export const DECUMULATION = {
   // Taux de conversion indicatif d'un capital en rente viagère à 65 ans,

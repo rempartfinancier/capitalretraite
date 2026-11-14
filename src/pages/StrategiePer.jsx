@@ -294,7 +294,12 @@ export default function StrategiePer() {
             moins la déduction pèse. Ce paramètre arithmétique explique que la question du PER se
             pose différemment selon les niveaux d'imposition, mais il ne constitue jamais à lui
             seul un critère de décision : notre analyse est que l'enveloppe se juge sur la
-            stratégie patrimoniale d'ensemble, au cas par cas.
+            stratégie patrimoniale d'ensemble, au cas par cas. Pour le calcul de ce plafond, sa
+            lecture sur l'avis d'impôt et la date limite d'un versement de fin d'année, voir{" "}
+            <a href="/guide/plafond-per-versement-avant-31-decembre-2026">
+              notre guide sur le plafond du PER en 2026
+            </a>
+            .
           </p>
 
           <h2>Les modes de sortie</h2>

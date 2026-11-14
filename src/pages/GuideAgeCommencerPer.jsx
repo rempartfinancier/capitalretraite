@@ -45,7 +45,12 @@ export default function GuideAgeCommencerPer() {
             d'années de déduction fiscale — chaque exercice fiscal apporte son plafond de
             déduction, et les plafonds non utilisés des trois années précédentes restent
             mobilisables. Commencer à 40 ans plutôt qu'à 50, c'est dix plafonds annuels de plus,
-            indépendamment de toute performance des marchés.
+            indépendamment de toute performance des marchés. Pour savoir ce que vaut précisément
+            ce plafond et jusqu'à quand il se reporte,{" "}
+            <a href="/guide/plafond-per-versement-avant-31-decembre-2026">
+              notre guide sur le plafond du PER et les versements de fin d'année
+            </a>{" "}
+            détaille le calcul et la ligne à lire sur l'avis d'impôt.
           </p>
 
           <h2>Déconstruisons le « c'est trop tard à 50 ans »</h2>

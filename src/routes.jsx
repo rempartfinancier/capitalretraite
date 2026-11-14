@@ -527,6 +527,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/plafond-per-versement-avant-31-decembre-2026",
+    title: "Plafond PER 2026 : verser avant le 31 décembre",
+    description:
+      "Date limite, plafond de déduction (4 710 € à 37 680 €), ligne à lire sur l'avis d'impôt et reports sur 3 ou 5 ans : le PER en fin d'année 2026.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Plafond PER 2026", "/guide/plafond-per-versement-avant-31-decembre-2026"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
