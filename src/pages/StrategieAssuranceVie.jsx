@@ -292,7 +292,12 @@ export default function StrategieAssuranceVie() {
             exécute. Chaque rachat n'est imposé que sur sa part de gains — la part de capital
             retiré n'est pas taxée. C'est l'un des mécanismes de décumulation (la phase où l'on
             consomme le capital accumulé) les plus souples qui existent, et il se combine bien
-            avec d'autres sources de revenus.
+            avec d'autres sources de revenus. Pour chiffrer cette part de gains et l'impôt
+            correspondant, voyez{" "}
+            <a href="/guide/rachat-partiel-assurance-vie-imposition">
+              notre guide sur l'imposition d'un rachat partiel
+            </a>
+            , avec trois cas détaillés.
           </p>
 
           <h2>La fiscalité après 8 ans</h2>

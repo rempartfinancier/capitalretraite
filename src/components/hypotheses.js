@@ -205,6 +205,36 @@ export const PER_PLAFOND_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (14 novembre 2026)",
 };
 
+// ---- Rachat (partiel ou total) d'un contrat d'assurance-vie : impôt sur la part de gains ----
+// Vérifié le 15 novembre 2026. Part de gains d'un rachat partiel = rachat − primes non
+// remboursées × (rachat ÷ valeur de rachat du contrat) (BOI-RPPM-RCM-20-10-20-50, § 80).
+// Les taux 12,8 % / 7,5 %, l'abattement et les prélèvements sociaux de l'assurance-vie
+// restent lus dans FISCALITE ; ce bloc n'ajoute que les paramètres propres au rachat.
+export const AV_RACHAT = {
+  dureeTauxReduitAnnees: 8, // ancienneté du contrat (depuis la souscription) ouvrant le taux réduit et l'abattement
+  seuilPrimesTauxReduit: 150000, // primes non remboursées, tous contrats, par personne, au 31/12 de l'année précédente (€)
+  datePivotPrimes: "27 septembre 2017", // primes versées avant / à compter de cette date : deux régimes
+  pflAvant2017Moins4Ans: 35, // prélèvement forfaitaire libératoire sur option, primes avant le 27/09/2017, contrat < 4 ans (%)
+  pflAvant2017De4A8Ans: 15, // idem, contrat de 4 à 8 ans (%)
+  rfrDispenseAcompteSeul: 25000, // revenu fiscal de référence N-2 sous lequel on peut demander la dispense d'acompte, personne seule (€)
+  rfrDispenseAcompteCouple: 50000, // idem, couple soumis à imposition commune (€)
+  dateLimiteDemandeDispense: "30 novembre", // de l'année précédant celle du rachat
+  maj: "15 novembre 2026",
+  source:
+    "service-public.gouv.fr, fiche F22414 (vérifiée le 15 avril 2026) ; BOFiP, BOI-RPPM-RCM-20-10-20-50 (version du 30 juin 2022) et BOI-RPPM-RCM-20-15 (version du 21 juin 2021) ; impots.gouv.fr, « Les revenus mobiliers » (mise à jour du 8 avril 2026)",
+};
+
+// Cas purement illustratifs du guide « rachat partiel d'assurance-vie » (composites
+// pédagogiques, sans lien avec un cas réel). Toutes les primes sont supposées versées
+// à compter du 27 septembre 2017 ; les prélèvements sociaux sont supposés non encore prélevés.
+export const AV_RACHAT_EXEMPLES = {
+  cas1: { valeurContrat: 50000, primesNonRemboursees: 40000, rachat: 8000 },
+  cas2: { valeurContrat: 200000, primesNonRemboursees: 120000, rachat: 30000 },
+  cas3: { valeurContrat: 400000, primesNonRemboursees: 300000, rachat: 40000 },
+  partsDeGainsGrille: [10, 20, 30, 50], // parts de gains dans le contrat, pour la grille de lecture (%)
+  source: "hypothèses d'illustration pédagogique (15 novembre 2026)",
+};
+
 // ---- Retraite complémentaire Agirc-Arrco (salariés du privé, cadres et non-cadres) ----
 // Vérifié le 14 novembre 2026. Points acquis = salaire de la tranche × taux de calcul
 // des points ÷ valeur d'achat du point ; pension annuelle brute = points × valeur de

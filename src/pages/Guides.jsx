@@ -215,6 +215,11 @@ const categories = [
         title: "L'ordre de décaissement : l'erreur qui coûte cher à la retraite",
         text: "Par quelle enveloppe commencer quand vient le moment de consommer son capital.",
       },
+      {
+        to: "/guide/rachat-partiel-assurance-vie-imposition",
+        title: "Rachat partiel d'assurance-vie : comment est-il imposé ?",
+        text: "Part de gains, avant et après 8 ans, abattement, prélèvements sociaux : la formule et trois cas chiffrés.",
+      },
     ],
   },
   {

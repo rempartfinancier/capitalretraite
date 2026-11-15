@@ -151,3 +151,64 @@ Recoupements secondaires (non cités dans l'article) : legisocial.fr (taux 2026,
   - source primaire ajoutée pour 1,4587 € (barème réglementaire Agirc-Arrco), avec la mention correspondante dans la section « paramètres ».
 - **Reste à confirmer par l'éditeur** : plafond de la majoration pour 3 enfants au 01/11/2026 ; valeur d'achat 2027 (non publiée à ce jour) ; 172 trimestres pour les générations nées à partir de 1966 (règles en mouvement) ; relecture directe de la circulaire 2026-3-DT.
 - Validations après correction : `bun run typecheck` OK, `bun run build` 55/55, `bun run test` 36/36.
+
+---
+
+## 3. Rachat partiel d'assurance-vie : comment est-il imposé ?
+
+- **Slug** : `/guide/rachat-partiel-assurance-vie-imposition` (pilier Coûts & prix / Problèmes, catégorie « Décumulation » de la bibliothèque ; sujet n° 5 de la section 5.1 du scan)
+- **Requête cible** : « Comment est imposé un rachat partiel d'assurance-vie ? exemple »
+- **Longueur** : environ 3 400 mots de corps rendu (dont 8 tableaux, sommaire, FAQ de 8 questions et sources) ; légèrement au-dessus de la cible de 3 200, à élaguer si souhaité (candidats : section « versements avant le 27 septembre 2017 », checklist)
+- **Niveau de risque** : moyen (règles stables ; un point 2026 sensible : prélèvements sociaux à 17,2 %)
+- **Auteur affiché** : `AuthorBox` du gabarit, inchangé (signature existante du site) — à confirmer par l'éditeur. L'encart « Épargne Plurielle / CIF » du SKILL du dépôt n'a pas été appliqué (règle réseau).
+- **Fichiers**
+  - créé : `src/pages/GuideRachatPartielAssuranceVie.jsx`
+  - modifiés : `src/components/hypotheses.js` (blocs `AV_RACHAT` et `AV_RACHAT_EXEMPLES`, ajoutés avant le bloc Agirc-Arrco ; aucune valeur existante modifiée, les taux 12,8 % / 7,5 % / 17,2 % et l'abattement restent lus dans `FISCALITE`), `src/routes.jsx`, `src/App.jsx`, `src/pages/Guides.jsx`, `public/sitemap.xml` (56 URL), `src/pages/StrategieAssuranceVie.jsx` et `src/pages/GuideOrdreDecaissement.jsx` (une phrase de lien entrant chacun)
+- **Validations** (15/11/2026) : `bun run build` (56/56 pages prérendues, 1 seul `<h1>`), `bun run test` (36/36), `bun run typecheck` : OK. Aucune occurrence de Calendly, Épargne Plurielle, CIF, Uptimi, « vous conseillons », « nous recommandons », « À VÉRIFIER » dans la page rendue. Tous les montants sont calculés depuis `hypotheses.js` ; les 28 montants des trois cas, les pourcentages et la grille ont été recalculés par un script Python indépendant et retrouvés à l'identique dans le HTML prérendu.
+
+### Sources officielles (consultées le 15/11/2026)
+
+| Organisme | Document | Ce qui en est tiré | URL |
+|---|---|---|---|
+| Service-Public | Fiche F22414 « Impôt sur le revenu - Comment sont imposés les revenus d'un contrat d'assurance-vie ? », vérifiée le 15/04/2026 | prélèvements sociaux 17,2 % (18,6 % pour rente-survie et épargne handicap) ; primes depuis le 27/09/2017 : acompte non libératoire 12,8 % (< 8 ans) ou 7,5 % (≥ 8 ans), imposition définitive au taux forfaitaire ou au barème, restitution de l'excédent ; abattement 4 600 € / 9 200 € pour l'ensemble des contrats ; seuil de 150 000 € ; dispense d'acompte (RFR < 25 000 € / 50 000 €, demande avant le 30 novembre) ; régime des primes antérieures ; contrats d'avant le 26/09/1997 | https://www.service-public.gouv.fr/particuliers/vosdroits/F22414 |
+| BOFiP | BOI-RPPM-RCM-20-10-20-50, version en vigueur depuis le 30/06/2022 | formule du produit imposable d'un rachat partiel (§ 80) ; primes non remboursées en cas de rachats successifs (§ 90) ; contrats en perte (§ 100 à 120) ; ancienneté décomptée depuis la souscription (§ 200) ; ordre d'imputation de l'abattement (§ 285 à 288) ; acompte calculé sur le brut et régularisation (§ 330 à 365) | https://bofip.impots.gouv.fr/bofip/3951-PGP.html |
+| BOFiP | BOI-RPPM-RCM-20-15, version en vigueur depuis le 21/06/2021 | taux 12,8 % et 7,5 % (§ 100 à 130) ; seuil de 150 000 € : primes non remboursées, tous contrats, seuil personnel, au 31/12 de l'année précédente (§ 140 à 170) ; formule de la fraction à 7,5 % (§ 190) et exemples (§ 220 à 240) ; option globale pour le barème (§ 290 à 340) | https://bofip.impots.gouv.fr/bofip/11224-PGP.html |
+| impots.gouv.fr | « Les revenus mobiliers », mise à jour du 08/04/2026 | prélèvements sociaux à 18,6 % depuis le 01/01/2026, sauf notamment les produits des contrats d'assurance-vie restés à 17,2 % ; 7,5 % pour les primes n'excédant pas 150 000 € ; abattement ; case 2OP | https://www.impots.gouv.fr/particulier/les-revenus-mobiliers |
+
+Non lus (accès refusé ou identifiant introuvable) : Légifrance (CGI art. 125-0 A et 200 A ; CSS art. L. 136-8), economie.gouv.fr (403). L'article ne cite donc aucun article de code.
+
+### Chiffres et points à faire confirmer par un humain
+
+1. **Prélèvements sociaux de 17,2 % sur l'assurance-vie en 2026** : confirmés par deux sources administratives (F22414 vérifiée le 15/04/2026 ; impots.gouv.fr du 08/04/2026). Le texte de loi (LFSS 2026, CSS art. L. 136-8) n'a pas pu être relu sur Légifrance. `FISCALITE.prelevementsSociaux.source` garde son « — À VÉRIFIER » (chaîne non affichée par l'article).
+2. **Prélèvement libératoire de 35 % (moins de 4 ans) et 15 % (4 à 8 ans) pour les primes d'avant le 27/09/2017** : valeurs de connaissance générale (CGI art. 125-0 A) ; la fiche F22414 lue aujourd'hui ne restitue que « 15 % » pour les contrats de moins de 8 ans. À relire sur la fiche ou sur Légifrance.
+3. **Prélèvements sociaux prélevés chaque année sur les fonds en euros** (encadré) : affirmation de principe, non retrouvée dans les pages lues aujourd'hui.
+4. **Calendrier « IFU en début d'année, déclaration au printemps, avis à l'été »** et préremplissage : description générale ; aucun numéro de case n'est cité hormis 2OP (impots.gouv.fr).
+5. **Dispense d'acompte** : seuils et date du 30 novembre repris de F22414 ; « revenu fiscal de référence de l'avant-dernière année » est la formulation de la fiche.
+6. **Acompte de 7,5 % après 8 ans même au-delà de 150 000 € de primes** : conforme à F22414 ; le cas 3 ne chiffre pas l'acompte.
+
+### Affirmations sensibles à relire
+
+- **Grille « rachat annuel dont les gains égalent l'abattement »** (46 000 / 23 000 / 15 333 / 9 200 € pour une personne seule) : simple division abattement ÷ part de gains, présentée comme repère mécanique et explicitement « pas un montant à retirer ». À valider en conformité (peut être lue comme une incitation) ou à retirer.
+- « Le PFU d'un rachat d'assurance-vie de moins de 8 ans est de 30 %, et non de 31,4 % » : déduit de 12,8 % + 17,2 %.
+- « Le calcul se fait au niveau du contrat entier, pas support par support » : déduit de la formule du BOFiP (valeur de rachat totale du contrat).
+- « La moins-value n'est pas déductible de vos autres revenus » (FAQ contrat en perte) et « les gains imposables d'un rachat entrent dans le revenu fiscal de référence » (erreurs fréquentes) : principes généraux non sourcés aujourd'hui.
+- « Un versement fait la neuvième année profite immédiatement du régime des contrats de plus de 8 ans » : découle du § 200 du BOFiP (ancienneté du contrat).
+- FAQ « taux forfaitaire ou barème » : volontairement sans réponse tranchée ; ne mentionne pas la CSG déductible en cas d'option pour le barème.
+- Rachat total : « un nouveau contrat repart de zéro pour le délai de 8 ans » ; exonérations (licenciement, invalidité, etc.) de F22414 non traitées.
+- Le profil « cadre de 63 ans » et les trois cas sont des illustrations signalées comme telles ; aucun contrat ni assureur nommé ; aucune préconisation de montant.
+- Mention finale : lois de finances et de financement de la sécurité sociale pour 2027 non adoptées au 15/11/2026.
+
+### Point d'attention hors périmètre (non corrigé)
+
+- `src/pages/StrategieAssuranceVie.jsx` et `GuideOrdreDecaissement.jsx` datent l'abattement par `HYPOTHESES_MAJ` (« juillet 2026 ») : valeurs toujours exactes. Seule une phrase de lien a été ajoutée à chacune.
+
+### Liens internes
+
+- Sortants : `/guide/ordre-de-decaissement-retraite`, `/guide/rente-viagere-ou-retraits-programmes`, `/strategies/assurance-vie-retraite`, `/bilan-retraite`.
+- Entrants ajoutés : `/strategies/assurance-vie-retraite` (section « Les rachats programmés »), `/guide/ordre-de-decaissement-retraite` (fin de l'exemple sur les rachats étalés), carte dans `/guides` (catégorie « Décumulation »).
+
+### Visuels suggérés
+
+- Schéma réutilisable « Rachat → part de capital (non imposée) / part de gains (imposée) », avec le cas 1 (8 000 € = 6 400 € + 1 600 €).
+- Frise « acompte au rachat → IFU → déclaration → avis d'impôt et restitution ».
+- Arbre de décision : contrat de moins ou de plus de 8 ans → gains sous ou au-dessus de l'abattement → primes sous ou au-dessus de 150 000 €.

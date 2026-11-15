@@ -247,7 +247,13 @@ export default function GuideOrdreDecaissement() {
             reconstitue au 1er janvier, et le couple peut de nouveau racheter{" "}
             {euros(SCENARIO.retraitAvOptimal)} en franchise totale d'impôt sur le revenu. C'est cela,
             concrètement, qu'« étaler ses rachats pour rester sous l'abattement annuel » signifie :
-            ajuster le montant retiré à la composition du contrat, année après année.
+            ajuster le montant retiré à la composition du contrat, année après année. Le calcul de
+            cette part de gains, et de l'impôt qui en découle avant et après 8 ans, est détaillé
+            dans{" "}
+            <a href="/guide/rachat-partiel-assurance-vie-imposition">
+              notre guide sur l'imposition d'un rachat partiel d'assurance-vie
+            </a>
+            .
           </p>
           <div className="note">
             Ce qui aurait changé sans cet ajustement : si le couple avait gardé, par habitude, son

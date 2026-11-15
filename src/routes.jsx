@@ -549,6 +549,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/rachat-partiel-assurance-vie-imposition",
+    title: "Rachat partiel d'assurance-vie : quelle imposition ?",
+    description:
+      "Part de gains, taux avant et après 8 ans, abattement de 4 600 € ou 9 200 €, prélèvements sociaux de 17,2 % : le calcul et trois exemples chiffrés.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Rachat partiel d'assurance-vie", "/guide/rachat-partiel-assurance-vie-imposition"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

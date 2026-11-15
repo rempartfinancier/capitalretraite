@@ -55,6 +55,7 @@ import GuideConseillerOuSeul from "./pages/GuideConseillerOuSeul.jsx";
 import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembourgeoise.jsx";
 import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx";
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
+import GuideRachatPartielAssuranceVie from "./pages/GuideRachatPartielAssuranceVie.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -139,6 +140,10 @@ export default function App() {
           <Route
             path="/guide/retraite-complementaire-agirc-arrco-cadres-calcul"
             element={<GuideAgircArrcoCadres />}
+          />
+          <Route
+            path="/guide/rachat-partiel-assurance-vie-imposition"
+            element={<GuideRachatPartielAssuranceVie />}
           />
           <Route path="*" element={<Home />} />
         </Routes>
