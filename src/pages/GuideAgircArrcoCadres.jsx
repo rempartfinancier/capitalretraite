@@ -66,6 +66,11 @@ const sources = [
   },
   {
     label:
+      "Agirc-Arrco, site de la réglementation — Barème « Valeur de service du point Agirc-Arrco » (1,4587 € au 1er novembre 2026, circulaire 2026-3-DT du 21 octobre 2026)",
+    url: "https://reglementation.agirc-arrco.fr/home/baremes/listes-area/baremes-1/valeur-de-service-du-point-agirc-arrco.html",
+  },
+  {
+    label:
       "Agirc-Arrco — Communiqué du 14 octobre 2026 : revalorisation de 1,4 % des retraites complémentaires au 1er novembre 2026",
     url: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/",
   },
@@ -207,7 +212,8 @@ export default function GuideAgircArrcoCadres() {
             </strong>{" "}
             Ces valeurs proviennent de la circulaire Agirc-Arrco 2025-16 du 30 octobre 2025
             (paramètres 2026) et, pour la valeur de service, de la décision du conseil
-            d'administration du 14 octobre 2026, reprise par la fiche Service-Public F15396.
+            d'administration du 14 octobre 2026, publiée dans le barème réglementaire de
+            l'Agirc-Arrco et reprise par la fiche Service-Public F15396.
           </p>
           <div className="table-scroll">
             <table>
@@ -422,7 +428,7 @@ export default function GuideAgircArrcoCadres() {
           </div>
           <p>
             Les totaux de ce tableau sont de simples repères de lecture, pas des profils types. La
-            pension est versée chaque mois, d'avance. Deux exceptions concernent les très petits
+            pension est versée chaque mois, le 1er jour ouvré du mois. Deux exceptions concernent les très petits
             comptes, d'après la fiche Service-Public F15396 : jusqu'à {A.seuilVersementUnique}{" "}
             points, le versement se fait en une seule fois ; de {A.seuilVersementUnique + 1} à{" "}
             {A.seuilVersementAnnuel} points, il est annuel.
@@ -640,7 +646,8 @@ export default function GuideAgircArrcoCadres() {
           <p>
             Trois points évitent les confusions les plus courantes. D'abord, cette minoration est
             définitive, contrairement à l'ancien « malus » temporaire de 10 % (le coefficient de
-            solidarité), supprimé pour les retraites prenant effet à partir du 1er décembre 2023,
+            solidarité), supprimé, selon La finance pour tous (Institut pour l'éducation
+            financière du public), pour les retraites prenant effet à partir du 1er décembre 2023,
             puis au 1er avril 2024 pour les retraités qui le subissaient encore. Ensuite, il est
             possible de demander sa retraite complémentaire dès {A.ageMinimumAnticipation} ans
             sans avoir liquidé sa retraite de base, mais avec une minoration forte : à 62 ans, par
@@ -657,9 +664,10 @@ export default function GuideAgircArrcoCadres() {
             À l'inverse, deux majorations pour enfants existent, d'après la fiche de l'Agirc-Arrco
             consacrée au sujet : {pct(A.majorationTroisEnfants)} sur les points obtenus depuis
             2012 pour les assurés ayant eu ou élevé au moins trois enfants (avec des taux
-            différents pour les périodes antérieures et un plafond annuel, de{" "}
-            {eurosPrecis(A.plafondMajorationTroisEnfantsNov2025)} bruts dans les paramètres publiés
-            pour 2026), ou {pct(A.majorationEnfantACharge)} par enfant encore à charge au moment
+            différents pour les périodes antérieures et un plafond annuel, fixé à{" "}
+            {eurosPrecis(A.plafondMajorationTroisEnfantsNov2025)} bruts au 1er novembre 2025 par la
+            circulaire Agirc-Arrco 2025-16 ; le montant applicable depuis le 1er novembre 2026
+            n'apparaissait pas dans les documents consultés au {A.maj}), ou {pct(A.majorationEnfantACharge)} par enfant encore à charge au moment
             du départ. Les deux ne se cumulent pas : la plus élevée est versée.
           </p>
 

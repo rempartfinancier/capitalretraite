@@ -59,6 +59,12 @@ Rien n'est poussé ni publié : chaque article ci-dessous attend une relecture h
 - Frise 2023 → 2031 montrant la durée de vie de chaque plafond (3 ans puis 5 ans).
 - Schéma « ordre d'imputation » : plafond de l'année, puis reliquats du plus ancien au plus récent.
 
+### Relecture 2026-11-15
+
+- **Vérifié** : Légifrance, CGI art. 163 quatervicies, en vigueur depuis le 21/02/2026, modifié par la loi n° 2026-103 du 19/02/2026, art. 10 : report sur « l'une des cinq années suivantes ». Service-Public F14709 (vérifiée le 15/04/2026) : 4 710 € / 37 680 € ; plafonds de 2024 et 2025 reportables 3 ans seulement (jusqu'en 2027 et 2028) ; plafond de 2026 reportable sur 2027-2031 ; 70 ans ; limite de 10 jours. impots.gouv.fr (FAQ) : ligne « plafond pour les cotisations versées en 2026 », « plafonds non utilisés des trois années précédentes », case 6QR. PASS 2026 = 48 060 € (F15396) : 4 806 € / 38 448 € sont arithmétiquement exacts et présentés « à législation constante », avec le PLF 2027 indiqué comme non voté. Reliquat de 2023 éteint après le 31/12/2026 : cohérent avec la règle des 3 ans (F14709) et la FAQ impots.gouv.fr ; conservé. Calculs des profils A/B/C refaits : exacts. Liens internes valides, aucune mention interdite.
+- **Corrigé** : rien.
+- **Reste à confirmer par l'éditeur** : libellés exacts des lignes de plafonds non utilisés sur un avis réel (la FAQ impots.gouv.fr ne cite que « plafond total 2024 » et « plafond pour les cotisations versées en 2026 ») ; cases 6NS/6NT/6NU (brochure 2026, non relue ici).
+
 ---
 
 ## 2. Retraite complémentaire Agirc-Arrco des cadres : comment est-elle calculée ?
@@ -134,3 +140,14 @@ Recoupements secondaires (non cités dans l'article) : legisocial.fr (taux 2026,
 - Barres empilées base / complémentaire en part du salaire pour 40 000, 60 000, 80 000 et 120 000 € (tableau théorique).
 - Fiche de paie annotée (anonymisée) : lignes retraite T1, T2, CEG, CET, Apec, avec « donne des points / ne donne pas de points ».
 - Capture annotée d'un relevé de points Agirc-Arrco (anonymisée).
+
+### Relecture 2026-11-15 (article 2, Agirc-Arrco)
+
+- **Vérifié** : Service-Public F15396 (vérifiée le 01/11/2026) : valeur de service 1,4587 €, salaire de référence 20,1877 € en 2026, taux de calcul 6,20 % / 17 %, tranches 48 060 € / 384 480 €, coefficient le plus favorable retenu, 57 ans, seuils de 100 et 200 points, versement le 1er jour ouvré. Barème réglementaire Agirc-Arrco « Valeur de service du point » (reglementation.agirc-arrco.fr) : 1,4587 € au 01/11/2026 (+1,40 %, circulaire 2026-3-DT du 21/10/2026), 1,4386 € au 01/11/2025 (+0,00 %). Ce barème a été lu via l'index de recherche ; le site refuse la connexion directe (certificat). Absence de revalorisation au 01/11/2025 : confirmée par la circulaire 2025-16 (valeur « inchangée », 1,4386 €). Communiqué Agirc-Arrco du 14/10/2026 : +1,4 %. Malus : La finance pour tous (IEFP) confirme la suppression au 01/12/2023 et au 01/04/2024 et la durée de 3 ans. Des actualités Service-Public (A15237 « fin du malus de 10 % », A17234 « avril 2024 ») vont dans le même sens, mais leurs pages redirigent aujourd'hui et n'ont pas été relues : le texte attribue donc l'information à l'IEFP. Tableau « taux de remplacement théorique » : recalculé (69,3 / 66,0 / 62,7 / 59,4 %). La formule de base (50 % du SAM plafonné, maximum 24 030 €/an = 2 002,50 €/mois, F21552) est exacte et les hypothèses sont affichées et étiquetées comme théoriques : il est défendable comme illustration, donc conservé.
+- **Corrigé** :
+  - plafond de la majoration pour enfants : « 2 367,48 € bruts dans les paramètres publiés pour 2026 » → « fixé à 2 367,48 € bruts au 1er novembre 2025 par la circulaire 2025-16 ; montant applicable depuis le 1er novembre 2026 non publié dans les documents consultés » ;
+  - « versée chaque mois, d'avance » → « versée chaque mois, le 1er jour ouvré du mois » (F15396) ;
+  - suppression du malus : attribuée explicitement à La finance pour tous (IEFP) ;
+  - source primaire ajoutée pour 1,4587 € (barème réglementaire Agirc-Arrco), avec la mention correspondante dans la section « paramètres ».
+- **Reste à confirmer par l'éditeur** : plafond de la majoration pour 3 enfants au 01/11/2026 ; valeur d'achat 2027 (non publiée à ce jour) ; 172 trimestres pour les générations nées à partir de 1966 (règles en mouvement) ; relecture directe de la circulaire 2026-3-DT.
+- Validations après correction : `bun run typecheck` OK, `bun run build` 55/55, `bun run test` 36/36.
