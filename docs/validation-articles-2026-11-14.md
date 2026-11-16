@@ -212,3 +212,26 @@ Non lus (accès refusé ou identifiant introuvable) : Légifrance (CGI art. 125-
 - Schéma réutilisable « Rachat → part de capital (non imposée) / part de gains (imposée) », avec le cas 1 (8 000 € = 6 400 € + 1 600 €).
 - Frise « acompte au rachat → IFU → déclaration → avis d'impôt et restitution ».
 - Arbre de décision : contrat de moins ou de plus de 8 ans → gains sous ou au-dessus de l'abattement → primes sous ou au-dessus de 150 000 €.
+
+### Relecture 2026-11-16 (article 3, rachat partiel d'assurance-vie)
+
+- **Vérifié sur source primaire (16/11/2026)**
+  - Prélèvements sociaux 17,2 % : CSS art. L. 136-8 (version en vigueur depuis le 27/06/2026, modifiée par la loi n° 2026-534 du 25/06/2026, art. 65) : I, 2° porte la CSG à 10,6 % pour L. 136-6 et L. 136-7, mais IV, 4° maintient 9,2 % pour « les produits mentionnés au 3° du même II » de L. 136-7 (bons et contrats de capitalisation et placements de même nature) ; L. 136-7, II, 3° lu (version du 21/02/2026). Composantes CRDS / prélèvement de solidarité non relues (l'article ne les détaille pas).
+  - Fonds en euros : prélèvement « lors de leur inscription au bon ou contrat » pour les droits exprimés en euros, y compris la part euros des contrats en unités de compte (L. 136-7, II, 3°, a).
+  - 35 % / 15 % / 7,5 % (primes jusqu'au 26/09/2017) et acompte 12,8 % / 7,5 % : impots.gouv.fr, question « Comment sont imposés les produits des contrats d'assurance-vie depuis le 1er janvier 2018 ? » (modifiée le 20/03/2026). Légifrance CGI 125-0 A non lu.
+  - 12,8 % / 7,5 %, 4 600 / 9 200 €, dispense (25 000 / 50 000 €, 30 novembre), 18,6 % rente-survie / épargne handicap : F22414 (vérifiée le 15/04/2026).
+  - Seuil de 150 000 € (primes non remboursées au 31/12 N-1, tous contrats, seuil personnel) et formule § 190 : BOI-RPPM-RCM-20-15. Formule § 80, ancienneté § 200, ordre d'imputation § 285-288 : BOI-RPPM-RCM-20-10-20-50.
+  - Les trois cas et la grille recalculés par script Python (Decimal) : 33 montants et taux identiques au HTML prérendu (cas 3 : 5,975 % affiché 5,98 %).
+  - Cohérence : mêmes paramètres (`FISCALITE`) et même logique « abattement ÷ part de gains » que `/guide/ordre-de-decaissement-retraite` ; aucun écart avec `/strategies/assurance-vie-retraite` ni `/guide/rente-viagere-ou-retraits-programmes`. Aucun assureur nommé ; grep des mentions interdites : néant.
+- **Corrigé**
+  - Sources : ajout impots.gouv.fr (35 / 15 / 7,5 %) et Légifrance L. 136-8 IV 4° et L. 136-7 II 3° ; citations de ces articles dans le texte (encadré fonds en euros, paragraphe sur les 17,2 %, FAQ).
+  - FAQ 18,6 % : « Seuls certains contrats particuliers… relèvent du taux de 18,6 % » → attribué à la fiche F22414 (« La fiche F22414 indique toutefois… »).
+  - Tableau primes avant 2017, 8 ans et plus : « PFL 7,5 % sur option, après abattement » → « Barème après abattement, ou PFL 7,5 % sur option (calculé sur le brut, l'abattement donnant droit à un crédit d'impôt) » (BOFiP § 330-340).
+  - Cas 3 : précision « versements non remboursés, montant supposé identique au 31 décembre de l'année précédente » (règle d'appréciation du seuil).
+  - Ajout d'un paragraphe sur les rachats exonérés d'impôt sur le revenu (licenciement, retraite anticipée, invalidité 2e/3e catégorie, liquidation judiciaire ; F22414).
+  - Formulations prudentes : « La moins-value n'est pas déductible » → « La perte n'est pas, en principe, déductible » ; gains « entrent dans » le RFR → « sont en principe pris en compte ».
+  - `AV_RACHAT.source` complété.
+- **Grille 46 000 / 23 000 / 15 333 / 9 200 €** : conservée. Calcul exact, repère mécanique non personnalisé, déjà assorti de « Ce n'est pas un montant à retirer », et identique à la logique publiée dans `/guide/ordre-de-decaissement-retraite`. Arbitrage final laissé à l'éditeur (conformité).
+- **Reste à confirmer par l'éditeur** : CGI art. 125-0 A et 1417 (RFR) non lus sur Légifrance ; non-déductibilité de la perte sur rachat (BOFiP § 460 ne vise que la cession de contrats) ; maintien des prélèvements sociaux en cas de rachat exonéré d'IR (non affirmé dans le texte) ; calendrier IFU / déclaration / avis (description générale) ; auteur affiché.
+- **Hors périmètre, non corrigé** : `FISCALITE.prelevementsSociaux.source` (hypotheses.js) cite « LFSS 2026, art. 12 — À VÉRIFIER » alors que la version en vigueur de L. 136-8 résulte aussi de la loi n° 2026-534 (art. 65) ; chaîne non affichée par cet article, à mettre à jour par l'éditeur.
+- Validations après correction : `bun run build` 56/56, `bun run test` 36/36, `bun run typecheck` OK ; `src/routeTree.gen.ts` non modifié.

@@ -120,6 +120,21 @@ const sources = [
       "impots.gouv.fr — Les revenus mobiliers (mise à jour du 8 avril 2026) : prélèvements sociaux à 18,6 % depuis le 1er janvier 2026, produits restant à 17,2 %, case 2OP",
     url: "https://www.impots.gouv.fr/particulier/les-revenus-mobiliers",
   },
+  {
+    label:
+      "impots.gouv.fr — Comment sont imposés les produits des contrats d'assurance-vie depuis le 1er janvier 2018 ? (page modifiée le 20 mars 2026, consultée le 16 novembre 2026) : prélèvement libératoire de 35 %, 15 % ou 7,5 % pour les primes versées jusqu'au 26 septembre 2017, acompte de 12,8 % ou 7,5 % pour les primes ultérieures",
+    url: "https://www.impots.gouv.fr/particulier/questions/jai-effectue-des-retraits-sur-mon-contrat-dassurance-vie-quelles-sont-les",
+  },
+  {
+    label:
+      "Légifrance — Code de la sécurité sociale, art. L. 136-8, IV, 4° (version en vigueur depuis le 27 juin 2026, consultée le 16 novembre 2026) : CSG maintenue à 9,2 % sur les produits des contrats d'assurance-vie et de capitalisation",
+    url: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000051287395",
+  },
+  {
+    label:
+      "Légifrance — Code de la sécurité sociale, art. L. 136-7, II, 3° (version en vigueur depuis le 21 février 2026, consultée le 16 novembre 2026) : prélèvement lors de l'inscription au contrat pour les droits exprimés en euros",
+    url: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053584839",
+  },
 ];
 
 export default function GuideRachatPartielAssuranceVie() {
@@ -331,19 +346,30 @@ export default function GuideRachatPartielAssuranceVie() {
             janvier 2026, les prélèvements sociaux sont passés à {pct(tauxPSAutres)} sur la
             plupart des revenus du capital, mais les produits des contrats d'assurance-vie font
             partie des exceptions restées à {pct(tauxPS)} (impots.gouv.fr, page « Les revenus
-            mobiliers », mise à jour du 8 avril 2026). Le « prélèvement forfaitaire unique » d'un
+            mobiliers », mise à jour du 8 avril 2026) ; le code de la sécurité sociale maintient
+            en effet la CSG à 9,2 % sur ces produits (art. L. 136-8, IV, 4°, version en vigueur
+            depuis le 27 juin 2026). Le « prélèvement forfaitaire unique » d'un
             rachat d'assurance-vie de moins de {duree} ans est donc de {pct(tauxGlobalAvant)}, et
             non de {pct(r2(tauxIR + tauxPSAutres))} comme pour des dividendes ou un compte-titres.
           </p>
           <div className="note">
             <p>
               Sur les fonds en euros, les prélèvements sociaux sont en principe prélevés chaque
-              année, au moment où les intérêts sont inscrits au contrat. Au rachat, seuls les
+              année, au moment où les intérêts sont inscrits au contrat (code de la sécurité
+              sociale, art. L. 136-7, II, 3°). Au rachat, seuls les
               gains qui ne les ont pas encore supportés y sont soumis : la retenue réelle peut
               donc être inférieure à {pct(tauxPS)} de la part de gains. Les exemples ci-dessous
               supposent, par simplicité, qu'aucun prélèvement social n'a encore été acquitté.
             </p>
           </div>
+          <p>
+            Certains rachats sont exonérés d'impôt sur le revenu sur leur part de gains : selon
+            la fiche F22414 de Service-Public.gouv.fr, lorsqu'ils font suite au licenciement, à
+            la mise à la retraite anticipée, à une invalidité de 2e ou 3e catégorie ou à la
+            liquidation judiciaire de l'activité non salariée du souscripteur ou de son conjoint
+            ou partenaire de Pacs, et interviennent avant la fin de l'année qui suit
+            l'événement.
+          </p>
 
           <h2 id="exemples">Combien d'impôt sur un rachat partiel ? Trois cas chiffrés</h2>
           <p>
@@ -494,7 +520,8 @@ export default function GuideRachatPartielAssuranceVie() {
           <h3>Cas 3 : plus de {euros(seuil)} de versements, {euros(c3.rachat)} rachetés</h3>
           <p>
             Une personne seule détient un unique contrat de plus de {duree} ans valant{" "}
-            {euros(c3.valeurContrat)}, pour {euros(c3.primesNonRemboursees)} de versements. Le
+            {euros(c3.valeurContrat)}, pour {euros(c3.primesNonRemboursees)} de versements non
+            remboursés, montant supposé identique au 31 décembre de l'année précédente. Le
             rachat de {euros(c3.rachat)} contient {euros(c3.gains)} de gains. Comme les versements
             dépassent {euros(seuil)}, seule une fraction des gains a droit au taux de{" "}
             {pct(tauxReduit)} : {euros(c3.gains)} × {euros(seuil)} ÷{" "}
@@ -688,8 +715,9 @@ export default function GuideRachatPartielAssuranceVie() {
                 <tr>
                   <td>{duree} ans ou plus</td>
                   <td>
-                    Barème, ou prélèvement libératoire de {pct(tauxReduit)} sur option, après
-                    abattement
+                    Barème après abattement, ou prélèvement libératoire de {pct(tauxReduit)} sur
+                    option (calculé sur le montant brut, l'abattement donnant alors droit à un
+                    crédit d'impôt)
                   </td>
                   <td>
                     {pct(tauxReduit)} jusqu'à {euros(seuil)} de primes, {pct(tauxIR)} au-delà, ou
@@ -739,7 +767,7 @@ export default function GuideRachatPartielAssuranceVie() {
             </li>
             <li>
               <strong>Oublier le revenu fiscal de référence.</strong> Les gains imposables d'un
-              rachat entrent dans les revenus pris en compte pour le calculer, et celui-ci conditionne
+              rachat sont en principe pris en compte pour le calculer, et celui-ci conditionne
               plusieurs seuils (dispense d'acompte, taux de CSG sur les pensions notamment).
             </li>
             <li>
@@ -808,8 +836,10 @@ export default function GuideRachatPartielAssuranceVie() {
           <p>
             Non. La hausse à {pct(tauxPSAutres)} entrée en vigueur le 1er janvier 2026 ne concerne
             pas les produits des contrats d'assurance-vie, qui restent soumis à {pct(tauxPS)}{" "}
-            selon impots.gouv.fr et Service-Public.gouv.fr. Seuls certains contrats particuliers
-            (rente-survie, épargne handicap) relèvent du taux de {pct(tauxPSAutres)}.
+            selon impots.gouv.fr, Service-Public.gouv.fr et le code de la sécurité sociale (art.
+            L. 136-8, IV, 4°). La fiche F22414 de Service-Public.gouv.fr indique toutefois un
+            taux de {pct(tauxPSAutres)} pour certains contrats particuliers (rente-survie,
+            épargne handicap).
           </p>
 
           <h3>Dois-je déclarer un rachat partiel aux impôts ?</h3>
@@ -833,7 +863,8 @@ export default function GuideRachatPartielAssuranceVie() {
           <p>
             Si la valeur du contrat est inférieure aux versements non remboursés, le rachat ne
             contient aucun gain : il n'y a ni impôt sur le revenu ni prélèvements sociaux à
-            régler. La moins-value n'est en revanche pas déductible de vos autres revenus.
+            régler. La perte n'est en revanche pas, en principe, déductible de vos autres
+            revenus.
           </p>
 
           <h3>Les rachats programmés sont-ils imposés différemment ?</h3>
@@ -884,7 +915,7 @@ export default function GuideRachatPartielAssuranceVie() {
           </p>
 
           <h2 id="sources">Sources officielles</h2>
-          <p>Sources consultées le {AV_RACHAT.maj} :</p>
+          <p>Sources consultées le {AV_RACHAT.maj}, sauf date contraire indiquée :</p>
           <ul>
             {sources.map((s) => (
               <li key={s.url}>
