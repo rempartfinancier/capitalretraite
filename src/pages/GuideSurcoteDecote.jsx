@@ -329,7 +329,12 @@ export default function GuideSurcoteDecote() {
             mais plafonné. Les deux mécanismes — éviter la décote et accéder au cumul sans plafond
             — sont donc liés ; notre guide sur{" "}
             <a href="/guide/cumul-emploi-retraite-comment-ca-marche">le cumul emploi-retraite</a>{" "}
-            détaille ce fonctionnement.
+            détaille ce fonctionnement. Et si l'idée est de réduire son activité avant d'avoir
+            demandé sa retraite, c'est un autre dispositif qui s'applique : notre comparaison{" "}
+            <a href="/guide/retraite-progressive-ou-cumul-emploi-retraite">
+              retraite progressive ou cumul emploi-retraite
+            </a>{" "}
+            montre ce qui les distingue.
           </p>
           <p>
             Notre recommandation, si l'on peut en formuler une : faites le calcul avec vos propres

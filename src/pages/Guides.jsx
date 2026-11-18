@@ -247,6 +247,11 @@ const categories = [
         text: "Cumul intégral ou plafonné, droits à la retraite : les règles expliquées simplement.",
       },
       {
+        to: "/guide/retraite-progressive-ou-cumul-emploi-retraite",
+        title: "Retraite progressive ou cumul emploi-retraite : quelle différence ?",
+        text: "Âge, trimestres, pension versée, employeur, règles 2027 : le tableau comparatif et un exemple à 60 %.",
+      },
+      {
         to: "/guide/surcote-decote-retraite",
         title: "Surcote ou décote : comment ça se calcule ?",
         text: "1,25 % par trimestre, dans un sens ou dans l'autre — un mécanisme à anticiper, pas à subir.",

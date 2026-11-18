@@ -88,7 +88,13 @@ export default function GuideCumulEmploiRetraite() {
               travailler sans avoir demandé votre pension. Vous continuez à cotiser normalement et
               à acquérir des droits, exactement comme n'importe quel actif. Ce n'est pas, à
               proprement parler, du cumul emploi-retraite — mais c'est souvent l'étape qui précède
-              la décision.
+              la décision. Si vous réduisez votre temps de travail pendant cette étape, un
+              dispositif distinct peut verser une fraction de pension dès 60 ans : voir notre
+              comparaison{" "}
+              <a href="/guide/retraite-progressive-ou-cumul-emploi-retraite">
+                retraite progressive ou cumul emploi-retraite
+              </a>
+              .
             </li>
             <li>
               <strong>Le cumul emploi-retraite au sens strict</strong> : vous avez liquidé votre

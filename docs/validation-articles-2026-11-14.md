@@ -235,3 +235,81 @@ Non lus (accès refusé ou identifiant introuvable) : Légifrance (CGI art. 125-
 - **Reste à confirmer par l'éditeur** : CGI art. 125-0 A et 1417 (RFR) non lus sur Légifrance ; non-déductibilité de la perte sur rachat (BOFiP § 460 ne vise que la cession de contrats) ; maintien des prélèvements sociaux en cas de rachat exonéré d'IR (non affirmé dans le texte) ; calendrier IFU / déclaration / avis (description générale) ; auteur affiché.
 - **Hors périmètre, non corrigé** : `FISCALITE.prelevementsSociaux.source` (hypotheses.js) cite « LFSS 2026, art. 12 — À VÉRIFIER » alors que la version en vigueur de L. 136-8 résulte aussi de la loi n° 2026-534 (art. 65) ; chaîne non affichée par cet article, à mettre à jour par l'éditeur.
 - Validations après correction : `bun run build` 56/56, `bun run test` 36/36, `bun run typecheck` OK ; `src/routeTree.gen.ts` non modifié.
+
+---
+
+## 4. Retraite progressive ou cumul emploi-retraite : quelle différence à 60 ans ?
+
+- **Slug** : `/guide/retraite-progressive-ou-cumul-emploi-retraite` (pilier Comparaisons, catégorie « Comprendre le système de retraite » de la bibliothèque ; sujet n° 3 de la section 5.1 du scan)
+- **Requête cible** : « Retraite progressive ou cumul emploi-retraite, quelle différence à 60 ans ? »
+- **Longueur** : environ 3 700 mots de corps rendu (sommaire, 3 tableaux, FAQ de 8 questions compris ; hors liste des sources). Au-dessus de la cible de 3 200 : candidats à l'élagage : paragraphe « Fonctionnaires et indépendants », liste des erreurs.
+- **Niveau de risque : ÉLEVÉ — relecture experte requise avant publication** (règles de 2025 et 2026, décrets du 2 novembre 2026, sources administratives de dates différentes).
+- **Auteur affiché** : `AuthorBox` du gabarit, inchangé (signature existante du site) — à confirmer par l'éditeur. L'encart « Épargne Plurielle / CIF » du SKILL du dépôt n'a pas été appliqué (règle réseau).
+- **Fichiers**
+  - créé : `src/pages/GuideRetraiteProgressiveOuCumul.jsx`
+  - modifiés : `src/components/hypotheses.js` (blocs `RETRAITE_PROGRESSIVE_CUMUL` et `RETRAITE_PROGRESSIVE_CUMUL_EXEMPLES`, ajoutés avant « Décumulation » ; aucune valeur existante modifiée), `src/routes.jsx`, `src/App.jsx`, `src/pages/Guides.jsx`, `public/sitemap.xml` (57 URL), `src/pages/GuideCumulEmploiRetraite.jsx` et `src/pages/GuideSurcoteDecote.jsx` (une phrase de lien entrant chacun)
+- **Validations** (18/11/2026) : `bun run build` (57/57 pages prérendues, 1 seul `<h1>`), `bun run test` (36/36), `bun run typecheck` : OK ; `src/routeTree.gen.ts` non modifié. Aucune occurrence de Calendly, Épargne Plurielle, CIF, Uptimi, « vous conseillons », « nous recommandons », « À VÉRIFIER », « À CONFIRMER » dans la page rendue. Tous les montants sont calculés depuis `hypotheses.js` ; les 36 montants et pourcentages des deux grilles, ainsi que 2 403 € et 2 916,85 €, ont été recalculés par un script Python indépendant (Decimal) et retrouvés à l'identique dans le HTML prérendu.
+
+### Sources (consultées le 18/11/2026)
+
+| Organisme | Document | Ce qui en est tiré | URL |
+|---|---|---|---|
+| Service-Public | Fiche F12842 « Retraite progressive du salarié », **vérifiée le 17/11/2025** | 60 ans, 150 trimestres, 40 à 80 % ; procédure employeur (LRAR, 2 mois, silence = accord, refus motivé) ; fraction = 100 % − quotité, exemple 60 % → 40 % ; pension provisoire « selon les droits acquis à la date de la demande » ; suspension / suppression définitive ; pension définitive « ne peut pas être inférieure au montant provisoire » ; surcotisation ; demande 5 mois avant ; activité après retraite définitive = cumul | https://www.service-public.gouv.fr/particuliers/vosdroits/F12842 |
+| Service-Public | Fiche F13243 « Cumul emploi-retraite du salarié », vérifiée le 12/11/2026 | deux régimes (avant / à partir du 01/01/2027) ; cumul intégral et plafonné, 160 % du Smic = 2 916,85 € bruts/mois ou dernier salaire, 6 mois chez le dernier employeur, nouveaux droits depuis le 01/01/2023 plafonnés à 2 403 € bruts/an, aucun droit en cumul plafonné ; 2027 : trois tranches d'âge, 7 000 €, moitié du dépassement, 67 ans, déclaration dans le mois, suspension conservatoire | https://www.service-public.gouv.fr/particuliers/vosdroits/F13243 |
+| Service-Public | Actualité A18914, publiée le 22/05/2026, mise à jour le 10/11/2026 | LFSS 2026 (loi n° 2025-1403 du 30/12/2025), art. 102 ; décrets n° 2026-1016 et n° 2026-1017 du 02/11/2026 (JO du 03/11/2026) ; « seul l'âge est pris en compte » ; personnes concernées (première pension à partir du 01/01/2027) | https://www.service-public.gouv.fr/particuliers/actualites/A18914 |
+| Légifrance | Décret n° 2026-1017 du 02/11/2026 (lu en synthèse, texte intégral non restitué par l'outil) | D. 161-2-8 : seuil de sept mille euros « pour l'année 2027 », revalorisé comme le PASS ; D. 161-2-10 : retenue sur 12 mois, limite d'un tiers par échéance, base puis complémentaire ; D. 161-2-11 : revenus soumis à CSG ; D. 161-2-19 : proratisation | https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000055047344 |
+| Légifrance | Décret n° 2025-681 du 15/07/2025 (JO du 23/07/2025) | D. 161-2-24 : âge « égal à soixante ans » (auparavant âge légal abaissé de deux ans) ; pensions prenant effet à compter du 01/09/2025 (lu via l'index de recherche et l'actualité Service-Public A18399) | https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051942071 |
+| Légifrance | CSS art. L. 161-22-1-5, version en vigueur depuis le 26/10/2025 (modifié par la loi n° 2025-989 du 24/10/2025, art. 6) | « liquidation provisoire et le service d'une même fraction de pension dans tous les régimes de retraite de base légalement obligatoires » ; âge et durée fixés par décret | https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048697292 |
+| Ministère du Travail (Code du travail numérique) | Art. L. 3123-4-1 | accord réputé acquis à défaut de réponse écrite et motivée sous 2 mois ; refus justifié par l'incompatibilité avec l'activité économique | https://code.travail.gouv.fr/code-du-travail/l3123-4-1 |
+| L'Assurance retraite | Page « Retraite progressive » (sans date) | trimestres retenus ; quotité par rapport à la durée légale ou conventionnelle ; forfait jours 87 à 174 jours sur 218 ; pas d'activité indépendante en parallèle ; surcotisation avec l'accord de l'employeur ; demande distincte pour la retraite définitive ; indépendants | https://www.lassuranceretraite.fr/portail-info/home/actif/je-souhaite-partir-plus-tot/retraite-progressive.html |
+| L'Assurance retraite | Page « Cumuler emploi et retraite » (sans date) | seconde pension plafonnée à 5 % du PASS ; cumul plafonné ; règles 2027 (seuil encore présenté au conditionnel) | https://www.lassuranceretraite.fr/portail-info/home/actif/montant-retraite/cumuler-emploi-retraite.html |
+| Service-Public | Fiche F37400 « Retraite progressive de l'agent public », vérifiée le 01/09/2025 | 60 ans, 150 trimestres, quotité de 50 à 90 %, exclusivité, contractuels | https://www.service-public.gouv.fr/particuliers/vosdroits/F37400 |
+| Service-Public | Fiche F14043 (âge légal), vérifiée le 14/08/2026 | âge légal par génération (1966 : 63 ans et 3 mois) | https://www.service-public.gouv.fr/particuliers/vosdroits/F14043 |
+| Agirc-Arrco | Circulaire 2023-8-DRJ du 15/09/2023 (PDF lu) | « coefficients d'abattement spécifiques » sur l'allocation servie pendant la retraite progressive, barème intitulé « coefficients temporaires » | https://www.agirc-arrco.fr/wp-content/uploads/2023/09/Circulaire_Agirc-Arrco_2023_8_DRJ-a1_RetraiteProgressive_bareme_sept2023.pdf |
+
+Non lus : Cnav (circulaires sur le calcul de la pension provisoire : PDF illisibles par l'outil) ; barème Agirc-Arrco 2026 des coefficients de retraite progressive (reglementation.agirc-arrco.fr refuse la connexion, certificat) ; Légifrance, texte intégral de L. 3123-4-1 et du décret n° 2026-1016.
+
+### Sources divergentes signalées au lecteur
+
+1. **Accord de l'employeur** : l'actualité Service-Public A18399 (24/07/2025) range « l'accord de l'employeur » parmi les conditions ; la fiche F12842 et l'article L. 3123-4-1 actuel décrivent le silence de 2 mois valant accord et le refus motivé. L'article explique que la règle a changé.
+2. **Seuil de 7 000 €** : fixé « pour l'année 2027 » par le décret n° 2026-1017 ; la page de l'Assurance retraite le présente encore au conditionnel. L'article dit que le décret fait foi.
+3. **Quotités** : 40 à 80 % (privé) contre 50 à 90 % (fonctionnaires) : présenté comme deux règles distinctes.
+
+### Chiffres et points à faire confirmer par un humain
+
+1. **Fiche F12842 vérifiée le 17/11/2025** (un an) : la plus ancienne des sources centrales. À relire à sa prochaine mise à jour.
+2. **Taux de la pension provisoire** (décote ou non quand le taux plein n'est pas atteint à 60 ans) : aucune source lue ne le détaille ; l'article le dit et renvoie à la caisse. Un index de recherche mentionne un exemple Cnav (circulaire 2025-19) à 37,50 % proratisé, non relu. Point important pour le lecteur de 60 ans : à compléter après lecture d'une circulaire Cnav.
+3. **Coefficients Agirc-Arrco pendant la retraite progressive** : principe tiré de la circulaire de 2023 ; le barème 2026 n'a pas pu être ouvert. Caractère « temporaire » tiré de l'intitulé du barème de 2023.
+4. **Seuil 2027 exactement égal à 7 000 €** : conforme au décret (« pour l'année 2027 ») ; la première revalorisation interviendrait donc au 01/01/2028 (déduction, non écrite dans l'article).
+5. **Délai de 6 mois chez le dernier employeur** : cité uniquement pour les pensions d'avant 2027 ; son maintien dans le régime 2027 n'a pas été vérifié (l'article n'en dit rien).
+6. **Loi n° 2025-989 du 24/10/2025** : identifiée par Légifrance comme texte modificateur de L. 161-22-1-5 (art. 6) ; pour L. 3123-4-1, l'attribution (art. 5) vient d'une source syndicale, donc l'article parle seulement de « rédaction actuelle ».
+7. **Âge légal par génération** (suspension de la réforme) : repris de F14043 ; seul 1966 (63 ans et 3 mois) est cité dans le texte, la liste complète est dans `hypotheses.js` sans être affichée.
+8. **Forfait jours 87 à 174 jours** : source Assurance retraite uniquement.
+9. **2 916,85 € et 2 403 €** : valeurs 2026 de la fiche F13243 ; à réviser au 01/01/2027 (Smic, PASS).
+
+### Affirmations sensibles à relire
+
+- « À 60 ans, pour la plupart des salariés, seule la retraite progressive est accessible » : déduction logique (le cumul suppose une retraite obtenue), formulée avec la réserve des départs anticipés.
+- Exemple à 60 % : la pension provisoire de 2 200 € est une **donnée posée**, non calculée (signalé dans l'encadré) ; salaire supposé proportionnel au temps de travail ; montants bruts. Le total de 82 % du salaire brut n'est pas un taux de maintien du revenu net.
+- Grille « écrêtement 2027 » : application mécanique de la formule sur des revenus bruts annuels, sans la proratisation ni l'assiette CSG (98,25 %) ; signalé comme illustration.
+- « Rien n'interdit au législateur de retoucher ces règles » (PLFSS 2027 non adopté au 18/11/2026) : formule de prudence, sans mesure précise citée.
+- Arbre de décision : oriente vers des critères (droit ouvert, niveau de pension, volume d'activité), sans désigner de choix.
+- « Salaire et pension s'additionnent dans le revenu imposable » : principe général non sourcé ici.
+
+### Point d'attention hors périmètre (non corrigé) — IMPORTANT
+
+- **`src/pages/GuideCumulEmploiRetraite.jsx` contredit la fiche F13243** : il affirme (résumé, section « nouveaux droits », FAQ, synthèse) que depuis la réforme de 2023 le cumul « ne crée plus de nouveaux droits ». La fiche F13243 (vérifiée le 12/11/2026) indique l'inverse : depuis le 1er janvier 2023, le cumul intégral ouvre de nouveaux droits (seconde pension plafonnée à 2 403 € bruts par an), seul le cumul plafonné n'en crée pas. Ce guide ne dit rien non plus des règles 2027. Seule une phrase de lien y a été ajoutée ; les deux pages se contredisent donc sur ce point tant que le guide existant n'est pas corrigé.
+- `src/pages/GuideSurcoteDecote.jsx` décrit le cumul « sans plafond après le taux plein » : exact pour les pensions d'avant 2027 seulement.
+- Recouvrement à surveiller avec la PR #14 (`pieges-du-cumul-emploi-retraite`, `/actualites/cumul-emploi-retraite-nouvelles-regles-2027`) : angle distinct (comparaison), section 2027 volontairement courte ; maillage à poser à la fusion.
+- `HYPOTHESES_MAJ` inchangé : l'article se date par `RETRAITE_PROGRESSIVE_CUMUL.maj`.
+
+### Liens internes
+
+- Sortants : `/guide/cumul-emploi-retraite-comment-ca-marche`, `/guide/verifier-releve-de-carriere-retraite`, `/guide/retraite-fonctionnaires-completer`, `/guide/surcote-decote-retraite`, `/guide/retraite-complementaire-agirc-arrco-cadres-calcul`, `/simulateur-retraite`, `/bilan-retraite`.
+- Entrants ajoutés : `/guide/cumul-emploi-retraite-comment-ca-marche` (section « Qu'est-ce que le cumul emploi-retraite ? », poursuite d'activité sans liquidation), `/guide/surcote-decote-retraite` (paragraphe sur le cumul), carte dans `/guides` (catégorie « Comprendre le système de retraite »).
+
+### Visuels suggérés
+
+- Frise « 60 ans → âge légal → 67 ans » : retraite progressive avant la retraite, cumul après, avec les trois tranches de 2027.
+- Arbre de décision en 3 questions (droit ouvert ? pension au niveau visé ? volume d'activité ?).
+- Barres empilées salaire + fraction de pension pour 40, 50, 60, 70 et 80 % de temps de travail.

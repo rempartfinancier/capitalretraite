@@ -288,6 +288,62 @@ export const AGIRC_ARRCO_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (14 novembre 2026)",
 };
 
+// ---- Retraite progressive et cumul emploi-retraite (comparaison) ----
+// Vérifié le 18 novembre 2026. Retraite progressive : fraction de pension versée =
+// 100 % − quotité de travail. Cumul emploi-retraite, pensions prenant effet à partir du
+// 1er janvier 2027, entre l'âge légal et 67 ans : réduction = 50 % × (revenus − seuil).
+// Aucun de ces paramètres n'est écrit en dur dans la page.
+export const RETRAITE_PROGRESSIVE_CUMUL = {
+  // Retraite progressive (salariés du privé)
+  ageRetraiteProgressive: 60, // âge d'ouverture pour les pensions prenant effet depuis le 1er septembre 2025
+  trimestresRetraiteProgressive: 150, // durée d'assurance et périodes reconnues équivalentes, tous régimes de base
+  quotiteMin: 40, // durée de travail minimale, en % d'un temps complet
+  quotiteMax: 80, // durée de travail maximale, en % d'un temps complet
+  forfaitJoursMin: 87, // équivalent en jours pour un forfait de 218 jours (Assurance retraite)
+  forfaitJoursMax: 174,
+  forfaitJoursReference: 218,
+  delaiReponseEmployeurMois: 2, // sans réponse écrite et motivée dans ce délai, l'accord est réputé acquis
+  delaiDemandeCaisseMois: 5, // demande à la caisse : 5 mois avant la date souhaitée
+  // Retraite progressive (fonctionnaires)
+  quotiteMinFonctionPublique: 50,
+  quotiteMaxFonctionPublique: 90,
+  // Cumul emploi-retraite, pensions prenant effet avant le 1er janvier 2027
+  plafondCumulPlafonneMensuel: 2916.85, // 160 % du Smic, brut par mois (ou dernier salaire si plus élevé)
+  tauxSmicCumulPlafonne: 160,
+  delaiMemeEmployeurMois: 6, // reprise chez le dernier employeur
+  tauxPassSecondePension: 5, // la seconde pension ne peut pas dépasser 5 % du PASS par an
+  pass2026: 48060, // plafond annuel de la sécurité sociale 2026 (€)
+  // Cumul emploi-retraite, pensions prenant effet à partir du 1er janvier 2027
+  seuilCumul2027: 7000, // revenus d'activité et de remplacement par année civile, montant fixé pour 2027 (€)
+  tauxReductionAuDela: 50, // la pension est réduite de 50 % du dépassement, entre l'âge légal et 67 ans
+  ageCumulLibre: 67, // à partir de 67 ans : cumul sans réduction, avec nouveaux droits
+  limiteRetenueMensuelle: "un tiers", // la retenue ne peut pas réduire une échéance de pension de plus d'un tiers
+  // Âge légal de départ par génération (fiche F14043, vérifiée le 14 août 2026)
+  ageLegalParGeneration: [
+    { generation: "1964", age: "62 ans et 9 mois" },
+    { generation: "1965 (janvier à mars)", age: "62 ans et 9 mois" },
+    { generation: "1965 (avril à décembre)", age: "63 ans" },
+    { generation: "1966", age: "63 ans et 3 mois" },
+    { generation: "1967", age: "63 ans et 6 mois" },
+    { generation: "1968", age: "63 ans et 9 mois" },
+    { generation: "1969 et suivantes", age: "64 ans" },
+  ],
+  maj: "18 novembre 2026",
+  source:
+    "service-public.gouv.fr, fiches F12842 (retraite progressive du salarié, vérifiée le 17 novembre 2025), F37400 (agent public, vérifiée le 1er septembre 2025), F13243 (cumul emploi-retraite, vérifiée le 12 novembre 2026), F14043 (âge légal, vérifiée le 14 août 2026) et actualité A18914 (mise à jour le 10 novembre 2026) ; CSS art. L. 161-22-1-5 (version du 26 octobre 2025) et D. 161-2-24 (décret n° 2025-681 du 15 juillet 2025) ; code du travail art. L. 3123-4-1 ; décrets n° 2026-1016 et n° 2026-1017 du 2 novembre 2026 ; lassuranceretraite.fr",
+};
+
+// Hypothèses purement illustratives du guide « retraite progressive ou cumul emploi-retraite »
+// (composite pédagogique, sans lien avec un cas réel). Montants bruts mensuels ou annuels.
+export const RETRAITE_PROGRESSIVE_CUMUL_EXEMPLES = {
+  salaireBrutMensuelTempsPlein: 4000, // salaire brut à temps complet avant la retraite progressive (€)
+  pensionProvisoireMensuelle: 2200, // retraite provisoire entière (base + complémentaire) telle qu'estimée par les caisses : donnée posée, non calculée (€)
+  quotiteExemple: 60, // quotité de travail de l'exemple pas à pas (%)
+  quotitesGrille: [40, 50, 60, 70, 80], // grille « quotité de travail → salaire + fraction de pension »
+  revenusAnnuelsCumul: [7000, 12000, 20000, 28800], // revenus d'activité annuels bruts pour la grille « écrêtement 2027 » (€)
+  source: "hypothèses d'illustration pédagogique (18 novembre 2026)",
+};
+
 // ---- Décumulation ----
 export const DECUMULATION = {
   // Taux de conversion indicatif d'un capital en rente viagère à 65 ans,

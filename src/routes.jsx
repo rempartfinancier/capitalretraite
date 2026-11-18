@@ -560,6 +560,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/retraite-progressive-ou-cumul-emploi-retraite",
+    title: "Retraite progressive ou cumul emploi-retraite ?",
+    description:
+      "Âge, trimestres, pension versée, droits, employeur : retraite progressive (dès 60 ans) et cumul emploi-retraite comparés, avec les règles 2026 et 2027.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Retraite progressive ou cumul", "/guide/retraite-progressive-ou-cumul-emploi-retraite"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
