@@ -313,3 +313,30 @@ Non lus : Cnav (circulaires sur le calcul de la pension provisoire : PDF illisib
 - Frise « 60 ans → âge légal → 67 ans » : retraite progressive avant la retraite, cumul après, avec les trois tranches de 2027.
 - Arbre de décision en 3 questions (droit ouvert ? pension au niveau visé ? volume d'activité ?).
 - Barres empilées salaire + fraction de pension pour 40, 50, 60, 70 et 80 % de temps de travail.
+
+### Relecture 2026-11-18 (article 4, retraite progressive ou cumul)
+
+Relecteur indépendant (Opus). Sources primaires relues le 18/11/2026.
+
+- **Vérifié (conforme)**
+  - F12842 (vérifiée le 17/11/2025) : 60 ans, 150 trimestres, 40-80 % ; LRAR au moins 2 mois avant, silence de 2 mois = accord, refus motivé ; fraction = 100 % − quotité ; pension provisoire sur les droits à la date de la demande ; suspension / arrêt définitif ; pension définitive « ne peut pas être inférieure au montant provisoire » ; surcotisation ; demande possible si déjà à temps partiel. La fiche ne mentionne ni décote ni taux plein pour la pension provisoire : formulation prudente de l'article conservée.
+  - F13243 (vérifiée le 12/11/2026) : 2 916,85 € bruts/mois (160 % du Smic) et 2 403 € bruts/an (= 5 % × PASS 2026 de 48 060 €) bien présentés comme valeurs du régime antérieur à 2027 ; délai de 6 mois chez le dernier employeur cité dans la seule section « avant 2027 » ; déclaration dans le mois (Carsat) ; règles 2027 par âge, 7 000 €, moitié du dépassement, retenue sur 12 mois limitée à un tiers, revenus soumis à CSG, proratisation, liste des activités non prises en compte.
+  - Décret n° 2026-1017 du 02/11/2026 (JORF n° 0257 du 03/11/2026) : D. 161-2-8 « Pour l'année 2027, son montant est fixé à sept mille euros », revalorisation comme le plafond L. 241-3 ; D. 161-2-10 (12 mois, un tiers, base puis complémentaire, plafonnement au montant des pensions) ; D. 161-2-11 (CSG) ; D. 161-2-19 (prorata) ; D. 161-2-9 (activités de R. 161-19 exclues). Aucun délai de 6 mois chez le dernier employeur dans le décret.
+  - A18914 (publiée le 22/05/2026, mise à jour le 10/11/2026) : LFSS 2026 art. 102, décrets 2026-1016/1017, « seul l'âge est pris en compte », retraités d'avant 2027 maintenus dans les anciennes règles même en cas de reprise en 2027, nouveaux droits à partir de 67 ans.
+  - Décret n° 2025-681 du 15/07/2025 (JORF du 23/07/2025, n° 169) : D. 161-2-24 « est égal à soixante ans », pensions prenant effet à compter du 01/09/2025.
+  - L. 3123-4-1 (Code du travail numérique, mis à jour le 26/10/2025) ; F37400 (50-90 %, exclusivité, contractuels) ; F14043 (1966 : 63 ans et 3 mois ; grille de `hypotheses.js` identique) ; Assurance retraite (trimestres retenus, 87-174 jours sur 218, pas d'activité indépendante parallèle, surcotisation avec accord de l'employeur, demande distincte de retraite définitive).
+  - Grilles recalculées par script Python (Decimal) : quotités 40/50/60/70/80 % → totaux 2 920 / 3 100 / 3 280 / 3 460 / 3 640 € (73 / 77,5 / 82 / 86,5 / 91 %) ; écrêtement 2027 pour 7 000 / 12 000 / 20 000 / 28 800 € → 0 / 2 500 / 6 500 / 10 900 € par an (0 / 208 / 542 / 908 € par mois). Conformes. Pension provisoire de 2 200 € bien présentée comme donnée posée.
+  - Conformité : aucune occurrence de Calendly, Épargne Plurielle, Uptimi, CIF, « vous conseillons », « nous recommandons », À VÉRIFIER, À CONFIRMER, TODO, « choisissez » ; aucun produit nommé ; PLFSS 2027 présenté comme non adopté.
+- **Corrigé (avant → après)**
+  - Demande aux caisses « 5 mois avant la date souhaitée » → « au plus tôt 5 mois avant » (F12842 : « au plus tôt 5 mois avant ») ; tableau, FAQ et commentaire de `delaiDemandeCaisseMois`.
+  - Complémentaire : circulaire Agirc-Arrco 2023-8-DRJ (« coefficients d'abattement spécifiques », caractère temporaire déduit de l'intitulé du barème) → circulaire 2025-14-SG-DRJ du 25/08/2025, qui annule et remplace la précédente pour les départs à partir du 01/09/2025 : « coefficient d'anticipation spécifique temporaire » tenant compte des trimestres acquis, barème limité aux effets de septembre à décembre 2025 ; source mise à jour.
+  - Tableau, colonne « à partir du 01/01/2027 », ligne Activité : « Libre » → précision que les sources consultées ne disent pas si le délai de 6 mois chez le dernier employeur est maintenu.
+  - Grille 2027 : ajout que les revenus bruts y servent d'approximation de l'assiette CSG retenue.
+  - Synthèse : « réduisent la pension dès 7 000 € » → « au-delà de 7 000 € ».
+- **Reste à confirmer par l'éditeur**
+  - Taux de la pension provisoire de base (décote ou non avant le taux plein) : non détaillé par F12842 ni par l'Assurance retraite ; circulaire Cnav dédiée non lue.
+  - Barème Agirc-Arrco des coefficients pour les retraites progressives prenant effet en 2026 : non trouvé.
+  - Maintien ou non du délai de 6 mois chez le dernier employeur pour les pensions de 2027 (silence de F13243, A18914 et du décret 2026-1017 ; D. 161-2-6 exige la rupture de tout lien avec l'employeur pour le service de la pension).
+  - Divergence sur l'accord de l'employeur : l'Assurance retraite écrit encore « l'accord de l'employeur est nécessaire » tout en mentionnant le silence de 2 mois ; l'article présente la règle de L. 3123-4-1 (non modifié).
+  - Demande unique valant pour toutes les caisses (FAQ) et mention A18399 : non relues.
+  - 2 916,85 € et 2 403 € : valeurs 2026, à réviser au 01/01/2027.

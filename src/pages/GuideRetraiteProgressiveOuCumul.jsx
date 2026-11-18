@@ -89,8 +89,8 @@ const sources = [
   },
   {
     label:
-      "Agirc-Arrco — Circulaire 2023-8-DRJ du 15 septembre 2023, « Retraite progressive » (coefficients temporaires)",
-    url: "https://www.agirc-arrco.fr/wp-content/uploads/2023/09/Circulaire_Agirc-Arrco_2023_8_DRJ-a1_RetraiteProgressive_bareme_sept2023.pdf",
+      "Agirc-Arrco — Circulaire 2025-14-SG-DRJ du 25 août 2025, « Abaissement de l'âge d'ouverture du droit à retraite progressive à 60 ans - Barème 2025 »",
+    url: "https://www.agirc-arrco.fr/storage/2025/03/Circulaire_Agirc-Arrco_2025_14_SG-DRJ.pdf",
   },
 ];
 
@@ -238,7 +238,7 @@ export default function GuideRetraiteProgressiveOuCumul() {
                   <td>Activité</td>
                   <td>Temps partiel ou réduit de {R.quotiteMin} % à {R.quotiteMax} % d'un temps complet</td>
                   <td>Libre ; délai de {R.delaiMemeEmployeurMois} mois pour reprendre chez le dernier employeur</td>
-                  <td>Libre, sous réserve de la réduction de pension ci-dessous</td>
+                  <td>Libre, sous réserve de la réduction de pension ci-dessous ; les sources consultées ne disent pas si le délai de {R.delaiMemeEmployeurMois} mois chez le dernier employeur est maintenu</td>
                 </tr>
                 <tr>
                   <td>Pension versée</td>
@@ -266,7 +266,7 @@ export default function GuideRetraiteProgressiveOuCumul() {
                 </tr>
                 <tr>
                   <td>Démarche</td>
-                  <td>Demande à la caisse {R.delaiDemandeCaisseMois} mois avant la date souhaitée, avec attestation de l'employeur</td>
+                  <td>Demande à la caisse au plus tôt {R.delaiDemandeCaisseMois} mois avant la date souhaitée, avec attestation de l'employeur</td>
                   <td>Déclaration écrite à la caisse dans le mois suivant la reprise</td>
                   <td>Déclaration dans le mois suivant le début ou la poursuite de l'activité (avant {R.ageCumulLibre} ans)</td>
                 </tr>
@@ -418,10 +418,13 @@ export default function GuideRetraiteProgressiveOuCumul() {
             s'engager ; notre guide sur{" "}
             <a href="/guide/surcote-decote-retraite">la décote et la surcote</a> explique ce que
             ce taux change au montant d'une pension. Ensuite, côté complémentaire, la circulaire
-            Agirc-Arrco 2023-8-DRJ indique que des « coefficients d'abattement spécifiques »
-            s'appliquent à l'allocation servie pendant la retraite progressive lorsque les
-            conditions du taux plein ne sont pas remplies du fait de la durée d'assurance ; le
-            barème les qualifie de temporaires. Le fonctionnement des points est décrit dans notre
+            Agirc-Arrco 2025-14-SG-DRJ du 25 août 2025 indique que, lorsque le salarié ne réunit
+            pas la durée d'assurance du taux plein au régime de base, la retraite complémentaire
+            versée pendant la retraite progressive est affectée d'un « coefficient d'anticipation
+            spécifique temporaire » qui tient compte du nombre de trimestres acquis ; le barème
+            joint à cette circulaire vise les retraites progressives prenant effet de septembre
+            à décembre 2025, et les coefficients applicables ensuite sont à demander à
+            l'Agirc-Arrco. Le fonctionnement des points est décrit dans notre
             guide sur{" "}
             <a href="/guide/retraite-complementaire-agirc-arrco-cadres-calcul">
               le calcul de la retraite complémentaire Agirc-Arrco
@@ -493,7 +496,8 @@ export default function GuideRetraiteProgressiveOuCumul() {
             </table>
           </div>
           <p>
-            Ce tableau applique la formule publiée, rien de plus. Le décret n° 2026-1017 en
+            Ce tableau applique la formule publiée, rien de plus ; les revenus bruts y servent
+            d'approximation de l'assiette réellement retenue. Le décret n° 2026-1017 en
             précise les modalités : les revenus retenus pour un salarié sont ceux soumis à la
             CSG, ils sont proratisés si l'activité ne couvre pas toute l'année civile, la
             réduction ne peut pas dépasser le montant des pensions de la période, et elle est
@@ -662,7 +666,8 @@ export default function GuideRetraiteProgressiveOuCumul() {
           <p>
             La demande à l'employeur se fait au moins {R.delaiReponseEmployeurMois} mois avant
             la date souhaitée ; la demande aux caisses, via le service en ligne « Demander ma
-            retraite progressive », {R.delaiDemandeCaisseMois} mois avant, avec l'attestation
+            retraite progressive », au plus tôt {R.delaiDemandeCaisseMois} mois avant (fiche
+            F12842), avec l'attestation
             complétée par l'employeur. Une seule demande vaut pour toutes les caisses.
           </p>
 
@@ -677,7 +682,7 @@ export default function GuideRetraiteProgressiveOuCumul() {
           <p>
             Ne pas faire cette distinction a un coût : une retraite liquidée trop tôt est
             définitive, et les règles applicables aux pensions prenant effet en 2027 réduisent la
-            pension dès {euros(R.seuilCumul2027)} de revenus annuels jusqu'à {R.ageCumulLibre}{" "}
+            pension au-delà de {euros(R.seuilCumul2027)} de revenus annuels jusqu'à {R.ageCumulLibre}{" "}
             ans. À l'inverse, ignorer la retraite progressive peut conduire à travailler à temps
             partiel plusieurs années sans la fraction de pension à laquelle on avait droit.
           </p>

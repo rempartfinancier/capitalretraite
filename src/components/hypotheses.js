@@ -303,7 +303,7 @@ export const RETRAITE_PROGRESSIVE_CUMUL = {
   forfaitJoursMax: 174,
   forfaitJoursReference: 218,
   delaiReponseEmployeurMois: 2, // sans réponse écrite et motivée dans ce délai, l'accord est réputé acquis
-  delaiDemandeCaisseMois: 5, // demande à la caisse : 5 mois avant la date souhaitée
+  delaiDemandeCaisseMois: 5, // demande à la caisse : au plus tôt 5 mois avant la date souhaitée (F12842)
   // Retraite progressive (fonctionnaires)
   quotiteMinFonctionPublique: 50,
   quotiteMaxFonctionPublique: 90,
