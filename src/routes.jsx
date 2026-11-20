@@ -153,6 +153,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transfert-de-per",
+    title: "Transfert de PER : frais, délais et quand le changement en vaut la peine",
+    description:
+      "Transférer son PER sans fiscalité : les raisons légitimes de changer, ce qu'on peut perdre au passage (garanties, abondement employeur), et comment comparer les frais de transfert à l'économie réelle.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transfert de PER", "/guide/transfert-de-per"],
+    ],
+  },
+  {
     path: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
     title: "Pourquoi votre assurance-vie rapporte si peu — et comment le vérifier",
     description:

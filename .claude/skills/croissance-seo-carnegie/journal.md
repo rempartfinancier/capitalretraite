@@ -229,3 +229,77 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 002 — clôturé le 2026-11-20 (guide : transfert de PER)
+
+**Statut : contenu complet et câblé ; netlinking et preuve sociale non réalisés (accès bloqués).**
+Cycle lancé 92 jours après le cycle 001 (les décisions prévues « à partir du 2026-09-03 »
+n'ont pas été exécutées entre-temps : aucun cycle intermédiaire n'est tracé sur main).
+
+### Phase 1 — Bilan
+- Le connecteur `plugin:marketing:ahrefs` est resté en échec de connexion (proxy 403) à deux
+  tentatives : pas de backlinks ni de mots-clés mesurés.
+- Pas de Search Console, pas de GA4 dans cette session : **aucun KPI de trafic, de conversion
+  `generate_lead` ou de backlink n'a pu être relevé. Aucun chiffre n'a été inventé.**
+- Point de départ inchangé : 54 pages prerendues après ce cycle (53 avant, +1 guide).
+
+### Phase 2 — Recherche & angle
+- Pistes du journal écartées ce cycle : « Agirc-Arrco et taux de remplacement » reste bloqué
+  (le PASS et la valeur du point ne figurent toujours pas dans `hypotheses.js`).
+- Sujet retenu : **transfert de PER**. Gap vérifié : le transfert n'est mentionné que
+  brièvement dans `GuideCoutPer`, `GuidePerBancaire` et `GuideMeilleurPer`, sans page dédiée.
+  Sujet sans chiffre nouveau requis.
+
+### Phase 3 — Production
+- Nouveau guide : `/guide/transfert-de-per` (`src/pages/GuideTransfertPer.jsx`), catégorie
+  **per** de `Guides.jsx`, juste après « Déblocage anticipé du PER ».
+- Câblage : `routes.jsx`, `App.jsx` (import + Route), `Guides.jsx`, `public/sitemap.xml`
+  (priorité 0.7).
+- Maillage sortant (6) : fiscalite-sortie-per, deblocage-anticipe-per, combien-coute-un-per,
+  gestion-pilotee-ou-gestion-libre, quel-est-le-meilleur-per, `/strategies/per`.
+- Maillage entrant (1) : `GuideCoutPer.jsx` (réponse « frais de sortie ou de transfert »).
+- Chiffres : aucun taux de frais de transfert n'est sourcé dans `hypotheses.js`. Le guide
+  reste qualitatif ; le seul calcul est un exemple d'arithmétique pure (50 000 € × 0,5 point
+  = 250 €/an), explicitement étiqueté sans taux sourcé.
+- Build : **54/54 pages**, page non vide. `typecheck` et `test` (36) passent.
+- Anti-plagiat : `content-corpus/` absent du clone, contrôle non réalisable.
+
+### Positions éditoriales en attente
+**Aucune touchée** (le guide n'aborde ni la rente hors PER, ni le mix rente + retraits, ni la
+nue-propriété SCPI).
+
+### Points à valider par Alexandre (à ne pas trancher seul)
+1. **Plafond et gratuité des frais de transfert** : le guide renvoie aux conditions du contrat
+   et ne cite aucun seuil. `GuideCoutPer.jsx` affirme « généralement nuls après cinq ans » :
+   cette durée n'est sourcée nulle part dans `hypotheses.js` et reste à vérifier.
+2. **Abondement employeur** : le guide indique que les versements de l'entreprise restent en
+   principe dans le plan collectif et demande une confirmation RH. À valider juridiquement.
+3. **Écart `AuthorBox` / mention CIF** (déjà signalé au cycle 001, toujours ouvert) : le
+   composant partagé n'affiche pas la mention « Conseil en investissements financiers délivré
+   via Épargne Plurielle, CIF — ORIAS n° 16003696 ». Le guide l'utilise comme les autres.
+
+### Phase 4 — Netlinking : non réalisé
+- Test de sortie réseau : `prismo-retraite.fr` ne résout pas (`ENOTFOUND`, domaine hors
+  périmètre réseau de la session). Conformément à la règle de session, aucun autre domaine
+  n'a été tenté une fois ce blocage constaté.
+- Le guide ne cite aucun tiers : aucune demande de lien ne peut donc être amorcée, la règle
+  « donner avant de demander » n'étant pas remplie. **Aucun brouillon d'outreach rédigé.**
+- Cibles du cycle 001 toujours à qualifier : prismo-retraite.fr, jobpublic.fr,
+  emploi-collectivites.fr, aide-sociale.fr, previssima.fr, devenir-rentier.fr,
+  investisseurs-heureux.fr, avenuedesinvestisseurs.fr, carnet-retraite.fr,
+  epargne-finance-retraite.fr.
+
+### Phase 5 — Preuve sociale : non réalisée
+Aucun accès CRM, réseau social ou messagerie dans la session.
+
+### Décisions pour le cycle 003
+1. **Débloquer l'accès sortant** vers les cibles de la Phase 4 (ou faire lire 2-3 contenus
+   par Alexandre et transmettre ses observations). Sans cela, aucun contact n'est possible.
+2. **Activer `marketing:ahrefs`** (échec de connexion persistant) et/ou partager un accès
+   Search Console/GA4 : sans eux, les Phases 1 et 2 restent aveugles.
+3. Prochain sujet pressenti : « Transfert de PER » étant publié, reprendre soit
+   « Agirc-Arrco et taux de remplacement » (si le PASS et la valeur du point sont fournis
+   pour `hypotheses.js`), soit un passage de maillage croisé sur les guides les plus anciens.
+4. Valider les trois points de la section ci-dessus avant la prochaine relecture.
