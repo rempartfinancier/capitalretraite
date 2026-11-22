@@ -362,6 +362,76 @@ export const DECUMULATION = {
   },
 };
 
+// ---- Cluster décumulation : rente viagère, retraits, capital à constituer ----
+// Vérifié le 22 novembre 2026 — TOUS ces blocs sont À VÉRIFIER avant publication.
+// Fiscalité de la rente viagère à titre onéreux (RVTO) : seule une fraction de la rente
+// est imposable à l'impôt sur le revenu, fixée une fois pour toutes selon l'âge du
+// crédirentier au premier versement (CGI art. 158, 6 ; BOI-RSA-PENS-30-20).
+export const RENTE_VIAGERE = {
+  fractionImposableRvto: [
+    { ageMin: 0, ageMax: 49, partImposable: 70, libelle: "moins de 50 ans" },
+    { ageMin: 50, ageMax: 59, partImposable: 50, libelle: "de 50 à 59 ans" },
+    { ageMin: 60, ageMax: 69, partImposable: 40, libelle: "de 60 à 69 ans" },
+    { ageMin: 70, ageMax: 200, partImposable: 30, libelle: "70 ans et plus" },
+  ],
+  // Prélèvements sociaux sur la fraction imposable de la RVTO. Sources consultées en
+  // novembre 2026 : 18,6 % depuis la LFSS 2026 — À VÉRIFIER (le taux de 17,2 % a pu
+  // être maintenu pour certains revenus, texte à confirmer).
+  prelevementsSociauxRvto: 18.6,
+  rvtoDansRfr: true, // la rente entre dans le revenu fiscal de référence
+  ageConversionIllustratif: 65,
+  tauxInflationIllustratif: 2.0, // cible BCE, pour illustrer l'érosion d'une rente non indexée (%)
+  horizonsErosion: [10, 20, 30], // années
+  tauxMarginalIllustratif: 30, // TMI de l'exemple d'imposition de la rente (%)
+  capitalIllustratif: 100000, // capital converti dans l'exemple (€)
+  maj: "novembre 2026",
+  source:
+    "CGI art. 158, 6 ; BOFiP BOI-RSA-PENS-30-20 ; service-public.gouv.fr / justice.fr, « Impôt sur le revenu - Déclarer les rentes viagères » (mise à jour d'avril 2026) ; taux des prélèvements sociaux à confirmer (LFSS 2026, art. 12) — À VÉRIFIER",
+};
+
+// Retraits réguliers d'un capital : repères d'illustration (jamais des promesses).
+export const RETRAIT_CAPITAL = {
+  // « Règle des 4 % » : retrait initial de 4 % du capital la première année, puis
+  // montant revalorisé de l'inflation. Issue d'études historiques américaines
+  // (Bengen, 1994 ; étude dite « Trinity », 1998) sur des horizons de l'ordre de 30 ans.
+  // Repère de discussion, non transposable tel quel à la France ni à l'avenir.
+  tauxRegle4Pct: 4,
+  horizonRegleAnnees: 30,
+  tauxRetraitGrille: [3, 3.5, 4, 5], // taux de retrait initial testés (%)
+  capitalIllustratif: 300000, // capital de départ de l'exemple (€)
+  rendementIllustratif: 3.0, // lu dans DECUMULATION.rendementCapitalPendantRetraits (%)
+  // Séquence de rendements annuels purement illustrative (10 ans), non historique :
+  // mêmes rendements, ordre inversé. Moyenne arithmétique identique.
+  sequenceDefavorable: [-20, -10, 5, 8, 10, 12, 8, 6, 10, 12],
+  sequenceFavorable: [12, 10, 6, 8, 12, 10, 8, 5, -10, -20],
+  retraitAnnuelSequence: 15000, // retrait annuel fixe de l'exemple de séquence (€)
+  horizonsAnnees: [20, 25, 30], // durées de retraite testées
+  maj: "novembre 2026",
+  source:
+    "W. Bengen, « Determining Withdrawal Rates Using Historical Data », Journal of Financial Planning, 1994 ; Cooley, Hubbard et Walz, étude « Trinity », 1998 ; hypothèses d'illustration pédagogique — À VÉRIFIER",
+};
+
+// Capital à constituer pour compléter une pension (guide « retraite à 65 ans »).
+export const CAPITAL_COMPLEMENT = {
+  revenuCibleMensuelNet: 2500, // revenu mensuel visé (€), purement illustratif
+  pensionMensuelleNette: 1800, // pension nette estimée (€), lue dans ILLUSTRATIF.pensionMensuelleIllustrative
+  ageDepart: 65,
+  dureeRetraiteAnnees: 25, // horizon de planification de l'exemple (années)
+  revenusCiblesGrille: [2000, 2500, 3000, 3500], // revenus visés testés (€/mois)
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER",
+};
+
+// Rachats programmés d'assurance-vie.
+export const RACHATS_PROGRAMMES = {
+  montantMensuelIllustratif: 1000, // rachat programmé mensuel de l'exemple (€)
+  valeurContratIllustrative: 250000, // valeur du contrat (€)
+  primesNonRembourseesIllustratives: 180000, // primes non remboursées (€)
+  frequencesCourantes: ["mensuelle", "trimestrielle", "semestrielle", "annuelle"],
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique ; modalités variables selon les contrats (conditions générales) — À VÉRIFIER",
+};
+
 // ---- Mécanique du régime général : surcote, décote, rachat de trimestres ----
 // Paramètres légaux du Code de la sécurité sociale — plus stables dans le temps
 // que les rendements de marché ci-dessus, mais à revérifier tout de même selon

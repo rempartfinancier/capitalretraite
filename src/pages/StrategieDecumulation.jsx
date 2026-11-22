@@ -5,9 +5,15 @@ import {
   RENDEMENTS,
   FISCALITE,
   DECUMULATION,
+  RETRAIT_CAPITAL,
+  RENTE_VIAGERE,
   euros,
   pct,
 } from "../components/hypotheses.js";
+
+// ---- Repères chiffrés : tout vient de hypotheses.js ----
+const retraitMensuelRegle4 = (RETRAIT_CAPITAL.capitalIllustratif * RETRAIT_CAPITAL.tauxRegle4Pct) / 100 / 12;
+const renteAnnuelleDefaut = (RENTE_VIAGERE.capitalIllustratif * DECUMULATION.tauxConversionRente65.defaut) / 100;
 
 export default function StrategieDecumulation() {
   return (
@@ -25,7 +31,36 @@ export default function StrategieDecumulation() {
 
       <section className="section">
         <div className="container prose">
-          <h2>Qu'est-ce que la décumulation ?</h2>
+          <div className="resume-executif">
+            <p>
+              <strong>L'essentiel :</strong> la décumulation désigne la phase de la retraite où l'on
+              consomme son épargne au lieu de la constituer. Trois voies existent : la rente
+              viagère (revenu à vie, capital aliéné), les retraits programmés (capital conservé,
+              risque de longévité à votre charge) ou une combinaison des deux. Trois leviers pèsent
+              souvent plus que la performance des placements : le rythme de retrait, l'ordre dans
+              lequel on puise dans les enveloppes (PEA, assurance-vie, PER) et le risque de
+              séquence des rendements en début de retraite. Mis à jour en {HYPOTHESES_MAJ}.
+            </p>
+          </div>
+
+          <div className="sommaire">
+            <strong>Sommaire</strong>
+            <ol>
+              <li><a href="#definition">Qu'est-ce que la décumulation ?</a></li>
+              <li><a href="#capitalisation-decumulation">Capitalisation et décumulation : ce qui change</a></li>
+              <li><a href="#voies">Trois grandes voies pour créer un revenu</a></li>
+              <li><a href="#rythme">Quel rythme de retrait ?</a></li>
+              <li><a href="#timing">Le timing de sortie selon les enveloppes</a></li>
+              <li><a href="#ordre">L'ordre de décaissement</a></li>
+              <li><a href="#longevite">Le risque de longévité</a></li>
+              <li><a href="#erreurs">Les erreurs fréquentes</a></li>
+              <li><a href="#etapes">Par où commencer ? Cinq étapes</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
+              <li><a href="#approfondir">Pour aller plus loin</a></li>
+            </ol>
+          </div>
+
+          <h2 id="definition">Qu'est-ce que la décumulation ?</h2>
           <p>
             La décumulation est la phase où votre patrimoine cesse de croître pour financer votre
             vie : vous transformez un stock (le capital constitué) en flux (des revenus réguliers).
@@ -34,7 +69,42 @@ export default function StrategieDecumulation() {
             comptent souvent plus que la performance des placements eux-mêmes.
           </p>
 
-          <h2>Trois grandes voies pour créer un revenu</h2>
+          <h2 id="capitalisation-decumulation">Capitalisation et décumulation : ce qui change</h2>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Critère</th>
+                  <th>Phase de constitution (capitalisation)</th>
+                  <th>Phase de décumulation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Objectif</td>
+                  <td>Faire croître le capital</td>
+                  <td>Transformer le capital en revenus, sans l'épuiser trop tôt</td>
+                </tr>
+                <tr>
+                  <td>Risque dominant</td>
+                  <td>Rendement insuffisant, frais</td>
+                  <td>Longévité, séquence des rendements, fiscalité des sorties</td>
+                </tr>
+                <tr>
+                  <td>Effet d'un marché baissier</td>
+                  <td>Souvent amorti par les versements réguliers</td>
+                  <td>Aggravé : on vend des parts dépréciées pour vivre</td>
+                </tr>
+                <tr>
+                  <td>Décision clé</td>
+                  <td>Quelle enveloppe, combien verser</td>
+                  <td>Par quelle enveloppe puiser, à quel rythme, avec ou sans rente</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="voies">Trois grandes voies pour créer un revenu</h2>
           <h3>La rente viagère</h3>
           <p>
             Vous cédez votre capital à un assureur en échange d'un revenu garanti jusqu'à votre
@@ -72,11 +142,29 @@ export default function StrategieDecumulation() {
           <p>
             La parade la plus simple est une poche sécurisée : conserver l'équivalent de deux à trois ans de retraits sur des supports garantis — typiquement le fonds en euros (support d'assurance-vie dont le capital est garanti par l'assureur, hors faillite de celui-ci), dont le rendement moyen a été de {pct(RENDEMENTS.fondsEuros.moyen)} (moyenne de marché France Assureurs / ACPR pour {RENDEMENTS.fondsEuros.periode}, nette de frais de gestion) — un constat passé qui ne préjuge pas des rendements futurs. Le reste du capital demeure en unités de compte (supports non garantis, dont la valeur fluctue à la hausse comme à la baisse), seuls capables de viser un rendement supérieur sur la durée — sans aucune certitude. En marché baissier, on puise dans la poche sécurisée au lieu de vendre des parts au pire moment, puis on la reconstitue une fois les marchés repris.
           </p>
+          <h3 id="rythme">Quel rythme de retrait ?</h3>
           <p>
             Reste le rythme. Il n'existe aucun taux de retrait universel : le bon niveau dépend de l'âge, des pensions, de la composition du capital et des objectifs de transmission — il se calcule au cas par cas. Dans les simulations ci-dessous, l'hypothèse par défaut retenue pour un capital resté investi prudemment pendant les retraits est de {pct(DECUMULATION.rendementCapitalPendantRetraits)} par an : une hypothèse illustrative, révisée en {HYPOTHESES_MAJ}, en aucun cas une promesse de rendement.
           </p>
           <p>
             Pour visualiser l'arbitrage entre ces deux premières voies, le simulateur ci-dessous compare, à revenu annuel identique, ce que la rente viagère et les retraits programmés versent au total selon votre longévité — et ce qu'il reste à transmettre dans chaque scénario. La grille de lecture est simple : la rente protège contre la longévité extrême, les retraits préservent le capital transmissible.
+          </p>
+          <p>
+            Pour fixer des ordres de grandeur : la « règle des 4 % », issue d'études historiques
+            américaines (Bengen, 1994 ; étude dite « Trinity », 1998), consiste à retirer{" "}
+            {RETRAIT_CAPITAL.tauxRegle4Pct} % du capital la première année puis à revaloriser ce montant de
+            l'inflation. Sur un capital de {euros(RETRAIT_CAPITAL.capitalIllustratif)}, cela représente{" "}
+            {euros(retraitMensuelRegle4)} par mois. C'est un repère de discussion, pas une garantie :
+            construit sur des données américaines passées, il ne se transpose pas tel quel à la
+            France ni à l'avenir. Notre guide{" "}
+            <a href="/guide/combien-retirer-par-mois-capital-retraite">
+              combien retirer par mois d'un capital retraite
+            </a>{" "}
+            en détaille les limites et teste plusieurs taux. À titre de comparaison, la même somme
+            de {euros(RENTE_VIAGERE.capitalIllustratif)} convertie en rente à 65 ans donnerait environ{" "}
+            {euros(renteAnnuelleDefaut)} par an au taux médian (voir{" "}
+            <a href="/guide/rente-viagere-calcul-montant-taux-de-conversion">le calcul du montant d'une rente</a>
+            ), avec un capital définitivement cédé.
           </p>
           <TableRenteVsRetraits />
 
@@ -138,14 +226,18 @@ export default function StrategieDecumulation() {
             irréversibles — elles se préparent des années à l'avance, pas dans l'urgence.
           </p>
 
-          <h2>Le timing de sortie selon les enveloppes</h2>
+          <h2 id="timing">Le timing de sortie selon les enveloppes</h2>
           <p>
             Chaque enveloppe a son propre calendrier fiscal optimal : l'assurance-vie après 8 ans
             avec son abattement annuel (la fraction de revenus exonérée d'impôt), le PEA après{" "}
             {FISCALITE.peaExonerationIRApres} ans, le PER dont la sortie en capital peut
             se fractionner sur plusieurs années pour lisser l'impôt. Sortir de la mauvaise
             enveloppe en premier, ou tout sortir la même année, peut coûter plusieurs points de
-            fiscalité — de manière parfaitement évitable.
+            fiscalité — de manière parfaitement évitable. Notre guide{" "}
+            <a href="/guide/a-quel-age-recuperer-son-capital-retraite">
+              à quel âge récupérer son capital retraite
+            </a>{" "}
+            dresse le calendrier enveloppe par enveloppe.
           </p>
 
           <h2>La fiscalité comparative des sorties</h2>
@@ -156,7 +248,7 @@ export default function StrategieDecumulation() {
             <li><strong>Rentes viagères</strong> : régimes distincts selon l'origine (à titre onéreux, PER, PEA) — du plus taxé au totalement exonéré d'IR.</li>
           </ul>
 
-          <h2>L'ordre de décaissement : par quelle enveloppe commencer ?</h2>
+          <h2 id="ordre">L'ordre de décaissement : par quelle enveloppe commencer ?</h2>
           <p>
             C'est la question la plus structurante de la décumulation — et la moins souvent posée. À patrimoine identique, l'ordre dans lequel on puise dans ses enveloppes peut sensiblement alourdir ou alléger la facture fiscale d'une retraite entière, et changer ce qui restera aux héritiers. Un ordre revient fréquemment dans nos analyses ; il est indicatif, jamais universel, et se vérifie au cas par cas. Notre guide{" "}
             <a href="/guide/ordre-de-decaissement-retraite">
@@ -183,7 +275,7 @@ export default function StrategieDecumulation() {
             Cet ordre — PEA, puis assurance-vie, puis PER — est un ordre indicatif, fréquent dans nos analyses, jamais une règle. Une année de revenus exceptionnellement bas, un projet ponctuel, une succession à préparer ou une TMI durablement faible peuvent l'inverser en tout ou partie. Il n'existe pas de bon ordre dans l'absolu, seulement un ordre adapté à une situation : c'est précisément l'objet d'un calcul au cas par cas.
           </div>
 
-          <h2>Le risque de longévité</h2>
+          <h2 id="longevite">Le risque de longévité</h2>
           <p>
             Une retraite peut durer trente ans. Le vrai risque n'est pas de mourir trop tôt, c'est
             de vivre longtemps avec un capital dimensionné pour quinze ans. Toute stratégie de
@@ -195,7 +287,7 @@ export default function StrategieDecumulation() {
             Les données de l'INSEE ancrent ce risque : à 65 ans, un homme a encore {DECUMULATION.esperanceVie65.hommes} ans devant lui en moyenne, une femme {DECUMULATION.esperanceVie65.femmes} ans (espérance de vie à 65 ans, INSEE, données 2023-2024) — et ce sont des moyennes, qu'une partie des retraités dépassera largement. Dimensionner son capital sur quinze ans, c'est parier contre la statistique.
           </p>
 
-          <h2>Les erreurs fréquentes</h2>
+          <h2 id="erreurs">Les erreurs fréquentes</h2>
           <ul>
             <li><strong>Décapitaliser trop vite</strong> les premières années, quand tout va bien ;</li>
             <li><strong>Puiser dans la mauvaise enveloppe en premier</strong> et gaspiller des abattements fiscaux ;</li>
@@ -214,6 +306,70 @@ export default function StrategieDecumulation() {
             moment exact de départ sur le montant de la pension elle-même — un paramètre à
             anticiper avant même de raisonner sur les enveloppes.
           </p>
+
+          <h2 id="etapes">Par où commencer ? Cinq étapes</h2>
+          <ol>
+            <li><strong>Chiffrer le besoin de revenu</strong> : dépenses courantes et projets, net d'impôt.</li>
+            <li><strong>Lister les revenus déjà acquis</strong> : pensions de base et complémentaires (relevé de carrière et estimation des caisses), éventuels loyers ; notre <a href="/simulateur-retraite">simulateur de retraite</a> donne un premier ordre de grandeur.</li>
+            <li><strong>Mesurer l'écart</strong> à couvrir par l'épargne, puis estimer le capital correspondant (voir <a href="/guide/capital-necessaire-completer-pension-retraite-65-ans">le capital nécessaire pour compléter sa pension</a>).</li>
+            <li><strong>Choisir la ou les voies</strong> : rente pour un socle, retraits ou <a href="/guide/rachats-programmes-assurance-vie-retraite">rachats programmés</a> pour le reste.</li>
+            <li><strong>Fixer l'ordre de sortie et le calendrier fiscal</strong>, puis le revoir chaque année.</li>
+          </ol>
+
+          <h2 id="faq">Questions fréquentes</h2>
+          <h3>Que veut dire « décumulation » ?</h3>
+          <p>
+            C'est le contraire de la capitalisation : au lieu d'épargner pour faire grossir un
+            capital, on le consomme progressivement pour en tirer des revenus, typiquement à la
+            retraite.
+          </p>
+          <h3>Quelle est la différence entre capitalisation et décumulation ?</h3>
+          <p>
+            La capitalisation vise à accumuler ; la décumulation à décaisser sans épuiser le
+            capital trop tôt. Les risques et les règles fiscales ne sont pas les mêmes, comme le
+            résume le tableau ci-dessus.
+          </p>
+          <h3>Quand commencer à décaisser son épargne retraite ?</h3>
+          <p>
+            Cela dépend des enveloppes (disponibilité immédiate pour l'assurance-vie, conditions de
+            sortie propres au PER et au PEA) et du besoin de revenu. Voir notre guide{" "}
+            <a href="/guide/a-quel-age-recuperer-son-capital-retraite">à quel âge récupérer son capital retraite</a>.
+          </p>
+          <h3>Rente viagère ou retraits : lequel choisir ?</h3>
+          <p>
+            Aucune réponse générale : la rente sécurise un revenu à vie au prix d'un capital
+            aliéné, les retraits conservent le capital mais laissent le risque de longévité. Voir{" "}
+            <a href="/guide/rente-viagere-ou-retraits-programmes">le comparatif chiffré</a> et{" "}
+            <a href="/guide/inconvenients-rente-viagere">les inconvénients de la rente viagère</a>.
+          </p>
+          <h3>Comment décaisser une assurance-vie à la retraite ?</h3>
+          <p>
+            Par rachats, ponctuels ou programmés. Seule la part de gains comprise dans chaque
+            rachat est imposée ; voir <a href="/guide/rachat-partiel-assurance-vie-imposition">l'imposition d'un rachat partiel</a>{" "}
+            et <a href="/guide/rachats-programmes-assurance-vie-retraite">la mise en place de rachats programmés</a>.
+          </p>
+          <h3>Quelle fiscalité sur une rente viagère ?</h3>
+          <p>
+            Elle dépend de l'origine : pour une rente à titre onéreux, seule une fraction est
+            imposée selon l'âge au premier versement. Détail dans{" "}
+            <a href="/guide/fiscalite-rente-viagere-titre-onereux">notre guide sur la fiscalité de la rente viagère</a>.
+          </p>
+          <h3>Quel est le meilleur ordre pour puiser dans PEA, assurance-vie et PER ?</h3>
+          <p>
+            Un ordre fréquent dans nos analyses est PEA, puis assurance-vie, puis PER, mais il
+            s'inverse selon les situations ; voir <a href="/guide/ordre-de-decaissement-retraite">l'ordre de décaissement</a>.
+          </p>
+
+          <h2 id="approfondir">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/combien-retirer-par-mois-capital-retraite">Combien retirer par mois d'un capital retraite ?</a></li>
+            <li><a href="/guide/capital-necessaire-completer-pension-retraite-65-ans">Retraite à 65 ans : quel capital pour compléter sa pension ?</a></li>
+            <li><a href="/guide/rente-viagere-calcul-montant-taux-de-conversion">Rente viagère : comment calcule-t-on le montant ?</a></li>
+            <li><a href="/guide/fiscalite-rente-viagere-titre-onereux">Fiscalité de la rente viagère à titre onéreux</a></li>
+            <li><a href="/guide/rachats-programmes-assurance-vie-retraite">Rachats programmés d'assurance-vie</a></li>
+            <li><a href="/guide/a-quel-age-recuperer-son-capital-retraite">À quel âge récupérer son capital retraite ?</a></li>
+            <li><a href="/guide/retraite-progressive-ou-cumul-emploi-retraite">Retraite progressive ou cumul emploi-retraite</a></li>
+          </ul>
 
           <div className="note">
             Piste de réflexion : une stratégie de décaissement articule typiquement un socle de

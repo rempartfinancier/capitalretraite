@@ -571,6 +571,72 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/combien-retirer-par-mois-capital-retraite",
+    title: "Combien retirer par mois d'un capital retraite ?",
+    description:
+      "Règle des 4 %, taux de retrait, risque de séquence : combien retirer chaque mois d'un capital sans l'épuiser, avec des exemples chiffrés.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Combien retirer par mois d'un capital", "/guide/combien-retirer-par-mois-capital-retraite"],
+    ],
+  },
+  {
+    path: "/guide/capital-necessaire-completer-pension-retraite-65-ans",
+    title: "Retraite à 65 ans : quel capital pour compléter sa pension ?",
+    description:
+      "Écart entre revenu visé et pension, capital nécessaire selon trois méthodes (rente, règle des 4 %, retraits sur 25 ans) : exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Capital pour compléter sa pension", "/guide/capital-necessaire-completer-pension-retraite-65-ans"],
+    ],
+  },
+  {
+    path: "/guide/rente-viagere-calcul-montant-taux-de-conversion",
+    title: "Rente viagère : calcul du montant et taux de conversion",
+    description:
+      "Comment un capital devient une rente : taux de conversion, âge, options de réversion, érosion par l'inflation et exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Rente viagère : calcul du montant", "/guide/rente-viagere-calcul-montant-taux-de-conversion"],
+    ],
+  },
+  {
+    path: "/guide/fiscalite-rente-viagere-titre-onereux",
+    title: "Fiscalité de la rente viagère à titre onéreux",
+    description:
+      "Fraction imposable selon l'âge (70 %, 50 %, 40 %, 30 %), prélèvements sociaux, revenu fiscal de référence : le calcul et un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Fiscalité de la rente viagère", "/guide/fiscalite-rente-viagere-titre-onereux"],
+    ],
+  },
+  {
+    path: "/guide/rachats-programmes-assurance-vie-retraite",
+    title: "Rachats programmés d'assurance-vie : un revenu régulier",
+    description:
+      "Mettre en place des rachats programmés d'assurance-vie à la retraite : fréquence, montant, supports vendus, fiscalité et exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Rachats programmés d'assurance-vie", "/guide/rachats-programmes-assurance-vie-retraite"],
+    ],
+  },
+  {
+    path: "/guide/a-quel-age-recuperer-son-capital-retraite",
+    title: "À quel âge récupérer son capital retraite (PER, AV, PEA) ?",
+    description:
+      "PER, assurance-vie, PEA : à quel moment et comment récupérer son capital, avec le calendrier de chaque enveloppe et les démarches.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["À quel âge récupérer son capital", "/guide/a-quel-age-recuperer-son-capital-retraite"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:
