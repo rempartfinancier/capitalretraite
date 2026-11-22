@@ -4,6 +4,13 @@ import {
   FRAIS_TYPES,
   FISCALITE,
   HYPOTHESES_MAJ,
+  GARANTIES,
+  SIMU_DEFAUTS,
+  DECUMULATION,
+  EPARGNE_RETRAITE_EXEMPLES,
+  ENVELOPPES_NOV2026,
+  AV_RACHAT,
+  ENRICH_AVPER_NOV2026,
   euros,
   pct,
 } from "../components/hypotheses.js";
@@ -21,18 +28,55 @@ const fraisInternetAnnuel =
   moy(FRAIS_TYPES.contratInternet.fraisSupports);
 const fraisConseilleAnnuel = fraisInternetAnnuel + moy(FRAIS_TYPES.gestionPiloteeSurcout);
 
+// ---- Calculs illustratifs enrichissement (tout vient de hypotheses.js) ----
+const E = ENRICH_AVPER_NOV2026;
+const psAv = FISCALITE.prelevementsSociaux.assuranceVie;
+const dureeAv = AV_RACHAT.dureeTauxReduitAnnees;
+const seuilPrimes = AV_RACHAT.seuilPrimesTauxReduit;
+const taxeApres8 = FISCALITE.avTauxReduitApres8Ans + psAv; // IR réduit + PS, au-delà de l'abattement
+const taxeAvant8 = FISCALITE.pfuIR + psAv; // PFU + PS
+const gainsEx = E.gainsRachatExemple;
+const irEx = (Math.max(gainsEx - FISCALITE.avAbattementAnnuelSeul, 0) * FISCALITE.avTauxReduitApres8Ans) / 100;
+const psEx = (gainsEx * psAv) / 100;
+const totalEx = irEx + psEx;
+// Capital constitué par versements mensuels (valeurs par défaut du simulateur), 3 scénarios de rendement net.
+const nMois = SIMU_DEFAUTS.dureeAnnees * 12;
+const capitalApres = (rendementAnnuel) => {
+  const i = rendementAnnuel / 100 / 12;
+  return SIMU_DEFAUTS.versementMensuel * (((1 + i) ** nMois - 1) / i);
+};
+const totalVerse = SIMU_DEFAUTS.versementMensuel * nMois;
+// Sortie : rente viagère à titre onéreux sur un capital type, et retrait annuel « règle des 4 % ».
+const capitalSortie = SIMU_DEFAUTS.capitalDecumulation;
+const renteAnnuelle = (capitalSortie * DECUMULATION.tauxConversionRente65.defaut) / 100;
+const ageRente = ENVELOPPES_NOV2026.ageDepartReference;
+const fractionRente = ENVELOPPES_NOV2026.avRenteFractionImposable.find((t) => t.ages === "60 à 69 ans").pct;
+const renteImposable = (renteAnnuelle * fractionRente) / 100;
+const retraitAnnuel = (capitalSortie * EPARGNE_RETRAITE_EXEMPLES.regleRetraitAnnuel) / 100;
+
 export default function GuideMeilleureAssuranceVie() {
   return (
     <>
       <section className="page-header">
         <div className="container">
-          <span className="eyebrow">Comparatif de référence</span>
-          <h1>Quelle est la meilleure assurance-vie pour préparer sa retraite ? Le comparatif par profil</h1>
+          <span className="eyebrow">Assurance-vie et retraite — comparatif de référence</span>
+          <h1>Assurance-vie pour la retraite : laquelle choisir ? Le comparatif par profil</h1>
+          <p className="sub">
+            Comment l'assurance-vie prépare la retraite, quelle fiscalité en {E.maj}, comment choisir
+            un contrat sans classement commercial. Mis à jour en {E.maj}.
+          </p>
         </div>
       </section>
       <section className="section">
         <div className="container prose">
           <div className="resume-executif">
+            <p>
+              <strong>Réponse courte :</strong> l'assurance-vie est une enveloppe souple qui convient
+              bien à la retraite : vous épargnez sans plafond, vous gardez l'accès à l'argent, et
+              après {dureeAv} ans les gains retirés sont taxés à un taux réduit avec un abattement
+              annuel. Le « meilleur » contrat n'existe pas dans l'absolu : il dépend du coût, des
+              supports et de l'accompagnement dont vous avez besoin.
+            </p>
             <p>
               <strong>L'essentiel :</strong> il n'existe pas de « meilleure assurance-vie » universelle
               — trois grands archétypes de contrat coexistent sur le marché français, et le bon choix
@@ -82,6 +126,10 @@ export default function GuideMeilleureAssuranceVie() {
               <li><a href="#comparatif">Le tableau comparatif des trois profils</a></li>
               <li><a href="#choisir">Comment choisir entre gérer seul et être accompagné ?</a></li>
               <li><a href="#luxembourg">Et l'assurance-vie luxembourgeoise, dans tout ça ?</a></li>
+              <li><a href="#av-retraite">Comment l'assurance-vie sert la retraite : constituer puis sortir</a></li>
+              <li><a href="#fiscalite-2026">La fiscalité de l'assurance-vie en {E.maj}</a></li>
+              <li><a href="#checklist">Critères de choix : la checklist avant de souscrire</a></li>
+              <li><a href="#erreurs">Les erreurs fréquentes</a></li>
               <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
             </ol>
@@ -354,7 +402,211 @@ export default function GuideMeilleureAssuranceVie() {
             étudiée.
           </p>
 
+          <h2 id="av-retraite">Comment l'assurance-vie sert la retraite : constituer puis sortir</h2>
+          <p>
+            Une assurance-vie « pour la retraite » n'a pas de statut particulier : c'est un contrat
+            ordinaire que l'on dédie mentalement à cet objectif. Elle intervient en deux temps.
+            Pendant la phase de constitution, vous versez régulièrement (ou ponctuellement) sur des
+            supports adaptés à votre horizon ; à partir de la retraite, vous en tirez un complément
+            de revenu, soit par rachats programmés, soit en rente.
+          </p>
+          <h3>Phase 1 — constituer</h3>
+          <p>
+            Pour fixer les idées : {euros(SIMU_DEFAUTS.versementMensuel)} versés chaque mois
+            pendant {SIMU_DEFAUTS.dureeAnnees} ans représentent {euros(totalVerse)} de versements.
+            Le capital obtenu dépend du rendement net de frais, que personne ne peut garantir :
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rendement annuel net de frais (hypothèse illustrative)</th>
+                  <th>Capital après {SIMU_DEFAUTS.dureeAnnees} ans, avant fiscalité</th>
+                </tr>
+              </thead>
+              <tbody>
+                {EPARGNE_RETRAITE_EXEMPLES.rendementsEpargneNets.map((r) => (
+                  <tr key={r}>
+                    <td>{pct(r)}</td>
+                    <td>{euros(capitalApres(r))}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Ces trois scénarios sont des illustrations, pas des projections : un fonds en euros et
+            un support en actions n'ont ni le même risque ni la même fourchette de résultats. Pour
+            construire un objectif de capital, voir{" "}
+            <a href="/guide/capital-retraite-objectif-et-construction">le capital retraite : objectif
+            et construction</a> et{" "}
+            <a href="/guide/combien-epargner-par-mois-pour-la-retraite-selon-age">combien épargner
+            par mois pour la retraite selon l'âge</a>.
+          </p>
+          <h3>Phase 2 — sortir : rachats programmés ou rente</h3>
+          <p>
+            <strong>Les rachats programmés</strong> consistent à retirer régulièrement une somme du
+            contrat, le reste continuant à être investi. Seule la part de gains incluse dans chaque
+            retrait est imposée, ce qui rend la fiscalité douce et pilotable ; notre guide{" "}
+            <a href="/guide/rachat-partiel-assurance-vie-imposition">rachat partiel d'assurance-vie</a>{" "}
+            détaille le calcul. À titre d'ordre de grandeur non garanti, la règle dite des{" "}
+            {pct(EPARGNE_RETRAITE_EXEMPLES.regleRetraitAnnuel)} (retirer chaque année cette part du
+            capital initial) donnerait {euros(retraitAnnuel)} par an sur {euros(capitalSortie)}.
+          </p>
+          <p>
+            <strong>La rente viagère</strong> transforme le capital en revenu versé à vie : sur{" "}
+            {euros(capitalSortie)}, un taux de conversion indicatif de{" "}
+            {pct(DECUMULATION.tauxConversionRente65.defaut)} donnerait environ{" "}
+            {euros(renteAnnuelle)} par an (barèmes variables selon l'assureur, l'âge et les options).
+            Pour une rente à titre onéreux démarrant à {ageRente} ans, seule une fraction de{" "}
+            {pct(fractionRente)} est imposable, soit {euros(renteImposable)} ici, à soumettre au
+            barème de l'impôt sur le revenu, auxquels s'ajoutent les prélèvements sociaux de{" "}
+            {pct(psAv)}. En contrepartie, le capital n'est plus disponible ni transmissible dans les
+            mêmes conditions. Le sujet est approfondi dans{" "}
+            <a href="/guide/assurance-vie-apres-8-ans-fiscalite-et-rente">l'assurance-vie après 8 ans :
+            fiscalité et rente</a>, et l'enchaînement avec les autres enveloppes dans{" "}
+            <a href="/guide/ordre-de-decaissement-retraite">l'ordre de décaissement à la retraite</a>.
+          </p>
+          <p>
+            L'assurance-vie ne remplace pas le PER dans tous les cas : si votre tranche
+            d'imposition est élevée, comparez les deux avec{" "}
+            <a href="/guide/per-vs-assurance-vie-retraite">notre comparatif PER ou assurance-vie</a>, qui
+            chiffre le résultat selon la TMI et l'horizon, ou avec{" "}
+            <a href="/guide/per-ou-assurance-vie-selon-age-et-tmi">PER ou assurance-vie selon
+            l'âge et la TMI</a>. Voir aussi{" "}
+            <a href="/strategies/assurance-vie-retraite">la stratégie assurance-vie pour la
+            retraite</a>.
+          </p>
+
+          <h2 id="fiscalite-2026">La fiscalité de l'assurance-vie en {E.maj}</h2>
+          <p>
+            L'assurance-vie ne se tarife pas selon le contrat mais selon l'ancienneté de ce dernier
+            et le montant des primes versées. L'impôt ne porte que sur la part de gains comprise
+            dans un retrait, jamais sur le capital versé.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Situation</th>
+                  <th>Impôt sur le revenu sur les gains</th>
+                  <th>Prélèvements sociaux</th>
+                  <th>Ordre de grandeur total sur les gains</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Rachat avant {dureeAv} ans</td>
+                  <td>{pct(FISCALITE.pfuIR)} (prélèvement forfaitaire unique) ou barème sur option</td>
+                  <td>{pct(psAv)}</td>
+                  <td>{pct(taxeAvant8)}</td>
+                </tr>
+                <tr>
+                  <td>Rachat après {dureeAv} ans, primes nettes inférieures à {euros(seuilPrimes)} par personne</td>
+                  <td>
+                    Abattement annuel de {euros(FISCALITE.avAbattementAnnuelSeul)} (seul) ou{" "}
+                    {euros(FISCALITE.avAbattementAnnuelCouple)} (couple), puis{" "}
+                    {pct(FISCALITE.avTauxReduitApres8Ans)}
+                  </td>
+                  <td>{pct(psAv)} sur la totalité des gains</td>
+                  <td>De {pct(psAv)} à {pct(taxeApres8)} selon le montant de gains retiré</td>
+                </tr>
+                <tr>
+                  <td>Rachat après {dureeAv} ans, au-delà de {euros(seuilPrimes)} de primes nettes</td>
+                  <td>Abattement annuel, puis {pct(FISCALITE.pfuIR)} sur la fraction concernée</td>
+                  <td>{pct(psAv)}</td>
+                  <td>Entre les deux cas précédents selon la répartition</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Exemple chiffré, personne seule : un rachat comprenant {euros(gainsEx)} de gains sur un
+            contrat de plus de {dureeAv} ans donne {euros(psEx)} de prélèvements sociaux et{" "}
+            {euros(irEx)} d'impôt sur le revenu (après abattement de{" "}
+            {euros(FISCALITE.avAbattementAnnuelSeul)}), soit {euros(totalEx)} au total, environ{" "}
+            {pct((totalEx / gainsEx) * 100)} des gains. Les prélèvements sociaux de {pct(psAv)} sont
+            restés à ce niveau pour l'assurance-vie, alors que le taux est de{" "}
+            {pct(FISCALITE.prelevementsSociaux.per)} pour le PER, le PEA et le compte-titres. Sur le
+            fonds en euros, ils sont prélevés chaque année lors de l'inscription des intérêts ; sur
+            les unités de compte, lors du rachat. Barèmes en vigueur en {HYPOTHESES_MAJ}, recalculés
+            en {E.maj} : ces taux peuvent changer à chaque loi de finances.
+          </p>
+
+          <h2 id="checklist">Critères de choix : la checklist avant de souscrire</h2>
+          <ol>
+            <li><strong>Les frais sur versement</strong> : de {pct(FRAIS_TYPES.contratInternet.entree.min)} sur un contrat en ligne à {pct(FRAIS_TYPES.contratBancaireTraditionnel.entree.min)}–{pct(FRAIS_TYPES.contratBancaireTraditionnel.entree.max)} sur un contrat bancaire, ordres de grandeur à vérifier.</li>
+            <li><strong>Les frais de gestion annuels</strong> du contrat, sur le fonds en euros comme sur les unités de compte.</li>
+            <li><strong>Les frais courants des supports</strong> : de {pct(FRAIS_TYPES.etf.fraisCourants.min)} à {pct(FRAIS_TYPES.etf.fraisCourants.max)} pour un ETF courant, contre {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.min)} à {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.max)} pour un fonds actions de gestion active classique.</li>
+            <li><strong>L'univers de supports</strong> : fonds en euros, fonds obligataires, actions, immobilier ; diversité réelle ou simple catalogue de fonds « maison ».</li>
+            <li><strong>Les conditions du fonds en euros</strong> : contraintes d'investissement en unités de compte, bonus conditionnels, historique de rendement (jamais une promesse).</li>
+            <li><strong>La solidité de l'assureur</strong> : garantie des assurés à hauteur de {euros(GARANTIES.fgapPlafondParAssureParAssureur)} par assuré et par assureur (FGAP), à vérifier.</li>
+            <li><strong>La gestion pilotée</strong> : profil figé ou revu, surcoût de {pct(FRAIS_TYPES.gestionPiloteeSurcout.min)} à {pct(FRAIS_TYPES.gestionPiloteeSurcout.max)} par an.</li>
+            <li><strong>Les options de sortie</strong> : rachats programmés, rente, règles de transfert et de clause bénéficiaire.</li>
+            <li><strong>Votre besoin d'accompagnement</strong> : qui répond en cas de question fiscale ou de baisse de marché ?</li>
+          </ol>
+          <p>
+            Une étape de plus : lisez les conditions générales et la notice d'information du
+            contrat avant de signer, et comparez le coût total sur la durée plutôt qu'un seul
+            poste. Pour auditer un contrat déjà ouvert, voir{" "}
+            <a href="/guide/combien-coute-une-assurance-vie">combien coûte une assurance-vie</a>.
+          </p>
+
+          <h2 id="erreurs">Les erreurs fréquentes</h2>
+          <ul>
+            <li><strong>Chercher un classement</strong> plutôt qu'un profil de contrat adapté : le classement ne connaît pas votre situation.</li>
+            <li><strong>Négliger l'ancienneté</strong> : fermer un vieux contrat pour en ouvrir un nouveau fait repartir le compteur des {dureeAv} ans à zéro ; garder l'ancien en parallèle est souvent préférable.</li>
+            <li><strong>Ne regarder que les frais de gestion</strong> et ignorer les frais des supports et les frais d'arbitrage.</li>
+            <li><strong>Tout placer sur le fonds en euros</strong> par réflexe, sans lien avec l'horizon : le risque est alors celui de l'érosion par l'inflation, de l'ordre de {pct(RENDEMENTS.inflationLongTerme.moyen)} par an selon l'objectif de la BCE.</li>
+            <li><strong>Oublier la clause bénéficiaire</strong> ou ne pas la mettre à jour après un changement familial.</li>
+            <li><strong>Racheter sans calculer la part de gains</strong> : un rachat n'est pas imposé sur le capital versé, mais sur la part de gains qu'il contient.</li>
+            <li><strong>Opposer systématiquement PER et assurance-vie</strong> alors que les deux se complètent : voir{" "}
+              <a href="/guide/per-vs-assurance-vie-retraite">PER ou assurance-vie</a>.</li>
+          </ul>
+
           <h2 id="faq">Questions fréquentes</h2>
+          <h3>L'assurance-vie est-elle un bon placement pour la retraite ?</h3>
+          <p>
+            Elle y est bien adaptée : pas de plafond de versement, accès à l'argent à tout moment,
+            fiscalité allégée sur les gains après {dureeAv} ans et possibilité de sortie en rente ou
+            en rachats programmés. Elle ne comporte pas de déduction fiscale à l'entrée, ce qui
+            la distingue du PER.
+          </p>
+          <h3>Quelle assurance-vie pour la retraite à 40 ans, à 50 ans ou à 60 ans ?</h3>
+          <p>
+            Le critère n'est pas l'âge mais l'horizon et le besoin de liquidité : plus l'horizon est
+            long, plus la place des supports dynamiques peut être importante ; plus la retraite est
+            proche, plus la sécurisation compte. Voir{" "}
+            <a href="/guide/per-ou-assurance-vie-selon-age-et-tmi">PER ou assurance-vie selon l'âge
+            et la TMI</a>.
+          </p>
+          <h3>Combien faut-il verser par mois sur une assurance-vie pour sa retraite ?</h3>
+          <p>
+            Cela dépend de l'objectif de complément de revenu, de l'horizon et du rendement net
+            retenu (non garanti). Notre guide{" "}
+            <a href="/guide/combien-epargner-par-mois-pour-la-retraite-selon-age">combien épargner
+            par mois pour la retraite</a> chiffre plusieurs hypothèses.
+          </p>
+          <h3>Comment sortir de son assurance-vie à la retraite : rente ou rachats ?</h3>
+          <p>
+            Les rachats gardent le capital disponible et transmissible, avec une fiscalité qui ne
+            porte que sur les gains ; la rente garantit un revenu à vie mais fige le capital. Les deux
+            ne sont pas exclusifs : on peut convertir une partie du contrat seulement. Voir{" "}
+            <a href="/guide/assurance-vie-apres-8-ans-fiscalite-et-rente">l'assurance-vie après 8 ans</a>.
+          </p>
+          <h3>Assurance-vie ou PER : lequel choisir pour préparer sa retraite ?</h3>
+          <p>
+            Le PER est souvent plus intéressant si votre TMI est élevée et si vous pouvez bloquer
+            l'argent ; l'assurance-vie convient mieux quand la souplesse ou la transmission comptent.
+            Les deux sont fréquemment combinés : voir le{" "}
+            <a href="/guide/per-vs-assurance-vie-retraite">comparatif PER ou assurance-vie</a>.
+          </p>
+          <h3>Les prélèvements sociaux de l'assurance-vie ont-ils augmenté en 2026 ?</h3>
+          <p>
+            Pas pour l'assurance-vie : le taux de {pct(psAv)} a été maintenu, alors que celui du PER,
+            du PEA et du compte-titres est passé à {pct(FISCALITE.prelevementsSociaux.per)} (LFSS
+            2026, à vérifier avant décision).
+          </p>
           <h3>Peut-on changer de type de contrat en cours de route, par exemple passer d'un contrat bancaire à un contrat en ligne ?</h3>
           <p>
             Pas directement par un simple transfert : il n'existe pas, à ce jour, de portabilité totale

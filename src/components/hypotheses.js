@@ -344,6 +344,147 @@ export const RETRAITE_PROGRESSIVE_CUMUL_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (18 novembre 2026)",
 };
 
+// ---- Enveloppes retraite : paramètres complémentaires (lot SEO « enveloppes ») ----
+// Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+export const ENVELOPPES_NOV2026 = {
+  // PEA (CMF, art. L. 221-30 et suivants)
+  peaPlafondVersements: 150000, // plafond de versements du PEA classique (€)
+  peaPmePlafondCumule: 225000, // plafond cumulé PEA + PEA-PME (€)
+  peaAgeMinimumOuverture: 18, // majeur, un seul PEA par personne
+  peaFraisTransfertMax: { parLigne: 15, total: 150 }, // plafonds des frais de transfert de titres loi Pacte (€) — À VÉRIFIER
+  // Assurance-vie : rente viagère à titre onéreux (CGI, art. 158, 6) — fraction imposable
+  // de la rente selon l'âge du crédirentier à la date d'entrée en jouissance (%)
+  avRenteFractionImposable: [
+    { ages: "moins de 50 ans", pct: 70 },
+    { ages: "50 à 59 ans", pct: 50 },
+    { ages: "60 à 69 ans", pct: 40 },
+    { ages: "70 ans et plus", pct: 30 },
+  ],
+  // Assurance-vie : transmission (rappel pour les articles ; valeurs détaillées dans TRANSMISSION)
+  avPrimesAvant70Ans: true,
+  // Âge de référence pour les simulations « selon l'âge »
+  ageDepartReference: 64, // âge de départ de la génération 1969 et suivantes (cf. RETRAITE_PROGRESSIVE_CUMUL)
+  maj: "novembre 2026",
+  source:
+    "Code monétaire et financier art. L. 221-30 et s. (PEA) ; CGI art. 158, 6 (rente viagère à titre onéreux) ; service-public.gouv.fr (fiches PEA, assurance-vie) — À VÉRIFIER avant publication",
+};
+
+// Hypothèses purement illustratives des guides « combien épargner » et « capital retraite »
+// (composites pédagogiques, jamais des projections). Novembre 2026 — À VÉRIFIER.
+export const EPARGNE_RETRAITE_EXEMPLES = {
+  agesActuels: [30, 40, 50], // âges de départ de la grille d'épargne mensuelle
+  ageDepart: 64, // âge de liquidation retenu dans les exemples
+  complementsMensuelsCibles: [500, 1000, 1500], // complément de revenu visé en plus des pensions (€/mois, en euros d'aujourd'hui)
+  dureeRetraiteAnnees: 25, // durée de décaissement retenue pour dimensionner le capital
+  rendementsEpargneNets: [2, 4, 6], // rendements annuels nets de frais, scénarios illustratifs (%)
+  rendementDecaissementNet: 3, // rendement net du capital pendant la phase de retraits (%)
+  inflationAnnuelle: 2, // inflation retenue pour exprimer les montants en euros d'aujourd'hui (%)
+  regleRetraitAnnuel: 4, // règle dite des 4 % : retrait annuel initial en % du capital — ordre de grandeur, non garanti
+  capitauxCiblesGrille: [100000, 200000, 300000, 500000], // capitaux de la grille « capital → complément mensuel » (€)
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026), à réviser avec les autres — À VÉRIFIER",
+};
+
+// ---- Guide « PEA en ligne » : hypothèses de l'exemple de frais cumulés ----
+// Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+// Purement illustratif : deux grilles tarifaires fictives, jamais celles d'un établissement.
+export const PEA_LIGNE_NOV2026 = {
+  versementMensuel: 300, // versement mensuel de l'exemple (€)
+  dureeAnnees: 20, // durée de l'exemple (années)
+  ordresParAn: 12, // un ordre d'achat par mois (versement programmé)
+  grilleHaute: { courtagePct: 0.5, droitsGardePct: 0.4 }, // proche des plafonds loi Pacte (% par ordre en ligne ; % annuel de la valeur du plan) — À VÉRIFIER
+  grilleBasse: { courtagePct: 0.1, droitsGardePct: 0 }, // grille fictive d'un acteur à tarif réduit — À VÉRIFIER
+  nbEtfsPortefeuilleType: 2, // nombre de lignes d'un portefeuille type en ETF (pour les droits de garde forfaitaires éventuels)
+  maj: "novembre 2026",
+  source: "plafonds de frais du décret d'application de la loi Pacte (PEA) et grilles publiques — hypothèses d'illustration, À VÉRIFIER avant publication",
+};
+
+// Guide « capital retraite : objectif et construction » — paramètres de la trajectoire.
+// Bloc daté novembre 2026 — À VÉRIFIER. Illustration pédagogique, jamais une projection.
+export const CAPITAL_RETRAITE_NOV2026 = {
+  horizonsTrajectoireAnnees: [15, 25], // durées de constitution comparées dans l'ordre de grandeur de la trajectoire (années)
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER",
+};
+
+// ---- Assurance-vie après 8 ans : exemple rente viagère à titre onéreux vs rachats (novembre 2026) ----
+// Cas purement illustratif (composite pédagogique, sans lien avec un cas réel). La fraction
+// imposable est lue dans ENVELOPPES_NOV2026.avRenteFractionImposable (tranche d'âge ci-dessous),
+// le taux de conversion dans DECUMULATION. Base et taux des prélèvements sociaux sur une rente
+// viagère à titre onéreux : hypothèse retenue = fraction imposable × 17,2 % — À VÉRIFIER.
+export const AV_8ANS_NOV2026 = {
+  capitalConverti: 200000, // valeur du contrat converti en rente (€)
+  primesNonRemboursees: 140000, // versements non remboursés du même contrat, pour l'exemple des rachats (€)
+  ageEntreeRente: 65, // âge du crédirentier à l'entrée en jouissance (ans)
+  trancheAge: "60 à 69 ans", // tranche correspondante de avRenteFractionImposable
+  tmisExemple: [11, 30], // tranches marginales d'imposition illustrées (%) — doivent figurer dans FISCALITE.tmiOptions
+  maj: "novembre 2026",
+  source:
+    "CGI, art. 158, 6 (rente viagère à titre onéreux) ; BOFiP, BOI-RPPM-RCM-20-10-20-50 ; hypothèse de base des prélèvements sociaux sur la rente — À VÉRIFIER avant publication",
+};
+
+// ---- Guide « PER ou assurance-vie selon l'âge et la TMI » (novembre 2026) ----
+// Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+// Hypothèses purement illustratives (composites pédagogiques, jamais des projections).
+export const PER_AV_AGE_TMI = {
+  agesProfils: [35, 45, 55, 60], // âges d'ouverture des profils illustratifs (ans)
+  gainsIllustratifsPct: 50, // gains supposés à la sortie, en % du versement : hypothèse de calcul, non un rendement attendu
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER",
+};
+
+// ---- Enrichissement guides « assurance-vie retraite » et « PER ou assurance-vie » ----
+// Bloc daté novembre 2026 — paramètres purement illustratifs (composites pédagogiques,
+// sans lien avec un cas réel, jamais des projections) — TOUT est À VÉRIFIER.
+// Les TMI sont des hypothèses de profil, pas des calculs d'impôt réels.
+export const ENRICH_AVPER_NOV2026 = {
+  versementPerBrut: 10000, // versement brut sur le PER de l'illustration « selon la TMI et l'horizon » (€)
+  // Couples (TMI à l'entrée, TMI à la sortie) comparés, en %
+  couplesTmi: [
+    { entree: 11, sortie: 11 },
+    { entree: 30, sortie: 11 },
+    { entree: 30, sortie: 30 },
+    { entree: 41, sortie: 30 },
+    { entree: 41, sortie: 41 },
+  ],
+  horizonsAnnees: [10, 20, 30], // horizons de la grille (années)
+  horizonReference: 20, // horizon du tableau principal (années)
+  indexRendement: 1, // indice dans EPARGNE_RETRAITE_EXEMPLES.rendementsEpargneNets (scénario médian)
+  // TMI supposées des profils de salaire de PER_PLAFOND_EXEMPLES (hypothèse, célibataire sans autre revenu) — À VÉRIFIER
+  tmiProfilsPlafond: { profilA: 30, profilB: 30, profilC: 41 },
+  gainsRachatExemple: 10000, // gains inclus dans un rachat après 8 ans, exemple de taux effectif (€)
+  // Profils illustratifs « qui choisit quoi » (âge, TMI actuelle, TMI de retraite supposée)
+  profils: [
+    { id: "jeune", age: 32, tmi: 11, tmiRetraite: 11 },
+    { id: "cadre", age: 45, tmi: 30, tmiRetraite: 11 },
+    { id: "cadreSup", age: 50, tmi: 41, tmiRetraite: 30 },
+    { id: "procheRetraite", age: 60, tmi: 30, tmiRetraite: 30 },
+  ],
+  maj: "novembre 2026",
+  source:
+    "hypothèses d'illustration pédagogique (novembre 2026) ; calculs réalisés à partir de FISCALITE, PER_PLAFOND, AV_RACHAT et EPARGNE_RETRAITE_EXEMPLES — À VÉRIFIER",
+};
+
+// ---- Enrichissement pages « combien épargner » et « PEA banque ou courtier » ----
+// Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+export const ENRICH_EPPEA_EPARGNE = {
+  revenuNetMensuelIllustratif: 3000, // revenu net mensuel type pour exprimer l'effort d'épargne en % du revenu (€) — purement pédagogique
+  horizonFraisAnnees: 20, // horizon de l'illustration frais + inflation (années)
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER",
+};
+export const ENRICH_EPPEA_PEA = {
+  // Plafonds légaux des frais d'un PEA (décret d'application de la loi Pacte) — À VÉRIFIER auprès de l'établissement
+  fraisOuvertureMax: 10, // frais d'ouverture, ordre de grandeur (€)
+  fraisTenueCompteMaxPct: 0.4, // tenue de compte et droits de garde, % annuel de la valeur du plan
+  fraisOrdreEnLignePct: 0.5, // courtage par ordre passé en ligne (% du montant)
+  fraisOrdreAutreCanalPct: 1.2, // courtage par un autre canal (% du montant)
+  versementsCumulesExemple: 120000, // versements cumulés d'un PEA type, doit rester < plafond de versements (€) — illustratif
+  capitalExemple: 200000, // valeur du plan à la sortie dans l'exemple de fiscalité (€) — illustratif
+  maj: "novembre 2026",
+  source: "décret d'application de la loi Pacte (frais PEA) ; CMF art. L. 221-30 et s. ; hypothèses d'illustration — À VÉRIFIER avant publication",
+};
+
 // ---- Décumulation ----
 export const DECUMULATION = {
   // Taux de conversion indicatif d'un capital en rente viagère à 65 ans,
