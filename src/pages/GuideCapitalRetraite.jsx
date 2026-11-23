@@ -535,6 +535,12 @@ export default function GuideCapitalRetraite() {
             faites le point lors d'un <a href="/bilan-retraite">bilan retraite gratuit</a>.
           </p>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/preparer-sa-retraite-guide-complet">Préparer sa retraite : le guide complet</a></li>
+            <li><a href="/guide/estimer-sa-pension-retraite-taux-de-remplacement">Estimer sa pension de retraite et son taux de remplacement</a></li>
+          </ul>
+
           <h2 id="sources">Sources</h2>
           <p>Sources consultées en novembre 2026, sauf date contraire indiquée :</p>
           <ul>

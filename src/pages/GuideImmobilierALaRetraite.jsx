@@ -568,6 +568,11 @@ export default function GuideImmobilierALaRetraite() {
             l'immobilier parmi les autres leviers.
           </p>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/immobilier-et-retraite-guide-complet">Immobilier et retraite : le guide complet</a></li>
+          </ul>
+
           <h2 id="sources">Sources officielles</h2>
           <p>Sources consultées le {IMMO.maj} :</p>
           <ul>

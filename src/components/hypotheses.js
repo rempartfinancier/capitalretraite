@@ -799,3 +799,98 @@ export const euros = (n) =>
 
 // Format pourcentage à la française (2.6 → « 2,6 % »).
 export const pct = (n) => n.toLocaleString("fr-FR") + " %";
+
+// ---- Estimation de pension et âge de départ (vague 2 SEO, pages « estimer sa pension » et « âge de départ / trimestres ») ----
+// Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+export const ESTIMATION_PENSION_NOV2026 = {
+  nombreMeilleuresAnnees: 25, // années de salaire retenues pour le salaire annuel moyen (régime général) — À VÉRIFIER
+  dureeReferenceTrimestres: 172, // durée d'assurance requise, générations nées à partir de 1966 (cohérent avec AGIRC_ARRCO_EXEMPLES.dureeCarriereAnnees) — À VÉRIFIER
+  trimestresMaxParAn: 4, // un an d'activité valide au plus 4 trimestres — À VÉRIFIER
+  heuresSmicParTrimestre: 150, // rémunération équivalente à 150 heures de Smic pour valider un trimestre — À VÉRIFIER
+  majorationEnfantTrimestres: { maternite: 4, education: 4 }, // majorations de durée d'assurance par enfant (selon la situation et le partage) — À VÉRIFIER
+  // Exemples purement illustratifs (composites pédagogiques) : salaire brut annuel constant, en euros de 2026
+  exempleSalaireNonCadre: 30000,
+  exempleSalaireCadre: 80000,
+  exempleTrimestresCarriereIncomplete: 150, // carrière incomplète de l'exemple de proratisation
+  maj: "novembre 2026",
+  source:
+    "Code de la sécurité sociale (calcul de la pension de base, durée d'assurance) ; service-public.gouv.fr, fiche F14043 (âge légal) ; info-retraite.fr ; lassuranceretraite.fr — À VÉRIFIER avant publication ; exemples = hypothèses d'illustration pédagogique (novembre 2026)",
+};
+
+// ---- Guide « épargne retraite en couple et transmission » ----
+// Bloc daté novembre 2026 — paramètres purement illustratifs (composites pédagogiques,
+// sans lien avec un cas réel, jamais des projections) — TOUT est À VÉRIFIER.
+// Les abattements, taux et plafonds légaux sont lus dans FISCALITE, TRANSMISSION et PER_PLAFOND.
+export const COUPLE_TRANSMISSION = {
+  versementPerExemple: 5000, // versement annuel sur un PER dans l'exemple de répartition entre conjoints (€)
+  tmiConjointHaut: 41, // TMI du conjoint le mieux rémunéré dans l'exemple (%) — hypothèse de profil
+  tmiConjointBas: 11, // TMI du conjoint le moins bien rémunéré dans l'exemple (%) — hypothèse de profil
+  gainsAnnuelsAvExemple: 12000, // gains annuels réalisés par rachats sur des contrats de plus de 8 ans (€)
+  nombreEnfantsExemple: 2, // nombre d'enfants bénéficiaires dans l'exemple de clause et de donation
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) ; CGI, art. 125-0 A, 779, 990 I et 796-0 bis pour les règles citées — À VÉRIFIER",
+};
+
+// ---- Guide « retraite de cadre ou de fonctionnaire : comparaison » ----
+// Bloc daté novembre 2026 — TOUT est À VÉRIFIER. Les paramètres Agirc-Arrco et le taux plein
+// du régime de base sont lus dans AGIRC_ARRCO ; le seuil de 4 % dans RETRAIT_CAPITAL.
+// Fonctionnaire : pension civile = taux de liquidation × traitement indiciaire brut détenu
+// depuis au moins 6 mois (code des pensions civiles et militaires de retraite), au taux
+// maximal lorsque la durée de services et bonifications est atteinte. Primes hors assiette
+// (hors RAFP, dont les paramètres ne sont volontairement pas chiffrés).
+export const CADRE_FONCTIONNAIRE = {
+  tauxLiquidationMaxFonctionnaire: 75, // taux de liquidation maximal de la pension civile (%)
+  moisReferenceFonctionnaire: 6, // durée de détention du dernier traitement indiciaire retenu (mois)
+  remunerationTotaleAnnuelleExemple: 60000, // rémunération brute annuelle totale de l'exemple, cadre comme fonctionnaire (€)
+  partPrimesExemple: 25, // primes en % du traitement indiciaire dans l'exemple fonctionnaire
+  partPrimesGrille: [0, 10, 20, 30], // parts de primes testées (% du traitement indiciaire)
+  tauxRemplacementCible: 70, // taux de remplacement visé dans l'exemple d'écart (% de la rémunération totale) — repère d'illustration
+  maj: "novembre 2026",
+  source: "code des pensions civiles et militaires de retraite ; service-public.gouv.fr ; hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER",
+};
+
+// ---- Guide « assurance-vie : fonds euros ou unités de compte à 55 ans » (vague 2) ----
+// Bloc daté novembre 2026 — À VÉRIFIER. Hypothèses purement illustratives (composites
+// pédagogiques, jamais des projections ni des recommandations d'allocation).
+// L'âge de départ et la durée de décaissement sont lus dans EPARGNE_RETRAITE_EXEMPLES ;
+// les rendements dans RENDEMENTS ; l'inflation dans RENDEMENTS.inflationLongTerme.
+export const AV55_FONDS_EUROS_UC = {
+  ageActuel: 55, // âge du profil composite de l'article (ans)
+  capitalIllustratif: 100000, // capital de l'illustration « fonds euros face à l'inflation » (€)
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER",
+};
+
+// ---- Guide « compléter sa retraite sans PER » (vague 2) ----
+// Bloc daté novembre 2026 — À VÉRIFIER. Illustrations pédagogiques (composites),
+// jamais des projections. Les taux sont lus dans FISCALITE, la surcote dans REGIME_GENERAL,
+// la pension de l'exemple dans ILLUSTRATIF.pensionMensuelleIllustrative.
+export const COMPLETER_SANS_PER_NOV2026 = {
+  gainRetireIllustratif: 20000, // part de gains comprise dans un retrait, pour comparer la fiscalité AV (> 8 ans) / PEA (> 5 ans) / CTO (€)
+  trimestresSurcoteExemple: 4, // trimestres cotisés au-delà de l'âge légal et de la durée requise, exemple de report de départ
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) ; taux lus dans FISCALITE — À VÉRIFIER",
+};
+
+// ---- Exemple illustratif « âge de départ et trimestres » (vague 2 SEO) — novembre 2026, À VÉRIFIER ----
+// Composite pédagogique sans lien avec un cas réel : décompte de trimestres d'une carrière type.
+export const AGE_DEPART_TRIMESTRES_EXEMPLE_NOV2026 = {
+  anneesCotisees: 38, // années d'activité à 4 trimestres cotisés
+  trimestresAssimiles: 6, // périodes assimilées (chômage indemnisé, maladie…) de l'exemple
+  nombreEnfants: 1, // pour l'application des majorations de durée d'assurance de ESTIMATION_PENSION_NOV2026
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) — À VÉRIFIER ; règles : service-public.gouv.fr, lassuranceretraite.fr, info-retraite.fr",
+};
+
+// ---- Guide « Préparer sa retraite à 50 ans » (novembre 2026) ----
+// Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+// Scénarios purement illustratifs (composites pédagogiques, jamais des projections).
+// Les décotes et efforts d'épargne se calculent depuis REGIME_GENERAL, PER_PLAFOND,
+// PER_PLAFOND_EXEMPLES et EPARGNE_RETRAITE_EXEMPLES : rien n'est écrit en dur dans la page.
+export const PREPARER_RETRAITE_50_ANS = {
+  ageDepartScenarios: [64, 65, 67], // âges de départ comparés pour l'effort d'épargne (64 = âge légal génération 1969+, 67 = âge du taux plein automatique)
+  trimestresManquantsGrille: [4, 8, 12, 20], // trimestres manquants à l'âge légal, pour la grille de décote potentielle
+  trimestresManquantsRachat: 8, // trimestres manquants de l'exemple de rattrapage
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique (novembre 2026) ; CSS (décote, durée d'assurance) via REGIME_GENERAL — À VÉRIFIER",
+};

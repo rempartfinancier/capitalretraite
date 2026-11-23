@@ -430,6 +430,11 @@ export default function StrategiePer() {
             Votre situation mérite une analyse.
           </div>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/completer-sa-retraite-sans-per">Compléter sa retraite sans PER</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

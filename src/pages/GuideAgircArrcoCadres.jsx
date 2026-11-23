@@ -819,6 +819,12 @@ export default function GuideAgircArrcoCadres() {
             cadre général, relevé de carrière en main.
           </p>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/retraite-cadre-ou-fonctionnaire-comparaison">Retraite de cadre ou de fonctionnaire : le calcul comparé</a></li>
+            <li><a href="/guide/estimer-sa-pension-retraite-taux-de-remplacement">Estimer sa pension de retraite et son taux de remplacement</a></li>
+          </ul>
+
           <h2 id="sources">Sources officielles</h2>
           <p>Sources consultées le {A.maj} :</p>
           <ul>

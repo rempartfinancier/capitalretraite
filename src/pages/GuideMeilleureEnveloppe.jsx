@@ -393,6 +393,12 @@ export default function GuideMeilleureEnveloppe() {
               préjugent pas des performances futures.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/preparer-sa-retraite-guide-complet">Préparer sa retraite : le guide complet</a></li>
+            <li><a href="/guide/completer-sa-retraite-sans-per">Compléter sa retraite sans PER</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

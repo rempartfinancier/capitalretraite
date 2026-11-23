@@ -532,6 +532,11 @@ export default function GuideGestionPiloteeOuLibre() {
               réels et le mode de gestion qui s'y applique.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans">Assurance-vie à 55 ans : fonds euros ou UC ?</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>
