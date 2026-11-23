@@ -90,7 +90,7 @@ export default function GuideCapitalCompleterPension() {
           <h1>Retraite à {K.ageDepart} ans : de quel capital a-t-on besoin pour compléter sa pension ?</h1>
           <p className="sub">
             Trois méthodes de calcul, trois ordres de grandeur : comment passer d'un écart de
-            revenu mensuel à un capital cible. Mis à jour le {K.maj}.
+            revenu mensuel à un capital cible. Mis à jour en {K.maj}.
           </p>
         </div>
       </section>

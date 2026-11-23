@@ -64,7 +64,7 @@ export default function GuideRenteViagereCalcul() {
           <h1>Rente viagère : comment est calculé le montant ? Le taux de conversion</h1>
           <p className="sub">
             Une rente, c'est un capital multiplié par un taux. Reste à comprendre ce qui fait varier
-            ce taux. Mis à jour le {R.maj}.
+            ce taux. Mis à jour en {R.maj}.
           </p>
         </div>
       </section>

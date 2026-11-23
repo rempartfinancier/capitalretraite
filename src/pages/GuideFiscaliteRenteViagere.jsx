@@ -63,7 +63,7 @@ export default function GuideFiscaliteRenteViagere() {
           <h1>Fiscalité de la rente viagère à titre onéreux : la fraction imposable</h1>
           <p className="sub">
             Seule une partie de la rente est imposée, et cette part est fixée une fois pour toutes
-            selon l'âge au premier versement. Mis à jour le {R.maj}.
+            selon l'âge au premier versement. Mis à jour en {R.maj}.
           </p>
         </div>
       </section>

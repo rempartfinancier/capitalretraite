@@ -95,7 +95,7 @@ export default function GuideCombienRetirerCapital() {
           <h1>Combien retirer par mois d'un capital retraite ?</h1>
           <p className="sub">
             Règle des 4 %, risque de séquence, poche de sécurité : comment un taux de retrait se
-            transforme en revenu mensuel, et ce qui peut le faire dérailler. Mis à jour le{" "}
+            transforme en revenu mensuel, et ce qui peut le faire dérailler. Mis à jour en{" "}
             {R.maj}.
           </p>
         </div>
