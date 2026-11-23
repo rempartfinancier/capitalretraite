@@ -64,6 +64,11 @@ const categories = [
         title: "Capital retraite : quel objectif viser et comment le construire",
         text: "De l'objectif de revenu au capital à réunir : la grille de lecture et les enveloppes pour le construire.",
       },
+      {
+        to: "/guide/investir-100000-euros-pour-la-retraite",
+        title: "Investir 100 000 € pour la retraite : démarche selon l'âge",
+        text: "Sept étapes et trois profils composites (45, 55, 62 ans) pour répartir 100 000 € entre PER, AV, PEA et immobilier.",
+      },
     ],
   },
   {
@@ -166,6 +171,26 @@ const categories = [
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
       },
+      {
+        to: "/guide/ouvrir-un-per-etapes-documents-delais",
+        title: "Ouvrir un PER : étapes, documents, délais, frais",
+        text: "Ouvrir un PER : conditions, pièces, délais et frais, du formulaire en ligne au premier versement.",
+      },
+      {
+        to: "/guide/transferer-son-per-frais-demarche",
+        title: "Transférer son PER : frais, délais, démarche",
+        text: "Changer de PER sans le casser : frais plafonnés, délais, ce qui est conservé, PERP et Madelin inclus.",
+      },
+      {
+        to: "/guide/declarer-versements-per-impots-case-6ns",
+        title: "Déclarer ses versements PER aux impôts (case 6NS)",
+        text: "Reporter ses versements PER dans la bonne case, lire son plafond et conserver les justificatifs.",
+      },
+      {
+        to: "/guide/liquider-son-per-a-la-retraite-demarche",
+        title: "Liquider son PER à la retraite : démarche",
+        text: "Sortir de son PER à la retraite : demande, options de sortie et impôt selon l'origine des versements.",
+      },
     ],
   },
   {
@@ -207,6 +232,41 @@ const categories = [
         title: "Assurance-vie après 8 ans : fiscalité, abattement et rente",
         text: "Ce qui change au 8e anniversaire et comment la rente viagère est imposée, avec des exemples chiffrés.",
       },
+      {
+        to: "/guide/comment-ouvrir-une-assurance-vie-etapes",
+        title: "Comment ouvrir une assurance-vie : étapes, documents, frais",
+        text: "Les étapes d'une souscription : documents, frais, clause, renonciation.",
+      },
+      {
+        to: "/guide/transferer-assurance-vie-sans-perdre-anteriorite",
+        title: "Transférer son assurance-vie sans perdre l'antériorité ?",
+        text: "Peut-on changer d'assureur sans perdre l'antériorité ? Coût et alternatives.",
+      },
+      {
+        to: "/guide/clause-beneficiaire-assurance-vie-comment-la-rediger",
+        title: "Clause bénéficiaire d'assurance-vie : comment la rédiger",
+        text: "Rédiger sa clause : types, ordre, mineur, fiscalité du capital transmis.",
+      },
+      {
+        to: "/guide/assurance-vie-garantie-repartir-plusieurs-contrats",
+        title: "Assurance-vie : garantie et répartition entre contrats",
+        text: "FGAP, garantie des dépôts, répartir 100 000 € entre contrats : l'essentiel.",
+      },
+      {
+        to: "/guide/assurance-vie-a-60-ans-ou-a-la-retraite",
+        title: "Assurance-vie à 60 ans ou à la retraite : ouvrir ou garder ?",
+        text: "Ouvrir, garder, racheter ou alimenter : la décision et la démarche à 60 ans, avec un exemple chiffré avant et après 8 ans.",
+      },
+      {
+        to: "/guide/assurance-vie-apres-70-ans-fiscalite-succession",
+        title: "Assurance-vie après 70 ans : fiscalité et succession (757 B)",
+        text: "Article 757 B, abattement global, intérêts exonérés et déclaration : ce qui change après 70 ans, exemple calculé.",
+      },
+      {
+        to: "/guide/declarer-rachat-assurance-vie-sortie-per",
+        title: "Déclarer un rachat d'assurance-vie ou une sortie de PER",
+        text: "IFU, acompte, option barème, cases de report : la marche à suivre pour déclarer un rachat d'assurance-vie ou un PER.",
+      },
     ],
   },
   {
@@ -227,6 +287,16 @@ const categories = [
         to: "/guide/pea-en-ligne-comment-choisir-pour-la-retraite",
         title: "PEA en ligne : comment choisir et l'utiliser pour la retraite",
         text: "Critères de choix, frais à comparer, étapes d'ouverture et rôle du PEA pour préparer la retraite.",
+      },
+      {
+        to: "/guide/transferer-son-pea-procedure-frais",
+        title: "Transférer son PEA : procédure, délais et frais à comparer",
+        text: "PEA : comment changer d'établissement sans perdre l'ancienneté, avec les frais et un calcul.",
+      },
+      {
+        to: "/guide/sortir-du-pea-a-la-retraite-retrait-rente",
+        title: "Sortir du PEA à la retraite : retraits, rente et fiscalité",
+        text: "Retirer du PEA ou le convertir en rente : procédure, fiscalité et cas chiffrés.",
       },
     ],
   },
@@ -298,6 +368,21 @@ const categories = [
         to: "/guide/immobilier-a-la-retraite-revenus-transmission",
         title: "Immobilier à la retraite : revenus, vente et transmission",
         text: "Loyers et CSG des pensions, plus-value, viager, donation : garder, déléguer, vendre ou transmettre.",
+      },
+      {
+        to: "/guide/scpi-ou-lmnp-pour-completer-sa-retraite",
+        title: "SCPI ou LMNP pour compléter sa retraite : comment choisir ?",
+        text: "SCPI ou LMNP : les critères pour décider, risques et fiscalité, exemple chiffré.",
+      },
+      {
+        to: "/guide/comment-choisir-une-scpi-checklist",
+        title: "Comment choisir une SCPI : la check-list avant de souscrire",
+        text: "La check-list en dix points pour juger une SCPI avant de souscrire, sans classement.",
+      },
+      {
+        to: "/guide/revenus-locatifs-et-retraite-cumul-impots-cotisations",
+        title: "Revenus locatifs et retraite : cumul, impôts, cotisations",
+        text: "Loyers et pension : aucun plafond de cumul, mais impôts et prélèvements sociaux. Cas chiffré.",
       },
     ],
   },
@@ -395,6 +480,21 @@ const categories = [
         to: "/guide/surcote-decote-retraite",
         title: "Surcote ou décote : comment ça se calcule ?",
         text: "1,25 % par trimestre, dans un sens ou dans l'autre — un mécanisme à anticiper, pas à subir.",
+      },
+      {
+        to: "/guide/demande-de-retraite-demarches-calendrier",
+        title: "Demande de retraite : démarches et calendrier mois par mois",
+        text: "Quand déposer sa demande de retraite, quels documents, premier versement : le calendrier mois par mois.",
+      },
+      {
+        to: "/guide/retraite-anticipee-carriere-longue-conditions",
+        title: "Retraite anticipée carrière longue : conditions et démarche",
+        text: "Carrière longue : conditions de début d'activité, attestation, pièges et effet sur l'épargne à constituer.",
+      },
+      {
+        to: "/guide/pension-de-reversion-conditions-demarche",
+        title: "Pension de réversion : conditions, plafond et démarche",
+        text: "Pension de réversion : qui y a droit, taux, plafond de ressources, démarche et exemple chiffré.",
       },
     ],
   },

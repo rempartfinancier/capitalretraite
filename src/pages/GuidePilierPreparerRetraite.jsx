@@ -368,6 +368,21 @@ export default function GuidePilierPreparerRetraite() {
 
           <h2>Pour aller plus loin</h2>
           <ul>
+            <li><a href="/guide/ouvrir-un-per-etapes-documents-delais">Ouvrir un PER : étapes, documents, délais, frais</a></li>
+            <li><a href="/guide/transferer-son-per-frais-demarche">Transférer son PER : frais, délais, démarche</a></li>
+            <li><a href="/guide/liquider-son-per-a-la-retraite-demarche">Liquider son PER à la retraite : démarche</a></li>
+            <li><a href="/guide/declarer-versements-per-impots-case-6ns">Déclarer ses versements PER aux impôts</a></li>
+            <li><a href="/guide/comment-ouvrir-une-assurance-vie-etapes">Comment ouvrir une assurance-vie</a></li>
+            <li><a href="/guide/transferer-assurance-vie-sans-perdre-anteriorite">Transférer son assurance-vie sans perdre l'antériorité ?</a></li>
+            <li><a href="/guide/assurance-vie-a-60-ans-ou-a-la-retraite">Assurance-vie à 60 ans ou à la retraite : ouvrir ou garder ?</a></li>
+            <li><a href="/guide/assurance-vie-apres-70-ans-fiscalite-succession">Assurance-vie après 70 ans : fiscalité et succession</a></li>
+            <li><a href="/guide/clause-beneficiaire-assurance-vie-comment-la-rediger">Clause bénéficiaire : comment la rédiger</a></li>
+            <li><a href="/guide/transferer-son-pea-procedure-frais">Transférer son PEA : procédure et frais</a></li>
+            <li><a href="/guide/sortir-du-pea-a-la-retraite-retrait-rente">Sortir du PEA à la retraite</a></li>
+            <li><a href="/guide/investir-100000-euros-pour-la-retraite">Investir 100 000 € pour la retraite</a></li>
+            <li><a href="/guide/demande-de-retraite-demarches-calendrier">Demande de retraite : démarches et calendrier</a></li>
+            <li><a href="/guide/retraite-anticipee-carriere-longue-conditions">Retraite anticipée carrière longue</a></li>
+            <li><a href="/guide/pension-de-reversion-conditions-demarche">Pension de réversion : conditions et démarche</a></li>
             <li><a href="/guides">Tous nos guides retraite</a></li>
             <li><a href="/strategies">Les 5 stratégies pour construire son capital retraite</a></li>
             <li><a href="/guide/immobilier-et-retraite-guide-complet">Immobilier et retraite : le guide complet</a></li>

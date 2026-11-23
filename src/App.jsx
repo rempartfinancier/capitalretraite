@@ -56,6 +56,26 @@ import GuideAssuranceVieLuxembourgeoise from "./pages/GuideAssuranceVieLuxembour
 import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx";
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
 import GuideRachatPartielAssuranceVie from "./pages/GuideRachatPartielAssuranceVie.jsx";
+import GuideOuvrirPerEtapes from "./pages/GuideOuvrirPerEtapes.jsx";
+import GuideTransfererPer from "./pages/GuideTransfererPer.jsx";
+import GuideDeclarerVersementsPer from "./pages/GuideDeclarerVersementsPer.jsx";
+import GuideLiquiderPerRetraite from "./pages/GuideLiquiderPerRetraite.jsx";
+import GuideOuvrirAssuranceVie from "./pages/GuideOuvrirAssuranceVie.jsx";
+import GuideTransfererAssuranceVie from "./pages/GuideTransfererAssuranceVie.jsx";
+import GuideClauseBeneficiaireAv from "./pages/GuideClauseBeneficiaireAv.jsx";
+import GuideAvGarantieRepartir from "./pages/GuideAvGarantieRepartir.jsx";
+import GuideAvA60AnsRetraite from "./pages/GuideAvA60AnsRetraite.jsx";
+import GuideAvApres70Ans from "./pages/GuideAvApres70Ans.jsx";
+import GuideDeclarerRachatAvSortiePer from "./pages/GuideDeclarerRachatAvSortiePer.jsx";
+import GuideInvestir100000Retraite from "./pages/GuideInvestir100000Retraite.jsx";
+import GuideTransfererPea from "./pages/GuideTransfererPea.jsx";
+import GuideSortirPeaRetraite from "./pages/GuideSortirPeaRetraite.jsx";
+import GuideScpiOuLmnp from "./pages/GuideScpiOuLmnp.jsx";
+import GuideChoisirScpi from "./pages/GuideChoisirScpi.jsx";
+import GuideRevenusLocatifsRetraite from "./pages/GuideRevenusLocatifsRetraite.jsx";
+import GuideDemandeRetraiteDemarches from "./pages/GuideDemandeRetraiteDemarches.jsx";
+import GuideRetraiteAnticipeeCarriereLongue from "./pages/GuideRetraiteAnticipeeCarriereLongue.jsx";
+import GuidePensionReversion from "./pages/GuidePensionReversion.jsx";
 import GuideRetraiteProgressiveOuCumul from "./pages/GuideRetraiteProgressiveOuCumul.jsx";
 import GuideCombienRetirerCapital from "./pages/GuideCombienRetirerCapital.jsx";
 import GuideCapitalCompleterPension from "./pages/GuideCapitalCompleterPension.jsx";
@@ -208,6 +228,26 @@ export default function App() {
           <Route path="/guide/retraite-cadre-ou-fonctionnaire-comparaison" element={<GuideRetraiteCadreOuFonctionnaire />} />
           <Route path="/guide/preparer-sa-retraite-guide-complet" element={<GuidePilierPreparerRetraite />} />
           <Route path="/guide/immobilier-et-retraite-guide-complet" element={<GuidePilierImmobilierRetraite />} />
+          <Route path="/guide/ouvrir-un-per-etapes-documents-delais" element={<GuideOuvrirPerEtapes />} />
+          <Route path="/guide/transferer-son-per-frais-demarche" element={<GuideTransfererPer />} />
+          <Route path="/guide/declarer-versements-per-impots-case-6ns" element={<GuideDeclarerVersementsPer />} />
+          <Route path="/guide/liquider-son-per-a-la-retraite-demarche" element={<GuideLiquiderPerRetraite />} />
+          <Route path="/guide/comment-ouvrir-une-assurance-vie-etapes" element={<GuideOuvrirAssuranceVie />} />
+          <Route path="/guide/transferer-assurance-vie-sans-perdre-anteriorite" element={<GuideTransfererAssuranceVie />} />
+          <Route path="/guide/clause-beneficiaire-assurance-vie-comment-la-rediger" element={<GuideClauseBeneficiaireAv />} />
+          <Route path="/guide/assurance-vie-garantie-repartir-plusieurs-contrats" element={<GuideAvGarantieRepartir />} />
+          <Route path="/guide/assurance-vie-a-60-ans-ou-a-la-retraite" element={<GuideAvA60AnsRetraite />} />
+          <Route path="/guide/assurance-vie-apres-70-ans-fiscalite-succession" element={<GuideAvApres70Ans />} />
+          <Route path="/guide/declarer-rachat-assurance-vie-sortie-per" element={<GuideDeclarerRachatAvSortiePer />} />
+          <Route path="/guide/investir-100000-euros-pour-la-retraite" element={<GuideInvestir100000Retraite />} />
+          <Route path="/guide/transferer-son-pea-procedure-frais" element={<GuideTransfererPea />} />
+          <Route path="/guide/sortir-du-pea-a-la-retraite-retrait-rente" element={<GuideSortirPeaRetraite />} />
+          <Route path="/guide/scpi-ou-lmnp-pour-completer-sa-retraite" element={<GuideScpiOuLmnp />} />
+          <Route path="/guide/comment-choisir-une-scpi-checklist" element={<GuideChoisirScpi />} />
+          <Route path="/guide/revenus-locatifs-et-retraite-cumul-impots-cotisations" element={<GuideRevenusLocatifsRetraite />} />
+          <Route path="/guide/demande-de-retraite-demarches-calendrier" element={<GuideDemandeRetraiteDemarches />} />
+          <Route path="/guide/retraite-anticipee-carriere-longue-conditions" element={<GuideRetraiteAnticipeeCarriereLongue />} />
+          <Route path="/guide/pension-de-reversion-conditions-demarche" element={<GuidePensionReversion />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>

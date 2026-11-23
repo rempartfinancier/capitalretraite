@@ -894,3 +894,242 @@ export const PREPARER_RETRAITE_50_ANS = {
   maj: "novembre 2026",
   source: "hypothèses d'illustration pédagogique (novembre 2026) ; CSS (décote, durée d'assurance) via REGIME_GENERAL — À VÉRIFIER",
 };
+
+// ---- Vague 3 : guides d'action assurance-vie (ouvrir, transférer, clause, garantie) ----
+// Bloc daté novembre 2026 — TOUT est À VÉRIFIER (par Fabienne) avant publication.
+export const V3_AVA_OUVRIR = {
+  delaiRenonciationJours: 30, // délai de renonciation à un contrat d'assurance-vie (jours calendaires) — Code des assurances, art. L132-5-1 — À VÉRIFIER
+  versementInitialOrdreGrandeur: { min: 100, max: 1000 }, // versement initial minimum usuel des contrats grand public (€) — ordre de grandeur, À VÉRIFIER contrat par contrat
+  versementExemple: 20000, // versement initial de l'exemple de comparaison de frais (€) — illustratif
+  dureeExempleAnnees: 15, // durée de l'exemple de comparaison de frais (années) — illustratif
+  maj: "novembre 2026",
+  source: "Code des assurances, art. L132-5-1 (renonciation) ; service-public.gouv.fr, fiche F15274 ; frais lus dans FRAIS_TYPES — À VÉRIFIER",
+};
+
+export const V3_AVA_TRANSFERT = {
+  valeurContrat: 60000, // valeur de rachat du contrat de l'exemple (€) — illustratif
+  primesNonRemboursees: 40000, // versements non remboursés du contrat de l'exemple (€) — illustratif
+  ancienneteAvantAnnees: 6, // ancienneté du contrat dans le cas « avant 8 ans » (années) — illustratif
+  ancienneteApresAnnees: 10, // ancienneté du contrat dans le cas « après 8 ans » (années) — illustratif
+  maj: "novembre 2026",
+  source: "hypothèses d'illustration pédagogique ; CGI, art. 125-0 A (rachat, transfert Fourgous et transfert « Pacte ») ; taux lus dans FISCALITE — À VÉRIFIER",
+};
+
+export const V3_AVA_CLAUSE = {
+  prelevement990ITaux1: 20, // prélèvement sur la part taxable des capitaux décès (primes avant 70 ans) jusqu'au seuil (%) — CGI art. 990 I — À VÉRIFIER
+  prelevement990ISeuil: 700000, // seuil de la part taxable par bénéficiaire au-delà duquel s'applique le second taux (€) — À VÉRIFIER
+  prelevement990ITaux2: 31.25, // taux au-delà du seuil (%) — À VÉRIFIER
+  capitalExempleAvant70: 400000, // capital décès de l'exemple, primes versées avant 70 ans (€) — illustratif
+  nombreBeneficiairesExemple: 2, // bénéficiaires à parts égales dans l'exemple — illustratif
+  primesApres70Exemple: 80000, // primes versées après 70 ans dans l'exemple 757 B (€) — illustratif
+  maj: "novembre 2026",
+  source: "CGI, art. 990 I (prélèvement, abattement de 152 500 € lu dans TRANSMISSION) et 757 B (primes après 70 ans, abattement de 30 500 € lu dans TRANSMISSION) ; art. 796-0 bis (exonération conjoint/partenaire de Pacs) — À VÉRIFIER",
+};
+
+export const V3_AVA_GARANTIE = {
+  montantAPlacer: 100000, // somme de l'exemple « 100 000 € à placer » (€) — illustratif
+  nombreAssureursExemple: 3, // nombre d'assureurs dans l'exemple de répartition — illustratif
+  maj: "novembre 2026",
+  source: "FGAP (fgap.fr) ; Code des assurances, art. L423-1 et R423-1 ; plafond lu dans GARANTIES (70 000 € par assuré et par assureur, tous contrats confondus) ; la garantie des dépôts bancaires de 100 000 € relève d'un autre mécanisme (Code monétaire et financier) — À VÉRIFIER",
+};
+
+// ---- Vague 3 « intention d'action » : guides PER (ouvrir, transférer, déclarer, liquider) ----
+// Blocs datés novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+// Exemples purement illustratifs (composites pédagogiques, sans lien avec un cas réel).
+export const V3_PER_OUVERTURE = {
+  versementInitial: 5000, // versement initial de l'exemple (€)
+  fraisEntreeHautePct: 3, // frais sur versement de l'exemple « grille haute », dans la fourchette FRAIS_TYPES.contratBancaireTraditionnel.entree (%)
+  renonciationJoursMin: 14, // délai de renonciation, ordre de grandeur bas (jours calendaires) — À VÉRIFIER selon le type de PER
+  renonciationJoursMax: 30, // ordre de grandeur haut (jours calendaires) — À VÉRIFIER selon le type de PER
+  maj: "novembre 2026",
+  source: "CMF art. L. 224-1 et s. ; service-public.gouv.fr, fiche F34982 ; délais de renonciation à confirmer contrat par contrat — À VÉRIFIER",
+};
+
+export const V3_PER_TRANSFERT = {
+  encoursExemple: 40000, // encours du PER transféré dans l'exemple (€)
+  fraisMaxPctAvantAnnees: 1, // plafond légal des frais de transfert la première période, en % de l'épargne — À VÉRIFIER
+  anneesFraisNuls: 5, // ancienneté du plan au-delà de laquelle le transfert est gratuit — À VÉRIFIER
+  delaiLegalMois: 2, // délai maximal de transfert une fois la demande complète reçue par l'organisme d'origine — À VÉRIFIER
+  maj: "novembre 2026",
+  source: "CMF art. L. 224-6 et R. 224-? (transfert PER) ; service-public.gouv.fr, fiche F34982 — À VÉRIFIER, notamment pour les anciens produits (PERP, Madelin, art. 83, PERCO)",
+};
+
+export const V3_PER_DECLARATION = {
+  versementExemple: 6000, // versement de l'année dans l'exemple (€)
+  revenuActiviteExemple: 48000, // revenu d'activité net de frais de l'année précédente (€) — illustratif
+  plafondReportExemple: 1500, // plafond non utilisé des années antérieures encore reportable (€) — illustratif
+  maj: "novembre 2026",
+  source: "CGI art. 163 quatervicies ; service-public.gouv.fr, fiche F14709 ; notice de la déclaration 2042 sur impots.gouv.fr — numérotation des cases À VÉRIFIER chaque année",
+};
+
+export const V3_PER_LIQUIDATION = {
+  versementsExemple: 40000, // versements du PER dans l'exemple de sortie en capital (€)
+  gainsExemple: 10000, // gains du PER dans l'exemple (€)
+  anneesFractionnement: 4, // nombre d'années du scénario de capital fractionné
+  maj: "novembre 2026",
+  source: "CGI art. 163 quatervicies et 158, 5-b bis ; BOFiP BOI-RSA-PERS ; service-public.gouv.fr, fiche F34982 — À VÉRIFIER",
+};
+
+// ---- Vague 3 « intention d'action » : guides assurance-vie à 60 ans, après 70 ans, déclaration, 100 000 € ----
+// Blocs datés novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication. Hypothèses
+// purement illustratives (composites pédagogiques, jamais des projections ni des rendements attendus).
+// Les taux, abattements, plafonds et barèmes sont lus dans FISCALITE, TRANSMISSION, AV_RACHAT,
+// PER_PLAFOND, FRAIS_TYPES, GARANTIES et IMMO.demembrement.baremeLigneDirecte.
+
+// Guide « assurance-vie à 60 ans ou à la retraite : ouvrir, garder, racheter, alimenter »
+export const V3_AVB_60 = {
+  ageOuverture: 60, // âge d'ouverture du contrat de l'exemple (ans)
+  versementInitial: 100000, // versement initial (€)
+  gainsPctDuVersement: 30, // gains supposés au moment du rachat, en % du versement : hypothèse de calcul, non un rendement attendu
+  rachatExemple: 15000, // montant du rachat de l'exemple (€)
+  ageRachatAvant8Ans: 63, // âge de l'assuré lors d'un rachat avant les 8 ans du contrat (ans)
+  ageLimitePrimesAvantage: 70, // âge au-delà duquel les primes quittent l'abattement par bénéficiaire de l'art. 990 I
+  horizonsAnnees: [5, 10], // seuils d'horizon de la grille « sécurité / équilibre / croissance » (années)
+  maj: "novembre 2026",
+  source:
+    "hypothèses d'illustration pédagogique (novembre 2026) ; règles : service-public.gouv.fr, fiche F22414 ; BOFiP BOI-RPPM-RCM-20-10-20-50 ; CGI art. 990 I — À VÉRIFIER",
+};
+
+// Guide « assurance-vie après 70 ans : fiscalité et succession » (CGI art. 757 B et 990 I)
+export const V3_AVB_70 = {
+  agePivot: 70, // âge du souscripteur au versement qui sépare l'art. 990 I (avant) de l'art. 757 B (après)
+  primesApres70: 80000, // primes versées après 70 ans dans l'exemple (€)
+  valeurAuDeces: 100000, // valeur du contrat au décès dans l'exemple : l'écart avec les primes = intérêts et gains (€)
+  nombreEnfants: 2, // bénéficiaires à parts égales dans l'exemple
+  hypotheseAbattementEnfantEpuise: true, // l'abattement de 100 000 € de chaque enfant est supposé déjà consommé par le reste de la succession
+  maj: "novembre 2026",
+  source:
+    "CGI art. 757 B (primes versées après 70 ans) et 990 I (primes avant 70 ans) ; CGI art. 779 et barème de l'art. 777 (ligne directe) lu dans IMMO.demembrement ; hypothèses d'illustration pédagogique — À VÉRIFIER",
+};
+
+// Guide « déclarer un rachat d'assurance-vie ou une sortie de PER »
+export const V3_AVB_DECL = {
+  avGainsRachat: 6000, // part de gains d'un rachat sur contrat de plus de 8 ans, personne seule (€)
+  perVersementsDeduits: 40000, // part du capital PER correspondant à des versements déduits (€)
+  perGains: 10000, // part du capital PER correspondant aux gains (€)
+  tmiExemple: 30, // TMI supposée du foyer à la sortie du PER (%) : simplification, le barème est progressif
+  maj: "novembre 2026",
+  source:
+    "service-public.gouv.fr, fiches F22414 et F34982 ; impots.gouv.fr, « Les revenus mobiliers » ; numéros de cases volontairement non chiffrés (à lire sur la notice annuelle) ; hypothèses d'illustration pédagogique — À VÉRIFIER",
+};
+
+// Guide « investir 100 000 € pour la retraite » : trois profils composites, sans rendement
+export const V3_AVB_100K = {
+  capital: 100000, // capital à placer (€)
+  depenseMensuelleReference: 2500, // dépenses courantes mensuelles du foyer, pour dimensionner le fonds de sécurité (€)
+  moisFondsSecurite: 6, // mois de dépenses conservés en liquidités
+  ageDepart: 64, // âge de départ retenu (cf. ENVELOPPES_NOV2026.ageDepartReference)
+  profils: [
+    { id: "construction", age: 45, tmi: 30, revenuNetImposable: 60000, per: 25000, av: 20000, pea: 30000, immo: 10000 },
+    { id: "approche", age: 55, tmi: 30, revenuNetImposable: 72000, per: 20000, av: 35000, pea: 20000, immo: 10000 },
+    { id: "decaissement", age: 62, tmi: 11, revenuNetImposable: 32000, per: 0, av: 50000, pea: 20000, immo: 10000 },
+  ], // répartitions en € du solde après fonds de sécurité (le fonds de sécurité est calculé) — illustratives, non des recommandations
+  maj: "novembre 2026",
+  source:
+    "hypothèses d'illustration pédagogique (novembre 2026) ; plafond de versement PER lu dans PER_PLAFOND ; fiscalité lue dans FISCALITE — À VÉRIFIER ; aucune projection de rendement",
+};
+
+// ---- Vague 3 — guide « transférer son PEA » (novembre 2026) ----
+// Cas purement illustratif (composite pédagogique, grilles fictives lues dans PEA_LIGNE_NOV2026).
+// Plafonds de frais de transfert : ENVELOPPES_NOV2026.peaFraisTransfertMax — À VÉRIFIER
+// (interprétation « par ligne / total » et conditions exactes à confirmer dans le décret Pacte).
+export const V3_PEA_TRANSFERT = {
+  valeurPlan: 60000, // valeur du PEA transféré (€)
+  nombreLignes: 8, // nombre de lignes de titres transférées
+  versementMensuel: 300, // versement mensuel poursuivi après le transfert (€), lu dans PEA_LIGNE_NOV2026.versementMensuel
+  delaiIndicatifSemaines: "2 à 6", // ordre de grandeur courant, variable selon les établissements — À VÉRIFIER
+  maj: "novembre 2026",
+  source:
+    "décret d'application de la loi Pacte (frais de transfert PEA) ; CMF art. L. 221-30 et s. ; service-public.gouv.fr, fiche F2385 (vérifiée le 22 mai 2026) ; hypothèses d'illustration — À VÉRIFIER avant publication",
+};
+
+// ---- Vague 3 — guide « sortir du PEA à la retraite » (novembre 2026) ----
+// Cas purement illustratifs (composites pédagogiques). Prélèvements sociaux : FISCALITE.prelevementsSociaux.pea
+// (18,6 %, taux applicable selon la date d'acquisition des gains — À VÉRIFIER). Taux IR avant 5 ans : FISCALITE.pfuIR.
+export const V3_PEA_RETRAITE = {
+  planApres5Ans: { valeur: 180000, versements: 120000, retraitAnnuel: 12000 }, // € (versements < plafond de 150 000 €)
+  planAvant5Ans: { valeur: 40000, versements: 30000 }, // € — clôture totale avant 5 ans
+  maj: "novembre 2026",
+  source:
+    "service-public.gouv.fr, fiches F2385 (PEA, vérifiée le 22 mai 2026) et F22449 (imposition du PEA, vérifiée le 15 avril 2026) ; CGI art. 150-0 A, 157 ; BOI-RPPM-RCM-40-50 ; hypothèses d'illustration — À VÉRIFIER (taux de prélèvements sociaux selon la date d'acquisition des gains, régime social de la rente viagère)",
+};
+
+// ---- Vague 3 — guide « SCPI ou LMNP pour compléter sa retraite » (novembre 2026) ----
+// Cas composite purement illustratif, SANS promesse de rendement. Fiscalité : FISCALITE, IMMO.lmnp, IMMO_EXEMPLES.
+export const V3_IMM_COMPARATIF = {
+  capitalEngage: 150000, // € engagés dans chaque solution, frais d'acquisition compris (simplification)
+  scpi: { tauxDistribution: 4.5, fraisSouscriptionPct: 10, baissePrixPartPct: 15 }, // %, scénario défavorable = baisse du prix de part
+  lmnp: { rendementBrut: 4.5, chargesNonRecuperablesPct: 15, baisseLoyerPct: 20 }, // % des loyers ; micro-BIC supposé applicable
+  tmi: 30, // tranche marginale d'imposition supposée (%)
+  maj: "novembre 2026",
+  source:
+    "hypothèses d'illustration pédagogique (novembre 2026), dans les fourchettes de RENDEMENTS et IMMO_EXEMPLES ; micro-BIC et prélèvements sociaux : IMMO.lmnp ; foncier : FISCALITE — À VÉRIFIER (statut micro-BIC d'une résidence gérée, charges réelles, projet de loi de finances 2027 non adopté)",
+};
+
+// ---- Vague 3 — guide « comment choisir une SCPI » (novembre 2026) ----
+// Exemples purement illustratifs d'une part fictive. Chiffres de marché : IMMO.scpiMarche (ASPIM).
+export const V3_IMM_CHOISIR_SCPI = {
+  prixPart: 200, // € prix de souscription d'une part fictive
+  distributionParPart: 9, // € distribués par part sur l'année (taux de distribution = 4,5 %)
+  fraisSouscriptionPct: 10, // % du prix de souscription — À VÉRIFIER SCPI par SCPI
+  partIssueDuReportANouveauPct: 15, // % de la distribution prélevée sur des réserves, hypothèse d'école
+  dureePlacementRecommandee: "huit à dix ans", // mention usuelle des DIC — À VÉRIFIER SCPI par SCPI
+  maj: "novembre 2026",
+  source:
+    "AMF, guide « Investir dans une SCPI » (2023) et « Comprendre le DIC » ; ASPIM, communiqués du 10 février et du 5 août 2026 ; hypothèses d'illustration — À VÉRIFIER",
+};
+
+// ---- Vague 3 « intention d'action » : guides retraite régime général (novembre 2026) ----
+// Blocs préfixés V3_REG_. Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
+// Exemples = composites pédagogiques, jamais des projections ni des cas réels.
+
+// Guide « demande de retraite : démarches et calendrier »
+export const V3_REG_DEMANDE = {
+  delaiDemandeMinMois: 4, // délai conseillé de dépôt de la demande, borne basse (mois avant la date de départ) — service-public F13941 : « en général entre 4 et 6 mois » — À VÉRIFIER auprès de la caisse
+  delaiDemandeMaxMois: 6, // borne haute (mois)
+  moisReleveEtSimulation: 24, // vérification du relevé de carrière et simulation : repère pédagogique, pas une règle (mois avant) — À VÉRIFIER
+  dateDepartExemple: { annee: 2028, mois: 10 }, // départ au 1er octobre 2028 (mois 1 = janvier) — exemple composite
+  depensesMensuellesExemple: 2400, // dépenses courantes mensuelles du ménage (€) — hypothèse
+  moisSansRevenuExemple: 2, // mois à couvrir entre la fin du salaire et le premier versement, pensions payées à terme échu (hypothèse prudente)
+  maj: "novembre 2026",
+  source: "service-public.gouv.fr, fiche F13941 (demande de retraite du salarié, vérifiée le 1er septembre 2025) ; info-retraite.fr ; lassuranceretraite.fr ; agirc-arrco.fr — À VÉRIFIER",
+};
+
+// Guide « retraite anticipée pour carrière longue »
+export const V3_REG_CARRIERE_LONGUE = {
+  seuilsDebutActivite: [16, 18, 20, 21], // âges avant lesquels le début d'activité ouvre droit au dispositif (service-public F13845, vérifiée le 1er septembre 2026) — À VÉRIFIER
+  agesDepartAnticipe: [58, 60, 62, 63], // âges de départ correspondant aux quatre seuils, dans le même ordre — À VÉRIFIER (barème à confirmer sur info-retraite.fr)
+  trimestresDebutActivite: 5, // trimestres à valider en tout début d'activité (service-public F13845)
+  trimestresDebutActiviteNesT4: 4, // si né entre le 1er octobre et le 31 décembre
+  complementMensuelExemple: 500, // complément mensuel recherché pendant les années gagnées (€) — hypothèse
+  ageDepartExemple: 60, // âge de départ anticipé de l'exemple
+  generationExemple: "1969 et suivantes", // génération de l'exemple (âge légal : voir RETRAITE_PROGRESSIVE_CUMUL.ageLegalParGeneration)
+  ageActuelExemple: 45, // âge auquel commence l'effort d'épargne de l'exemple
+  maj: "novembre 2026",
+  source: "service-public.gouv.fr, fiches F13845 (carrière longue, vérifiée le 1er septembre 2026) et F14043 (âge légal) ; info-retraite.fr ; durée d'assurance cotisée exigée : volontairement non chiffrée, tableau officiel à consulter — À VÉRIFIER",
+};
+
+// Guide « pension de réversion »
+export const V3_REG_REVERSION = {
+  tauxRegimeGeneral: 54, // % de la pension de retraite de base du conjoint décédé (régime général) — À VÉRIFIER
+  tauxAgircArrco: 60, // % de la retraite complémentaire du conjoint décédé (Agirc-Arrco) — À VÉRIFIER
+  ageMinimum: 55, // âge minimal du conjoint survivant, régime général — À VÉRIFIER
+  pensionBaseMensuelleDefuntExemple: 1400, // pension de base mensuelle du conjoint décédé (€) — exemple composite
+  complementaireAnnuelleDefuntExemple: 6000, // retraite complémentaire annuelle du conjoint décédé (€) — exemple composite
+  maj: "novembre 2026",
+  source: "lassuranceretraite.fr ; agirc-arrco.fr ; service-public.gouv.fr ; plafond de ressources du régime général : volontairement non chiffré, à lire sur lassuranceretraite.fr — À VÉRIFIER",
+};
+
+// Guide « revenus locatifs et retraite : cumul, impôts, cotisations »
+export const V3_REG_LOCATIFS = {
+  loyersBrutsAnnuelsExemple: 9000, // loyers annuels bruts encaissés (€) — hypothèse
+  tmiScenarios: [11, 30], // deux TMI comparées (%), voir FISCALITE.tmiOptions
+  pensionAnnuelleExemple: 22000, // pensions de retraite annuelles imposables, avant loyers (€) — hypothèse
+  maj: "novembre 2026",
+  source: "service-public.gouv.fr, fiches F1991 (revenus locatifs, location non meublée) et F32744 (location meublée), F2329 (prélèvements sociaux) ; taux et plafonds lus dans IMMO et FISCALITE — À VÉRIFIER ; cotisations d'un loueur meublé professionnel : non chiffrées, à vérifier",
+};
+
+export const V3_AVA_GARANTIE_DEPOTS = {
+  plafondDepotsParDeposantParEtablissement: 100000, // garantie des dépôts bancaires (FGDR), par déposant et par établissement (€) — distincte du FGAP — À VÉRIFIER
+  source: "FGDR (garantiedesdepots.fr) ; Code monétaire et financier, art. L312-4 et suivants — À VÉRIFIER",
+};

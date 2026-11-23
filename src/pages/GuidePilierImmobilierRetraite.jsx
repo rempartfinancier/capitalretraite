@@ -299,6 +299,10 @@ export default function GuidePilierImmobilierRetraite() {
 
           <h2>Pour aller plus loin</h2>
           <ul>
+            <li><a href="/guide/scpi-ou-lmnp-pour-completer-sa-retraite">SCPI ou LMNP pour compléter sa retraite</a></li>
+            <li><a href="/guide/comment-choisir-une-scpi-checklist">Comment choisir une SCPI : la check-list</a></li>
+            <li><a href="/guide/revenus-locatifs-et-retraite-cumul-impots-cotisations">Revenus locatifs et retraite : cumul, impôts, cotisations</a></li>
+            <li><a href="/guide/investir-100000-euros-pour-la-retraite">Investir 100 000 € pour la retraite</a></li>
             <li><a href="/guide/preparer-sa-retraite-guide-complet">Préparer sa retraite : le guide complet</a></li>
             <li><a href="/strategies/immobilier-retraite">Stratégie immobilier-retraite</a></li>
             <li><a href="/guide/meilleure-enveloppe-retraite">Quelle est la meilleure enveloppe pour préparer sa retraite ?</a></li>
