@@ -3,6 +3,7 @@ import {
   IMMO,
   IMMO_EXEMPLES,
   FISCALITE,
+  AV_RACHAT,
   FRAIS_TYPES,
   TRANSMISSION,
   euros,
@@ -219,7 +220,7 @@ export default function GuideScpiAssuranceVieOuPer() {
             Concrètement, vous ne devenez pas associé de la SCPI : la propriété des parts reste à
             l'assureur, qui vous crédite d'unités de compte. Plusieurs conséquences en découlent :
             les revenus sont versés à l'assureur, qui les reverse dans le contrat selon des
-            modalités qui varient (certains contrats en retiennent une partie) ; vous votez pas
+            modalités qui varient (certains contrats en retiennent une partie) ; vous ne votez pas
             aux assemblées de la SCPI ; et, si l'assureur doit remplacer un support, le code des
             assurances encadre cette substitution (article R. 131-4), à condition que le contrat
             la prévoie.
@@ -252,7 +253,8 @@ export default function GuideScpiAssuranceVieOuPer() {
             prix) et frais de gestion, déjà déduits des revenus distribués. Dans un contrat, ces frais
             restent dus, et s'ajoutent ceux du contrat : frais de gestion annuels prélevés sur la
             valeur du contrat, parfois des frais d'entrée ou d'arbitrage, parfois des frais propres au
-            support. Ces ordres de grandeur, tirés de {FRAIS_TYPES.contratInternet.source.split(" — ")[0]}, sont à confirmer contrat par contrat.
+            support. Les ordres de grandeur ci-dessous, tirés de grilles tarifaires publiques de
+            contrats, sont à confirmer contrat par contrat.
           </p>
           <div className="note">
             <p>
@@ -324,7 +326,7 @@ export default function GuideScpiAssuranceVieOuPer() {
             rachats. Selon la fiche F22414 de Service-Public, des prélèvements sociaux
             ({pct1(FISCALITE.prelevementsSociaux.assuranceVie)} en principe) s'appliquent aux
             gains ; l'impôt sur le revenu dépend de l'ancienneté du contrat : pour un contrat de{" "}
-            {" "}huit ans ou plus, un abattement annuel de {euros(FISCALITE.avAbattementAnnuelSeul)} (personne seule) ou{" "}
+            {AV_RACHAT.dureeTauxReduitAnnees} ans ou plus, un abattement annuel de {euros(FISCALITE.avAbattementAnnuelSeul)} (personne seule) ou{" "}
             {euros(FISCALITE.avAbattementAnnuelCouple)} (couple) s'applique aux gains. Le mécanisme est
             expliqué dans notre guide sur le{" "}
             <a href="/guide/immobilier-locatif-ou-assurance-vie">choix entre immobilier locatif et assurance-vie</a>.
@@ -344,7 +346,7 @@ export default function GuideScpiAssuranceVieOuPer() {
               Un revenu qui n'est pas versé n'est pas un revenu inexistant : un taux de
               distribution est un taux brut, non garanti, et une SCPI peut baisser sa distribution
               ou voir son prix de part reculer (au premier semestre 2026, le prix de part moyen
-              pondéré a variété de {pct1(M.variationPrixPartS12026)} selon l'ASPIM). Dans un contrat, ces
+              pondéré a varié de {pct1(M.variationPrixPartS12026)} selon l'ASPIM). Dans un contrat, ces
               mouvements se retrouvent dans la valeur de vos unités de compte.
             </p>
           </div>
@@ -361,12 +363,13 @@ export default function GuideScpiAssuranceVieOuPer() {
             En contrat, vous demandez un rachat à l'assureur, ce qui ressemble à une opération
             simple, mais l'assureur reste tributaire de la valeur et de la liquidité de la SCPI
             sous-jacente. Le délai de paiement d'un rachat peut être plus long pour une unité de
-            compte immobilière que pour un fonds en euros ; certaines sources évoquent un délai
-            pouvant aller jusqu'à deux mois, à confirmer dans la notice. Surtout, l'assureur peut
+            compte immobilière que pour un fonds en euros ; le délai applicable est à lire dans
+            la notice. Surtout, l'assureur peut
             appliquer ses propres règles (rachat partiel d'une UC, valeur retenue, éventuel gel en
-            cas de difficulté). Pour comprendre l'effet fiscal d'un rachat, voir notre guide sur
-            le{" "}
-            <a href="/guide/ordre-de-decaissement-retraite">choix de l'ordre de décaissement</a>.
+            cas de difficulté). Pour l'effet fiscal d'un rachat, voir notre guide sur le{" "}
+            <a href="/guide/rachat-partiel-assurance-vie-imposition">rachat partiel d'assurance-vie</a>{" "}
+            et celui sur{" "}
+            <a href="/guide/ordre-de-decaissement-retraite">l'ordre de décaissement</a>.
           </p>
           <p>
             Dans un PER, la question ne se pose pas avant la retraite : les sommes y sont

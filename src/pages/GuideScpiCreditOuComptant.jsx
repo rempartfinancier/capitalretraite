@@ -18,7 +18,7 @@ const pct1 = (n) =>
 const eurosPrecis = (n) =>
   n.toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 
-// ---- Crédit à amortissement constant (mensualités constantes), formule standard ----
+// ---- Crédit amortissable à mensualités constantes, formule standard ----
 const tauxMensuel = E.tauxCredit / 100 / 12;
 const nbMensualites = E.dureeAnnees * 12;
 const mensualite =
@@ -69,9 +69,17 @@ const revenuNetComptantTotal = revenuNetComptantAnnuel * E.dureeAnnees;
 // ---- Valeur théorique des parts : frais de souscription absorbés, puis baisse du prix de part ----
 const valeurRetraitSansBaisse = (E.montant * (100 - E.fraisSouscriptionPct)) / 100;
 const valeurRetraitApresBaisse = (valeurRetraitSansBaisse * (100 - E.baissePrixPart)) / 100;
-const moisMiParcours = nbMensualites / 2;
+// Comparaison au bout d'un an de remboursement (12 mensualités payées).
+const moisMiParcours = 12;
 const capitalRestantMi = capitalRestantApres(moisMiParcours);
 const ecartMi = valeurRetraitApresBaisse - capitalRestantMi;
+// Premier mois où le capital restant dû passe sous la valeur théorique de retrait après baisse.
+const moisCroisement = (() => {
+  for (let mois = 1; mois <= nbMensualites; mois++) {
+    if (capitalRestantApres(mois) <= valeurRetraitApresBaisse) return mois;
+  }
+  return nbMensualites;
+})();
 
 // Taux de distribution qui couvrirait à lui seul les mensualités (avant impôt).
 const tauxCouvertureMensualites = (mensualitesAnnuelles / E.montant) * 100;
@@ -380,15 +388,19 @@ export default function GuideScpiCreditOuComptant() {
               <strong>{euros(valeurRetraitApresBaisse)}</strong>.
             </li>
             <li>
-              Capital restant dû à mi-parcours, après {moisMiParcours} mensualités :{" "}
+              Capital restant dû au bout d'un an, après {moisMiParcours} mensualités :{" "}
               <strong>{euros(capitalRestantMi)}</strong>.
             </li>
           </ul>
           <p>
-            À mi-parcours, revendre les parts à cette valeur théorique ne couvrirait pas le crédit
-            : {euros(valeurRetraitApresBaisse)} contre {euros(capitalRestantMi)} dus, soit{" "}
-            {ecartMi >= 0 ? "un excédent" : "un manque"} de {euros(Math.abs(ecartMi))} à
-            financer sur d'autres ressources. Le raisonnement ne tient pas compte des revenus
+            Au bout d'un an, revendre les parts à cette valeur théorique{" "}
+            {ecartMi >= 0 ? "couvrirait" : "ne couvrirait pas"} le crédit :{" "}
+            {euros(valeurRetraitApresBaisse)} contre {euros(capitalRestantMi)} dus, soit{" "}
+            {ecartMi >= 0 ? "un excédent" : "un manque"} de {euros(Math.abs(ecartMi))}
+            {ecartMi >= 0 ? "" : " à financer sur d'autres ressources"}. Dans cet exemple, il faut
+            attendre environ {moisCroisement} mensualités pour que le capital restant dû repasse
+            sous cette valeur : pendant les premières années, une revente forcée laisserait une
+            dette à solder. Le raisonnement ne tient pas compte des revenus
             reçus, ni de l'impôt, ni d'éventuels frais de sortie, ni des délais pour trouver un
             acheteur ; c'est une lecture volontairement simple.
           </p>
@@ -404,8 +416,9 @@ export default function GuideScpiCreditOuComptant() {
           <ul>
             <li>
               <strong>Le taux.</strong> Un taux variable ou révisable peut faire augmenter la
-              mensualité ; même un taux fixe, ici supposé à {pct1(E.tauxCredit)}, peut être plus
-              élevé que celui d'aujourd'hui lors d'un renouvellement.
+              mensualité. À taux fixe, la mensualité ne bouge pas, mais le taux obtenu dépend des
+              conditions du moment ; celui de l'exemple, {pct1(E.tauxCredit)}, n'est qu'une
+              hypothèse.
             </li>
             <li>
               <strong>Le taux d'effort.</strong> Selon la recommandation du Haut Conseil de
@@ -586,8 +599,9 @@ export default function GuideScpiCreditOuComptant() {
             L'emprunt n'améliore pas le placement : il en amplifie les résultats, dans les deux
             sens. Il permet d'investir sans mobiliser d'épargne, mais il transforme un revenu
             incertain en dette certaine. Dans l'exemple, l'effort d'épargne réel est d'environ{" "}
-            {euros(effortAn1 / 12)} par mois au départ, et un recul modéré du prix de part suffit à
-            rendre la valeur de retrait inférieure au capital restant dû.
+            {euros(effortAn1 / 12)} par mois au départ, et, pendant les premières années, les frais
+            de souscription ajoutés à un recul du prix de part suffisent à rendre la valeur de
+            retrait inférieure au capital restant dû.
           </p>
           <p>
             À l'approche de la retraite, trois critères pèsent plus lourd : la durée du crédit au

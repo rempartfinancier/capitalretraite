@@ -296,8 +296,9 @@ export default function GuideLmnpResidenceGeree() {
             <li>
               <strong>Le bail commercial.</strong> Quelle durée ? Quelles conditions de
               renouvellement ? Que dit-il d'une résiliation par l'exploitant ou par vous ?
-              Le principe du statut des baux commerciaux prévoit en général une indemnité en cas
-              de non-renouvellement par le bailleur ; à confirmer au contrat.
+              Selon le principe du statut des baux commerciaux, si c'est vous, bailleur, qui
+              refusez le renouvellement, une indemnité d'éviction peut être due à l'exploitant ;
+              son montant et ses conditions sont à confirmer au contrat.
             </li>
             <li>
               <strong>Le loyer et son indexation.</strong> Le montant est-il fixe ou indexé ?
@@ -389,9 +390,9 @@ export default function GuideLmnpResidenceGeree() {
               long peut donner l'impression d'une rente à vie. Ce n'est pas le cas : une rente
               viagère est un engagement d'un assureur qui verse un revenu jusqu'au décès. Un
               loyer de résidence gérée dure tant que l'exploitant est solvable et que le bail est
-              maintenu ou renouvelé aux mêmes conditions, ce que rien ne garantit. Vos
-              loyers ne s'arrêtent pas à votre décès : le logement fait partie de votre
-              patrimoine et se transmet avec le contrat.
+              maintenu ou renouvelé aux mêmes conditions, ce que rien ne garantit. À l'inverse
+              d'une rente, le bail ne s'éteint pas à votre décès : le logement fait partie de
+              votre patrimoine et se transmet avec le bail en cours.
             </p>
           </div>
 

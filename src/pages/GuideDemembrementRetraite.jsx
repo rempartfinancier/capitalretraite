@@ -297,7 +297,7 @@ export default function GuideDemembrementRetraite() {
           <p>
             Dans cet exemple, l'écart est de <strong>{eurosPrecis(economie)}</strong> de droits.
             L'économie vient de deux effets cumulés : l'assiette est réduite par le barème, et
-            l'abattement absorbe l'essentiel de ce qui reste. Elle n'a rien de systématique : avec
+            l'abattement absorbe tout ou partie de ce qui reste. Elle n'a rien de systématique : avec
             une valeur plus faible, l'abattement seul peut déjà suffire en pleine propriété ; avec
             un donateur plus jeune, la nue-propriété vaut moins, mais l'usufruit réservé dure
             statistiquement plus longtemps.
@@ -340,8 +340,8 @@ export default function GuideDemembrementRetraite() {
             d'assujettissement, de {euros(F.ifiSeuilAssujettissement)} au 1er janvier, le barème ne
             commençant qu'au-delà de {euros(F.ifiSeuilBareme)}. Elle ne concerne donc qu'une minorité
             de lecteurs, mais elle compte : donner la nue-propriété ne retire pas le bien de
-            l'assiette IFI du donateur tant qu'il en garde l'usufruit. Les exceptions (usufruit
-            légal, achat d'usufruit ou de nue-propriété, par exemple) se vérifient dans la doctrine
+            l'assiette IFI du donateur tant qu'il en garde l'usufruit. Les exceptions prévues par
+            le texte (certains usufruits légaux, par exemple) se vérifient dans la doctrine
             administrative (BOFiP) ou avec un notaire.
           </p>
 
@@ -356,9 +356,9 @@ export default function GuideDemembrementRetraite() {
               <strong>La présomption de fictivité.</strong> L'article 751 du CGI prévoit que, dans
               certaines conditions, une donation de nue-propriété consentie peu de temps avant le
               décès peut être regardée comme fictive, ce qui fait réintégrer le bien dans la
-              succession. La durée citée dans les textes est de {D.delaiPresomptionFictiviteMois} mois ;
-              selon les sources consultées, les conditions exactes sont à faire confirmer par le
-              notaire avant toute donation tardive ou en cas de maladie.
+              succession. Selon les sources consultées, le délai en cause serait de{" "}
+              {D.delaiPresomptionFictiviteMois} mois avant le décès ; les conditions exactes sont à
+              faire confirmer par le notaire avant toute donation tardive ou en cas de maladie.
             </li>
             <li>
               <strong>Le besoin de revenus futur.</strong> Se dessaisir d'une part de sa
@@ -367,9 +367,10 @@ export default function GuideDemembrementRetraite() {
             </li>
             <li>
               <strong>L'égalité entre enfants.</strong> Le barème fige la valeur au jour de la
-              donation. Si le bien prend de la valeur ensuite, la plus-value échappe à la
-              succession ; mais elle peut aussi créer des déséquilibres si le bien n'est pas
-              donné à tous.
+              donation pour le calcul des droits : une hausse ultérieure n'est pas taxée. Sur le
+              plan civil, en revanche, l'égalité entre enfants dépend de la forme de l'acte
+              (donation simple ou donation-partage) et peut créer des déséquilibres si le bien
+              n'est pas donné à tous : point à voir avec le notaire.
             </li>
           </ul>
 
@@ -592,8 +593,9 @@ export default function GuideDemembrementRetraite() {
           <h3>Le nu-propriétaire paie-t-il des impôts pendant le démembrement ?</h3>
           <p>
             Il ne perçoit pas de revenus tant que l'usufruit dure, donc il n'est pas imposé sur des
-            loyers. Selon le cas, il peut rester concerné par certaines charges (grosses réparations,
-            taxe foncière selon l'acte) ; à faire préciser avec le notaire.
+            loyers. Il peut rester concerné par certaines charges, notamment les grosses
+            réparations selon l'acte ; la taxe foncière est en principe établie au nom de
+            l'usufruitier. À faire préciser avec le notaire.
           </p>
           <h3>Que se passe-t-il au décès de l'usufruitier ?</h3>
           <p>

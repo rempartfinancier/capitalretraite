@@ -26,9 +26,10 @@ const abattementIR = (annees) => {
 // PS : 1,65 % par an de la 6e à la 21e année, 1,6 % la 22e, 9 % par an de la 23e à la 30e ; exonération à 30 ans.
 const abattementPS = (annees) => {
   if (annees >= F.pvExonerationPSAnnees) return 100;
-  const jusque21 = Math.max(Math.min(annees, 21) - F.pvAnneesSansAbattement, 0) * F.pvAbattementPSParAn;
-  const a22 = annees >= 22 ? F.pvAbattementPS22e : 0;
-  const de23a30 = Math.max(annees - 22, 0) * F.pvAbattementPSParAn23a30;
+  const an22 = F.pvExonerationIRAnnees;
+  const jusque21 = Math.max(Math.min(annees, an22 - 1) - F.pvAnneesSansAbattement, 0) * F.pvAbattementPSParAn;
+  const a22 = annees >= an22 ? F.pvAbattementPS22e : 0;
+  const de23a30 = Math.max(annees - an22, 0) * F.pvAbattementPSParAn23a30;
   return jusque21 + a22 + de23a30;
 };
 
@@ -158,7 +159,7 @@ export default function GuideLmnpReforme() {
               <li><a href="#logique">Qu'a changé la loi de finances pour 2025 ?</a></li>
               <li><a href="#exceptions">Quelles résidences échappent à la réintégration ?</a></li>
               <li><a href="#exemple">Que donne la réintégration sur un exemple chiffré ?</a></li>
-              <li><a href="#duree">Que change la durée de détention (22 ans, 30 ans) ?</a></li>
+              <li><a href="#duree">Que change la durée de détention ({F.pvExonerationIRAnnees} ans, {F.pvExonerationPSAnnees} ans) ?</a></li>
               <li><a href="#arbitrage">Garder jusqu'à la transmission ou vendre : quelles questions se poser ?</a></li>
               <li><a href="#debat">Où en est le débat sur l'amortissement en meublé ?</a></li>
               <li><a href="#jeanbrun">Le dispositif Jeanbrun : une autre voie, en location nue</a></li>
@@ -173,9 +174,9 @@ export default function GuideLmnpReforme() {
           <p>
             Le texte à l'origine de la réforme est l'{L.texteReintegration}. Sa logique est
             simple : un amortissement est une charge comptable qui a réduit votre bénéfice
-            imposable chaque année, parce que le logement est supposé s'user. Si vous revendez le
-            bien plus cher que sa valeur « usée », l'administration considère que cette charge n'a
-            pas été économiquement réelle, et la rattrape à la revente.
+            imposable chaque année, parce que le logement est supposé s'user. Le législateur a
+            choisi d'en tenir compte à la revente : l'avantage obtenu pendant la détention est
+            en partie repris au moment de la plus-value.
           </p>
           <p>
             Techniquement, le prix d'acquisition retenu pour calculer la plus-value est diminué
@@ -290,7 +291,7 @@ export default function GuideLmnpReforme() {
             </p>
           </div>
 
-          <h2 id="duree">Que change la durée de détention (22 ans, 30 ans) ?</h2>
+          <h2 id="duree">Que change la durée de détention ({F.pvExonerationIRAnnees} ans, {F.pvExonerationPSAnnees} ans) ?</h2>
           <p>
             Les abattements pour durée de détention s'appliquent à la plus-value ainsi
             recalculée. Pour l'impôt sur le revenu, l'exonération est complète à partir de{" "}
@@ -300,26 +301,26 @@ export default function GuideLmnpReforme() {
           </p>
           <ul>
             <li>
-              <strong>Revente avant 22 ans :</strong> la réintégration augmente la base
+              <strong>Revente avant {F.pvExonerationIRAnnees} ans :</strong> la réintégration augmente la base
               imposable à l'impôt sur le revenu et aux prélèvements sociaux. L'effet est le plus
               marqué pour les reventes précoces, où les abattements sont encore faibles : au bout
               de {E.dureeDetentionAnnees} ans, ils sont de {pct1(abattementIR(E.dureeDetentionAnnees))} pour l'impôt sur le revenu.
             </li>
             <li>
-              <strong>Revente après 22 ans, avant 30 ans :</strong> l'impôt sur le revenu
+              <strong>Revente après {F.pvExonerationIRAnnees} ans, avant {F.pvExonerationPSAnnees} ans :</strong> l'impôt sur le revenu
               disparaît, mais la plus-value reste imposable aux prélèvements sociaux,
               progressivement réduits.
             </li>
             <li>
-              <strong>Revente après 30 ans :</strong> la plus-value est exonérée d'impôt et de
+              <strong>Revente après {F.pvExonerationPSAnnees} ans :</strong> la plus-value est exonérée d'impôt et de
               prélèvements sociaux, sous réserve des règles en vigueur à ce moment-là.
             </li>
           </ul>
           <p>
-            Un détail utile : dans notre exemple, l'amortissement est supposé s'étaler sur{" "}
-            {E.dureeAmortissementAnnees} ans. Un investisseur qui garderait son bien plus de{" "}
-            {F.pvExonerationPSAnnees} ans sortirait du champ de l'impôt sur la plus-value : la
-            réintégration ne coûterait alors rien en impôt sur la plus-value. C'est
+            Un détail utile : un investisseur qui garderait son bien plus de{" "}
+            {F.pvExonerationPSAnnees} ans sortirait, selon les règles actuelles, du champ de
+            l'impôt sur la plus-value : la réintégration ne coûterait alors rien en impôt sur la
+            plus-value. C'est
             une durée très longue, qui suppose de rester propriétaire bien au-delà de la retraite.
           </p>
 
@@ -335,7 +336,8 @@ export default function GuideLmnpReforme() {
             </li>
             <li>
               <strong>Où en est mon horizon de détention ?</strong> L'écart de fiscalité entre
-              une vente après {E.dureeDetentionAnnees} ans et une vente après 22 ans, ou 30 ans, peut peser
+              une vente après {E.dureeDetentionAnnees} ans et une vente après {F.pvExonerationIRAnnees} ans, ou{" "}
+              {F.pvExonerationPSAnnees} ans, peut peser
               plus lourd que l'avantage fiscal annuel de l'amortissement.
             </li>
             <li>
@@ -461,7 +463,8 @@ export default function GuideLmnpReforme() {
           </p>
           <p>
             Trois repères de lecture : savoir si votre résidence relève ou non des exceptions ;
-            situer votre horizon de revente par rapport aux seuils de 22 et 30 ans ; suivre le
+            situer votre horizon de revente par rapport aux seuils de {F.pvExonerationIRAnnees} et{" "}
+            {F.pvExonerationPSAnnees} ans ; suivre le
             texte final de la loi de finances pour 2027. Pour la place d'un bien meublé dans
             l'ensemble de votre stratégie, voir{" "}
             <a href="/strategies/immobilier-retraite">l'immobilier dans la stratégie retraite</a>{" "}

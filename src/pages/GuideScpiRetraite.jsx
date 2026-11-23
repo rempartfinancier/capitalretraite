@@ -398,7 +398,12 @@ export default function GuideScpiRetraite() {
             <li>
               <strong>Des revenus imposés.</strong> Les revenus fonciers entrent dans le revenu
               imposable et peuvent peser sur d'autres éléments de la situation fiscale, par
-              exemple les prélèvements sociaux. Ils se comparent au net, pas au brut.
+              exemple le revenu fiscal de référence, dont dépend le taux de CSG sur les
+              pensions (voir{" "}
+              <a href="/guide/immobilier-a-la-retraite-revenus-transmission">
+                immobilier à la retraite
+              </a>
+              ). Ils se comparent au net, pas au brut.
             </li>
           </ul>
           <p>

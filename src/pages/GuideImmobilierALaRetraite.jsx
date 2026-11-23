@@ -34,12 +34,14 @@ const csgDeductibleLoyers = (R.loyersFonciersAnnuels * F.csgDeductibleFoncier) /
 // ---- Plus-value immobilière des particuliers : abattements cumulés selon la durée de détention ----
 const abattIR = (annees) => {
   if (annees >= F.pvExonerationIRAnnees) return 100;
-  const n = Math.max(Math.min(annees, F.pvExonerationIRAnnees - 1) - 5, 0);
+  const n = Math.max(Math.min(annees, F.pvExonerationIRAnnees - 1) - F.pvAnneesSansAbattement, 0);
   return n * F.pvAbattementIRParAn;
 };
 const abattPS = (annees) => {
   if (annees >= F.pvExonerationPSAnnees) return 100;
-  const jusqua21 = Math.max(Math.min(annees, F.pvExonerationIRAnnees - 1) - 5, 0) * F.pvAbattementPSParAn;
+  const jusqua21 =
+    Math.max(Math.min(annees, F.pvExonerationIRAnnees - 1) - F.pvAnneesSansAbattement, 0) *
+    F.pvAbattementPSParAn;
   const a22 = annees >= F.pvExonerationIRAnnees ? F.pvAbattementPS22e : 0;
   const a23 = Math.max(annees - F.pvExonerationIRAnnees, 0) * F.pvAbattementPSParAn23a30;
   return Math.min(jusqua21 + a22 + a23, 100);
@@ -147,8 +149,8 @@ export default function GuideImmobilierALaRetraite() {
               combien coûte un investissement locatif
             </a>{" "}
             et <a href="/strategies/immobilier-retraite">immobilier et retraite</a>). Le dispositif
-            Jeanbrun, créé par la loi de finances pour 2026, concerne l'investissement locatif
-            neuf ou ancien rénové et non la retraite ; il n'est pas traité ici.
+            Jeanbrun, créé par la loi de finances pour 2026, vise l'achat d'un logement à louer
+            nu, pas la gestion d'un patrimoine déjà constitué ; il n'est pas traité ici.
           </p>
 
           <div className="sommaire">
@@ -363,10 +365,10 @@ export default function GuideImmobilierALaRetraite() {
             </table>
           </div>
           <p>
-            En clair : aucune réduction avant la sixième année ; ensuite {pct1(F.pvAbattementIRParAn)}{" "}
+            En clair : aucune réduction pendant les {F.pvAnneesSansAbattement} premières années ; ensuite {pct1(F.pvAbattementIRParAn)}{" "}
             par an pour l'impôt (jusqu'à l'exonération complète à {F.pvExonerationIRAnnees} ans) et{" "}
             {pct1(F.pvAbattementPSParAn)} par an pour les prélèvements sociaux (exonération complète à{" "}
-            {F.pvExonerationPSAnnees} ans). Une cession inférieure ou égale à{" "}
+            {F.pvExonerationPSAnnees} ans). Une cession dont le prix est inférieur ou égal à{" "}
             {euros(F.pvExonerationPrixCession)} est exonérée. Au-delà de {euros(F.pvSurtaxeSeuil)} de
             plus-value imposable, une surtaxe dont le taux dépend du montant s'ajoute (détail dans
             la fiche F10864). Les frais d'acquisition et certains travaux peuvent être pris en compte
@@ -426,7 +428,10 @@ export default function GuideImmobilierALaRetraite() {
               <strong>L'assurance-vie</strong> : en cas de vente du bien, replacer le produit en
               assurance-vie ouvre un régime de transmission distinct (abattement de{" "}
               {euros(TRANSMISSION.abattementSuccessionAvParBeneficiaire)} par bénéficiaire pour les
-              versements avant 70 ans, selon l'article 990 I du CGI). Voir{" "}
+              versements avant 70 ans, selon l'article 990 I du CGI ; pour les versements après
+              70 ans, le régime est moins favorable, avec un abattement global de{" "}
+              {euros(TRANSMISSION.abattementSuccessionAvApres70Collectif)} pour l'ensemble des
+              bénéficiaires, à confirmer). Voir{" "}
               <a href="/guide/meilleure-assurance-vie-retraite">notre guide de l'assurance-vie</a> et{" "}
               <a href="/guide/immobilier-locatif-ou-assurance-vie">
                 immobilier locatif ou assurance-vie
@@ -467,7 +472,8 @@ export default function GuideImmobilierALaRetraite() {
               <br />
               Regardez la durée de détention (tableau ci-dessus), la plus-value probable, et si vous
               relevez des exonérations (retraité de condition modeste, cession de faible montant).
-              Une durée proche d'un palier d'abattement peut justifier d'attendre. Si l'impôt est
+              Une durée proche d'un seuil d'exonération ({F.pvExonerationIRAnnees} ou{" "}
+              {F.pvExonerationPSAnnees} ans) peut justifier d'attendre. Si l'impôt est
               élevé, la transmission en nature devient une piste.
             </li>
             <li>
@@ -490,7 +496,8 @@ export default function GuideImmobilierALaRetraite() {
               franchit un seuil.
             </li>
             <li>
-              <strong>Vendre un an trop tôt</strong>, juste avant un palier d'abattement de plus-value.
+              <strong>Vendre un an trop tôt</strong>, juste avant un seuil d'exonération de
+              plus-value ({F.pvExonerationIRAnnees} ou {F.pvExonerationPSAnnees} ans de détention).
             </li>
             <li>
               <strong>Garder un crédit long à l'âge de la retraite</strong> sans avoir vérifié

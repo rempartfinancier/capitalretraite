@@ -362,7 +362,8 @@ export default function GuideScpiFiscalite() {
           </p>
           <ul>
             <li>
-              <strong>Impôt sur le revenu</strong> : pas d'abattement les cinq premières années ;
+              <strong>Impôt sur le revenu</strong> : pas d'abattement les {F.pvAnneesSansAbattement}{" "}
+              premières années ;
               ensuite {pct(F.pvAbattementIRParAn)} par an jusqu'à la {derniereAnneeLineaire}e
               année, {pct(F.pvAbattementIR22e)} la {F.pvExonerationIRAnnees}e année, d'où
               l'exonération totale d'impôt après {F.pvExonerationIRAnnees} ans de détention.
@@ -376,8 +377,9 @@ export default function GuideScpiFiscalite() {
           </ul>
           <p>
             Une surtaxe progressive s'ajoute lorsque la plus-value imposable à l'impôt sur le revenu
-            dépasse {euros(F.pvSurtaxeSeuil)}. Une cession dont le prix est inférieur ou égal à{" "}
-            {euros(F.pvExonerationPrixCession)} est exonérée. Des exonérations existent aussi,
+            dépasse {euros(F.pvSurtaxeSeuil)}. Pour un bien détenu en direct, une cession dont le prix
+            est inférieur ou égal à {euros(F.pvExonerationPrixCession)} est exonérée ; son
+            application à une cession de parts de SCPI est à confirmer. Des exonérations existent aussi,
             notamment pour certains retraités sous conditions de revenu et de non-assujettissement à
             l'IFI : voir la fiche F10864 de Service-Public.
           </p>
@@ -501,8 +503,8 @@ export default function GuideScpiFiscalite() {
               référer à la notice de l'année.
             </li>
             <li>
-              <strong>IFI</strong> : déclaration spécifique, ou ligne de la déclaration de revenus
-              selon la valeur du patrimoine imposable.
+              <strong>IFI</strong> : pour les foyers concernés, annexe spécifique jointe à la
+              déclaration de revenus ; se référer à la notice de l'année.
             </li>
           </ul>
           <p>
