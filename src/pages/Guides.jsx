@@ -29,6 +29,16 @@ const categories = [
         title: "Faut-il un conseiller en gestion de patrimoine, ou peut-on tout gérer seul ?",
         text: "Ce qu'on peut vraiment faire seul aujourd'hui, et ce qui devient difficile sans accompagnement.",
       },
+      {
+        to: "/guide/combien-epargner-par-mois-pour-la-retraite-selon-age",
+        title: "Combien épargner par mois pour sa retraite selon l'âge ?",
+        text: "Le tableau de l'épargne mensuelle à 30, 40 et 50 ans, selon le complément visé et le rendement supposé.",
+      },
+      {
+        to: "/guide/capital-retraite-objectif-et-construction",
+        title: "Capital retraite : quel objectif viser et comment le construire",
+        text: "De l'objectif de revenu au capital à réunir : la grille de lecture et les enveloppes pour le construire.",
+      },
     ],
   },
   {
@@ -74,6 +84,11 @@ const categories = [
         to: "/guide/donation-ou-assurance-vie-transmission",
         title: "Donation ou assurance-vie : comment transmettre à ses enfants ?",
         text: "Deux logiques de transmission différentes, souvent complémentaires plutôt que concurrentes.",
+      },
+      {
+        to: "/guide/per-ou-assurance-vie-selon-age-et-tmi",
+        title: "PER ou assurance-vie : le choix selon l'âge et la TMI",
+        text: "Âge, tranche marginale, horizon : l'économie d'impôt du PER comparée à la fiscalité de l'assurance-vie, chiffres à l'appui.",
       },
     ],
   },
@@ -152,6 +167,11 @@ const categories = [
         title: "Assurance-vie luxembourgeoise : pour qui ?",
         text: "Triangle de sécurité, neutralité fiscale : ce que ça change vraiment, et pour quels patrimoines.",
       },
+      {
+        to: "/guide/assurance-vie-apres-8-ans-fiscalite-et-rente",
+        title: "Assurance-vie après 8 ans : fiscalité, abattement et rente",
+        text: "Ce qui change au 8e anniversaire et comment la rente viagère est imposée, avec des exemples chiffrés.",
+      },
     ],
   },
   {
@@ -167,6 +187,11 @@ const categories = [
         to: "/guide/inconvenients-du-pea",
         title: "Les inconvénients du PEA",
         text: "Plafond, rigidité, succession : pourquoi il reste central dans une stratégie retraite malgré tout.",
+      },
+      {
+        to: "/guide/pea-en-ligne-comment-choisir-pour-la-retraite",
+        title: "PEA en ligne : comment choisir et l'utiliser pour la retraite",
+        text: "Critères de choix, frais à comparer, étapes d'ouverture et rôle du PEA pour préparer la retraite.",
       },
     ],
   },

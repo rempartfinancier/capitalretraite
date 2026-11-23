@@ -99,9 +99,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/combien-faut-il-epargner-pour-la-retraite",
-    title: "Combien faut-il vraiment épargner pour la retraite ?",
+    title: "Combien épargner pour sa retraite ? Par mois, selon l'âge",
     description:
-      "Taux de remplacement, niveau de vie cible, ordres de grandeur honnêtes selon votre situation : une réponse structurée à la question retraite n°1 — sans chiffre magique.",
+      "Combien épargner par mois pour sa retraite selon l'âge et le revenu ? Tableaux chiffrés, capital cible, effet des frais et de l'inflation.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -110,9 +110,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/per-vs-assurance-vie-retraite",
-    title: "PER ou assurance-vie pour la retraite : le vrai comparatif",
+    title: "PER ou assurance-vie pour la retraite : que choisir ?",
     description:
-      "Fiscalité à l'entrée vs à la sortie, liquidité, succession, cas d'usage : le comparatif structuré PER / assurance-vie pour préparer sa retraite, sans réponse toute faite.",
+      "PER ou assurance-vie selon votre TMI et votre horizon : tableau chiffré, plafond de déduction, profils types et FAQ.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -176,9 +176,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/pea-banque-ou-courtier",
-    title: "PEA : banque ou courtier en ligne ? Frais, fonds maison et vraie diversification",
+    title: "PEA en ligne ou banque : frais comparés et mode d'emploi",
     description:
-      "Droits de garde, frais de courtage, fonds actions maison à 2 % : le même PEA peut coûter dix fois plus cher selon l'établissement. Le comparatif pour choisir — ou transférer.",
+      "PEA en ligne ou en banque : comparatif des frais, mode d'emploi pour ouvrir et alimenter, fiscalité à 18,6 % et rôle pour la retraite.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -407,9 +407,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/meilleure-assurance-vie-retraite",
-    title: "Quelle est la meilleure assurance-vie pour la retraite ? Le comparatif par profil",
+    title: "Assurance-vie pour la retraite : laquelle choisir ?",
     description:
-      "Contrat bancaire, courtier en ligne, gestion conseillée par un CGP : la meilleure assurance-vie n'est pas un nom, c'est un profil. La grille pour choisir selon que vous voulez tout faire seul ou être accompagné.",
+      "Assurance-vie et retraite : constituer, retirer, fiscalité 2026, critères de choix et erreurs à éviter. Comparatif par profil.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -634,6 +634,58 @@ export const routesMeta = [
       ["Accueil", "/"],
       ["Guides", "/guides"],
       ["À quel âge récupérer son capital", "/guide/a-quel-age-recuperer-son-capital-retraite"],
+    path: "/guide/per-ou-assurance-vie-selon-age-et-tmi",
+    title: "PER ou assurance-vie : le choix selon l'âge et la TMI",
+    description:
+      "Selon votre âge et votre tranche d'imposition, quel versement vaut quoi ? Économie d'impôt à l'entrée et fiscalité à la sortie, calculées.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PER ou assurance-vie selon l'âge et la TMI", "/guide/per-ou-assurance-vie-selon-age-et-tmi"],
+    ],
+  },
+  {
+    path: "/guide/combien-epargner-par-mois-pour-la-retraite-selon-age",
+    title: "Combien épargner par mois pour sa retraite selon l'âge ?",
+    description:
+      "Épargne mensuelle à 30, 40 et 50 ans pour viser un complément de 500 à 1 500 € par mois à la retraite : tableau, méthode et hypothèses.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Épargne mensuelle selon l'âge", "/guide/combien-epargner-par-mois-pour-la-retraite-selon-age"],
+    ],
+  },
+  {
+    path: "/guide/pea-en-ligne-comment-choisir-pour-la-retraite",
+    title: "PEA en ligne : comment choisir et l'utiliser pour la retraite",
+    description:
+      "PEA en ligne : critères de choix, frais, ouverture, place du PEA dans la préparation de la retraite. Sans conseil personnalisé.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PEA en ligne pour la retraite", "/guide/pea-en-ligne-comment-choisir-pour-la-retraite"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-apres-8-ans-fiscalite-et-rente",
+    title: "Assurance-vie après 8 ans : fiscalité, abattement et rente",
+    description:
+      "Après 8 ans : taux de 7,5 %, abattement de 4 600 € ou 9 200 €, prélèvements sociaux, et fiscalité de la rente viagère, avec exemples chiffrés.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Assurance-vie après 8 ans et rente", "/guide/assurance-vie-apres-8-ans-fiscalite-et-rente"],
+    ],
+  },
+  {
+    path: "/guide/capital-retraite-objectif-et-construction",
+    title: "Capital retraite : quel objectif viser et comment le construire",
+    description:
+      "Quel capital pour compléter vos pensions ? Grille capital → revenu mensuel, règle des 4 %, et construction avec PER, assurance-vie et PEA.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Capital retraite : objectif et construction", "/guide/capital-retraite-objectif-et-construction"],
     ],
   },
   {

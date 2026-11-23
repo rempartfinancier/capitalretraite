@@ -63,6 +63,11 @@ import GuideRenteViagereCalcul from "./pages/GuideRenteViagereCalcul.jsx";
 import GuideFiscaliteRenteViagere from "./pages/GuideFiscaliteRenteViagere.jsx";
 import GuideRachatsProgrammesAv from "./pages/GuideRachatsProgrammesAv.jsx";
 import GuideRecupererCapitalRetraite from "./pages/GuideRecupererCapitalRetraite.jsx";
+import GuideCapitalRetraite from "./pages/GuideCapitalRetraite.jsx";
+import GuideAvApres8Ans from "./pages/GuideAvApres8Ans.jsx";
+import GuidePeaEnLigne from "./pages/GuidePeaEnLigne.jsx";
+import GuideEpargneMensuelleSelonAge from "./pages/GuideEpargneMensuelleSelonAge.jsx";
+import GuidePerOuAvSelonAgeTmi from "./pages/GuidePerOuAvSelonAgeTmi.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -162,6 +167,11 @@ export default function App() {
           <Route path="/guide/fiscalite-rente-viagere-titre-onereux" element={<GuideFiscaliteRenteViagere />} />
           <Route path="/guide/rachats-programmes-assurance-vie-retraite" element={<GuideRachatsProgrammesAv />} />
           <Route path="/guide/a-quel-age-recuperer-son-capital-retraite" element={<GuideRecupererCapitalRetraite />} />
+          <Route path="/guide/per-ou-assurance-vie-selon-age-et-tmi" element={<GuidePerOuAvSelonAgeTmi />} />
+          <Route path="/guide/combien-epargner-par-mois-pour-la-retraite-selon-age" element={<GuideEpargneMensuelleSelonAge />} />
+          <Route path="/guide/pea-en-ligne-comment-choisir-pour-la-retraite" element={<GuidePeaEnLigne />} />
+          <Route path="/guide/assurance-vie-apres-8-ans-fiscalite-et-rente" element={<GuideAvApres8Ans />} />
+          <Route path="/guide/capital-retraite-objectif-et-construction" element={<GuideCapitalRetraite />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>
