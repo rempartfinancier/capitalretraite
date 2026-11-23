@@ -780,6 +780,116 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/estimer-sa-pension-retraite-taux-de-remplacement",
+    title: "Estimer sa pension de retraite et son taux de remplacement",
+    description:
+      "Calculer sa pension : retraite de base, points Agirc-Arrco, taux de remplacement cadre et non-cadre, puis estimation officielle sur info-retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Estimer sa pension", "/guide/estimer-sa-pension-retraite-taux-de-remplacement"],
+    ],
+  },
+  {
+    path: "/guide/age-de-depart-retraite-trimestres-duree-assurance",
+    title: "Âge de départ retraite, trimestres et durée d'assurance",
+    description:
+      "Âge légal par génération, 172 trimestres, taux plein à 67 ans : trimestres cotisés, assimilés et majorations enfants, expliqués simplement.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Âge de départ et trimestres", "/guide/age-de-depart-retraite-trimestres-duree-assurance"],
+    ],
+  },
+  {
+    path: "/guide/preparer-sa-retraite-a-40-ans",
+    title: "Préparer sa retraite à 40 ans : le plan d'action",
+    description:
+      "Relevé de carrière, objectif de revenu, effort d'épargne, PER, PEA, assurance-vie : le plan en six étapes pour préparer sa retraite à 40 ans.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Préparer sa retraite à 40 ans", "/guide/preparer-sa-retraite-a-40-ans"],
+    ],
+  },
+  {
+    path: "/guide/preparer-sa-retraite-a-50-ans",
+    title: "Préparer sa retraite à 50 ans : rattraper et sécuriser",
+    description:
+      "À 50 ans, il reste 10 à 15 ans : bilan des trimestres, rattrapage, prudence progressive et anticipation de la décumulation. Repères et limites.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Préparer sa retraite à 50 ans", "/guide/preparer-sa-retraite-a-50-ans"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans",
+    title: "Assurance-vie à 55 ans : fonds euros ou UC ?",
+    description:
+      "Garantie du capital, risque de perte, horizon de 30 ans, gestion pilotée, frais, fiscalité : raisonner par poche d'épargne avant la retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Assurance-vie à 55 ans : fonds euros ou UC", "/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans"],
+    ],
+  },
+  {
+    path: "/guide/completer-sa-retraite-sans-per",
+    title: "Compléter sa retraite sans PER : les alternatives",
+    description:
+      "AV, PEA, CTO, immobilier, épargne salariale, cumul, surcote : comparer liquidité, fiscalité de sortie et succession, sans écarter le PER.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Compléter sa retraite sans PER", "/guide/completer-sa-retraite-sans-per"],
+    ],
+  },
+  {
+    path: "/guide/epargne-retraite-en-couple-et-transmission",
+    title: "Épargne retraite en couple et transmission : guide",
+    description:
+      "Deux retraites, deux TMI : répartir PER et assurance-vie entre conjoints, clause bénéficiaire, réversion et donation. Repères et limites, cas par cas.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Épargne retraite en couple", "/guide/epargne-retraite-en-couple-et-transmission"],
+    ],
+  },
+  {
+    path: "/guide/retraite-cadre-ou-fonctionnaire-comparaison",
+    title: "Retraite de cadre ou de fonctionnaire : le calcul comparé",
+    description:
+      "Points Agirc-Arrco ou pension sur 6 mois de traitement indiciaire ? Formules, taux de remplacement illustré et impact sur l'épargne complémentaire.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Cadre ou fonctionnaire : le calcul comparé", "/guide/retraite-cadre-ou-fonctionnaire-comparaison"],
+    ],
+  },
+  {
+    path: "/guide/preparer-sa-retraite-guide-complet",
+    title: "Préparer sa retraite : le guide complet",
+    description:
+      "Droits, estimation, objectif, enveloppes, épargne, décaissement, transmission : les 7 étapes pour préparer sa retraite, avec tous nos guides.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Préparer sa retraite : le guide complet", "/guide/preparer-sa-retraite-guide-complet"],
+    ],
+  },
+  {
+    path: "/guide/immobilier-et-retraite-guide-complet",
+    title: "Immobilier et retraite : le guide complet",
+    description:
+      "Location directe, LMNP, SCPI, démembrement, crédit, fiscalité, risques, revenus à la retraite : la carte complète pour investir en immobilier.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Immobilier et retraite : le guide complet", "/guide/immobilier-et-retraite-guide-complet"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

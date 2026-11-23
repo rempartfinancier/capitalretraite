@@ -455,6 +455,11 @@ export default function GuideDonationOuAssuranceVie() {
               à chaque loi de finances.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/epargne-retraite-en-couple-et-transmission">Épargne retraite en couple et transmission</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

@@ -309,6 +309,11 @@ export default function GuideLmnpOuLocatifNu() {
               futures.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/immobilier-et-retraite-guide-complet">Immobilier et retraite : le guide complet</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

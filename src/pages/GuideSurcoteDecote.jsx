@@ -439,6 +439,12 @@ export default function GuideSurcoteDecote() {
               relevé de carrière et de chiffrer précisément vos options.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/age-de-depart-retraite-trimestres-duree-assurance">Âge de départ, trimestres et durée d'assurance</a></li>
+            <li><a href="/guide/estimer-sa-pension-retraite-taux-de-remplacement">Estimer sa pension de retraite et son taux de remplacement</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

@@ -76,6 +76,16 @@ import GuideLmnpResidenceGeree from "./pages/GuideLmnpResidenceGeree.jsx";
 import GuideLmnpReforme from "./pages/GuideLmnpReforme.jsx";
 import GuideDemembrementRetraite from "./pages/GuideDemembrementRetraite.jsx";
 import GuideImmobilierALaRetraite from "./pages/GuideImmobilierALaRetraite.jsx";
+import GuideEstimerPensionRetraite from "./pages/GuideEstimerPensionRetraite.jsx";
+import GuideAgeDepartTrimestres from "./pages/GuideAgeDepartTrimestres.jsx";
+import GuidePreparerRetraite40Ans from "./pages/GuidePreparerRetraite40Ans.jsx";
+import GuidePreparerRetraite50Ans from "./pages/GuidePreparerRetraite50Ans.jsx";
+import GuideAvFondsEurosUc55Ans from "./pages/GuideAvFondsEurosUc55Ans.jsx";
+import GuideCompleterRetraiteSansPer from "./pages/GuideCompleterRetraiteSansPer.jsx";
+import GuideRetraiteCoupleTransmission from "./pages/GuideRetraiteCoupleTransmission.jsx";
+import GuideRetraiteCadreOuFonctionnaire from "./pages/GuideRetraiteCadreOuFonctionnaire.jsx";
+import GuidePilierPreparerRetraite from "./pages/GuidePilierPreparerRetraite.jsx";
+import GuidePilierImmobilierRetraite from "./pages/GuidePilierImmobilierRetraite.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -188,6 +198,16 @@ export default function App() {
           <Route path="/guide/lmnp-reforme-amortissement-plus-value" element={<GuideLmnpReforme />} />
           <Route path="/guide/demembrement-nue-propriete-retraite" element={<GuideDemembrementRetraite />} />
           <Route path="/guide/immobilier-a-la-retraite-revenus-transmission" element={<GuideImmobilierALaRetraite />} />
+          <Route path="/guide/estimer-sa-pension-retraite-taux-de-remplacement" element={<GuideEstimerPensionRetraite />} />
+          <Route path="/guide/age-de-depart-retraite-trimestres-duree-assurance" element={<GuideAgeDepartTrimestres />} />
+          <Route path="/guide/preparer-sa-retraite-a-40-ans" element={<GuidePreparerRetraite40Ans />} />
+          <Route path="/guide/preparer-sa-retraite-a-50-ans" element={<GuidePreparerRetraite50Ans />} />
+          <Route path="/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans" element={<GuideAvFondsEurosUc55Ans />} />
+          <Route path="/guide/completer-sa-retraite-sans-per" element={<GuideCompleterRetraiteSansPer />} />
+          <Route path="/guide/epargne-retraite-en-couple-et-transmission" element={<GuideRetraiteCoupleTransmission />} />
+          <Route path="/guide/retraite-cadre-ou-fonctionnaire-comparaison" element={<GuideRetraiteCadreOuFonctionnaire />} />
+          <Route path="/guide/preparer-sa-retraite-guide-complet" element={<GuidePilierPreparerRetraite />} />
+          <Route path="/guide/immobilier-et-retraite-guide-complet" element={<GuidePilierImmobilierRetraite />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>

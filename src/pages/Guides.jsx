@@ -10,6 +10,31 @@ const categories = [
     name: "Vue d'ensemble",
     items: [
       {
+        to: "/guide/preparer-sa-retraite-guide-complet",
+        title: "Préparer sa retraite : le guide complet",
+        text: "Sept étapes, de vos droits à la transmission, avec tous les guides par étape.",
+      },
+      {
+        to: "/guide/estimer-sa-pension-retraite-taux-de-remplacement",
+        title: "Estimer sa pension de retraite et son taux de remplacement",
+        text: "Retraite de base, points Agirc-Arrco, taux de remplacement : la méthode pour estimer sa pension.",
+      },
+      {
+        to: "/guide/preparer-sa-retraite-a-40-ans",
+        title: "Préparer sa retraite à 40 ans : le plan d'action",
+        text: "Un plan d'action en six étapes pour préparer sa retraite à 40 ans, de la lecture du relevé de carrière au choix des enveloppes.",
+      },
+      {
+        to: "/guide/preparer-sa-retraite-a-50-ans",
+        title: "Préparer sa retraite à 50 ans : rattraper et sécuriser",
+        text: "Bilan des trimestres, rattrapage et sécurisation progressive : que faire à 50 ans avec 14 ans devant soi.",
+      },
+      {
+        to: "/guide/epargne-retraite-en-couple-et-transmission",
+        title: "Épargne retraite en couple et transmission",
+        text: "Répartir PER et assurance-vie à deux, clause bénéficiaire, réversion et transmission.",
+      },
+      {
         to: "/guide/meilleure-enveloppe-retraite",
         title: "Quelle est la meilleure enveloppe pour préparer sa retraite ?",
         text: "Notre classement par objectif — consommer, transmettre, garder la main — plutôt qu'un vainqueur unique.",
@@ -45,6 +70,11 @@ const categories = [
     id: "comparatifs",
     name: "Comparatifs entre enveloppes",
     items: [
+      {
+        to: "/guide/completer-sa-retraite-sans-per",
+        title: "Compléter sa retraite sans PER : les alternatives",
+        text: "AV, PEA, immobilier, épargne salariale, surcote : un comparatif qualitatif des alternatives au PER.",
+      },
       {
         to: "/guide/per-vs-assurance-vie-retraite",
         title: "PER ou assurance-vie pour la retraite : le vrai comparatif",
@@ -143,6 +173,11 @@ const categories = [
     name: "Assurance-vie",
     items: [
       {
+        to: "/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans",
+        title: "Assurance-vie à 55 ans : fonds euros ou UC ?",
+        text: "À 55 ans, raisonner par horizon plutôt que de choisir entre fonds euros et UC.",
+      },
+      {
         to: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
         title: "Pourquoi votre assurance-vie rapporte si peu",
         text: "Fonds euros, frais, gestion pilotée : les mécanismes qui rognent le rendement — et comment auditer le vôtre.",
@@ -199,6 +234,11 @@ const categories = [
     id: "immobilier",
     name: "Immobilier",
     items: [
+      {
+        to: "/guide/immobilier-et-retraite-guide-complet",
+        title: "Immobilier et retraite : le guide complet",
+        text: "Véhicule, financement, fiscalité, risques et retraite : le cluster immobilier en une carte.",
+      },
       {
         to: "/guide/lmnp-risques",
         title: "LMNP : les risques que l'on vous cache",
@@ -322,6 +362,11 @@ const categories = [
     name: "Comprendre le système de retraite",
     items: [
       {
+        to: "/guide/age-de-depart-retraite-trimestres-duree-assurance",
+        title: "Âge de départ retraite, trimestres et durée d'assurance",
+        text: "Âge légal, durée d'assurance, trimestres comptés : les repères pour dater son départ.",
+      },
+      {
         to: "/guide/retraite-complementaire-agirc-arrco-cadres-calcul",
         title: "Retraite Agirc-Arrco des cadres : comment est-elle calculée ?",
         text: "Du salaire aux points, des points à la pension : le calcul pas à pas avec les paramètres 2026.",
@@ -357,6 +402,11 @@ const categories = [
     id: "profils-specifiques",
     name: "Profils spécifiques",
     items: [
+      {
+        to: "/guide/retraite-cadre-ou-fonctionnaire-comparaison",
+        title: "Retraite de cadre ou de fonctionnaire : le calcul comparé",
+        text: "Deux logiques de calcul comparées, avec un exemple chiffré et le besoin d'épargne qui en découle.",
+      },
       {
         to: "/guide/retraite-independants-per-ou-madelin",
         title: "Retraite des indépendants : PER ou contrat Madelin ?",

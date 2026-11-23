@@ -595,6 +595,12 @@ export default function GuidePerOuAvSelonAgeTmi() {
             cadre avant toute décision.
           </p>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/preparer-sa-retraite-a-50-ans">Préparer sa retraite à 50 ans</a></li>
+            <li><a href="/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans">Assurance-vie à 55 ans : fonds euros ou UC ?</a></li>
+          </ul>
+
           <h2 id="sources">Sources officielles</h2>
           <p>Sources consultées en {maj}, sauf date contraire indiquée :</p>
           <ul>

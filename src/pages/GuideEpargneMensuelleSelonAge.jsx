@@ -529,6 +529,13 @@ export default function GuideEpargneMensuelleSelonAge() {
             cadre avant toute décision.
           </p>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/preparer-sa-retraite-a-40-ans">Préparer sa retraite à 40 ans</a></li>
+            <li><a href="/guide/preparer-sa-retraite-a-50-ans">Préparer sa retraite à 50 ans</a></li>
+            <li><a href="/guide/preparer-sa-retraite-guide-complet">Préparer sa retraite : le guide complet</a></li>
+          </ul>
+
           <h2 id="sources">Sources</h2>
           <p>Sources consultées en novembre 2026 :</p>
           <ul>

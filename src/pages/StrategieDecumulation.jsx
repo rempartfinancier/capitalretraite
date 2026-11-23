@@ -381,6 +381,11 @@ export default function StrategieDecumulation() {
             exactement ce qu'on regarde en bilan.
           </div>
 
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/preparer-sa-retraite-guide-complet">Préparer sa retraite : le guide complet</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>
