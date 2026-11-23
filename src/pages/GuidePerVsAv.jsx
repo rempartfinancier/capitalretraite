@@ -468,7 +468,7 @@ export default function GuidePerVsAv() {
             C'est précisément le pari implicite du PER : vous déduisez au taux de votre TMI
             actuelle, et vous êtes imposé au taux de votre TMI au moment du retrait. Si votre TMI
             baisse à la retraite (ce qui est fréquent, les revenus de remplacement étant souvent
-            inférieurs aux revenus d'activité), l'opération est gagnante ; si votre TMI reste
+            inférieurs aux revenus d'activité), l'opération est en général favorable ; si votre TMI reste
             identique ou grimpe, l'avantage se réduit, voire s'annule.
           </p>
           <h3>L'abattement de l'assurance-vie après 8 ans s'applique-t-il aussi au PER ?</h3>
@@ -484,8 +484,9 @@ export default function GuidePerVsAv() {
             Non, ce sont deux enveloppes juridiquement distinctes : on ne transfère pas l'épargne
             de l'une vers l'autre sans un rachat (PER : sortie anticipée dans les cas légaux
             uniquement) ou un retrait (assurance-vie), avec la fiscalité de sortie correspondante.
-            En revanche, un PER peut être transféré vers un autre PER, et une assurance-vie vers un
-            autre contrat d'assurance-vie n'est pas possible sans perdre l'antériorité fiscale.
+            En revanche, un PER peut être transféré vers un autre PER, alors qu'une assurance-vie
+            ne peut pas, en principe, être transférée vers un autre assureur sans perdre
+            l'antériorité fiscale (hors transfert « Fourgous » chez le même assureur).
           </p>
           <h3>Le PER est-il intéressant pour une TMI à {pct(FISCALITE.tmiOptions[1])} ?</h3>
           <p>
@@ -561,7 +562,7 @@ export default function GuidePerVsAv() {
             Ne pas trancher cette question a un coût réel : verser sur un PER sans avoir de
             visibilité sur sa TMI de sortie, ou l'inverse, négliger l'assurance-vie par
             méconnaissance de sa fiscalité de sortie réellement douce après 8 ans, peut coûter
-            plusieurs points de rendement net sur la durée. Pour resituer ce duel dans le paysage
+            sensiblement sur la durée. Pour resituer ce duel dans le paysage
             complet des enveloppes retraite, au-delà du seul PER et de la seule assurance-vie,
             notre guide{" "}
             <a href="/guide/meilleure-enveloppe-retraite">quelle est la meilleure enveloppe pour

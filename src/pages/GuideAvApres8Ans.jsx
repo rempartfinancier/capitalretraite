@@ -1,5 +1,6 @@
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
 import {
+  RENTE_VIAGERE,
   AV_8ANS_NOV2026,
   AV_RACHAT,
   DECUMULATION,
@@ -16,6 +17,7 @@ const seuil = AV_RACHAT.seuilPrimesTauxReduit; // 150 000 €
 const tauxIR = FISCALITE.pfuIR;
 const tauxReduit = FISCALITE.avTauxReduitApres8Ans;
 const tauxPS = FISCALITE.prelevementsSociaux.assuranceVie;
+const tauxPSRente = RENTE_VIAGERE.prelevementsSociauxRvto; // rente viagère à titre onéreux (18,6 % depuis la LFSS 2026, à vérifier)
 const abattSeul = FISCALITE.avAbattementAnnuelSeul;
 const abattCouple = FISCALITE.avAbattementAnnuelCouple;
 const ex = AV_8ANS_NOV2026;
@@ -45,7 +47,7 @@ const eur = (n) =>
 const rentes = [tauxConv.min, tauxConv.defaut, tauxConv.max].map((taux) => {
   const rente = de(ex.capitalConverti, taux);
   const imposable = de(rente, fractionExemple);
-  return { taux, rente, imposable, ps: de(imposable, tauxPS) };
+  return { taux, rente, imposable, ps: de(imposable, tauxPSRente) };
 });
 const rDef = rentes[1];
 const parTmi = ex.tmisExemple.map((tmi) => {
@@ -303,10 +305,9 @@ export default function GuideAvApres8Ans() {
             <p>
               Prélèvements sociaux sur la rente : à notre connaissance, ils sont calculés sur la
               même fraction imposable que l'impôt, et non sur le montant total de la rente. Le
-              taux de {pct(tauxPS)} retenu ci-dessous est celui des produits d'assurance-vie ;
-              une rente viagère à titre onéreux relevant des revenus du patrimoine, le taux
-              applicable depuis la loi de financement de la sécurité sociale pour 2026 pourrait
-              être différent. Ce point, comme la possibilité de déduire une partie de la CSG l'année suivante,
+              taux de {pct(tauxPSRente)} retenu ci-dessous est celui des rentes viagères à titre
+              onéreux depuis la loi de financement de la sécurité sociale pour 2026 (le taux de{" "}
+              {pct(tauxPS)} restant celui des gains de rachat d'assurance-vie). Ce point, comme la possibilité de déduire une partie de la CSG l'année suivante,
               est à vérifier auprès de l'assureur ou de l'administration fiscale. Les exemples
               qui suivent posent cette hypothèse et la signalent comme telle.
             </p>
@@ -326,7 +327,8 @@ export default function GuideAvApres8Ans() {
                   <th>Taux de conversion (indicatif)</th>
                   <th>Rente annuelle</th>
                   <th>Fraction imposable ({pct(fractionExemple)})</th>
-                  <th>Prélèvements sociaux ({pct(tauxPS)}, hypothèse À VÉRIFIER)</th>
+                  {/* À VÉRIFIER : 18,6 % retenu pour la RVTO (Service-Public F2329 : 17,2 % maintenu seulement pour foncier, PV immobilières, AV, PEL, CEL, PEP) ; confirmer pour une rente issue d'AV */}
+                  <th>Prélèvements sociaux ({pct(tauxPSRente)}, hypothèse)</th>
                 </tr>
               </thead>
               <tbody>
@@ -410,7 +412,7 @@ export default function GuideAvApres8Ans() {
                 </tr>
                 <tr>
                   <td>Prélèvements sociaux</td>
-                  <td>{eur(rDef.ps)} (hypothèse À VÉRIFIER)</td>
+                  <td>{eur(rDef.ps)} (hypothèse)</td>
                   <td>{eur(psRachat)}</td>
                 </tr>
                 <tr>
@@ -510,7 +512,7 @@ export default function GuideAvApres8Ans() {
           <h3>Les prélèvements sociaux s'appliquent-ils sur toute la rente ?</h3>
           <p>
             À notre connaissance, ils sont assis sur la fraction imposable et non sur le montant
-            total, au taux de {pct(tauxPS)} retenu pour l'assurance-vie. Ce point est à confirmer
+            total, au taux de {pct(tauxPSRente)} retenu pour les rentes viagères à titre onéreux. Ce point est à confirmer
             auprès de l'assureur ou de l'administration fiscale avant toute décision.
           </p>
 

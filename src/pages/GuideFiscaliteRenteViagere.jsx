@@ -45,6 +45,10 @@ const sources = [
     url: "https://www.service-public.gouv.fr/particuliers/vosdroits",
   },
   {
+    label: "Service-Public.gouv.fr — Prélèvements sociaux sur les revenus du patrimoine et de placement, fiche F2329 (taux 2026)",
+    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/F2329",
+  },
+  {
     label: "Impots.gouv.fr — Particuliers, déclaration de revenus (pensions et rentes)",
     url: "https://www.impots.gouv.fr/particulier",
   },
@@ -78,8 +82,8 @@ export default function GuideFiscaliteRenteViagere() {
               {R.fractionImposableRvto[2].partImposable} % de 60 à 69 ans et{" "}
               {R.fractionImposableRvto[3].partImposable} % à partir de 70 ans, selon l'âge au premier
               versement. Cette fraction ne change plus ensuite. Des prélèvements sociaux
-              s'ajoutent sur la même base ({pct(PS)}, taux à confirmer). La rente entre dans le
-              revenu fiscal de référence.
+              s'ajoutent sur la même base ({pct(PS)}, taux à confirmer). Cette fraction imposable
+              entre dans le revenu fiscal de référence.
             </p>
           </div>
 
@@ -148,8 +152,9 @@ export default function GuideFiscaliteRenteViagere() {
             Le raisonnement est que la rente rembourse en partie le capital converti, dont une
             partie n'est pas un revenu. Plus on commence tard, plus la rente est supposée
             correspondre à ce remboursement, d'où une fraction imposable plus faible. L'âge à retenir
-            est celui du premier versement : se renseigner précisément sur la date retenue par
-            l'assureur, car elle fixe le barème pour la suite.
+            est celui de l'entrée en jouissance de la rente, c'est-à-dire en pratique du premier
+            versement : se renseigner précisément sur la date retenue par l'assureur, car elle fixe
+            le barème pour la suite.
           </p>
 
           <h2 id="sociaux">Quels prélèvements sociaux sur la rente ?</h2>
@@ -160,12 +165,16 @@ export default function GuideFiscaliteRenteViagere() {
           </p>
           <div className="note">
             <p>
-              Point à confirmer : ce taux a été modifié par la LFSS 2026, et le taux antérieur de
-              17,2 % peut avoir été conservé pour certains revenus. Avant de vous appuyer sur un
-              chiffre, vérifiez le taux applicable à votre rente sur le site officiel de
-              l'administration ou auprès de votre assureur.
+              Point à confirmer : la LFSS 2026 a porté le taux de 17,2 % à 18,6 % pour le cas
+              général des revenus du patrimoine. Selon Service-Public (fiche F2329), le taux de
+              17,2 % n'est maintenu que pour les revenus fonciers, les plus-values immobilières,
+              l'assurance-vie, le PEL, le CEL et le PEP ; les rentes viagères à titre onéreux n'y
+              figurent pas, d'où le taux de {pct(PS)} retenu ici. Le cas d'une rente issue de la
+              conversion d'un contrat d'assurance-vie n'est toutefois pas détaillé : vérifiez le
+              taux appliqué à votre rente auprès de votre assureur ou de l'administration.
             </p>
           </div>
+          {/* À VÉRIFIER : taux des prélèvements sociaux d'une RVTO issue d'une assurance-vie (18,6 % cas général vs 17,2 % assurance-vie) — texte LFSS 2026 art. 12 / CSS L. 136-8 non lu directement ; GuideAvApres8Ans retient 17,2 % pour la même rente. */}
 
           <h2 id="exemple">Exemple : combien d'impôt sur une rente issue de {euros(CAPITAL)} ?</h2>
           <p>
@@ -250,7 +259,7 @@ export default function GuideFiscaliteRenteViagere() {
           <h2 id="rfr">La rente entre-t-elle dans le revenu fiscal de référence ?</h2>
           <p>
             {R.rvtoDansRfr
-              ? "Oui, d'après nos données : la rente entre dans le revenu fiscal de référence (RFR)."
+              ? "Oui, d'après nos données : la fraction imposable de la rente entre dans le revenu fiscal de référence (RFR)."
               : "Non, d'après nos données."}{" "}
             Le RFR sert de base à de nombreux critères (exonérations, plafonds de ressources, taux de
             certains prélèvements), si bien qu'une rente peut avoir des effets au-delà de l'impôt sur le
@@ -268,6 +277,7 @@ export default function GuideFiscaliteRenteViagere() {
             reversée. Les options de réversion sont présentées dans notre guide sur{" "}
             <a href="/guide/inconvenients-rente-viagere">les inconvénients de la rente viagère</a>.
           </p>
+          {/* À VÉRIFIER : âge retenu pour la fraction imposable d'une rente réversible (BOI-RSA-PENS-30-20 non lu directement) ; une source secondaire évoque l'âge du plus âgé des bénéficiaires. */}
 
           <h2 id="distinguer">Rente de PER, de PEA, d'assurance-vie : ne pas tout confondre</h2>
           <p>
@@ -303,9 +313,10 @@ export default function GuideFiscaliteRenteViagere() {
           <h2 id="declaration">Comment déclarer sa rente viagère ?</h2>
           <p>
             Le montant brut de la rente est à reporter dans la déclaration de revenus, dans la
-            rubrique prévue pour les pensions et rentes. L'administration se charge d'appliquer la
-            fraction imposable correspondant à l'âge au premier versement : il n'est pas nécessaire
-            de la calculer soi-même. Il reste utile de conserver l'attestation de l'assureur et de
+            rubrique des rentes viagères à titre onéreux, sur la ligne correspondant à l'âge à
+            l'entrée en jouissance (cases 1AW à 1DW de la déclaration n° 2042). L'administration se
+            charge ensuite d'appliquer la fraction imposable : il n'est pas nécessaire de la
+            calculer soi-même. Il reste utile de conserver l'attestation de l'assureur et de
             vérifier le montant déclaré. En cas de doute sur la case à utiliser, se reporter aux
             notices de l'administration.
           </p>
@@ -330,7 +341,7 @@ export default function GuideFiscaliteRenteViagere() {
           </p>
           <h3>La rente viagère est-elle comprise dans le revenu fiscal de référence ?</h3>
           <p>
-            D'après nos données, oui. Le RFR conditionne des avantages ou prélèvements ailleurs :
+            D'après nos données, oui, pour sa fraction imposable. Le RFR conditionne des avantages ou prélèvements ailleurs :
             voir l'avis d'imposition pour le montant retenu.
           </p>
           <h3>La fiscalité est-elle la même pour une rente de PER ?</h3>
@@ -341,8 +352,8 @@ export default function GuideFiscaliteRenteViagere() {
           </p>
           <h3>Dois-je calculer moi-même la part imposable ?</h3>
           <p>
-            Non. Vous déclarez le montant brut de la rente ; l'administration applique la fraction
-            imposable. Il reste utile de comprendre le mécanisme pour anticiper l'impôt.
+            Non. Vous déclarez le montant brut de la rente sur la ligne correspondant à votre âge à
+            l'entrée en jouissance ; l'administration applique la fraction imposable. Il reste utile de comprendre le mécanisme pour anticiper l'impôt.
           </p>
           <h3>Une rente est-elle plus avantageuse fiscalement qu'un retrait ?</h3>
           <p>

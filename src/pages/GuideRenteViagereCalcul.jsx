@@ -153,11 +153,13 @@ export default function GuideRenteViagereCalcul() {
               un taux plus bas, mais une rente servie plus longtemps en moyenne.
             </li>
             <li>
-              <strong>Le sexe et les tables de mortalité.</strong> L'assureur s'appuie sur des
-              tables de mortalité réglementaires. Les femmes ayant en moyenne une espérance de vie
-              plus longue, leur durée de versement attendue l'est aussi : à capital et âge égaux, le
-              taux appliqué peut donc différer selon les barèmes et les contrats. Les règles
-              applicables à ces distinctions sont à vérifier sur chaque offre.
+              <strong>Les tables de mortalité.</strong> L'assureur s'appuie sur des tables de
+              mortalité réglementaires, qui reflètent la durée de versement attendue. Depuis le
+              21 décembre 2012 (arrêt « Test-Achats » de la Cour de justice de l'Union européenne,
+              Code des assurances, art. L. 111-7), le sexe ne peut plus servir à différencier les
+              tarifs et les prestations des contrats conclus depuis cette date : à capital, âge et
+              options égaux, une femme et un homme se voient appliquer le même barème. Seuls
+              certains contrats plus anciens peuvent encore comporter des barèmes distincts.
             </li>
             <li>
               <strong>Le taux technique.</strong> C'est le rendement que l'assureur suppose pour
@@ -348,11 +350,12 @@ export default function GuideRenteViagereCalcul() {
             situent entre {pct1(T.min)} et {pct1(T.max)}, selon l'assureur, le contrat et les options
             (à vérifier). Ce n'est pas un taux garanti : seule l'offre chiffrée vous engage.
           </p>
-          <h3>Pourquoi la rente d'une femme est-elle parfois différente de celle d'un homme ?</h3>
+          <h3>La rente d'une femme est-elle différente de celle d'un homme ?</h3>
           <p>
-            Parce que les barèmes reposent sur des tables de mortalité et que la durée de versement
-            attendue diffère selon les populations. Les pratiques précises varient selon les
-            contrats ; il convient de les faire confirmer sur l'offre.
+            Plus pour les contrats conclus depuis le 21 décembre 2012 : la réglementation interdit
+            de différencier tarifs et prestations selon le sexe (Code des assurances, art. L. 111-7).
+            À capital, âge et options égaux, le barème est le même. Des contrats plus anciens peuvent
+            encore appliquer des barèmes distincts ; c'est à faire confirmer sur l'offre.
           </p>
           <h3>La réversion fait-elle baisser la rente ?</h3>
           <p>

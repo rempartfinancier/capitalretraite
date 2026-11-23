@@ -260,7 +260,8 @@ export default function GuidePerOuAvSelonAgeTmi() {
             l'économie d'impôt ne compense pas, dans ce scénario, le coût fiscal de sortie. Trois
             lectures ressortent. À une TMI d'entrée de {pct(tmis[0])}, la déduction ne rapporte
             rien : le PER est fiscalement perdant dans toutes les colonnes. À {pct(tmiBasse)}, il
-            ne s'en sort que si la sortie est à {pct(tmis[0])}. À {pct(tmiMoyenne)} et au-dessus, le
+            est perdant dans les deux colonnes ; il ne s'en sortirait qu'avec une sortie à {pct(tmis[0])}
+            (cas non reproduit dans le tableau). À {pct(tmiMoyenne)} et au-dessus, le
             PER reste favorable tant que la TMI de retraite est inférieure d'environ{" "}
             {r2(tmiMoyenne - pointMort(tmiMoyenne)).toLocaleString("fr-FR")} points au moins à
             celle de l'entrée ; en deçà de cet écart, c'est l'assurance-vie qui l'emporte, dans

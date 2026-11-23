@@ -155,7 +155,7 @@ export default function GuideCombienRetirerCapital() {
 
           <h2 id="regle-4">D'où vient la règle des 4 % et que dit-elle vraiment ?</h2>
           <p>
-            La règle des {R.tauxRegle4Pct} % remonte aux travaux de l'ingénieur-conseil américain
+            La règle des {R.tauxRegle4Pct} % remonte aux travaux du conseiller financier américain
             William Bengen (1994), prolongés par l'étude dite « Trinity » (Cooley, Hubbard et
             Walz, 1998). Ces recherches ont testé, sur des séries historiques de rendements
             américains, quel retrait initial un portefeuille mêlant actions et obligations aurait
@@ -273,9 +273,9 @@ export default function GuideCombienRetirerCapital() {
           <h2 id="sequence">Qu'est-ce que le risque de séquence des rendements ?</h2>
           <p>
             Le risque de séquence désigne l'effet de l'ordre des rendements quand on retire de
-            l'argent. Pendant la phase d'épargne, l'ordre n'a pas d'importance : la même suite de
-            rendements, mélangée autrement, donne le même capital final. Pendant les retraits, c'est
-            faux : retirer des sommes fixes d'un capital qui vient de baisser force à vendre des
+            l'argent. Pour un capital placé en une fois, sans versement ni retrait, l'ordre n'a pas
+            d'importance : la même suite de rendements, mélangée autrement, donne le même capital
+            final. Pendant les retraits, c'est faux : retirer des sommes fixes d'un capital qui vient de baisser force à vendre des
             parts à bas prix, et ces parts ne participent plus au rebond.
           </p>
           <p>

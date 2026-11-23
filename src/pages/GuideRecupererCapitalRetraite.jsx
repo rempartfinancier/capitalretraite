@@ -56,15 +56,15 @@ export default function GuideRecupererCapitalRetraite() {
               capital. L'assurance-vie est disponible à tout moment, avec une fiscalité plus
               douce après {dureeAv} ans. Le PEA se retire à tout moment, mais un retrait avant{" "}
               {peaAnnees} ans entraîne en principe la clôture du plan. Le PER est en principe
-              bloqué jusqu'au départ à la retraite, sauf cas de déblocage anticipé prévus par la
-              loi. La bonne question n'est donc pas « à quel âge », mais « dans quelle enveloppe, et
+              bloqué jusqu'à la liquidation de la retraite ou, si elle intervient avant, jusqu'à
+              l'âge légal de départ, sauf cas de déblocage anticipé prévus par la loi. La bonne question n'est donc pas « à quel âge », mais « dans quelle enveloppe, et
               avec quelle fiscalité ».
             </p>
           </div>
 
           <p>
             Prenons une situation illustrative et composite, qui ne correspond à aucun cas réel :
-            Marc, 61 ans, a constitué au fil des années un PER, une assurance-vie et un PEA. Il
+            Sylvie, 61 ans, a constitué au fil des années un PER, une assurance-vie et un PEA. Il
             envisage de cesser son activité dans quelques années et se demande de quoi il pourra
             disposer, quand, et à quelles conditions. Sa question est celle de beaucoup de futurs
             retraités : le capital existe, mais chaque enveloppe a sa propre porte de sortie.
@@ -122,8 +122,8 @@ export default function GuideRecupererCapitalRetraite() {
                 </tr>
                 <tr>
                   <td>PER</td>
-                  <td>En principe à l'âge de la retraite ou au départ en retraite ; déblocage anticipé dans des cas prévus par la loi</td>
-                  <td>Le fait générateur est le départ à la retraite, non un âge fixe</td>
+                  <td>Au plus tôt à la liquidation de la retraite ou à l'âge légal de départ ; déblocage anticipé dans des cas prévus par la loi</td>
+                  <td>Disponible dès le premier de ces deux événements, même si l'on continue à travailler après l'âge légal</td>
                   <td>Capital et/ou rente, selon l'origine des sommes (compartiments)</td>
                 </tr>
               </tbody>
@@ -152,7 +152,7 @@ export default function GuideRecupererCapitalRetraite() {
           <h2 id="pea">PEA : que se passe-t-il si l'on retire avant {peaAnnees} ans ?</h2>
           <p>
             Le PEA est lui aussi disponible à tout moment, mais d'une manière plus contrainte : un
-            retrait avant {peaAnnees} ans entraîne en principe la clôture du plan et la perte de
+            retrait avant {peaAnnees} ans entraîne en principe la fermeture du plan, qui perd alors
             ses avantages fiscaux. Après {peaAnnees} ans, les retraits partiels sont possibles sans
             clôture, et les gains échappent à l'impôt sur le revenu, les prélèvements sociaux
             restant dus. Ces règles se vérifient auprès de votre établissement teneur de compte ;
@@ -163,18 +163,23 @@ export default function GuideRecupererCapitalRetraite() {
             La rigidité du PEA tient à sa clôture au retrait, tant que {peaAnnees} ans ne sont pas
             écoulés. Il s'étudie dans notre page{" "}
             <a href="/strategies/pea-retraite">PEA et retraite</a> ; ses limites sont présentées
-            dans l'article sur les inconvénients du PEA.
+            dans l'article sur{" "}
+            <a href="/guide/inconvenients-du-pea">les inconvénients du PEA</a>.
           </p>
 
           <h2 id="per">PER : à quel âge peut-on débloquer son épargne ?</h2>
           <p>
             Le plan d'épargne retraite est conçu pour la retraite : selon la fiche F34982 de
-            Service-Public, les sommes sont en principe disponibles à l'âge de la retraite (ou au
-            départ en retraite), sous forme de capital ou de rente selon l'origine des versements.
-            Le déclencheur n'est donc pas un âge fixe mais la liquidation de la retraite : un
-            futur retraité qui retarde son départ retarde aussi, en principe, la sortie. Le plafond
-            et la déductibilité des versements à l'entrée sont traités dans notre guide sur le
-            plafond PER ; la déduction se poursuit jusqu'à {PER_PLAFOND.ageFinDeduction} ans.
+            Service-Public, les sommes sont disponibles au plus tôt à la date de liquidation de la
+            pension de retraite ou à l'âge légal de départ à la retraite, sous forme de capital ou
+            de rente selon l'origine des versements. Le premier de ces deux événements suffit : un
+            départ anticipé (carrière longue, par exemple) ouvre la sortie avant l'âge légal, et un
+            épargnant qui continue à travailler au-delà de l'âge légal peut déjà débloquer son plan.
+            Le plafond et la déductibilité des versements à l'entrée sont traités dans notre guide
+            sur le{" "}
+            <a href="/guide/plafond-per-versement-avant-31-decembre-2026">plafond PER</a> ; les
+            versements effectués à partir de {PER_PLAFOND.ageFinDeduction} ans ne sont plus
+            déductibles.
           </p>
           <p>
             La forme de la sortie varie selon les compartiments du plan. Certaines sommes peuvent
@@ -214,8 +219,8 @@ export default function GuideRecupererCapitalRetraite() {
             </li>
             <li>
               <strong>Rassembler les pièces</strong> habituelles : formulaire de demande, pièce
-              d'identité, relevé d'identité bancaire. Pour un PER, un justificatif du départ à la
-              retraite ou de l'événement invoqué peut être exigé.
+              d'identité, relevé d'identité bancaire. Pour un PER, un justificatif de la liquidation
+              de la retraite, de l'âge atteint ou de l'événement invoqué peut être exigé.
             </li>
             <li>
               <strong>Préciser la forme de la sortie</strong> : total ou partiel, capital ou rente,
@@ -259,8 +264,8 @@ export default function GuideRecupererCapitalRetraite() {
           <p>
             Cela dépend de l'enveloppe. L'assurance-vie et le PEA sont disponibles à tout moment,
             avec des conséquences différentes (fiscalité pour l'une, clôture avant {peaAnnees} ans
-            pour l'autre). Le PER n'est en principe disponible qu'au départ à la retraite, hors cas
-            de déblocage anticipé.
+            pour l'autre). Le PER n'est en principe disponible qu'à la liquidation de la retraite ou à
+            l'âge légal de départ, hors cas de déblocage anticipé.
           </p>
           <h3>Peut-on retirer son assurance-vie avant 8 ans ?</h3>
           <p>
@@ -286,8 +291,9 @@ export default function GuideRecupererCapitalRetraite() {
           </p>
           <h3>Faut-il attendre l'âge légal de la retraite pour sortir son PER ?</h3>
           <p>
-            Le déclencheur est le départ à la retraite, qui peut intervenir à des âges différents
-            selon les carrières. Pour comprendre l'âge de départ lui-même, voir notre guide sur la{" "}
+            Non. La sortie est possible dès la liquidation de la retraite, qui peut intervenir
+            avant l'âge légal (carrière longue, par exemple), ou dès l'âge légal, même si l'on n'a
+            pas encore pris sa retraite. Pour comprendre l'âge de départ lui-même, voir notre guide sur la{" "}
             <a href="/guide/surcote-decote-retraite">surcote et la décote</a>.
           </p>
           <h3>Combien de temps faut-il pour récupérer son argent après la demande ?</h3>

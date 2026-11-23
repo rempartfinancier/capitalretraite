@@ -1,5 +1,5 @@
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
-import { RENDEMENTS, FISCALITE, FRAIS_TYPES, pct } from "../components/hypotheses.js";
+import { RENDEMENTS, FISCALITE, FRAIS_TYPES, IMMO, pct } from "../components/hypotheses.js";
 
 export default function StrategieImmobilier() {
   return (
@@ -50,9 +50,10 @@ export default function StrategieImmobilier() {
           </p>
           <p>
             Côté chiffres : le taux de distribution (le revenu annuel versé, rapporté au prix de la
-            part) moyen des SCPI s'est établi à {pct(RENDEMENTS.scpi.moyen)} en{" "}
-            {RENDEMENTS.scpi.periode}, la plupart des véhicules se situant entre{" "}
-            {pct(RENDEMENTS.scpi.min)} et {pct(RENDEMENTS.scpi.max)} (source : ASPIM/IEIF). Ce
+            part) moyen des SCPI s'est établi à {pct(IMMO.scpiMarche.tauxDistribution2025)} en 2025
+            (ASPIM/IEIF), les moyennes par stratégie allant de{" "}
+            {pct(IMMO.scpiMarche.tauxDistributionStrategieMin)} à{" "}
+            {pct(IMMO.scpiMarche.tauxDistributionStrategieMax)}. Ce
             constat passé ne préjuge en rien des distributions futures : ni le revenu ni le
             capital ne sont garantis, le prix des parts peut baisser — parfois fortement —, et la
             revente des parts n'est jamais assurée à tout moment (liquidité limitée).
@@ -101,7 +102,7 @@ export default function StrategieImmobilier() {
           </p>
           <p>
             La location meublée non professionnelle permet, via le régime réel et l'amortissement
-            du bien, de percevoir des loyers dont la part imposable est durablement réduite. En
+            du bien, de percevoir des loyers dont la part imposable est réduite pendant la détention, au prix d'une réintégration possible à la revente. En
             contrepartie : une gestion plus active qu'une SCPI, une comptabilité dédiée, et une
             dépendance au marché locatif local. Pour un futur retraité, la vraie question est
             souvent : « ai-je envie de gérer un bien à 70 ans ? »
@@ -184,7 +185,7 @@ export default function StrategieImmobilier() {
             </a>{" "}
             revient en détail sur ces fausses boussoles. À titre d'illustration : un bien payé
             comptant qui affiche 5 % bruts peut, une fois déduits taxe foncière, charges, entretien
-            et impôts, ne laisser que 2 à 3 % nets — ordre de grandeur constaté en cabinet, variable
+            et impôts, ne laisser que 2 à 3 % nets — ordre de grandeur purement illustratif, variable
             selon les villes et les situations ; notre guide{" "}
             <a href="/guide/combien-coute-un-investissement-locatif">
               combien coûte réellement un investissement locatif
@@ -240,8 +241,9 @@ export default function StrategieImmobilier() {
               <tr>
                 <td>Rendement indicatif (brut, non garanti)</td>
                 <td>
-                  {pct(RENDEMENTS.scpi.min)} à {pct(RENDEMENTS.scpi.max)} de taux de distribution
-                  en {RENDEMENTS.scpi.periode} (ASPIM/IEIF)
+                  {pct(IMMO.scpiMarche.tauxDistributionStrategieMin)} à{" "}
+                  {pct(IMMO.scpiMarche.tauxDistributionStrategieMax)} de taux de distribution
+                  selon les stratégies, 2025 (ASPIM/IEIF)
                 </td>
                 <td>
                   {pct(RENDEMENTS.lmnp.min)} à {pct(RENDEMENTS.lmnp.max)} bruts selon les villes
@@ -296,7 +298,7 @@ export default function StrategieImmobilier() {
           <p>
             À l'inverse, acheter la nue-propriété (d'un bien ou de parts de SCPI) permet de se
             constituer un capital à prix réduit, qui se reconstitue en pleine propriété à
-            l'échéance — sans revenus pendant la période, donc sans fiscalité. Une brique
+            l'échéance — sans revenus pendant la période, donc sans fiscalité sur ces revenus. Le capital n'est pas garanti (le prix des parts peut baisser) et la revente avant l'échéance est difficile. Une brique
             pertinente pour qui n'a pas besoin de revenus immédiats et pense déjà à la transmission.
             Notre guide{" "}
             <a href="/guide/per-ou-immobilier-locatif">

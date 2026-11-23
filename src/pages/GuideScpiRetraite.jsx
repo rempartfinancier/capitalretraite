@@ -519,7 +519,7 @@ export default function GuideScpiRetraite() {
             satisfaire la demande ; des parts en attente existent sur le marché, comme le montrent
             les chiffres de l'ASPIM.
           </p>
-          <h3>Quel taux de distribution peut-on espérer ?</h3>
+          <h3>Quel taux de distribution a-t-on observé ?</h3>
           <p>
             Le taux moyen du marché a été de {pct1(M.tauxDistribution2025)} en 2025, avec des
             écarts de {pct1(M.tauxDistributionStrategieMin)} à {pct1(M.tauxDistributionStrategieMax)}{" "}

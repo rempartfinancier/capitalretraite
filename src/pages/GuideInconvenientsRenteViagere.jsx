@@ -106,8 +106,9 @@ export default function GuideInconvenientsRenteViagere() {
             (détaillées plus bas). Une fois ces trois paramètres arrêtés et le capital converti,
             le taux ne bouge plus. Il reste identique pendant toute la durée de la rente, même si
             les taux de marché remontent nettement dans les années qui suivent : contrairement à
-            un placement resté investi, la rente ne profite d'aucune hausse ultérieure des
-            rendements.
+            un placement resté investi, la rente ne profite pas directement d'une hausse
+            ultérieure des rendements, hors revalorisation éventuellement prévue au contrat (par
+            exemple au titre de la participation aux bénéfices), dont l'ampleur n'est pas garantie.
           </p>
 
           <h2 id="transmission">Que devient une rente viagère en cas de décès ?</h2>

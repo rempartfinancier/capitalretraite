@@ -3,6 +3,7 @@ import {
   RENDEMENTS,
   FRAIS_TYPES,
   FISCALITE,
+  RENTE_VIAGERE,
   HYPOTHESES_MAJ,
   GARANTIES,
   SIMU_DEFAUTS,
@@ -461,7 +462,7 @@ export default function GuideMeilleureAssuranceVie() {
             Pour une rente à titre onéreux démarrant à {ageRente} ans, seule une fraction de{" "}
             {pct(fractionRente)} est imposable, soit {euros(renteImposable)} ici, à soumettre au
             barème de l'impôt sur le revenu, auxquels s'ajoutent des prélèvements sociaux,
-            supposés assis sur cette même fraction au taux de {pct(psAv)} (hypothèse à vérifier
+            supposés assis sur cette même fraction au taux de {pct(RENTE_VIAGERE.prelevementsSociauxRvto)} (hypothèse à vérifier
             auprès de l'assureur). En contrepartie, le capital n'est plus disponible ni transmissible dans les
             mêmes conditions. Le sujet est approfondi dans{" "}
             <a href="/guide/assurance-vie-apres-8-ans-fiscalite-et-rente">l'assurance-vie après 8 ans :

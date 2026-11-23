@@ -186,8 +186,9 @@ export default function GuideCombienEpargner() {
           <p>
             Partez de votre budget actuel, retirez ce qui disparaîtra (crédit immobilier soldé,
             enfants autonomes, charges professionnelles), ajoutez ce qui apparaîtra (santé,
-            loisirs, éventuellement un loyer). La plupart des personnes que nous recevons visent
-            entre 70 % et 90 % de leur revenu net actuel.
+            loisirs, éventuellement un loyer). On retient souvent, comme repère de départ, un
+            revenu de 70 % à 90 % du revenu net actuel : un ordre de grandeur, à ajuster à votre
+            situation.
           </p>
           <h3>2. Quelle sera votre lacune mensuelle ?</h3>
           <p>

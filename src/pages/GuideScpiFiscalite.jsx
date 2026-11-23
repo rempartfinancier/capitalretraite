@@ -121,8 +121,8 @@ export default function GuideScpiFiscalite() {
             <p>
               <strong>L'essentiel :</strong> les loyers distribués par une SCPI détenue en direct
               s'ajoutent à vos autres revenus, imposés au barème de l'impôt sur le revenu, avec{" "}
-              {pct(PS_FONCIER)} de prélèvements sociaux ; en pratique, ces revenus relèvent du
-              régime réel (déclaration 2044). Une partie peut venir de l'étranger (formulaire 2047),
+              {pct(PS_FONCIER)} de prélèvements sociaux ; selon la situation du foyer, ils
+              relèvent du micro-foncier ou du régime réel (déclaration 2044). Une partie peut venir de l'étranger (formulaire 2047),
               et la trésorerie de la SCPI produit parfois des revenus financiers, taxés à part. À
               la revente, la plus-value suit le régime des plus-values immobilières :{" "}
               {pct(F.pvIR)} d'impôt, moins des abattements qui conduisent à l'exonération d'impôt
@@ -186,11 +186,15 @@ export default function GuideScpiFiscalite() {
           </p>
           <p>
             Côté régime, le micro-foncier (abattement forfaitaire de {pct(F.microFoncierAbattement)}{" "}
-            pour des recettes inférieures à {euros(F.microFoncierPlafond)}) est écarté par le
-            simulateur officiel lorsque les seuls revenus fonciers proviennent de sociétés
-            immobilières. En pratique, une SCPI relève donc du régime réel : le revenu net est
-            calculé par la société de gestion et reporté sur la déclaration 2044. Si vous louez
-            aussi un bien en direct, la situation est mixte : à faire confirmer par l'administration.
+            pour des recettes brutes inférieures à {euros(F.microFoncierPlafond)}) n'est pas
+            ouvert à tous : il est exclu notamment si le foyer détient des parts de SCPI ouvrant
+            droit à la déduction d'amortissement de l'article 31 bis du CGI (SCPI « Robien » ou
+            « Borloo »), et le simulateur officiel l'écarte lorsque les seuls revenus fonciers
+            proviennent de sociétés immobilières. Beaucoup de souscripteurs relèvent donc du
+            régime réel : le revenu net est calculé par la société de gestion et reporté sur la
+            déclaration 2044. Si vous louez aussi un bien en direct, la situation est mixte : à
+            faire confirmer par l'administration.
+            {/* À VÉRIFIER : applicabilité du micro-foncier aux revenus de parts de SCPI seules (BOI-RFPI-DECLA-10 et DECLA-20) ; sources divergentes. */}
           </p>
           <p>
             Deux points valent d'être connus. D'abord, la CSG sur les revenus du patrimoine a été
@@ -528,7 +532,7 @@ export default function GuideScpiFiscalite() {
               <tbody>
                 <tr>
                   <td>Loyers français distribués</td>
-                  <td>Revenus fonciers, régime réel, 2044</td>
+                  <td>Revenus fonciers, le plus souvent régime réel, 2044</td>
                   <td>Barème de l'IR + {pct(PS_FONCIER)} de prélèvements sociaux</td>
                 </tr>
                 <tr>
@@ -574,9 +578,10 @@ export default function GuideScpiFiscalite() {
           <h2 id="faq">Questions fréquentes</h2>
           <h3>Les revenus de SCPI relèvent-ils du micro-foncier ?</h3>
           <p>
-            Le simulateur officiel indique que le micro-foncier ne s'applique pas lorsque les seuls
-            revenus fonciers viennent de sociétés immobilières. En pratique, une SCPI relève donc du
-            régime réel (déclaration 2044). Cas mixte (SCPI et bien en direct) : à confirmer auprès de
+            Pas toujours. Le micro-foncier est exclu si le foyer détient des parts de SCPI avec
+            déduction d'amortissement (article 31 bis du CGI), et le simulateur officiel l'écarte
+            lorsque les seuls revenus fonciers viennent de sociétés immobilières : beaucoup de
+            souscripteurs relèvent donc du régime réel (déclaration 2044). Cas mixte (SCPI et bien en direct) : à confirmer auprès de
             l'administration.
           </p>
           <h3>Les prélèvements sociaux des SCPI ont-ils augmenté en 2026 ?</h3>

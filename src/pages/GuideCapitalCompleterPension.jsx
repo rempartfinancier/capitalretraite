@@ -175,6 +175,7 @@ export default function GuideCapitalCompleterPension() {
           </div>
 
           <h2 id="methode-rente">De quel capital a-t-on besoin pour une rente viagère ?</h2>
+          {/* À VÉRIFIER : fourchette DECUMULATION.tauxConversionRente65 (4 à 5,5 % à 65 ans sans réversion) ; le haut de fourchette paraît élevé pour les barèmes français actuels, à confronter à des barèmes d'assureurs. */}
           <p>
             Première approche : convertir le capital en rente viagère, c'est-à-dire en revenu
             versé à vie par un assureur. Le montant de la rente est égal au capital multiplié par un
