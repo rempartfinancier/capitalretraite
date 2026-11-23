@@ -371,9 +371,10 @@ export default function GuideDeclarerRachatAvSortiePer() {
 
           <h2 id="per-rente">Et une sortie en rente ?</h2>
           <p>
-            Une rente issue d'un PER est imposée comme une rente viagère à titre gratuit, avec
-            abattement et prélèvements sociaux sur une fraction qui dépend de l'âge à la première
-            échéance (voir{" "}
+            Une rente issue de versements déduits d'un PER est imposée comme une rente viagère à
+            titre gratuit (barème, après l'abattement applicable aux pensions), les prélèvements
+            sociaux portant sur une fraction qui dépend de l'âge à la première échéance ; la part
+            issue de versements non déduits suit le régime à titre onéreux (voir{" "}
             <a href="/guide/fiscalite-sortie-per">le guide de la fiscalité de sortie du PER</a>).
             Elle s'ajoute aux pensions dans la déclaration, et fait partie de votre revenu fiscal de
             référence. Une rente d'assurance-vie, elle, suit le régime de la rente viagère à titre
@@ -455,7 +456,7 @@ export default function GuideDeclarerRachatAvSortiePer() {
                   <td>d'autres revenus mobiliers ou plus-values importants sont à déclarer</td>
                 </tr>
                 <tr>
-                  <td>un abattement spécifique (par exemple après {duree} ans) s'applique déjà</td>
+                  <td>la CSG déductible (une partie des prélèvements sociaux), réservée à l'option pour le barème, réduit le revenu imposable de l'année suivante</td>
                   <td>le revenu fiscal de référence est proche d'un seuil sensible</td>
                 </tr>
               </tbody>

@@ -58,6 +58,11 @@ const sources = [
   },
   {
     label:
+      "AMF — Plafonnement des frais pour le PEA : que faut-il retenir ? (10 juillet 2020) : frais d'ouverture, droits de garde, transaction, transfert et clôture",
+    url: "https://www.amf-france.org/fr/actualites-publications/actualites/plafonnement-des-frais-pour-le-pea-que-faut-il-retenir",
+  },
+  {
+    label:
       "AMF — Espace épargnants : informations sur les frais, les intermédiaires et les réclamations (médiateur de l'AMF)",
     url: "https://www.amf-france.org/fr/espace-epargnants",
   },
@@ -94,10 +99,10 @@ export default function GuideTransfererPea() {
               <strong>L'essentiel :</strong> transférer un PEA, ce n'est ni le clôturer ni le
               rouvrir. Le plan passe d'un établissement à l'autre avec ses titres, ses espèces et
               sa date d'ouverture, donc son ancienneté de {delaiAns} ans. La demande se fait
-              auprès de l'établissement d'accueil, qui organise le transfert. Le seul coût
-              réglementé est un frais de transfert plafonné (de l'ordre de {euros(plafondLigne)}{" "}
-              par ligne et {euros(plafondTotal)} au total, à confirmer auprès de votre
-              établissement). Dans l'exemple chiffré de ce guide, ces frais sont amortis en
+              auprès de l'établissement d'accueil, qui organise le transfert. Le coût propre à
+              l'opération est un frais de transfert plafonné par la réglementation :{" "}
+              {euros(plafondLigne)} par ligne de titres cotés ({euros(T.fraisTransfertParLigneNonCote)}{" "}
+              pour un titre non coté), {euros(plafondTotal)} au total au maximum. Dans l'exemple chiffré de ce guide, ces frais sont amortis en
               environ {moisAmortissement} mois. Le principal piège est de clôturer ou de retirer
               avant l'arrivée du plan.
             </p>
@@ -251,9 +256,9 @@ export default function GuideTransfererPea() {
                   <td>Frais de transfert</td>
                   <td>Une fois, à la sortie du plan de l'établissement d'origine</td>
                   <td>
-                    Plafonnés par la réglementation issue de la loi Pacte : de l'ordre de{" "}
-                    {euros(plafondLigne)} par ligne, dans la limite de {euros(plafondTotal)} au total
-                    (À VÉRIFIER auprès de l'établissement). Certains établissements d'accueil
+                    Plafonnés par la réglementation issue de la loi Pacte :{" "}
+                    {euros(plafondLigne)} par ligne de titres cotés ({euros(T.fraisTransfertParLigneNonCote)}{" "}
+                    par ligne non cotée), dans la limite de {euros(plafondTotal)} au total. Certains établissements d'accueil
                     remboursent tout ou partie de ces frais sous conditions : à demander.
                   </td>
                 </tr>
@@ -261,7 +266,8 @@ export default function GuideTransfererPea() {
                   <td>Frais de clôture</td>
                   <td>Si le plan est fermé définitivement (retrait total)</td>
                   <td>
-                    Ne concernent pas un transfert. Si l'on vous en réclame, demandez à quel titre.
+                    Ne concernent pas un transfert ; ils sont plafonnés de la même façon que les frais
+                    de transfert. Si l'on vous en réclame lors d'un transfert, demandez à quel titre.
                   </td>
                 </tr>
                 <tr>
@@ -269,7 +275,8 @@ export default function GuideTransfererPea() {
                   <td>Chaque année et à chaque ordre</td>
                   <td>
                     Droits de garde (jusqu'à {pct(ENRICH_EPPEA_PEA.fraisTenueCompteMaxPct)} par an de
-                    la valeur du plan selon le plafond de référence), courtage par ordre (jusqu'à{" "}
+                    la valeur du plan, plus {euros(T.droitsGardeMajorationParLigneCote)} au plus par ligne
+                    de titres cotés, selon le plafond de référence), courtage par ordre (jusqu'à{" "}
                     {pct(ENRICH_EPPEA_PEA.fraisOrdreEnLignePct)} en ligne), frais des supports. C'est
                     là que se joue la vraie économie.
                   </td>
@@ -467,8 +474,9 @@ export default function GuideTransfererPea() {
 
           <h3>Combien coûte le transfert d'un PEA ?</h3>
           <p>
-            Les frais sont plafonnés par la réglementation issue de la loi Pacte : de l'ordre de{" "}
-            {euros(plafondLigne)} par ligne et {euros(plafondTotal)} au maximum (à confirmer). Selon
+            Les frais sont plafonnés par la réglementation issue de la loi Pacte :{" "}
+            {euros(plafondLigne)} par ligne de titres cotés ({euros(T.fraisTransfertParLigneNonCote)}{" "}
+            par ligne non cotée) et {euros(plafondTotal)} au maximum. Selon
             les établissements, ces frais peuvent être remboursés par l'accueil sous conditions.
           </p>
 
@@ -566,8 +574,8 @@ export default function GuideTransfererPea() {
           <div className="note">
             <p>
               Cette analyse est générale et ne constitue pas un conseil personnalisé : seules les
-              conditions communiquées par vos établissements font foi. Les plafonds de frais et les
-              délais cités sont des ordres de grandeur à confirmer ; les cas chiffrés sont des
+              conditions communiquées par vos établissements font foi. Les plafonds de frais cités
+              sont des maxima réglementaires et les délais des ordres de grandeur à confirmer ; les cas chiffrés sont des
               illustrations pédagogiques qui reposent sur des grilles fictives. Un PEA investi en
               actions présente un risque de perte en capital, et les performances passées ne
               préjugent pas des performances futures.

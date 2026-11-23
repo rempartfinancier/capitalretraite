@@ -185,7 +185,8 @@ export default function GuideSortirPeaRetraite() {
                   <td>Rente viagère, plan de plus de {delai} ans</td>
                   <td>Le plan est dénoué</td>
                   <td>Exonérée</td>
-                  <td>Dues, selon des règles propres (à vérifier)</td>
+                  {/* À VÉRIFIER : assiette des prélèvements sociaux sur la rente viagère issue d'un PEA (fraction selon l'âge, comme une RVTO ?) et taux applicable — F22449 dit seulement « soumise aux prélèvements sociaux » */}
+                  <td>Dues, selon des règles propres à confirmer auprès de l'organisme</td>
                 </tr>
                 <tr>
                   <td>Retrait, plan de moins de {delai} ans</td>

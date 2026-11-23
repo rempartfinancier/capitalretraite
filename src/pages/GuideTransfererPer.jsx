@@ -70,9 +70,9 @@ export default function GuideTransfererPer() {
               <strong>L'essentiel :</strong> transférer un PER ne passe pas par un retrait : c'est
               l'organisme d'accueil qui engage la démarche et l'organisme d'origine qui transfère
               l'épargne, sans fiscalité si la règle de la nature des sommes est respectée. La loi
-              plafonne les frais de transfert à {pct(fraisMaxPct)} de l'épargne les premières
-              années et les supprime au-delà de {anneesNuls} ans ; le délai est de l'ordre de{" "}
-              {delaiMois} mois une fois la demande complète (chiffres à vérifier selon votre
+              plafonne les frais de transfert à {pct(fraisMaxPct)} des droits acquis et les
+              supprime {anneesNuls} ans après le premier versement ; pour un PER individuel, le
+              délai est de {delaiMois} mois au plus une fois la demande complète (chiffres à vérifier selon votre
               contrat). Exemple illustratif : sur {euros(encours)}, le transfert coûte au plus{" "}
               {euros(fraisTransfert)} et peut se rentabiliser en environ{" "}
               {String(pointMortAnnees).replace(".", ",")} ans si les frais de gestion baissent.
@@ -166,8 +166,10 @@ export default function GuideTransfererPer() {
             Oui : le PER a été conçu pour absorber les anciens produits d'épargne retraite. Un
             PERP, un contrat Madelin, un contrat « article 83 » ou un PERCO peut être transféré
             vers un PER, individuel ou d'entreprise selon l'origine des sommes. Les modalités
-            diffèrent d'un produit à l'autre, et les frais prévus au contrat d'origine peuvent
-            jouer : à vérifier au cas par cas.
+            diffèrent d'un produit à l'autre : pour un PERP ou un Madelin, les frais de transfert
+            sont eux aussi plafonnés à {pct(fraisMaxPct)}, mais ne deviennent nuls qu'après dix
+            ans, et le délai peut aller jusqu'à quatre mois. À vérifier au cas par cas.
+            {/* À VÉRIFIER : plafond de 1 % pour PERP/Madelin depuis le 24/10/2024 (loi Industrie verte du 23/10/2023), nuls après 10 ans à compter du premier versement ; service-public F34982 mentionne encore « 5 % » avant 10 ans — délai de 4 mois pour les anciens contrats (F34982) */}
           </p>
           <div className="table-scroll">
             <table>
@@ -215,12 +217,15 @@ export default function GuideTransfererPer() {
           <h2 id="frais-delais">Quels frais et quels délais prévoit la loi ?</h2>
           <p>
             Les frais de transfert d'un PER vers un autre PER sont plafonnés à{" "}
-            {pct(fraisMaxPct)} de l'épargne transférée pendant les premières années, puis nuls
-            une fois le plan détenu depuis {anneesNuls} ans. L'organisme d'origine doit
-            transférer l'épargne dans un délai maximal de l'ordre de {delaiMois} mois après la
-            réception de la demande complète. Ces chiffres sont des références générales à
-            confirmer sur votre contrat et auprès de l'organisme, notamment pour les anciens
-            produits, dont les règles peuvent différer.
+            {pct(fraisMaxPct)} des droits acquis, puis nuls {anneesNuls} ans après le premier
+            versement dans le plan, ou dès l'âge légal de départ à la retraite. Pour un PER
+            individuel, l'organisme d'origine doit transférer l'épargne dans un délai maximal de{" "}
+            {delaiMois} mois après la réception de la demande complète ; ce délai est de trois
+            mois pour un PER d'entreprise et peut aller jusqu'à quatre mois pour les anciens
+            produits. Un PER d'entreprise collectif ne se transfère, tant que l'on reste dans
+            l'entreprise, qu'une fois tous les trois ans ; un PER obligatoire, seulement après
+            l'avoir quitté. Ces références générales sont à confirmer sur votre contrat et
+            auprès de l'organisme.
           </p>
           <ul>
             <li>
@@ -423,15 +428,16 @@ export default function GuideTransfererPer() {
 
           <h3>Quels sont les frais de transfert d'un PER ?</h3>
           <p>
-            Ils sont plafonnés à {pct(fraisMaxPct)} de l'épargne transférée les premières
-            années et nuls au-delà de {anneesNuls} ans de détention. Vérifiez le montant exact
-            avant de lancer la demande.
+            Ils sont plafonnés à {pct(fraisMaxPct)} des droits acquis et nuls {anneesNuls} ans
+            après le premier versement dans le plan (dix ans pour un PERP ou un Madelin).
+            Vérifiez le montant exact avant de lancer la demande.
           </p>
 
           <h3>Quel est le délai pour transférer un PER ?</h3>
           <p>
-            Le délai légal est de l'ordre de {delaiMois} mois à compter de la réception de la
-            demande complète par l'organisme d'origine. Un dossier incomplet repousse la date de
+            Pour un PER individuel, {delaiMois} mois au plus à compter de la réception de la
+            demande complète par l'organisme d'origine (trois mois pour un PER d'entreprise,
+            jusqu'à quatre mois pour un ancien contrat). Un dossier incomplet repousse la date de
             départ du délai.
           </p>
 

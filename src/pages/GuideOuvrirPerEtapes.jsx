@@ -129,7 +129,7 @@ export default function GuideOuvrirPerEtapes() {
           <h2 id="conditions">Quelles conditions pour ouvrir un PER, et à quel âge ?</h2>
           <p>
             Il n'existe pas de condition d'âge minimal « de retraite » pour ouvrir un PER : toute
-            personne majeure, salariée, indépendante, fonctionnaire ou sans emploi, peut en
+            personne, salariée, indépendante, fonctionnaire ou sans emploi, peut en
             ouvrir un, et chacun peut en détenir plusieurs. Il n'y a pas non plus d'âge maximal
             d'ouverture, mais les versements volontaires cessent d'être déductibles à partir de{" "}
             {ageFinDeduction} ans depuis le 1er janvier 2026 (voir{" "}
@@ -137,7 +137,7 @@ export default function GuideOuvrirPerEtapes() {
               notre guide sur le plafond de déduction
             </a>
             ). Les conditions pratiques sont celles de tout produit financier à distance : être
-            majeur, résider fiscalement dans un pays accepté par l'organisme et disposer d'un
+            majeur (un mineur peut être titulaire d'un PER ouvert par ses représentants légaux), résider fiscalement dans un pays accepté par l'organisme et disposer d'un
             compte bancaire à son nom.
           </p>
           <p>
@@ -222,7 +222,7 @@ export default function GuideOuvrirPerEtapes() {
             <li>
               <strong>Répondre au questionnaire de profil investisseur</strong> (connaissance des
               marchés, tolérance au risque, horizon). Répondez sincèrement : le questionnaire
-              protège d'abord vous.
+              vous protège d'abord.
             </li>
             <li>
               <strong>Téléverser les pièces</strong> (voir la liste plus bas) et signer
@@ -238,9 +238,12 @@ export default function GuideOuvrirPerEtapes() {
             </li>
           </ol>
           <p>
-            Après la signature, un délai de renonciation s'ouvre : de l'ordre de {renMin} à{" "}
-            {renMax} jours calendaires selon le type de PER et le mode de souscription. Vérifiez
-            la durée exacte et la procédure dans vos conditions générales.
+            Après la signature, un délai de renonciation peut s'ouvrir : {renMax} jours
+            calendaires pour un PER assurantiel ; pour un PER compte-titres, un délai de{" "}
+            {renMin} jours s'applique notamment en cas de démarchage, et peut ne pas exister
+            dans les autres cas. Vérifiez la durée exacte et la procédure dans vos conditions
+            générales.
+            {/* À VÉRIFIER : 30 j PER assurantiel (C. assur. L. 132-5-1) ; 14 j PER compte-titres en cas de démarchage (CMF L. 341-16) — régime de la vente à distance des instruments financiers à confirmer */}
           </p>
 
           <h2 id="documents">Quels documents fournir pour ouvrir un PER ?</h2>
@@ -346,7 +349,7 @@ export default function GuideOuvrirPerEtapes() {
           <p>
             Ouvrir un PER à 60 ans reste possible, avec un horizon de blocage court, souvent de
             quatre à six ans. L'avantage dépend alors surtout de votre TMI actuelle comparée à
-            celle que vous aurez à la retraite : s'il est élevé aujourd'hui et plus faible
+            celle que vous aurez à la retraite : si elle est élevée aujourd'hui et plus faible
             demain, la déduction a du sens ; sinon, d'autres enveloppes comme l'assurance-vie
             conservent plus de souplesse. Notre{" "}
             <a href="/guide/per-ou-assurance-vie-selon-age-et-tmi">comparaison PER ou assurance-vie selon l'âge et la TMI</a>{" "}

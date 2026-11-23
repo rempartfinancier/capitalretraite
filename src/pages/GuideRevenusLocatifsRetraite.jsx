@@ -14,11 +14,12 @@ const M = IMMO.lmnp;
 const loyers = L.loyersBrutsAnnuelsExemple;
 const [tmiBasse, tmiHaute] = L.tmiScenarios;
 const psFoncier = FISCALITE.prelevementsSociaux.immobilier; // 17,2 %
-const psMeuble = M.psMeuble; // 18,6 % — À VÉRIFIER (voir IMMO.lmnp)
+const psMeuble = M.psMeuble; // 18,6 % (LFSS 2026 ; service-public F2329)
 const abattMicroFoncier = F.microFoncierAbattement; // 30 %
 const plafondMicroFoncier = F.microFoncierPlafond; // 15 000 €
 const abattMicroBic = M.microBicLongueDureeAbattement; // 50 %
-const plafondMicroBic = M.microBicLongueDuree; // 77 700 €
+const plafondMicroBic = M.microBicLongueDuree; // 77 700 € (revenus 2025)
+const plafondMicroBic2026 = L.microBicLongueDureeRevenus2026; // 83 600 € (revenus 2026)
 const seuilLmp = M.seuilRecettesLmp; // 23 000 €
 
 // Arrondi au centime pour éviter les artefacts de virgule flottante.
@@ -118,7 +119,8 @@ export default function GuideRevenusLocatifsRetraite() {
               ({pct(psFoncier)} sur les revenus fonciers). Les loyers s'ajoutent à votre revenu
               imposable : ils peuvent faire monter la tranche marginale, et le revenu fiscal de
               référence dont dépendent plusieurs taux et aides. Le cas du loueur meublé
-              professionnel est à part et se vérifie.
+              professionnel, ou du meublé de tourisme au-delà de {euros(seuilLmp)} de recettes, est
+              à part et se vérifie.
             </p>
           </div>
 
@@ -196,13 +198,13 @@ export default function GuideRevenusLocatifsRetraite() {
                 </tr>
                 <tr>
                   <td>Location meublée non professionnelle (LMNP)</td>
-                  <td>{pct(psMeuble)}, à vérifier selon la loi de financement de la sécurité sociale en vigueur</td>
-                  <td>Aucune</td>
+                  <td>{pct(psMeuble)} depuis la loi de financement de la sécurité sociale pour 2026</td>
+                  <td>Aucune, sauf meublé de tourisme au-delà de {euros(seuilLmp)} de recettes (cotisations sociales dues)</td>
                 </tr>
                 <tr>
                   <td>Loueur meublé professionnel (LMP)</td>
-                  <td>Régime social des indépendants possible, cotisations à vérifier</td>
-                  <td>À vérifier auprès de l'administration</td>
+                  <td>Cotisations sociales d'indépendant (Urssaf) au lieu des prélèvements sociaux du patrimoine</td>
+                  <td>Comprises dans les cotisations ; effet sur la pension à vérifier auprès de votre caisse</td>
                 </tr>
               </tbody>
             </table>
@@ -210,8 +212,8 @@ export default function GuideRevenusLocatifsRetraite() {
           <p>
             Les taux de prélèvements sociaux ont été modifiés en 2026 pour plusieurs revenus du
             capital : les revenus fonciers sont restés à {pct(psFoncier)} d'après les sources que
-            nous avons retenues. Le taux applicable à la location meublée est plus difficile à
-            fixer et reste à vérifier sur impots.gouv.fr avant de remplir votre déclaration.
+            nous avons retenues, alors que les revenus de location meublée non professionnelle
+            supportent {pct(psMeuble)} (service-public.gouv.fr, fiche F2329).
           </p>
 
           <h2 id="impots">Comment les loyers sont-ils imposés ?</h2>
@@ -245,7 +247,7 @@ export default function GuideRevenusLocatifsRetraite() {
                 </tr>
                 <tr>
                   <td>Micro-BIC (meublé, longue durée)</td>
-                  <td>{euros(plafondMicroBic)} de recettes</td>
+                  <td>{euros(plafondMicroBic)} de recettes (revenus 2025), {euros(plafondMicroBic2026)} (revenus 2026)</td>
                   <td>{pct(abattMicroBic)}</td>
                   <td>Meublé avec peu de charges réelles</td>
                 </tr>
@@ -281,7 +283,7 @@ export default function GuideRevenusLocatifsRetraite() {
           <p>
             Le tableau applique le micro-foncier ({pct(abattMicroFoncier)} d'abattement, prélèvements
             sociaux à {pct(psFoncier)}) et le micro-BIC ({pct(abattMicroBic)} d'abattement, prélèvements
-            sociaux à {pct(psMeuble)}, à vérifier) pour deux tranches marginales.
+            sociaux à {pct(psMeuble)}) pour deux tranches marginales.
           </p>
           <div className="table-scroll">
             <table>
@@ -343,7 +345,7 @@ export default function GuideRevenusLocatifsRetraite() {
           <p>
             Deux lectures. D'abord, la tranche marginale pèse davantage que le régime : dans le
             micro-foncier, passer de {pct(tmiBasse)} à {pct(tmiHaute)} ajoute {eur(ecartTmiFoncier)}{" "}
-            de prélèvements sur les mêmes loyers. Ensuite, le micro-BIC allège le prélèvement
+            d'impôt sur les mêmes loyers. Ensuite, le micro-BIC allège le prélèvement
             parce que l'abattement est plus élevé, mais il ne dit rien de la rentabilité réelle :
             charges, vacance locative, travaux, taxe foncière et, à la revente, la plus-value
             viennent s'y ajouter.
@@ -379,8 +381,10 @@ export default function GuideRevenusLocatifsRetraite() {
           <h2 id="lmp">Que change le statut de loueur meublé professionnel ?</h2>
           <p>
             Un loueur meublé est qualifié de professionnel (LMP) lorsque ses recettes annuelles
-            dépassent {euros(seuilLmp)} et excèdent les autres revenus d'activité du foyer, et, en
-            principe, qu'il est inscrit au registre du commerce comme loueur professionnel. Ce statut
+            dépassent {euros(seuilLmp)} et excèdent les autres revenus du foyer imposés comme
+            traitements et salaires (pensions de retraite comprises), bénéfices industriels et
+            commerciaux, agricoles ou non commerciaux ; l'inscription au registre du commerce n'est
+            plus exigée depuis 2020. Ce statut
             peut entraîner l'affiliation à la sécurité sociale des indépendants et le paiement de
             cotisations sociales sur les bénéfices, au lieu des seuls prélèvements sociaux du
             patrimoine. L'articulation avec le statut de retraité, notamment le lien avec le cumul
@@ -388,8 +392,8 @@ export default function GuideRevenusLocatifsRetraite() {
           </p>
           <div className="note">
             <p>
-              À vérifier : les conditions exactes du LMP et le régime de cotisations applicable
-              à un retraité ne sont pas détaillés ici. Avant d'envisager une activité de loueur
+              À vérifier : le régime de cotisations applicable à un retraité loueur meublé
+              professionnel, et son effet sur la pension, ne sont pas détaillés ici. Avant d'envisager une activité de loueur
               meublé professionnel pendant la retraite, demandez confirmation à l'administration
               fiscale et à votre caisse de retraite, et consultez un professionnel.
             </p>
@@ -520,8 +524,8 @@ export default function GuideRevenusLocatifsRetraite() {
 
           <h3>Les revenus locatifs sont-ils soumis aux prélèvements sociaux de {pct(psFoncier)} ?</h3>
           <p>
-            Les revenus fonciers, oui d'après nos sources de novembre 2026. Pour la location meublée,
-            le taux est à vérifier ; l'exemple de ce guide retient {pct(psMeuble)}.
+            Les revenus fonciers, oui d'après nos sources de novembre 2026. Les revenus de location
+            meublée non professionnelle supportent {pct(psMeuble)} depuis la LFSS 2026.
           </p>
 
           <h3>Faut-il déclarer ses loyers à la retraite ?</h3>
@@ -598,8 +602,8 @@ export default function GuideRevenusLocatifsRetraite() {
               Cette analyse est générale et ne constitue pas un conseil personnalisé : votre
               situation fiscale et sociale relève de l'administration et de vos conseils. Les taux,
               plafonds et abattements cités sont ceux retenus en novembre 2026 et peuvent évoluer ;
-              plusieurs points (taux de prélèvements sociaux du meublé, statut LMP, cotisations)
-              sont signalés comme à vérifier. Le cas chiffré est une illustration pédagogique. Un
+              les cotisations du loueur meublé professionnel retraité sont signalées comme à
+              vérifier. Le cas chiffré est une illustration pédagogique. Un
               investissement immobilier ou en SCPI présente un risque de perte en capital, une
               liquidité limitée et des revenus non garantis ; les performances passées ne préjugent
               pas des performances futures.

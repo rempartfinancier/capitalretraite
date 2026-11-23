@@ -255,7 +255,8 @@ export default function GuideDeclarerVersementsPer() {
           </div>
           <p>
             Dans le second cas, {euros(excedentB)} ont été versés sans déduction : ils ne
-            seront donc pas imposés à la sortie (seuls leurs gains le seront), mais ils n'ont
+            seront donc pas imposés à la sortie, à condition de pouvoir justifier qu'ils n'ont
+            pas été déduits (seuls leurs gains le seront), mais ils n'ont
             rien rapporté à l'entrée. Ce calcul est une simplification : la TMI réelle dépend de
             l'ensemble de votre foyer et l'économie ne vaut que si le versement fait baisser la
             tranche marginale. À la sortie, les sommes déduites seront imposées : voir{" "}
@@ -267,9 +268,9 @@ export default function GuideDeclarerVersementsPer() {
             Les versements d'un employeur (abondement sur un PER d'entreprise, cotisations
             obligatoires) ne se déclarent pas comme vos versements volontaires : ils sont
             traités par l'entreprise et ne donnent pas lieu à une déduction de votre part. Ils
-            peuvent en revanche réduire votre plafond de déduction. Vos versements personnels
-            sur le compartiment d'épargne salariale (participation, intéressement) ne sont pas
-            déductibles non plus. La situation est détaillée dans votre fiche de paie, votre
+            peuvent en revanche réduire votre plafond de déduction. Les sommes de participation
+            et d'intéressement affectées au compartiment d'épargne salariale ne sont pas
+            déductibles non plus : elles sont déjà exonérées d'impôt sur le revenu à l'entrée. La situation est détaillée dans votre fiche de paie, votre
             attestation d'épargne salariale et votre avis d'impôt ; en cas de doute, demandez
             une attestation à l'établissement teneur du plan.
           </p>
@@ -278,11 +279,12 @@ export default function GuideDeclarerVersementsPer() {
           <p>
             Oui : vous pouvez ne pas déduire un versement, par exemple si votre TMI actuelle est
             basse ou nulle. Dans ce cas, la part de capital correspondante n'est pas imposée à la
-            sortie ; seuls les gains le sont. L'option se matérialise au moment de la
-            déclaration et doit être mentionnée à l'organisme au plus tard à la sortie ; la
-            procédure exacte (case ou mention) est précisée dans la notice et chez votre
-            organisme. Elle est à justifier au moment de la liquidation : conservez les pièces
-            prouvant la nature non déduite des versements.
+            sortie ; seuls les gains le sont. L'option doit être exercée auprès de l'organisme
+            au plus tard lors du versement, et elle est irrévocable (Code monétaire et
+            financier, art. L. 224-20) : à défaut, le versement relève du régime déductible. Le
+            versement non déduit n'est alors pas reporté dans la case de la déclaration.
+            Conservez les pièces prouvant la nature non déduite des versements jusqu'à la
+            liquidation.
           </p>
           <div className="table-scroll">
             <table>
@@ -398,9 +400,10 @@ export default function GuideDeclarerVersementsPer() {
 
           <h3>Comment renoncer à la déduction d'un versement PER ?</h3>
           <p>
-            En ne le reportant pas dans la déclaration et en le signalant à votre organisme selon
-            la procédure qu'il prévoit. Les versements non déduits ne seront pas imposés à la
-            sortie, seuls leurs gains le seront. Conservez les justificatifs.
+            En exerçant l'option de non-déduction auprès de votre organisme au plus tard au
+            moment du versement (elle est irrévocable), puis en ne reportant pas ce versement
+            dans la déclaration. Les versements non déduits ne seront pas imposés à la sortie,
+            seuls leurs gains le seront. Conservez les justificatifs.
           </p>
 
           <h3>Combien de temps garder les justificatifs ?</h3>

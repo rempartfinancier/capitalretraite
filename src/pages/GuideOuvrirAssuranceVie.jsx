@@ -93,7 +93,7 @@ export default function GuideOuvrirAssuranceVie() {
               <strong>L'essentiel :</strong> ouvrir une assurance-vie prend en pratique quelques
               minutes en ligne ou un rendez-vous en agence, mais les choix faits ce jour-là (type
               de contrat, frais, mode de gestion, clause bénéficiaire) engagent souvent pour des
-              années. Le contrat s'ouvre à partir de la majorité avec un versement initial de
+              années. Le contrat s'ouvre en principe à partir de la majorité avec un versement initial de
               l'ordre de {euros(minMin)} à {euros(minMax)} selon les contrats, quelques pièces
               justificatives et un questionnaire sur votre profil. Vous disposez ensuite de{" "}
               {renonciation} jours pour renoncer, et l'ancienneté fiscale ({duree} ans) court

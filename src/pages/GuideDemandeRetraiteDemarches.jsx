@@ -5,6 +5,7 @@ import { V3_REG_DEMANDE, euros } from "../components/hypotheses.js";
 const D = V3_REG_DEMANDE;
 const delaiMin = D.delaiDemandeMinMois; // 4
 const delaiMax = D.delaiDemandeMaxMois; // 6
+const delaiConseille = D.delaiDemandeConseilleMois; // 5
 const moisReleve = D.moisReleveEtSimulation; // 24
 
 // ---- Calendrier de l'exemple : tout est calculé depuis la date de départ ----
@@ -81,8 +82,9 @@ export default function GuideDemandeRetraiteDemarches() {
             <p>
               <strong>L'essentiel :</strong> la demande de retraite se fait en ligne, en une seule
               fois, depuis votre compte sur info-retraite.fr : elle est transmise à vos régimes
-              de base et complémentaires. Les sources officielles conseillent de la déposer en
-              général entre {delaiMin} et {delaiMax} mois avant la date de départ souhaitée.
+              de base et complémentaires. Service-public.gouv.fr conseille de la déposer au moins{" "}
+              {delaiConseille} mois avant la date de départ souhaitée (les délais des caisses sont en
+              général de {delaiMin} à {delaiMax} mois).
               Le point de départ de la pension est le premier jour d'un mois, et les pensions sont
               le plus souvent versées à terme échu : il faut donc prévoir un mois ou deux de
               trésorerie entre le dernier salaire et le premier versement. Le travail commence
@@ -168,8 +170,8 @@ export default function GuideDemandeRetraiteDemarches() {
                   </td>
                 </tr>
                 <tr>
-                  <td>Entre {delaiMax} et {delaiMin} mois avant</td>
-                  <td>Entre {moisAvant(delaiMax)} et {moisAvant(delaiMin)}</td>
+                  <td>Au moins {delaiConseille} mois avant (en général {delaiMin} à {delaiMax} mois)</td>
+                  <td>Au plus tard en {moisAvant(delaiConseille)}, idéalement dès {moisAvant(delaiMax)}</td>
                   <td>Déposer la demande de retraite en ligne, avec les justificatifs</td>
                 </tr>
                 <tr>
@@ -194,10 +196,10 @@ export default function GuideDemandeRetraiteDemarches() {
             </table>
           </div>
           <p>
-            Le délai de dépôt est une recommandation, pas un couperet : les caisses indiquent en
-            général entre {delaiMin} et {delaiMax} mois, et certaines mentionnent un minimum de
-            cinq mois. Vérifiez la consigne exacte dans votre espace personnel avant de fixer votre
-            propre échéance.
+            Le délai de dépôt est une recommandation, pas un couperet : service-public.gouv.fr
+            conseille au moins {delaiConseille} mois et précise que les délais sont en général de{" "}
+            {delaiMin} à {delaiMax} mois avant le départ (fiche F13941). Vérifiez la consigne exacte
+            dans votre espace personnel avant de fixer votre propre échéance.
           </p>
 
           <h2 id="etapes">Comment faire sa demande de retraite, étape par étape ?</h2>
@@ -326,7 +328,9 @@ export default function GuideDemandeRetraiteDemarches() {
             La pension prend effet le premier jour du mois choisi, et les pensions de la plupart des
             régimes sont payées à terme échu, c'est-à-dire à la fin de la période pour laquelle elles
             sont dues (service-public.gouv.fr, F13941). Concrètement, la pension du premier mois
-            arrive à la fin de ce mois ou au début du suivant, selon le calendrier du régime.
+            arrive à la fin de ce mois ou au début du suivant, selon le calendrier du régime. Si
+            aucune date n'est indiquée dans la demande, le départ est fixé au premier jour du mois
+            qui suit sa réception (F13941).
           </p>
           <p>
             Deux conséquences pratiques. D'abord, votre dernier salaire et la première pension ne se
@@ -370,9 +374,9 @@ export default function GuideDemandeRetraiteDemarches() {
             </p>
           </div>
           <p>
-            Hélène prévoit un départ au {departTexte}. Elle dépose sa demande entre{" "}
-            {moisAvant(delaiMax)} et {moisAvant(delaiMin)}, soit entre {delaiMax} et {delaiMin} mois
-            avant. Ses dépenses courantes s'élèvent à {euros(D.depensesMensuellesExemple)} par
+            Hélène prévoit un départ au {departTexte}. Elle dépose sa demande en{" "}
+            {moisAvant(delaiMax)}, soit {delaiMax} mois avant, et au plus tard en{" "}
+            {moisAvant(delaiConseille)} pour respecter le délai conseillé de {delaiConseille} mois. Ses dépenses courantes s'élèvent à {euros(D.depensesMensuellesExemple)} par
             mois. Par prudence, elle prévoit de couvrir {D.moisSansRevenuExemple} mois sans revenu,
             le temps que le premier versement arrive après son dernier salaire.
           </p>
@@ -478,8 +482,9 @@ export default function GuideDemandeRetraiteDemarches() {
 
           <h3>Quand faire sa demande de retraite ?</h3>
           <p>
-            Les sources officielles la conseillent en général entre {delaiMin} et {delaiMax} mois
-            avant la date de départ souhaitée. Ce délai est indicatif : le dépôt trop tardif retarde
+            Service-public.gouv.fr conseille de la faire au moins {delaiConseille} mois avant la date
+            de départ souhaitée ; les délais sont en général de {delaiMin} à {delaiMax} mois. Ce délai
+            est indicatif : le dépôt trop tardif retarde
             surtout le premier versement. Vérifiez la consigne dans votre espace personnel.
           </p>
 

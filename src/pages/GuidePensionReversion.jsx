@@ -6,6 +6,8 @@ const R = V3_REG_REVERSION;
 const tauxBase = R.tauxRegimeGeneral; // 54 %
 const tauxCompl = R.tauxAgircArrco; // 60 %
 const ageMin = R.ageMinimum; // 55 ans
+const plafondSeul = R.plafondRessourcesSeul;
+const plafondCouple = R.plafondRessourcesCouple;
 
 // Arrondi au centime pour éviter les artefacts de virgule flottante.
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -33,13 +35,18 @@ const perteMensuelleEntreDeux = r2(
 const sources = [
   {
     label:
+      "Service-Public.gouv.fr — Pension de réversion de l'Assurance retraite. Fiche F13104, vérifiée le 1er janvier 2026 : mariage, âge, plafond de ressources, taux, partage entre ex-conjoints, date d'effet",
+    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/F13104",
+  },
+  {
+    label:
       "L'Assurance retraite — pension de réversion du régime général : conditions, plafond de ressources, demande",
     url: "https://www.lassuranceretraite.fr",
   },
   {
     label:
-      "Agirc-Arrco — Pension de réversion de la retraite complémentaire : conditions et démarche",
-    url: "https://www.agirc-arrco.fr",
+      "Agirc-Arrco — Réglementation, fiche « Réversion des conjoints » : taux, âge, absence de condition de ressources, remariage",
+    url: "https://reglementation.agirc-arrco.fr/home/liste-fiche-reglementaires/listes-area/liste-de-fiches-reglementaires/reversion-des-conjoints.html",
   },
   {
     label:
@@ -83,9 +90,8 @@ export default function GuidePensionReversion() {
               <strong>L'essentiel :</strong> la pension de réversion verse au conjoint survivant
               une partie de la retraite du défunt. Au régime général, elle est de {pct(tauxBase)} de
               la retraite de base, sous conditions d'âge ({ageMin} ans) et de ressources. À
-              l'Agirc-Arrco, elle est de {pct(tauxCompl)} de la retraite complémentaire, et son
-              attribution ne dépend pas d'un plafond de ressources, selon les informations que nous
-              avons consultées (à confirmer auprès de la caisse). Seuls les conjoints mariés et,
+              l'Agirc-Arrco, elle est de {pct(tauxCompl)} de la retraite complémentaire, sans
+              condition de ressources, mais elle prend fin en cas de remariage. Seuls les conjoints mariés et,
               selon les cas, les ex-conjoints sont concernés : le partenaire de Pacs et le
               concubin ne le sont pas. La demande n'est pas automatique.
             </p>
@@ -118,9 +124,9 @@ export default function GuidePensionReversion() {
           <p>
             Ce guide s'adresse à ceux qui veulent comprendre la réversion avant d'avoir à la demander,
             ou qui y sont confrontés. Il distingue le régime général (retraite de base des salariés
-            du privé) et l'Agirc-Arrco (retraite complémentaire), car leurs règles diffèrent, et il
-            ne chiffre volontairement pas le plafond de ressources du régime général, qui est révisé
-            et doit se lire sur{" "}
+            du privé) et l'Agirc-Arrco (retraite complémentaire), car leurs règles diffèrent. Le
+            plafond de ressources du régime général cité est celui publié pour 2026 ; il est
+            revalorisé chaque année et se vérifie sur{" "}
             <a href="https://www.lassuranceretraite.fr" target="_blank" rel="noopener noreferrer">lassuranceretraite.fr</a>.
             Les fonctionnaires, indépendants et autres régimes ont leurs propres règles, non
             traitées ici.
@@ -173,11 +179,12 @@ export default function GuidePensionReversion() {
               <strong>Âge minimal :</strong> {ageMin} ans pour le conjoint survivant.
             </li>
             <li>
-              <strong>Plafond de ressources :</strong> les ressources personnelles du survivant
-              (et, le cas échéant, de son nouveau foyer) ne doivent pas dépasser un plafond fixé
-              par l'Assurance retraite. Nous ne le chiffrons pas : le montant est révisé et dépend
-              de la situation (vie seule ou en couple). Lisez-le sur le site de l'Assurance retraite
-              et sur le simulateur de la demande.
+              <strong>Plafond de ressources :</strong> les ressources brutes annuelles du survivant
+              (et, le cas échéant, de son nouveau couple) doivent rester inférieures à{" "}
+              {eur(plafondSeul)} pour une personne seule et {eur(plafondCouple)} pour un couple
+              (service-public.gouv.fr, fiche F13104, vérifiée le 1er janvier 2026). Les revenus
+              d'activité ne sont retenus qu'à 70 %. Le montant est revalorisé chaque année :
+              vérifiez-le au moment de la demande.
             </li>
             <li>
               <strong>Calcul :</strong> {pct(tauxBase)} de la retraite de base du défunt. Si les
@@ -193,19 +200,13 @@ export default function GuidePensionReversion() {
           <h2 id="agirc-arrco">Et à l'Agirc-Arrco ?</h2>
           <p>
             La retraite complémentaire du secteur privé fonctionne différemment : la pension de
-            réversion de l'Agirc-Arrco représente {pct(tauxCompl)} des points du défunt, et son
-            attribution ne dépend pas, d'après les informations officielles consultées, d'un
-            plafond de ressources. L'âge requis peut varier selon les situations : demandez la
-            règle applicable à la caisse.
+            réversion de l'Agirc-Arrco représente {pct(tauxCompl)} des points du défunt, et elle
+            est attribuée sans condition de ressources. Elle est versée à partir de {ageMin} ans,
+            sans condition d'âge si le survivant a au moins deux enfants à charge au moment du
+            décès ou s'il est invalide. Le remariage y met fin définitivement ; le Pacs et le
+            concubinage n'y ouvrent pas droit (réglementation Agirc-Arrco, fiche « Réversion des
+            conjoints »).
           </p>
-          <div className="note">
-            <p>
-              À vérifier : l'absence de condition de ressources à l'Agirc-Arrco et l'âge minimal
-              sont des règles que nous n'avons pas pu confirmer par un texte source publié en
-              novembre 2026. Consultez agirc-arrco.fr ou votre espace personnel avant toute
-              décision.
-            </p>
-          </div>
           <div className="table-scroll">
           <table>
             <thead>
@@ -224,12 +225,17 @@ export default function GuidePensionReversion() {
               <tr>
                 <td>Âge du survivant</td>
                 <td>{ageMin} ans minimum</td>
-                <td>À confirmer auprès de l'Agirc-Arrco</td>
+                <td>{ageMin} ans minimum, sauf deux enfants à charge ou invalidité</td>
               </tr>
               <tr>
                 <td>Condition de ressources</td>
-                <td>Oui : plafond à lire sur lassuranceretraite.fr</td>
-                <td>Non selon nos lectures, à vérifier</td>
+                <td>Oui : {eur(plafondSeul)} par an seul, {eur(plafondCouple)} en couple (2026)</td>
+                <td>Non</td>
+              </tr>
+              <tr>
+                <td>Remariage du survivant</td>
+                <td>Les ressources du nouveau couple entrent dans le plafond</td>
+                <td>Fin définitive du droit</td>
               </tr>
               <tr>
                 <td>Demande</td>
@@ -258,10 +264,11 @@ export default function GuidePensionReversion() {
 
           <h2 id="ex-conjoint">Que se passe-t-il pour un ex-conjoint ?</h2>
           <p>
-            Les ex-conjoints divorcés peuvent y avoir droit selon les régimes, souvent sans condition
-            de non-remariage. Quand le défunt a connu plusieurs mariages, la pension est en
-            principe partagée entre les conjoints successifs, au prorata de la durée de chaque
-            mariage. Si vous êtes dans ce cas, demandez à chaque caisse la règle qui s'applique à
+            Les ex-conjoints divorcés peuvent y avoir droit. Au régime général, l'ex-conjoint est
+            traité comme un conjoint survivant, même s'il vit en couple ; à l'Agirc-Arrco, seul
+            l'ex-conjoint non remarié peut y prétendre. Quand le défunt a connu plusieurs mariages,
+            la pension est partagée entre les conjoints successifs, au prorata de la durée de
+            chaque mariage. Si vous êtes dans ce cas, demandez à chaque caisse la règle qui s'applique à
             votre situation et conservez les actes d'état civil.
           </p>
 
@@ -312,9 +319,8 @@ export default function GuidePensionReversion() {
           <div className="note">
             <p>
               Les montants sont des hypothèses d'illustration, sans lien avec un cas réel. Ils
-              s'appliquent avant toute application d'un plafond de ressources du régime général,
-              que nous ne chiffrons pas ; la pension de base effectivement versée peut donc être
-              plus faible.
+              s'appliquent avant toute application du plafond de ressources du régime général ; la
+              pension de base effectivement versée peut donc être plus faible.
             </p>
           </div>
           <p>
@@ -384,8 +390,9 @@ export default function GuidePensionReversion() {
           <h2 id="pieges">Quels pièges éviter ?</h2>
           <ul>
             <li>
-              <strong>Attendre que la caisse agisse.</strong> La réversion se demande ; certains
-              régimes limitent l'effet rétroactif de la demande.
+              <strong>Attendre que la caisse agisse.</strong> La réversion se demande. Au régime
+              général, une demande déposée dans l'année du décès peut prendre effet le mois suivant
+              le décès ; au-delà, pas avant la date de la demande (F13104).
             </li>
             <li>
               <strong>Oublier un régime.</strong> Une demande par le portail couvre en principe
@@ -413,9 +420,9 @@ export default function GuidePensionReversion() {
           <h3>Quelles sont les conditions pour toucher la pension de réversion ?</h3>
           <p>
             Avoir été marié(e) avec le défunt, et, au régime général, avoir au moins {ageMin} ans
-            et des ressources inférieures à un plafond. À l'Agirc-Arrco, le plafond de ressources
-            n'existe pas d'après nos lectures, mais l'âge et les autres conditions sont à
-            confirmer.
+            et des ressources inférieures à un plafond. À l'Agirc-Arrco, il n'y a pas de condition
+            de ressources : il faut avoir {ageMin} ans (sauf deux enfants à charge ou invalidité)
+            et ne pas s'être remarié(e).
           </p>
 
           <h3>Quel est le montant de la pension de réversion ?</h3>
@@ -427,9 +434,10 @@ export default function GuidePensionReversion() {
 
           <h3>Quel est le plafond de ressources de la pension de réversion ?</h3>
           <p>
-            Il est fixé et révisé par l'Assurance retraite, et diffère selon que le survivant vit
-            seul ou en couple. Nous ne le reproduisons pas : consultez lassuranceretraite.fr ou le
-            simulateur de demande.
+            Au régime général, les ressources brutes annuelles doivent rester inférieures à{" "}
+            {eur(plafondSeul)} pour une personne seule et {eur(plafondCouple)} pour un couple
+            (montants publiés pour 2026, revalorisés chaque année). Au-delà, la réversion est
+            réduite du dépassement. L'Agirc-Arrco n'applique pas de plafond.
           </p>
 
           <h3>Le PACS ou le concubinage ouvrent-ils droit à la réversion ?</h3>
@@ -459,8 +467,9 @@ export default function GuidePensionReversion() {
 
           <h3>La réversion s'arrête-t-elle en cas de remariage ?</h3>
           <p>
-            Les règles varient selon les régimes et ont évolué ; le remariage ou la mise en couple
-            peuvent avoir un effet selon le régime. Vérifiez la règle actuelle auprès de la caisse.
+            À l'Agirc-Arrco, oui : le remariage met fin définitivement à la réversion. Au régime
+            général, il ne la supprime pas en tant que tel, mais les ressources du nouveau couple
+            sont prises en compte dans le plafond. Vérifiez votre cas auprès de chaque caisse.
           </p>
 
           <h2 id="synthese">Notre analyse, en synthèse</h2>
@@ -507,8 +516,8 @@ export default function GuidePensionReversion() {
             <p>
               Cette analyse est générale et ne constitue pas un conseil personnalisé : seuls les
               régimes de retraite peuvent confirmer vos droits. Les taux, âges et conditions cités
-              sont ceux relevés en novembre 2026 et peuvent évoluer ; le plafond de ressources n'est
-              volontairement pas chiffré. Le cas chiffré est une illustration pédagogique. Les
+              sont ceux relevés en novembre 2026 et peuvent évoluer ; le plafond de ressources cité
+              est celui de 2026 et sera revalorisé. Le cas chiffré est une illustration pédagogique. Les
               placements en unités de compte présentent un risque de perte en capital ; les
               performances passées ne préjugent pas des performances futures.
             </p>

@@ -186,6 +186,7 @@ export default function GuideTransfererAssuranceVie() {
             <li>
               <strong>Le transfert vers un contrat plus récent du même assureur</strong>, prévu
               par la loi Pacte : l'assureur peut proposer de basculer vers un contrat plus
+              {/* À VÉRIFIER : condition d'investissement partiel en UC / euro-croissance du contrat d'arrivée (source secondaire : Linxea 2020 ; à confirmer dans CGI art. 125-0 A, I, 2°) */}
               moderne, l'antériorité fiscale étant conservée, sous conditions (par exemple un
               contrat d'arrivée investi au moins en partie en unités de compte ou en
               euro-croissance). L'assureur n'est pas toujours tenu d'accepter la demande :
@@ -334,7 +335,7 @@ export default function GuideTransfererAssuranceVie() {
             Beaucoup de contrats ne prélèvent pas de frais de sortie sur un rachat, mais ce
             n'est pas universel : certains contrats prévoient des frais de transfert ou de
             clôture, notamment pour un transfert Fourgous ou Pacte. Ces frais sont fixés par la
-            notice du contrat et plafonnés selon les cas par la réglementation. Demandez-les par
+            notice du contrat, aucun texte ne les plafonnant pour l'assurance-vie. Demandez-les par
             écrit avant de lancer la demande.
           </p>
           <p>

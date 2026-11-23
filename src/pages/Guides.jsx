@@ -254,7 +254,7 @@ const categories = [
       },
       {
         to: "/guide/assurance-vie-a-60-ans-ou-a-la-retraite",
-        title: "Assurance-vie à 60 ans ou à la retraite : ouvrir ou garder ?",
+        title: "Assurance-vie à 60 ans : ouvrir, garder ou racheter ?",
         text: "Ouvrir, garder, racheter ou alimenter : la décision et la démarche à 60 ans, avec un exemple chiffré avant et après 8 ans.",
       },
       {

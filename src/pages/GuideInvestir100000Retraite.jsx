@@ -26,11 +26,15 @@ const maj = V3_AVB_100K.maj;
 const r2 = (n) => Math.round(n * 100) / 100;
 const part = (n, total) => r2((n / total) * 100);
 
-// Plafond annuel de déduction PER d'un salarié : 10 % des revenus (limités à 8 PASS), plancher 10 % du PASS.
+// Plafond annuel de déduction PER d'un salarié : 10 % des revenus d'activité nets de frais
+// (salaire net imposable après l'abattement forfaitaire de 10 %, comme dans le guide du plafond PER),
+// limités à 8 PASS, plancher 10 % du PASS.
+const abattementFrais = PER_PLAFOND.tauxAbattementFraisProfessionnels;
 const plafondPer = (revenu) => {
   const plancher = (pass * PER_PLAFOND.tauxPlancherPass) / 100;
   const maxRevenus = pass * PER_PLAFOND.multiplePassMaximum;
-  const plafond = (Math.min(revenu, maxRevenus) * PER_PLAFOND.tauxRevenusActivite) / 100;
+  const revenuNetDeFrais = revenu * (1 - abattementFrais / 100);
+  const plafond = (Math.min(revenuNetDeFrais, maxRevenus) * PER_PLAFOND.tauxRevenusActivite) / 100;
   return Math.round(Math.max(plafond, plancher));
 };
 
@@ -401,7 +405,7 @@ export default function GuideInvestir100000Retraite() {
           <p>
             Avec {pA.horizon} ans avant le départ, le temps joue en faveur d'une part plus
             importante de supports exposés aux marchés (PEA, unités de compte), à condition de
-            supporter les baisses. Le PER est pertinent à cette TMI de {pct(pA.tmi)} : {euros(pA.per)}{" "}
+            supporter les baisses. Le PER peut se justifier à cette TMI de {pct(pA.tmi)} : {euros(pA.per)}{" "}
             déduits économisent {euros(pA.economiePer)} d'impôt à l'entrée, mais seront imposés à
             la sortie. L'assurance-vie atteindra les {dureeAv} ans à {pA.ageAv8Ans} ans, avant le
             départ.
@@ -427,9 +431,11 @@ export default function GuideInvestir100000Retraite() {
           <h2 id="per">Peut-on vraiment verser {euros(pA.per)} sur un PER ?</h2>
           <p>
             Pas forcément en une seule année : la déduction est limitée à {PER_PLAFOND.tauxRevenusActivite} % des revenus
-            d'activité de l'année précédente (dans la limite de {PER_PLAFOND.multiplePassMaximum} fois le plafond de la
+            d'activité nets de frais de l'année précédente (dans la limite de {PER_PLAFOND.multiplePassMaximum} fois le plafond de la
             sécurité sociale), avec un plancher de {PER_PLAFOND.tauxPlancherPass} % de ce plafond. Avec{" "}
-            {euros(pA.revenuNetImposable)} de revenu net imposable, le plafond annuel est de{" "}
+            {euros(pA.revenuNetImposable)} de salaire net imposable, soit{" "}
+            {euros(pA.revenuNetImposable * (1 - abattementFrais / 100))} après l'abattement de{" "}
+            {abattementFrais} % pour frais professionnels, le plafond annuel est de{" "}
             {euros(pA.plafond)} : il faudrait {pA.anneesPer} ans pour déduire {euros(pA.per)}, sauf
             plafonds non utilisés des années précédentes, reportables. Pour le profil 2 (
             {euros(pB.revenuNetImposable)}), le plafond est de {euros(pB.plafond)} : {pB.anneesPer}{" "}

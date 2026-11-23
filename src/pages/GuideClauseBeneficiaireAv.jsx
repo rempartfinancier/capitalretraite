@@ -200,7 +200,7 @@ export default function GuideClauseBeneficiaireAv() {
             <strong>Conjoint et partenaire de Pacs.</strong> Le conjoint survivant et le
             partenaire de Pacs sont exonérés de droits de succession, y compris sur les capitaux
             d'assurance-vie, selon les règles en vigueur (CGI, art. 796-0 bis et 990 I). Le mot
-            « conjoint » désignant la personne mariée au jour du décès, vérifiez qu'il
+            « conjoint » désignant en principe la personne mariée au jour du décès, vérifiez qu'il
             correspond toujours à votre intention après un divorce ou un remariage. Un concubin
             n'a pas ce statut : il doit être désigné nominativement et supporte une fiscalité
             plus lourde.

@@ -85,7 +85,7 @@ export default function GuideLiquiderPerRetraite() {
               sortie : capital en une fois, capital fractionné, rente ou combinaison. La
               fiscalité dépend de l'origine des sommes : les versements déduits sont imposés au
               barème de l'impôt sur le revenu, les versements non déduits sont exonérés, et les
-              gains supportent {pct(tauxPFU)} de prélèvement forfaitaire et {pct(psPer)} de
+              gains des versements volontaires supportent {pct(tauxPFU)} de prélèvement forfaitaire et {pct(psPer)} de
               prélèvements sociaux. Exemple illustratif : sur un PER de {euros(capital)}, la
               fiscalité va de {euros(totalC)} à {euros(totalA)} selon l'origine des versements et
               la manière de sortir.
@@ -128,11 +128,12 @@ export default function GuideLiquiderPerRetraite() {
 
           <h2 id="quand">Quand peut-on liquider son PER ?</h2>
           <p>
-            La sortie « à la retraite » est possible à la liquidation de la pension d'un régime
-            obligatoire de retraite ou à l'âge légal de départ, selon la formulation du contrat.
-            Avant, les cas de déblocage anticipé sont limitativement énumérés par la loi. La
-            demande ne peut donc pas précéder la liquidation de vos pensions : calez les deux
-            démarches, en lien avec{" "}
+            La sortie « à la retraite » est possible au plus tôt à la liquidation de votre
+            pension dans un régime obligatoire, ou dès l'âge légal de départ, même si vous
+            n'avez pas encore liquidé votre pension (Code monétaire et financier, art. L. 224-1).
+            Avant, les cas de déblocage anticipé sont limitativement énumérés par la loi. Hors
+            de ces cas, la demande ne peut donc pas précéder la première de ces deux dates :
+            calez les démarches, en lien avec{" "}
             <a href="/guide/demande-de-retraite-demarches-calendrier">
               notre guide sur le calendrier de la demande de retraite
             </a>
@@ -179,7 +180,8 @@ export default function GuideLiquiderPerRetraite() {
             <li>La demande de liquidation signée, sur le formulaire de l'organisme.</li>
             <li>
               Un justificatif de départ à la retraite : notification de pension ou attestation
-              de liquidation du régime de base.
+              de liquidation du régime de base (ou, si vous avez atteint l'âge légal sans avoir
+              liquidé votre pension, un justificatif d'âge).
             </li>
             <li>Une pièce d'identité et un RIB à votre nom.</li>
             <li>
@@ -274,11 +276,11 @@ export default function GuideLiquiderPerRetraite() {
                 </tr>
                 <tr>
                   <td>Épargne salariale (participation, intéressement, abondement)</td>
-                  <td>Capital exonéré</td>
-                  <td>Non, sur le capital</td>
+                  <td>Capital et gains exonérés</td>
+                  <td>Non sur le capital ; {pct(psPer)} sur les gains</td>
                 </tr>
                 <tr>
-                  <td>Gains (dans tous les cas)</td>
+                  <td>Gains des versements volontaires (déduits ou non)</td>
                   <td>{pct(tauxPFU)} (prélèvement forfaitaire) ou barème sur option</td>
                   <td>{pct(psPer)}</td>
                 </tr>
@@ -446,7 +448,7 @@ export default function GuideLiquiderPerRetraite() {
           <h3>Quelle est la fiscalité d'un PER à la sortie ?</h3>
           <p>
             Les versements déduits sont imposés au barème, les versements non déduits sont
-            exonérés, et les gains supportent {pct(tauxPFU)} de prélèvement forfaitaire et{" "}
+            exonérés, et les gains des versements volontaires supportent {pct(tauxPFU)} de prélèvement forfaitaire et{" "}
             {pct(psPer)} de prélèvements sociaux. Voyez{" "}
             <a href="/guide/fiscalite-sortie-per">le guide sur la fiscalité de la sortie</a> pour
             le détail.

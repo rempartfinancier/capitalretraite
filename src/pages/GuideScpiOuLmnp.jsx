@@ -4,6 +4,7 @@ import {
   IMMO,
   IMMO_EXEMPLES,
   V3_IMM_COMPARATIF,
+  V3_REG_LOCATIFS,
   euros,
   pct,
 } from "../components/hypotheses.js";
@@ -14,7 +15,8 @@ const M = IMMO.scpiMarche;
 const SF = IMMO.scpiFiscalite;
 const L = IMMO.lmnp;
 const psFoncier = FISCALITE.prelevementsSociaux.immobilier; // 17,2 %
-const psMeuble = L.psMeuble; // 18,6 % (à vérifier)
+const psMeuble = L.psMeuble; // 18,6 % (LFSS 2026 ; service-public F2329)
+const microBic2026 = V3_REG_LOCATIFS.microBicLongueDureeRevenus2026; // 83 600 €
 
 const r2 = (n) => Math.round(n * 100) / 100;
 const pct1 = (n) =>
@@ -201,7 +203,7 @@ export default function GuideScpiOuLmnp() {
                 <tr>
                   <td>Fiscalité des revenus</td>
                   <td>Revenus fonciers : barème + {pct(psFoncier)} de prélèvements sociaux</td>
-                  <td>Micro-BIC ou réel ; prélèvements sociaux à {pct(psMeuble)} (à vérifier)</td>
+                  <td>Micro-BIC ou réel ; prélèvements sociaux à {pct(psMeuble)}</td>
                 </tr>
                 <tr>
                   <td>Risque principal</td>
@@ -265,19 +267,22 @@ export default function GuideScpiOuLmnp() {
             Les revenus d'une SCPI détenue en direct sont des revenus fonciers : ajoutés à vos
             autres revenus, imposés à votre tranche marginale, avec {pct(psFoncier)} de prélèvements
             sociaux. Un abattement de {SF.microFoncierAbattement} % existe en micro-foncier sous{" "}
-            {euros(SF.microFoncierPlafond)} de recettes, mais les SCPI relèvent en pratique du
-            régime réel (À VÉRIFIER). À la revente, la plus-value suit le régime des plus-values
+            {euros(SF.microFoncierPlafond)} de recettes, mais il n'est ouvert au porteur de parts que
+            s'il loue aussi un bien nu en direct (CGI, art. 32) ; à défaut, c'est le régime réel. À la revente, la plus-value suit le régime des plus-values
             immobilières (impôt de {SF.pvIR} % avant abattements pour durée de détention, plus
             prélèvements sociaux).
           </p>
           <p>
             Les loyers du LMNP relèvent des bénéfices industriels et commerciaux. Au micro-BIC, un
             abattement forfaitaire de {L.microBicLongueDureeAbattement} % s'applique sous{" "}
-            {euros(L.microBicLongueDuree)} de recettes ; au réel, l'amortissement du bien peut
+            {euros(L.microBicLongueDuree)} de recettes pour les revenus 2025 ({euros(microBic2026)}{" "}
+            pour les revenus 2026) ; au réel, l'amortissement du bien peut
             réduire fortement le résultat imposable. Depuis la loi de finances pour 2025, les
             amortissements déduits sont réintégrés dans le calcul de la plus-value à la revente (
-            {L.texteReintegration}). Un projet d'évolution ({L.plfAmortissementArticle}) montre que
-            ce terrain reste mouvant : surveillez-le avant de décider.
+            {L.texteReintegration}). Le projet de loi de finances pour 2027 (article 7) prévoyait
+            en outre de plafonner l'amortissement en LMNP ; toujours en discussion au Parlement et
+            non adopté au 23 novembre 2026, il montre que ce terrain reste mouvant : surveillez-le
+            avant de décider.
           </p>
           <p>
             Dans les deux cas, ces revenus entrent dans votre revenu fiscal de référence, qui

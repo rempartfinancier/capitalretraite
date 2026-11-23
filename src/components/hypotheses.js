@@ -930,7 +930,7 @@ export const V3_AVA_GARANTIE = {
   montantAPlacer: 100000, // somme de l'exemple « 100 000 € à placer » (€) — illustratif
   nombreAssureursExemple: 3, // nombre d'assureurs dans l'exemple de répartition — illustratif
   maj: "novembre 2026",
-  source: "FGAP (fgap.fr) ; Code des assurances, art. L423-1 et R423-1 ; plafond lu dans GARANTIES (70 000 € par assuré et par assureur, tous contrats confondus) ; la garantie des dépôts bancaires de 100 000 € relève d'un autre mécanisme (Code monétaire et financier) — À VÉRIFIER",
+  source: "FGAP (fgap.fr) ; Code des assurances, art. L423-1 et R423-1 ; plafond lu dans GARANTIES (70 000 € par assuré et par assureur, tous contrats confondus ; 90 000 € pour certaines rentes de prévoyance selon des sources secondaires, non chiffré dans la page) ; la garantie des dépôts bancaires de 100 000 € relève d'un autre mécanisme (Code monétaire et financier) — À VÉRIFIER",
 };
 
 // ---- Vague 3 « intention d'action » : guides PER (ouvrir, transférer, déclarer, liquider) ----
@@ -939,19 +939,19 @@ export const V3_AVA_GARANTIE = {
 export const V3_PER_OUVERTURE = {
   versementInitial: 5000, // versement initial de l'exemple (€)
   fraisEntreeHautePct: 3, // frais sur versement de l'exemple « grille haute », dans la fourchette FRAIS_TYPES.contratBancaireTraditionnel.entree (%)
-  renonciationJoursMin: 14, // délai de renonciation, ordre de grandeur bas (jours calendaires) — À VÉRIFIER selon le type de PER
-  renonciationJoursMax: 30, // ordre de grandeur haut (jours calendaires) — À VÉRIFIER selon le type de PER
+  renonciationJoursMin: 14, // PER compte-titres souscrit par démarchage (CMF L. 341-16) (jours calendaires) — À VÉRIFIER
+  renonciationJoursMax: 30, // PER assurantiel (Code des assurances, L. 132-5-1) (jours calendaires) — À VÉRIFIER
   maj: "novembre 2026",
   source: "CMF art. L. 224-1 et s. ; service-public.gouv.fr, fiche F34982 ; délais de renonciation à confirmer contrat par contrat — À VÉRIFIER",
 };
 
 export const V3_PER_TRANSFERT = {
   encoursExemple: 40000, // encours du PER transféré dans l'exemple (€)
-  fraisMaxPctAvantAnnees: 1, // plafond légal des frais de transfert la première période, en % de l'épargne — À VÉRIFIER
-  anneesFraisNuls: 5, // ancienneté du plan au-delà de laquelle le transfert est gratuit — À VÉRIFIER
-  delaiLegalMois: 2, // délai maximal de transfert une fois la demande complète reçue par l'organisme d'origine — À VÉRIFIER
+  fraisMaxPctAvantAnnees: 1, // plafond légal des frais de transfert PER → PER, en % des droits acquis (CMF L. 224-6) ; 1 % aussi pour PERP/Madelin depuis le 24/10/2024 — À VÉRIFIER
+  anneesFraisNuls: 5, // frais nuls 5 ans après le premier versement dans le plan, ou à l'âge légal de départ (CMF L. 224-6) ; 10 ans pour PERP/Madelin — À VÉRIFIER
+  delaiLegalMois: 2, // délai maximal PER individuel → PER une fois la demande complète reçue (F34982) ; 3 mois PER d'entreprise, 4 mois anciens contrats
   maj: "novembre 2026",
-  source: "CMF art. L. 224-6 et R. 224-? (transfert PER) ; service-public.gouv.fr, fiche F34982 — À VÉRIFIER, notamment pour les anciens produits (PERP, Madelin, art. 83, PERCO)",
+  source: "CMF art. L. 224-6 (frais) et L. 224-40 (anciens produits, transfert tous les 3 ans en entreprise) ; délais : service-public.gouv.fr, fiche F34982 (consultée en novembre 2026) — article réglementaire des délais non identifié, À VÉRIFIER ; F34982 cite encore 5 % pour PERP/Madelin avant 10 ans",
 };
 
 export const V3_PER_DECLARATION = {
@@ -1020,6 +1020,7 @@ export const V3_AVB_100K = {
   moisFondsSecurite: 6, // mois de dépenses conservés en liquidités
   ageDepart: 64, // âge de départ retenu (cf. ENVELOPPES_NOV2026.ageDepartReference)
   profils: [
+    // revenuNetImposable = salaire net imposable 2025, avant l'abattement de 10 % pour frais (appliqué dans la page)
     { id: "construction", age: 45, tmi: 30, revenuNetImposable: 60000, per: 25000, av: 20000, pea: 30000, immo: 10000 },
     { id: "approche", age: 55, tmi: 30, revenuNetImposable: 72000, per: 20000, av: 35000, pea: 20000, immo: 10000 },
     { id: "decaissement", age: 62, tmi: 11, revenuNetImposable: 32000, per: 0, av: 50000, pea: 20000, immo: 10000 },
@@ -1031,16 +1032,19 @@ export const V3_AVB_100K = {
 
 // ---- Vague 3 — guide « transférer son PEA » (novembre 2026) ----
 // Cas purement illustratif (composite pédagogique, grilles fictives lues dans PEA_LIGNE_NOV2026).
-// Plafonds de frais de transfert : ENVELOPPES_NOV2026.peaFraisTransfertMax — À VÉRIFIER
-// (interprétation « par ligne / total » et conditions exactes à confirmer dans le décret Pacte).
+// Plafonds de frais de transfert : ENVELOPPES_NOV2026.peaFraisTransfertMax (15 € par ligne de titres
+// cotés, 150 € au total) — confirmés le 23 novembre 2026 sur la fiche AMF « Plafonnement des frais pour
+// le PEA » (décret n° 2020-95 du 5 février 2020) ; les mêmes plafonds valent pour les frais de clôture.
 export const V3_PEA_TRANSFERT = {
   valeurPlan: 60000, // valeur du PEA transféré (€)
   nombreLignes: 8, // nombre de lignes de titres transférées
   versementMensuel: 300, // versement mensuel poursuivi après le transfert (€), lu dans PEA_LIGNE_NOV2026.versementMensuel
-  delaiIndicatifSemaines: "2 à 6", // ordre de grandeur courant, variable selon les établissements — À VÉRIFIER
+  fraisTransfertParLigneNonCote: 50, // plafond des frais de transfert/clôture par ligne de titres non cotés (€) — AMF, décret 2020-95
+  droitsGardeMajorationParLigneCote: 5, // majoration annuelle possible des droits de garde par ligne de titres cotés, en plus de 0,4 % (€) — AMF
+  delaiIndicatifSemaines: "2 à 6", // ordre de grandeur courant, aucun délai légal identifié, variable selon les établissements — À VÉRIFIER
   maj: "novembre 2026",
   source:
-    "décret d'application de la loi Pacte (frais de transfert PEA) ; CMF art. L. 221-30 et s. ; service-public.gouv.fr, fiche F2385 (vérifiée le 22 mai 2026) ; hypothèses d'illustration — À VÉRIFIER avant publication",
+    "décret n° 2020-95 du 5 février 2020 (plafonnement des frais du PEA) ; AMF, « Plafonnement des frais pour le PEA : que faut-il retenir ? » (10 juillet 2020, consultée le 23 novembre 2026) ; CMF art. L. 221-30 et s. ; service-public.gouv.fr, fiche F2385 (vérifiée le 22 mai 2026) ; hypothèses d'illustration — délai indicatif À VÉRIFIER",
 };
 
 // ---- Vague 3 — guide « sortir du PEA à la retraite » (novembre 2026) ----
@@ -1063,7 +1067,7 @@ export const V3_IMM_COMPARATIF = {
   tmi: 30, // tranche marginale d'imposition supposée (%)
   maj: "novembre 2026",
   source:
-    "hypothèses d'illustration pédagogique (novembre 2026), dans les fourchettes de RENDEMENTS et IMMO_EXEMPLES ; micro-BIC et prélèvements sociaux : IMMO.lmnp ; foncier : FISCALITE — À VÉRIFIER (statut micro-BIC d'une résidence gérée, charges réelles, projet de loi de finances 2027 non adopté)",
+    "hypothèses d'illustration pédagogique (novembre 2026), dans les fourchettes de RENDEMENTS et IMMO_EXEMPLES ; micro-BIC et prélèvements sociaux : IMMO.lmnp ; foncier : FISCALITE — À VÉRIFIER (statut micro-BIC d'une résidence gérée, charges réelles) ; PLF 2027, art. 7 (plafonnement de l'amortissement LMNP) : volet supprimé par les députés fin octobre 2026 (legifiscal.fr, 31/10/2026), texte toujours en discussion et non adopté au 23 novembre 2026",
 };
 
 // ---- Vague 3 — guide « comment choisir une SCPI » (novembre 2026) ----
@@ -1087,6 +1091,7 @@ export const V3_IMM_CHOISIR_SCPI = {
 export const V3_REG_DEMANDE = {
   delaiDemandeMinMois: 4, // délai conseillé de dépôt de la demande, borne basse (mois avant la date de départ) — service-public F13941 : « en général entre 4 et 6 mois » — À VÉRIFIER auprès de la caisse
   delaiDemandeMaxMois: 6, // borne haute (mois)
+  delaiDemandeConseilleMois: 5, // service-public F13941 : faire la demande « au moins 5 mois avant la date de départ souhaitée » (vérifié en ligne le 23 novembre 2026)
   moisReleveEtSimulation: 24, // vérification du relevé de carrière et simulation : repère pédagogique, pas une règle (mois avant) — À VÉRIFIER
   dateDepartExemple: { annee: 2028, mois: 10 }, // départ au 1er octobre 2028 (mois 1 = janvier) — exemple composite
   depensesMensuellesExemple: 2400, // dépenses courantes mensuelles du ménage (€) — hypothèse
@@ -1097,8 +1102,24 @@ export const V3_REG_DEMANDE = {
 
 // Guide « retraite anticipée pour carrière longue »
 export const V3_REG_CARRIERE_LONGUE = {
-  seuilsDebutActivite: [16, 18, 20, 21], // âges avant lesquels le début d'activité ouvre droit au dispositif (service-public F13845, vérifiée le 1er septembre 2026) — À VÉRIFIER
-  agesDepartAnticipe: [58, 60, 62, 63], // âges de départ correspondant aux quatre seuils, dans le même ordre — À VÉRIFIER (barème à confirmer sur info-retraite.fr)
+  seuilsDebutActivite: [16, 18, 20, 21], // âges avant lesquels le début d'activité ouvre droit au dispositif (service-public F13845, vérifiée le 1er septembre 2026 ; circulaire Cnav n° 2026-29 du 4 septembre 2026)
+  agesDepartAnticipe: [58, 60, 62, 63], // âges de départ des assurés nés à compter de 1971, dans l'ordre des seuils (circulaire Cnav n° 2026-29, § 1.1.1)
+  generationBaremeComplet: 1971, // première génération à laquelle s'appliquent les quatre âges ci-dessus
+  // Barème par génération, départs à compter du 1er septembre 2026 (circulaire Cnav n° 2026-29, annexe 2, après la LFSS 2026 et le décret n° 2026-345).
+  // ages : âge minimum de départ pour un début avant 16, 18, 20, 21 ans ; null = pas de borne propre à cette génération dans l'annexe.
+  // trimestresCotises : durée d'assurance cotisée exigée (durée du taux plein de la génération).
+  baremeParGeneration: [
+    { generation: "1964", ages: [null, null, "60 ans et 6 mois", null], trimestresCotises: 170 },
+    { generation: "1965 (janvier à mars)", ages: [null, null, "60 ans et 9 mois", null], trimestresCotises: 170 },
+    { generation: "1965 (avril à novembre)", ages: [null, null, "60 ans et 9 mois", null], trimestresCotises: 171 },
+    { generation: "1965 (décembre)", ages: [null, null, "60 ans et 8 mois", null], trimestresCotises: 171 },
+    { generation: "1966", ages: [null, "60 ans", "60 ans et 9 mois", "63 ans"], trimestresCotises: 172 },
+    { generation: "1967", ages: ["58 ans", "60 ans", "61 ans", "63 ans"], trimestresCotises: 172 },
+    { generation: "1968", ages: ["58 ans", "60 ans", "61 ans et 3 mois", "63 ans"], trimestresCotises: 172 },
+    { generation: "1969", ages: ["58 ans", "60 ans", "61 ans et 6 mois", "63 ans"], trimestresCotises: 172 },
+    { generation: "1970", ages: ["58 ans", "60 ans", "61 ans et 9 mois", "63 ans"], trimestresCotises: 172 },
+    { generation: "1971 et suivantes", ages: ["58 ans", "60 ans", "62 ans", "63 ans"], trimestresCotises: 172 },
+  ],
   trimestresDebutActivite: 5, // trimestres à valider en tout début d'activité (service-public F13845)
   trimestresDebutActiviteNesT4: 4, // si né entre le 1er octobre et le 31 décembre
   complementMensuelExemple: 500, // complément mensuel recherché pendant les années gagnées (€) — hypothèse
@@ -1106,18 +1127,20 @@ export const V3_REG_CARRIERE_LONGUE = {
   generationExemple: "1969 et suivantes", // génération de l'exemple (âge légal : voir RETRAITE_PROGRESSIVE_CUMUL.ageLegalParGeneration)
   ageActuelExemple: 45, // âge auquel commence l'effort d'épargne de l'exemple
   maj: "novembre 2026",
-  source: "service-public.gouv.fr, fiches F13845 (carrière longue, vérifiée le 1er septembre 2026) et F14043 (âge légal) ; info-retraite.fr ; durée d'assurance cotisée exigée : volontairement non chiffrée, tableau officiel à consulter — À VÉRIFIER",
+  source: "service-public.gouv.fr, fiches F13845 (carrière longue, vérifiée le 1er septembre 2026) et F14043 (âge légal) ; circulaire Cnav n° 2026-29 du 4 septembre 2026 (retraite anticipée pour carrière longue à compter du 1er septembre 2026 : âges, durée cotisée, rachats et versements pour la retraite) ; lassuranceretraite.fr ; info-retraite.fr",
 };
 
 // Guide « pension de réversion »
 export const V3_REG_REVERSION = {
-  tauxRegimeGeneral: 54, // % de la pension de retraite de base du conjoint décédé (régime général) — À VÉRIFIER
-  tauxAgircArrco: 60, // % de la retraite complémentaire du conjoint décédé (Agirc-Arrco) — À VÉRIFIER
-  ageMinimum: 55, // âge minimal du conjoint survivant, régime général — À VÉRIFIER
+  tauxRegimeGeneral: 54, // % de la pension de retraite de base du conjoint décédé (régime général) — service-public F13104, vérifiée le 1er janvier 2026
+  tauxAgircArrco: 60, // % des points de retraite complémentaire du conjoint décédé (Agirc-Arrco, décès depuis le 1er janvier 2019) — reglementation.agirc-arrco.fr
+  ageMinimum: 55, // âge minimal du conjoint survivant, régime général (F13104) ; aussi 55 ans à l'Agirc-Arrco, sauf 2 enfants à charge ou invalidité
+  plafondRessourcesSeul: 25001.6, // plafond annuel de ressources brutes, personne seule (€) — F13104, vérifiée le 1er janvier 2026 ; revalorisé chaque année
+  plafondRessourcesCouple: 40002.56, // plafond annuel de ressources brutes, en couple (€) — F13104, vérifiée le 1er janvier 2026
   pensionBaseMensuelleDefuntExemple: 1400, // pension de base mensuelle du conjoint décédé (€) — exemple composite
   complementaireAnnuelleDefuntExemple: 6000, // retraite complémentaire annuelle du conjoint décédé (€) — exemple composite
   maj: "novembre 2026",
-  source: "lassuranceretraite.fr ; agirc-arrco.fr ; service-public.gouv.fr ; plafond de ressources du régime général : volontairement non chiffré, à lire sur lassuranceretraite.fr — À VÉRIFIER",
+  source: "service-public.gouv.fr, fiche F13104 (pension de réversion de l'Assurance retraite, vérifiée le 1er janvier 2026) ; reglementation.agirc-arrco.fr, fiche « Réversion des conjoints » ; lassuranceretraite.fr — plafond de ressources revalorisé chaque 1er janvier : À VÉRIFIER pour 2027",
 };
 
 // Guide « revenus locatifs et retraite : cumul, impôts, cotisations »
@@ -1125,8 +1148,9 @@ export const V3_REG_LOCATIFS = {
   loyersBrutsAnnuelsExemple: 9000, // loyers annuels bruts encaissés (€) — hypothèse
   tmiScenarios: [11, 30], // deux TMI comparées (%), voir FISCALITE.tmiOptions
   pensionAnnuelleExemple: 22000, // pensions de retraite annuelles imposables, avant loyers (€) — hypothèse
+  microBicLongueDureeRevenus2026: 83600, // seuil micro-BIC meublé longue durée et tourisme classé, revenus 2026 (€) — service-public F32744 vérifiée le 15/04/2026 (77 700 € pour les revenus 2025 : IMMO.lmnp)
   maj: "novembre 2026",
-  source: "service-public.gouv.fr, fiches F1991 (revenus locatifs, location non meublée) et F32744 (location meublée), F2329 (prélèvements sociaux) ; taux et plafonds lus dans IMMO et FISCALITE — À VÉRIFIER ; cotisations d'un loueur meublé professionnel : non chiffrées, à vérifier",
+  source: "service-public.gouv.fr, fiches F1991 (revenus locatifs, location non meublée), F32744 (location meublée, vérifiée le 15 avril 2026) et F2329 (prélèvements sociaux, vérifiée le 30 juin 2026 : 18,6 % sur la location meublée non professionnelle, 17,2 % sur les revenus fonciers) ; BOFiP BOI-BIC-CHAMP-40-10 § 150 (pensions comprises dans les revenus comparés aux recettes pour le statut LMP) ; taux et plafonds lus dans IMMO et FISCALITE ; cotisations d'un loueur meublé professionnel retraité : non chiffrées, À VÉRIFIER",
 };
 
 export const V3_AVA_GARANTIE_DEPOTS = {

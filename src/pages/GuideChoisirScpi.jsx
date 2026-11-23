@@ -360,13 +360,14 @@ export default function GuideChoisirScpi() {
               délai, en général de quelques mois : notez la date exacte.
             </li>
             <li>
-              <strong>Déclarer les revenus.</strong> L'administration fiscale est informée des
-              revenus ; vérifiez le préremplissage de la déclaration (revenus fonciers).
+              <strong>Déclarer les revenus.</strong> La société de gestion vous adresse chaque
+              année un relevé fiscal : reportez-en les montants dans votre déclaration (revenus
+              fonciers, en général sur la déclaration annexe n° 2044) et vérifiez-les.
             </li>
           </ol>
           <p>
             Pour approfondir une souscription accompagnée, vous pouvez consulter{" "}
-            <a href="https://scpirentable.fr" target="_blank" rel="noopener noreferrer">scpirentable.fr</a>
+            <a href="https://scpirentable.fr" target="_blank" rel="sponsored noopener noreferrer">scpirentable.fr</a>
             , lien vers un site partenaire du réseau auquel est affilié notre site : cette mention
             n'est ni un classement ni une recommandation d'achat, et n'a pas d'incidence sur le contenu
             de ce guide. L'adéquation d'un produit à votre situation relève d'un conseil

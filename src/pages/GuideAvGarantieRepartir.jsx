@@ -117,7 +117,7 @@ export default function GuideAvGarantieRepartir() {
             Le FGAP est un fonds de garantie qui indemnise les souscripteurs si leur assureur de
             personnes devient défaillant. Il couvre jusqu'à {euros(plafond)} par assuré et par
             assureur, tous contrats confondus : posséder trois contrats chez le même assureur
-            n'ouvre pas trois plafonds. Des règles distinctes peuvent s'appliquer à certains
+            n'ouvre pas trois plafonds. {/* À VÉRIFIER : plafond distinct de 90 000 € pour certaines rentes (prévoyance décès, incapacité, invalidité) selon des sources secondaires ; périmètre exact à confirmer sur fgap.fr / Code des assurances R423-7 avant de le chiffrer */}Des règles distinctes peuvent s'appliquer à certains
             produits (rentes, par exemple) ; ces points sont à vérifier sur le site du FGAP
             (Code des assurances, art. L423-1 et suivants).
           </p>

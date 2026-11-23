@@ -979,7 +979,7 @@ export const routesMeta = [
   },
   {
     path: "/guide/assurance-vie-a-60-ans-ou-a-la-retraite",
-    title: "Assurance-vie à 60 ans ou à la retraite : ouvrir ou garder ?",
+    title: "Assurance-vie à 60 ans : ouvrir, garder ou racheter ?",
     description:
       "Ouvrir, garder, racheter ou alimenter une assurance-vie à 60 ans : horizon, fiscalité avant et après 8 ans, transmission, frais et démarche.",
     breadcrumb: [

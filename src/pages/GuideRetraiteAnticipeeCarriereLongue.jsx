@@ -17,19 +17,20 @@ const enMois = (txt) => {
   const m = /(\d+)\s*mois/.exec(txt);
   return (a ? parseInt(a[1], 10) * 12 : 0) + (m ? parseInt(m[1], 10) : 0);
 };
-const formatEcart = (mois) => {
-  if (mois <= 0) return "aucun gain";
-  const a = Math.floor(mois / 12);
-  const m = mois % 12;
-  const partA = a > 0 ? `${a} an${a > 1 ? "s" : ""}` : "";
-  const partM = m > 0 ? `${m} mois` : "";
-  return [partA, partM].filter(Boolean).join(" et ");
-};
 const ecarts = generations.map((g) => ({
   ...g,
   mois: enMois(g.age),
-  gains: agesAnticipes.map((a) => formatEcart(enMois(g.age) - a * 12)),
 }));
+// Barème officiel par génération (circulaire Cnav n° 2026-29) et âge légal correspondant
+const bareme = C.baremeParGeneration;
+const trimestresMax = Math.max(...bareme.map((b) => b.trimestresCotises));
+const trimestresMin = Math.min(...bareme.map((b) => b.trimestresCotises));
+const ageLegalDe = (gen) => {
+  const exact = generations.find((x) => x.generation === gen);
+  if (exact) return exact.age;
+  if (gen.startsWith("1965")) return generations.find((x) => x.generation.startsWith("1965 (avril")).age;
+  return generations[generations.length - 1].age; // 1969, 1970, 1971 et suivantes : ligne « 1969 et suivantes »
+};
 
 // ---- Exemple : impact sur l'épargne à constituer (arithmétique simple, sans rendement) ----
 const ageLegalExemple = ecarts[ecarts.length - 1]; // génération 1969 et suivantes
@@ -50,6 +51,11 @@ const sources = [
     label:
       "Service-Public.gouv.fr — Retraite anticipée pour carrière longue du salarié. Fiche F13845, vérifiée le 1er septembre 2026 : seuils de début d'activité, trimestres de début d'activité, attestation, simulateur",
     url: "https://www.service-public.gouv.fr/particuliers/vosdroits/F13845",
+  },
+  {
+    label:
+      "Cnav — Circulaire n° 2026-29 du 4 septembre 2026, retraite anticipée pour carrière longue à compter du 1er septembre 2026 : âges de départ et durée cotisée par génération, rachats et versements pour la retraite",
+    url: "https://legislation.lassuranceretraite.fr/Pdf/circulaire_cnav_2026_29_04092026.pdf",
   },
   {
     label:
@@ -101,8 +107,9 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
               cotisée suffisante, tous régimes confondus. Il faut aussi avoir validé{" "}
               {C.trimestresDebutActivite} trimestres en tout début d'activité ({C.trimestresDebutActiviteNesT4}{" "}
               si vous êtes né entre le 1er octobre et le 31 décembre). La durée cotisée exigée
-              dépend de votre génération : lisez-la sur le simulateur officiel, car elle ne se
-              devine pas. L'attestation se télécharge sur le compte retraite, une fois le relevé de
+              est celle du taux plein de votre génération ({trimestresMin} à {trimestresMax}{" "}
+              trimestres selon la Cnav, {trimestresMax} pour les générations 1966 et suivantes) :
+              confirmez-la sur le simulateur officiel. L'attestation se télécharge sur le compte retraite, une fois le relevé de
               carrière à jour.
             </p>
           </div>
@@ -126,7 +133,7 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
           </div>
 
           <p>
-            Prenons Karim, 58 ans (cas composite, sans lien avec une situation réelle). Il a
+            Prenons Karim, {C.ageActuelExemple} ans (cas composite, sans lien avec une situation réelle). Il a
             commencé comme apprenti à 17 ans, n'a presque jamais interrompu sa carrière, et entend
             dire qu'il pourrait partir à 60 ans. Il veut savoir ce qui est exact, à quelles
             conditions, et ce que cela change pour l'épargne qu'il doit encore constituer.
@@ -135,9 +142,9 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
             Le dispositif de carrière longue est l'une des rares exceptions à l'âge légal de départ.
             Il est réservé à ceux qui ont commencé tôt et cotisé longtemps ; il ne se confond ni
             avec le rachat de trimestres, ni avec la retraite progressive. Ce guide expose les
-            conditions, la démarche et ses limites. Il ne chiffre volontairement pas la durée
-            cotisée exigée : le tableau officiel dépend de la génération et de l'âge de départ, et
-            doit se lire sur{" "}
+            conditions, la démarche et ses limites. Les âges et durées cotisées cités reprennent
+            la circulaire de la Cnav applicable aux départs à compter du 1er septembre 2026 ; votre
+            situation personnelle se vérifie sur{" "}
             <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F13845" target="_blank" rel="noopener noreferrer">service-public.gouv.fr</a>{" "}
             ou sur <a href="https://www.info-retraite.fr" target="_blank" rel="noopener noreferrer">info-retraite.fr</a>.
           </p>
@@ -159,24 +166,28 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
               décembre. La fiche officielle précise la période concernée.
             </li>
             <li>
-              <strong>Une durée d'assurance cotisée</strong> (tous régimes) au moins égale à celle
-              qu'exige votre génération, parfois majorée selon l'âge de départ visé : à lire sur le
-              simulateur officiel, sans la deviner.
+              <strong>Une durée d'assurance cotisée</strong> (tous régimes de base) au moins égale à
+              la durée du taux plein de votre génération : {trimestresMax} trimestres pour les
+              générations 1966 et suivantes (circulaire Cnav n° 2026-29).
             </li>
           </ol>
           <p>
-            Les barèmes, seuils et trimestres cités ici sont ceux affichés par service-public.gouv.fr
-            en novembre 2026 ; ils ont été modifiés plusieurs fois ces dernières années. Un contrôle sur votre compte
+            Les barèmes, seuils et trimestres cités ici sont ceux publiés par service-public.gouv.fr
+            et par la Cnav (circulaire du 4 septembre 2026, qui intègre la suspension de la réforme
+            de 2023 par la loi de financement de la sécurité sociale pour 2026) ; ils ont été
+            modifiés plusieurs fois ces dernières années. Un contrôle sur votre compte
             retraite reste indispensable.
           </p>
 
           <h2 id="age">À quel âge partir selon la date de début d'activité ?</h2>
           <p>
-            L'âge de départ possible dépend de la tranche de début d'activité : les repères de ce
-            guide sont {agesAnticipes.join(", ")} ans, pour des débuts avant {seuils.join(", ")} ans
-            respectivement. Ces âges sont à comparer à l'âge légal de votre génération, qui reste la
-            référence du régime normal. Le tableau ci-dessous calcule le gain théorique par rapport
-            à l'âge légal ; il ne dit rien de votre éligibilité.
+            L'âge de départ possible dépend de la tranche de début d'activité et de la génération.
+            Pour les assurés nés à partir de {C.generationBaremeComplet}, il est de{" "}
+            {agesAnticipes.join(", ")} ans, pour des débuts avant {seuils.join(", ")} ans
+            respectivement. Pour les générations antérieures, l'âge lié à un début avant{" "}
+            {seuils[2]} ans est plus bas, à la suite de la suspension de la réforme de 2023. Ces âges
+            sont à comparer à l'âge légal de votre génération ; le tableau ne dit rien de votre
+            éligibilité.
           </p>
           <div className="table-scroll">
             <table>
@@ -184,31 +195,32 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
                 <tr>
                   <th>Génération</th>
                   <th>Âge légal</th>
-                  {agesAnticipes.map((a, i) => (
-                    <th key={a}>
-                      Départ à {a} ans (début avant {seuils[i]} ans) : gain par rapport à l'âge légal
-                    </th>
+                  {seuils.map((s) => (
+                    <th key={s}>Début avant {s} ans</th>
                   ))}
+                  <th>Trimestres cotisés exigés</th>
                 </tr>
               </thead>
               <tbody>
-                {ecarts.map((g) => (
-                  <tr key={g.generation}>
-                    <td>{g.generation}</td>
-                    <td>{g.age}</td>
-                    {g.gains.map((gain, i) => (
-                      <td key={i}>{gain}</td>
+                {bareme.map((b) => (
+                  <tr key={b.generation}>
+                    <td>{b.generation}</td>
+                    <td>{ageLegalDe(b.generation)}</td>
+                    {b.ages.map((a, i) => (
+                      <td key={i}>{a ?? "—"}</td>
                     ))}
+                    <td>{b.trimestresCotises}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p>
-            Source de l'âge légal : service-public.gouv.fr, fiche F14043 (vérifiée le 14 août 2026).
-            Ce tableau ne donne que l'écart d'âge. La durée cotisée à justifier pour chaque
-            tranche figure dans la fiche F13845 et sur le simulateur de service-public.gouv.fr ; nous
-            ne la recopions pas, car elle varie avec la génération.
+            Sources : circulaire Cnav n° 2026-29 du 4 septembre 2026 (annexe 2, départs à compter
+            du 1er septembre 2026) ; âge légal : service-public.gouv.fr, fiche F14043 (vérifiée le
+            14 août 2026). « — » : pas d'âge propre à cette tranche pour cette génération dans le
+            barème de la Cnav ; un début plus précoce relève de la tranche renseignée suivante. Votre âge exact se
+            vérifie avec le service « Obtenir mon âge de départ à la retraite ».
           </p>
 
           <h2 id="cotises">Quels trimestres comptent comme « cotisés » ?</h2>
@@ -271,10 +283,12 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
           <h2 id="rachat">Peut-on racheter des trimestres pour y accéder ?</h2>
           <p>
             Le rachat de trimestres, ou « versement pour la retraite », sert à compléter la durée
-            d'assurance. Mais, en principe, il ne remplace pas la durée cotisée exigée par le
-            dispositif de carrière longue : les trimestres rachetés peuvent compter pour le taux
-            plein sans valoir comme cotisés pour cette condition. Cette règle est à vérifier auprès
-            de votre caisse avant tout versement, car l'erreur coûte cher.
+            d'assurance. Mais il ne remplace pas, en règle générale, la durée cotisée exigée par
+            le dispositif de carrière longue : selon la circulaire Cnav du 4 septembre 2026, les
+            versements au titre des études supérieures ou des années incomplètes demandés depuis
+            le 13 octobre 2008 ne comptent pas comme cotisés pour cette condition, alors que ceux
+            effectués au titre des années d'apprentissage sont retenus. Faites confirmer le cas
+            de votre dossier par votre caisse avant tout versement, car l'erreur coûte cher.
           </p>
           <p>
             Pour mesurer ce qu'un rachat apporte réellement, voir{" "}
@@ -416,16 +430,21 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
 
           <h3>À quel âge peut-on partir en carrière longue ?</h3>
           <p>
-            Les âges de départ possibles sont de {agesAnticipes.join(", ")} ans selon la tranche de
-            début d'activité, à confirmer sur le simulateur officiel. L'âge légal de votre
-            génération reste la référence du régime normal.
+            Pour les assurés nés à partir de {C.generationBaremeComplet}, à {agesAnticipes.join(", ")}{" "}
+            ans selon que l'activité a débuté avant {seuils.join(", ")} ans. Pour un début avant{" "}
+            {seuils[2]} ans, les générations 1964 à 1970 peuvent partir entre 60 ans et 6 mois et
+            61 ans et 9 mois selon l'année de naissance (circulaire Cnav du 4 septembre 2026). À
+            confirmer sur le service officiel « Obtenir mon âge de départ à la retraite ».
           </p>
 
           <h3>Combien de trimestres faut-il pour la retraite anticipée carrière longue ?</h3>
           <p>
-            La durée cotisée exigée dépend de votre génération et de l'âge de départ visé. Nous ne
-            la chiffrons pas ici : consultez le simulateur de service-public.gouv.fr (fiche
-            F13845) ou votre compte sur info-retraite.fr.
+            Il faut d'abord {C.trimestresDebutActivite} trimestres en tout début d'activité (
+            {C.trimestresDebutActiviteNesT4} si né au dernier trimestre), puis une durée cotisée égale
+            à la durée du taux plein de la génération : {trimestresMin} trimestres pour les
+            générations 1964 et début 1965, {trimestresMin + 1} pour la suite de 1965,{" "}
+            {trimestresMax} à partir de 1966 (circulaire
+            Cnav du 4 septembre 2026). Vérifiez votre cas sur votre compte info-retraite.fr.
           </p>
 
           <h3>Comment obtenir son attestation de carrière longue ?</h3>
@@ -444,9 +463,10 @@ export default function GuideRetraiteAnticipeeCarriereLongue() {
 
           <h3>Peut-on cumuler carrière longue et rachat de trimestres ?</h3>
           <p>
-            Le rachat sert à compléter la durée d'assurance, mais il ne remplace pas en principe la
-            durée cotisée exigée par la carrière longue. Faites confirmer la règle par votre caisse
-            avant de racheter.
+            Le rachat sert à compléter la durée d'assurance, mais les versements pour les études
+            supérieures ou les années incomplètes (demandés depuis octobre 2008) ne comptent pas
+            comme cotisés pour la carrière longue ; ceux liés à l'apprentissage, oui. Faites
+            confirmer la règle par votre caisse avant de racheter.
           </p>
 
           <h3>La retraite de carrière longue est-elle au taux plein ?</h3>
