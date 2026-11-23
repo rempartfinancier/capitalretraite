@@ -7,7 +7,7 @@ const R = RETRAITE_PROGRESSIVE_CUMUL;
 const sources = [
   {
     label: "Service-Public.gouv.fr — Logement : rubrique des fiches pratiques",
-    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/N19808",
+    url: "https://www.service-public.gouv.fr/",
   },
   {
     label: "Impots.gouv.fr — Particulier : revenus fonciers, location meublée, impôt sur la fortune immobilière",
@@ -23,7 +23,7 @@ const sources = [
   },
   {
     label: "Autorité des marchés financiers — Placements immobiliers collectifs, dont les SCPI : informations pour les épargnants",
-    url: "https://www.amf-france.org/fr/espace-epargnants",
+    url: "https://www.amf-france.org/",
   },
 ];
 

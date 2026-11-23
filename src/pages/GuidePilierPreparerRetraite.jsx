@@ -19,11 +19,11 @@ const sources = [
   },
   {
     label: "Service-Public.gouv.fr — Retraite : rubrique des fiches pratiques",
-    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/N31",
+    url: "https://www.service-public.gouv.fr/",
   },
   {
     label: "Autorité des marchés financiers — Epargner et investir : informations pour les particuliers",
-    url: "https://www.amf-france.org/fr/espace-epargnants",
+    url: "https://www.amf-france.org/",
   },
   {
     label: "Bofip-Impôts — Documentation fiscale officielle",

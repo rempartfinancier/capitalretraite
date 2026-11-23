@@ -40,8 +40,8 @@ const pensionAvecSurcote = pensionBase * (1 + tauxSurcote / 100);
 
 const sources = [
   {
-    label: "Service-Public.gouv.fr — Assurance-vie : fiscalité des rachats, fiche F22414, vérifiée le 15 avril 2026",
-    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/F22414",
+    label: "Service-Public.gouv.fr — Assurance-vie : rubrique fiscalité (fiche à confirmer)",
+    url: "https://www.service-public.gouv.fr/",
   },
   {
     label: "Service-Public.gouv.fr — Cumul emploi-retraite du salarié, fiche F13243, vérifiée le 12 novembre 2026",

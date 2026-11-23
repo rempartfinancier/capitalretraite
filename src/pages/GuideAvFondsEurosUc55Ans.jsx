@@ -45,8 +45,8 @@ const finFavorable = simuler(RC.sequenceFavorable);
 const sources = [
   {
     label:
-      "Service-Public.gouv.fr — Assurance-vie : fiscalité des rachats, fiche F22414, vérifiée le 15 avril 2026",
-    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/F22414",
+      "Service-Public.gouv.fr — Assurance-vie : rubrique fiscalité (fiche à confirmer)",
+    url: "https://www.service-public.gouv.fr/",
   },
   {
     label: "Service-Public.gouv.fr — Âge légal de départ à la retraite, fiche F14043, vérifiée le 14 août 2026",
