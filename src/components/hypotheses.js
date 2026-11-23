@@ -344,6 +344,7 @@ export const RETRAITE_PROGRESSIVE_CUMUL_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (18 novembre 2026)",
 };
 
+<<<<<<< HEAD
 // ---- Enveloppes retraite : paramètres complémentaires (lot SEO « enveloppes ») ----
 // Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
 export const ENVELOPPES_NOV2026 = {
@@ -482,6 +483,191 @@ export const ENRICH_EPPEA_PEA = {
   capitalExemple: 200000, // valeur du plan à la sortie dans l'exemple de fiscalité (€) — illustratif
   maj: "novembre 2026",
   source: "décret d'application de la loi Pacte (frais PEA) ; CMF art. L. 221-30 et s. ; hypothèses d'illustration — À VÉRIFIER avant publication",
+=======
+// ---- Immobilier pour la retraite : SCPI, LMNP, démembrement (cluster « immobilier ») ----
+// Vérifié le 22 novembre 2026. Tous les chiffres des guides SCPI / LMNP / démembrement
+// viennent d'ici. Les points marqués À VÉRIFIER n'ont pas pu être confirmés sur le texte
+// officiel lui-même (page consultée indirectement, sources divergentes) : à relire avant
+// toute révision du millésime. Les taux de prélèvements sociaux des revenus fonciers et
+// des plus-values immobilières restent lus dans FISCALITE.prelevementsSociaux.immobilier.
+export const IMMO = {
+  maj: "22 novembre 2026",
+
+  // Marché des SCPI (ASPIM / IEIF, communiqués du 10 février 2026 et du 5 août 2026)
+  scpiMarche: {
+    tauxDistribution2025: 4.91, // taux de distribution moyen pondéré 2025 (%)
+    tauxDistribution2024: 4.72, // déduit du communiqué 2025 (+0,19 point) (%) — À VÉRIFIER
+    tauxDistributionStrategieMin: 4.2, // résidentiel (%), 2025
+    tauxDistributionStrategieMax: 6.0, // diversifiée (%), 2025
+    variationPrixPart2025: -3.45, // variation du prix de part moyen pondéré en 2025 (%)
+    performanceGlobale2025: 1.46, // taux de rendement global 2025 (%)
+    collecteNette2025Md: 4.6, // milliards d'euros
+    capitalisation2025Md: 89, // milliards d'euros au 31/12/2025
+    partsEnAttente2025Md: 2.8, // parts en attente de retrait au 31/12/2025 (milliards d'euros)
+    partsEnAttente2025Pct: 3.1, // en % de la capitalisation
+    capitalisationS12026Md: 86, // milliards d'euros au 30/06/2026
+    partsEnAttenteS12026Md: 1.9, // au 30/06/2026 (milliards d'euros)
+    partsEnAttenteS12026Pct: 2.2, // en % de la capitalisation
+    variationPrixPartS12026: -2.4, // premier semestre 2026, prix de part moyen pondéré (%)
+    fraisSouscriptionAmfMin: 5, // fourchette citée par l'AMF (%) — À VÉRIFIER SCPI par SCPI
+    fraisSouscriptionAmfMax: 12,
+    dicIndicateurRisqueEchelle: 7, // indicateur de risque de 1 à 7 du document d'informations clés
+    source:
+      "ASPIM, communiqué du 4T 2025 (10 février 2026) et du 1S 2026 (5 août 2026) ; AMF, guide « Investir dans une SCPI » (2023) et « Comprendre le DIC » (2023) — À VÉRIFIER : documents AMF possiblement antérieurs à la version en vigueur",
+  },
+
+  // Fiscalité de la détention directe de parts de SCPI
+  scpiFiscalite: {
+    microFoncierPlafond: 15000, // recettes brutes (€) — CGI art. 32 ; les SCPI relèvent en pratique du réel (2044) — À VÉRIFIER si bien en direct en plus
+    microFoncierAbattement: 30, // %
+    deficitFoncierPlafondRevenuGlobal: 10700, // € par an, charges hors intérêts d'emprunt
+    deficitFoncierReportAnnees: 10, // report sur les revenus fonciers
+    csgDeductibleFoncier: 6.8, // % de CSG déductible l'année suivante
+    csgRevenusPatrimoineCasGeneral: 10.6, // % (LFSS 2026) — produits de placement hors foncier et assurance-vie
+    psProduitsPlacement: 18.6, // % : PS sur produits de placement (trésorerie de la SCPI, par exemple)
+    pfuTotal: 31.4, // 12,8 + 18,6 (%) — À VÉRIFIER pour la trésorerie de SCPI
+    pvIR: 19, // % impôt sur la plus-value immobilière des particuliers
+    pvAnneesSansAbattement: 5, // aucun abattement avant la 6e année de détention
+    pvSurtaxeTaux: "de 2 % à 6 %", // surtaxe progressive au-delà du seuil
+    pvAbattementIRParAn: 6, // % par an de la 6e à la 21e année
+    pvAbattementIR22e: 4, // % la 22e année
+    pvExonerationIRAnnees: 22,
+    pvAbattementPSParAn: 1.65, // % par an de la 6e à la 21e année
+    pvAbattementPS22e: 1.6, // %
+    pvAbattementPSParAn23a30: 9, // % par an de la 23e à la 30e année
+    pvExonerationPSAnnees: 30,
+    pvSurtaxeSeuil: 50000, // plus-value imposable au-delà de laquelle une surtaxe de 2 % à 6 % s'ajoute (€)
+    pvExonerationPrixCession: 15000, // cession inférieure ou égale à ce montant exonérée (€)
+    ifiSeuilAssujettissement: 1300000, // patrimoine immobilier net taxable au 1er janvier (€)
+    ifiSeuilBareme: 800000, // le barème commence à 0,50 % au-delà de ce montant (€)
+    ifiTauxPremiereTranche: 0.5, // % entre 800 000 et 1 300 000 €
+    hcsfTauxEffortMax: 35, // % assurance comprise — À VÉRIFIER pour un crédit finançant des parts de SCPI
+    hcsfDureeMaxAnnees: 25, // À VÉRIFIER (texte de la recommandation non lu)
+    source:
+      "BOFiP BOI-RFPI-DECLA-10 (06/03/2025) et BOI-RFPI-BASE-30-20 (16/09/2025) ; service-public.gouv.fr, fiches F2329 (prélèvements sociaux 2026) et F10864 (plus-values immobilières, vérifiée le 15 avril 2026) ; impots.gouv.fr, brochure IR 2026 (nouveautés ; IFI pp. 337-340) ; LFSS 2026 (loi n° 2025-1403 du 30 décembre 2025) — article exact non lu, À VÉRIFIER ; HCSF : économie.gouv.fr/hcsf (sources secondaires pour le détail) — À VÉRIFIER",
+  },
+
+  // LMNP, location meublée, résidences gérées
+  lmnp: {
+    seuilRecettesLmp: 23000, // recettes annuelles (€) : LMP si > ce seuil ET > autres revenus d'activité du foyer
+    microBicLongueDuree: 77700, // € de recettes, revenus 2025 (longue durée, tourisme classé)
+    microBicLongueDureeAbattement: 50, // %
+    microBicTourismeNonClasse: 15000, // €
+    microBicTourismeNonClasseAbattement: 30, // %
+    abattementMinimumMicroBic: 305, // €
+    deficitReportAnnees: 10, // déficit LMNP imputable seulement sur les revenus meublés non professionnels
+    psMeuble: 18.6, // % prélèvements sociaux sur revenus de location meublée (CSG 10,6 %) — À VÉRIFIER article de loi
+    dateReintegrationAmortissements: "15 ou 16 février 2025", // cessions à compter du lendemain de la promulgation — À VÉRIFIER le jour précis
+    texteReintegration: "article 84 de la loi n° 2025-127 du 14 février 2025 de finances pour 2025 (CGI, art. 150 VB, III)",
+    censiBouvardFin: "31 décembre 2022", // dernière année d'acquisition ouvrant droit à la réduction
+    notaireNeufMin: 2, // % du prix, ordre de grandeur notaires.fr
+    notaireNeufMax: 3,
+    tvaServicesHoteliersMin: 3, // services para-hôteliers requis pour la TVA à 10 % en meublé
+    plfAmortissementArticle: "article 7 du projet de loi de finances pour 2027 (projet n° 3210), en discussion au 22 novembre 2026, non adopté — À VÉRIFIER sur assemblee-nationale.fr et senat.fr",
+    source:
+      "impots.gouv.fr, FAQ « régime des locations meublées » (mars 2026) et page « régimes d'imposition » ; BOFiP BOI-BIC-CHAMP-40-20 (19/08/2026) ; loi n° 2024-1039 du 19 novembre 2024 ; loi n° 2025-127 du 14 février 2025, art. 84 ; réponse ministérielle à la question écrite n° 10097 (JO du 24/03/2026) ; BOFiP BOI-IR-RICI-220 ; impots.gouv.fr « Je donne un bien en location, dois-je payer des prélèvements sociaux ? » — micro-BIC 2026 (83 600 € vu une seule fois) : À VÉRIFIER, non retenu",
+  },
+
+  // Démembrement, donation, transmission
+  demembrement: {
+    // Barème de l'article 669 I du CGI : valeur de l'usufruit selon l'âge de l'usufruitier (% de la pleine propriété)
+    bareme669: [
+      { age: "moins de 21 ans", usufruit: 90, nuePropriete: 10 },
+      { age: "21 à 30 ans", usufruit: 80, nuePropriete: 20 },
+      { age: "31 à 40 ans", usufruit: 70, nuePropriete: 30 },
+      { age: "41 à 50 ans", usufruit: 60, nuePropriete: 40 },
+      { age: "51 à 60 ans", usufruit: 50, nuePropriete: 50 },
+      { age: "61 à 70 ans", usufruit: 40, nuePropriete: 60 },
+      { age: "71 à 80 ans", usufruit: 30, nuePropriete: 70 },
+      { age: "81 à 90 ans", usufruit: 20, nuePropriete: 80 },
+      { age: "91 ans et plus", usufruit: 10, nuePropriete: 90 },
+    ],
+    usufruitTemporairePar10Ans: 23, // % de la pleine propriété par période de 10 ans, sans fraction (art. 669 II)
+    usufruitPersonneMoraleMaxAnnees: 30, // art. 619 du code civil
+    abattementEnfant: 100000, // € par parent et par enfant, renouvelable tous les 15 ans (art. 779)
+    abattementPetitEnfant: 31865, // €
+    abattementArrierePetitEnfant: 5310, // €
+    don790G: 31865, // € don familial de sommes d'argent, donateur de moins de 80 ans, donataire majeur
+    renouvellementAnnees: 15,
+    baremeLigneDirecte: [
+      { jusqua: 8072, taux: 5 },
+      { jusqua: 12109, taux: 10 },
+      { jusqua: 15932, taux: 15 },
+      { jusqua: 552324, taux: 20 },
+      { jusqua: 902838, taux: 30 },
+      { jusqua: 1805677, taux: 40 },
+      { jusqua: Infinity, taux: 45 },
+    ],
+    delaiPresomptionFictiviteMois: 3, // art. 751 CGI — À VÉRIFIER dans le texte
+    articleExtinctionUsufruit: "article 1133 du CGI",
+    // Retraités : revenus du patrimoine et pensions
+    csgPensionSeuilsRfr2026: { zero: 13048, reduit: 17057, median: 26472 }, // RFR 2024, 1 part (€) — fiche F2971
+    csgPensionTauxMedian: 6.6, // %
+    csgPensionTauxNormal: 8.3, // %
+    plusValueRetraiteRfr1Part: 12793, // € — À VÉRIFIER (F10864, valeur non lue directement)
+    plusValueRetraiteRfrDemiPart: 3428, // € — À VÉRIFIER
+    lemoineMontantMax: 200000, // € par assuré, tous crédits cumulés
+    lemoineAgeFinRemboursement: 60, // ans — pas de questionnaire de santé si le crédit s'achève avant cet âge
+    // Dispositif Jeanbrun (location nue, amortissement) — LF 2026, art. 47
+    jeanbrunPlafondAmortissement: 8000, // € par an et par foyer
+    jeanbrunDureeEngagementAnnees: 9,
+    jeanbrunDateLimite: "31 décembre 2028",
+    jeanbrunTauxNeufIntermediaire: 3.5, // %
+    source:
+      "CGI art. 669 (Légifrance), 779, 784, 790 G, 968, 1133 ; BOFiP BOI-ENR-DMTG-10-40-10, BOI-PAT-IFI-20-20-30-10, BOI-RFPI-BASE-20-80 ; service-public.gouv.fr, fiches F14203, F14205, F36656, F2971, F2329, F10864, F2762 ; code des assurances art. L113-2-1 ; loi de finances pour 2026 (loi n° 2026-103 du 19 février 2026), art. 47 — seuil de travaux de la voie « ancien » non retenu (sources divergentes) ; plafond RFR de l'exonération de plus-value des retraités — À VÉRIFIER",
+  },
+};
+
+// Hypothèses purement illustratives des guides du cluster immobilier (composites pédagogiques,
+// sans lien avec un cas réel). Choisies à l'intérieur des fourchettes ci-dessus.
+export const IMMO_EXEMPLES = {
+  scpiCredit: {
+    montant: 100000, // prix de souscription, frais inclus (€)
+    tauxDistribution: 4.5, // taux de distribution brut supposé constant (%)
+    tauxCredit: 3.5, // taux nominal du crédit, hors assurance (%) — hypothèse
+    dureeAnnees: 15,
+    tmi: 30, // tranche marginale d'imposition (%)
+    fraisSouscriptionPct: 10, // part du prix de souscription absorbée par les frais (%)
+    baissePrixPart: 15, // baisse du prix de part dans le scénario défavorable (%)
+  },
+  scpiAvDirect: {
+    montant: 50000,
+    tauxDistribution: 4.5, // %
+    fraisGestionContratAnnuel: 0.6, // % — haut de la fourchette des contrats en ligne, FRAIS_TYPES.contratInternet
+    tmi: 30,
+  },
+  scpiFiscalite: {
+    revenuFoncierFrance: 4000, // loyers nets imposables en France (€)
+    revenuFoncierEtranger: 1000, // revenus de source étrangère (€) — illustration du report en 2047
+    plusValue: { prixAcquisition: 100000, prixCession: 120000, anneesDetention: 12 }, // simplifié, hors frais d'acquisition
+    tmi: 30,
+  },
+  lmnpGere: {
+    prixAcquisitionHT: 150000, // € hors taxes, résidence gérée neuve
+    rendementBrutSuppose: 4.5, // % = RENDEMENTS.lmnp.moyen
+    baisseLoyer: 20, // % imposé lors d'une renégociation, scénario défavorable
+  },
+  lmnpReforme: {
+    prixAcquisition: 200000, // € (frais et travaux ignorés pour la lisibilité)
+    partAmortissable: 80, // % du prix (hors terrain), hypothèse
+    dureeAmortissementAnnees: 30, // hypothèse simplifiée d'un amortissement linéaire unique
+    dureeDetentionAnnees: 15,
+    prixCession: 240000,
+  },
+  demembrement: {
+    valeurBien: 300000, // € pleine propriété
+    ageDonateur: 66,
+    nombreEnfants: 2,
+    prixUsufruitTemporaire: 100000, // valeur en pleine propriété pour l'illustration de l'usufruit temporaire (€)
+    dureeUsufruitTemporaire: 15, // ans
+  },
+  retraiteImmobilier: {
+    pensionAnnuelleBrute: 24000, // €
+    loyersFonciersAnnuels: 6000, // € loyers nets imposables
+    rfrHorsLoyers: 22000, // € revenu fiscal de référence avant loyers, 1 part
+  },
+  source: "hypothèses d'illustration pédagogique (22 novembre 2026)",
+>>>>>>> claude/seo-lot-c-immobilier-62363a
 };
 
 // ---- Décumulation ----
