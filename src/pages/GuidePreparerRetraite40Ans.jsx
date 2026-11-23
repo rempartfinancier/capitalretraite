@@ -360,7 +360,7 @@ export default function GuidePreparerRetraite40Ans() {
             moindre liquidité. L'immobilier locatif est un autre sujet, avec ses propres
             risques : voir <a href="/guide/immobilier-et-retraite-guide-complet">notre guide immobilier et retraite</a>,
             ou nos sites partenaires <a href="https://www.immobilierpassif.com">immobilierpassif.com</a> et{" "}
-            <a href="https://www.scpirentable.fr">scpirentable.fr</a> pour la pierre-papier.
+            <a href="https://scpirentable.fr">scpirentable.fr</a> pour la pierre-papier.
           </p>
 
           <h2 id="horizon">Comment tenir un horizon de {anneesRestantes} ans ?</h2>

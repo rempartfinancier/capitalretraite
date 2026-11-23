@@ -115,8 +115,8 @@ const sources = [
   },
   {
     label:
-      "impots.gouv.fr — Comment sont déterminées mes tranches d'imposition ?",
-    url: "https://www.impots.gouv.fr/particulier/questions/comment-sont-determinees-mes-tranches-dimposition",
+      "service-public.gouv.fr — Barème de l'impôt sur le revenu",
+    url: "https://www.service-public.gouv.fr/particuliers/vosdroits/F1419",
   },
 ];
 

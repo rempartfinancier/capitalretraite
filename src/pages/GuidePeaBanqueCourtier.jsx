@@ -152,7 +152,7 @@ export default function GuidePeaBanqueCourtier() {
             Les versements sont plafonnés à {euros(PLAFOND)} par personne (plafond légal en vigueur en{" "}
             {ENVELOPPES_NOV2026.maj}, publié par l'
             <a
-              href="https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/les-enveloppes-fiscales-et-sociales/le-plan-depargne-en-actions-pea"
+              href="https://www.amf-france.org/fr/espace-epargnants"
               target="_blank"
               rel="noopener noreferrer"
             >

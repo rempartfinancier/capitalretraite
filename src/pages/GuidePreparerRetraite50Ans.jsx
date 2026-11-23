@@ -345,7 +345,7 @@ export default function GuidePreparerRetraite50Ans() {
             L'immobilier peut compléter un plan, mais il demande de l'emprunter, de gérer et de
             supporter des risques propres ; notre <a href="/guide/immobilier-et-retraite-guide-complet">guide immobilier et retraite</a> en détaille
             les arbitrages, et nos sites partenaires <a href="https://www.immobilierpassif.com">immobilierpassif.com</a> et{" "}
-            <a href="https://www.scpirentable.fr">scpirentable.fr</a> traitent la pierre-papier.
+            <a href="https://scpirentable.fr">scpirentable.fr</a> traitent la pierre-papier.
             Pour la transmission et la retraite en couple, voir{" "}
             <a href="/guide/epargne-retraite-en-couple-et-transmission">notre guide dédié</a> et{" "}
             <a href="/guide/donation-ou-assurance-vie-transmission">donation ou assurance-vie</a>.

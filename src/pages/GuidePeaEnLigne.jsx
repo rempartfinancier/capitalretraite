@@ -67,8 +67,8 @@ const EX = (() => {
 
 const SOURCES = [
   {
-    label: "AMF — Le plan d'épargne en actions (PEA)",
-    url: "https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/les-enveloppes-fiscales-et-sociales/le-plan-depargne-en-actions-pea",
+    label: "AMF — Espace épargnants",
+    url: "https://www.amf-france.org/fr/espace-epargnants",
   },
   {
     label: "Légifrance — décret d'application de la loi Pacte sur les frais du PEA",
