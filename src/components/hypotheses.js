@@ -344,7 +344,6 @@ export const RETRAITE_PROGRESSIVE_CUMUL_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (18 novembre 2026)",
 };
 
-<<<<<<< HEAD
 // ---- Enveloppes retraite : paramètres complémentaires (lot SEO « enveloppes ») ----
 // Bloc daté novembre 2026 — TOUTES les valeurs sont À VÉRIFIER avant publication.
 export const ENVELOPPES_NOV2026 = {
@@ -483,7 +482,8 @@ export const ENRICH_EPPEA_PEA = {
   capitalExemple: 200000, // valeur du plan à la sortie dans l'exemple de fiscalité (€) — illustratif
   maj: "novembre 2026",
   source: "décret d'application de la loi Pacte (frais PEA) ; CMF art. L. 221-30 et s. ; hypothèses d'illustration — À VÉRIFIER avant publication",
-=======
+};
+
 // ---- Immobilier pour la retraite : SCPI, LMNP, démembrement (cluster « immobilier ») ----
 // Vérifié le 22 novembre 2026. Tous les chiffres des guides SCPI / LMNP / démembrement
 // viennent d'ici. Les points marqués À VÉRIFIER n'ont pas pu être confirmés sur le texte
@@ -667,7 +667,6 @@ export const IMMO_EXEMPLES = {
     rfrHorsLoyers: 22000, // € revenu fiscal de référence avant loyers, 1 part
   },
   source: "hypothèses d'illustration pédagogique (22 novembre 2026)",
->>>>>>> claude/seo-lot-c-immobilier-62363a
 };
 
 // ---- Décumulation ----

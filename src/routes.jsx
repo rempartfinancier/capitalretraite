@@ -634,6 +634,9 @@ export const routesMeta = [
       ["Accueil", "/"],
       ["Guides", "/guides"],
       ["À quel âge récupérer son capital", "/guide/a-quel-age-recuperer-son-capital-retraite"],
+    ],
+  },
+  {
     path: "/guide/per-ou-assurance-vie-selon-age-et-tmi",
     title: "PER ou assurance-vie : le choix selon l'âge et la TMI",
     description:
@@ -686,6 +689,9 @@ export const routesMeta = [
       ["Accueil", "/"],
       ["Guides", "/guides"],
       ["Capital retraite : objectif et construction", "/guide/capital-retraite-objectif-et-construction"],
+    ],
+  },
+  {
     path: "/guide/scpi-preparer-sa-retraite",
     title: "SCPI et retraite : revenus, frais, risques de liquidité",
     description:
