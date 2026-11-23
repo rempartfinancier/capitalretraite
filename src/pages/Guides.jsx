@@ -220,6 +220,36 @@ const categories = [
         title: "Rachat partiel d'assurance-vie : comment est-il imposé ?",
         text: "Part de gains, avant et après 8 ans, abattement, prélèvements sociaux : la formule et trois cas chiffrés.",
       },
+      {
+        to: "/guide/combien-retirer-par-mois-capital-retraite",
+        title: "Combien retirer par mois d'un capital retraite ?",
+        text: "Règle des 4 %, taux de retrait et risque de séquence : un rythme de retrait se teste, il ne se décrète pas.",
+      },
+      {
+        to: "/guide/capital-necessaire-completer-pension-retraite-65-ans",
+        title: "Retraite à 65 ans : quel capital pour compléter sa pension ?",
+        text: "De l'écart de revenu au capital à constituer : trois méthodes de calcul comparées sur un même exemple.",
+      },
+      {
+        to: "/guide/rente-viagere-calcul-montant-taux-de-conversion",
+        title: "Rente viagère : comment calcule-t-on le montant ?",
+        text: "Taux de conversion, âge, options, inflation : ce qui détermine la rente et comment comparer deux offres.",
+      },
+      {
+        to: "/guide/fiscalite-rente-viagere-titre-onereux",
+        title: "Fiscalité de la rente viagère à titre onéreux : quelle fraction est imposée ?",
+        text: "La fraction imposable dépend de l'âge au premier versement : barème, prélèvements sociaux et exemple chiffré.",
+      },
+      {
+        to: "/guide/rachats-programmes-assurance-vie-retraite",
+        title: "Rachats programmés d'assurance-vie : se verser un revenu régulier",
+        text: "Fréquence, montant, supports vendus, fiscalité : comment mettre en place et piloter des rachats programmés.",
+      },
+      {
+        to: "/guide/a-quel-age-recuperer-son-capital-retraite",
+        title: "À quel âge peut-on récupérer son capital retraite ?",
+        text: "Calendrier par enveloppe (PER, assurance-vie, PEA) et démarches : quand et comment sortir son capital.",
+      },
     ],
   },
   {

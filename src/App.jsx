@@ -57,6 +57,12 @@ import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
 import GuideRachatPartielAssuranceVie from "./pages/GuideRachatPartielAssuranceVie.jsx";
 import GuideRetraiteProgressiveOuCumul from "./pages/GuideRetraiteProgressiveOuCumul.jsx";
+import GuideCombienRetirerCapital from "./pages/GuideCombienRetirerCapital.jsx";
+import GuideCapitalCompleterPension from "./pages/GuideCapitalCompleterPension.jsx";
+import GuideRenteViagereCalcul from "./pages/GuideRenteViagereCalcul.jsx";
+import GuideFiscaliteRenteViagere from "./pages/GuideFiscaliteRenteViagere.jsx";
+import GuideRachatsProgrammesAv from "./pages/GuideRachatsProgrammesAv.jsx";
+import GuideRecupererCapitalRetraite from "./pages/GuideRecupererCapitalRetraite.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -150,6 +156,12 @@ export default function App() {
             path="/guide/retraite-progressive-ou-cumul-emploi-retraite"
             element={<GuideRetraiteProgressiveOuCumul />}
           />
+          <Route path="/guide/combien-retirer-par-mois-capital-retraite" element={<GuideCombienRetirerCapital />} />
+          <Route path="/guide/capital-necessaire-completer-pension-retraite-65-ans" element={<GuideCapitalCompleterPension />} />
+          <Route path="/guide/rente-viagere-calcul-montant-taux-de-conversion" element={<GuideRenteViagereCalcul />} />
+          <Route path="/guide/fiscalite-rente-viagere-titre-onereux" element={<GuideFiscaliteRenteViagere />} />
+          <Route path="/guide/rachats-programmes-assurance-vie-retraite" element={<GuideRachatsProgrammesAv />} />
+          <Route path="/guide/a-quel-age-recuperer-son-capital-retraite" element={<GuideRecupererCapitalRetraite />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>
