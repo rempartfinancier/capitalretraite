@@ -61,6 +61,14 @@ const casNetAv = r2(capitalSortie - gainsAv8);
 // Point mort : TMI de sortie pour laquelle l'avantage s'annule (à TMI d'entrée donnée)
 const pointMort = (t) => r2(t - ((gainsPer - gainsAv8) / V) * 100);
 
+// Variante : l'économie d'impôt d'entrée est elle-même placée sur une assurance-vie de plus de
+// 8 ans, avec la même hypothèse de gains (sous l'abattement : seuls les prélèvements sociaux).
+const gainEconomieReplacee = (t) => {
+  const gainsEco = part(economieEntree(t), PER_AV_AGE_TMI.gainsIllustratifsPct);
+  return r2(gainsEco - part(gainsEco, psAv));
+};
+const avantageReplace = (t, y) => r2(avantage(t, y, gainsAv8) + gainEconomieReplacee(t));
+
 // Lecture par âge
 const profils = PER_AV_AGE_TMI.agesProfils.map((age) => {
   const horizon = Math.max(ageDepart - age, 0);
@@ -130,9 +138,8 @@ export default function GuidePerOuAvSelonAgeTmi() {
         <div className="container prose">
           <div className="resume-executif">
             <p>
-              <strong>L'essentiel :</strong> le PER ne « rapporte » que si votre tranche
-              marginale d'imposition (TMI) à l'entrée dépasse nettement celle que vous aurez à
-              la sortie. Pour {euros(V)} versés, la déduction vaut {euros(economieEntree(tmiMoyenne))} à{" "}
+              <strong>L'essentiel :</strong> le PER ne « rapporte » vraiment que si votre tranche
+              marginale d'imposition (TMI) à l'entrée dépasse celle que vous aurez à la sortie. Pour {euros(V)} versés, la déduction vaut {euros(economieEntree(tmiMoyenne))} à{" "}
               {pct(tmiMoyenne)} et {euros(economieEntree(tmiHaute))} à {pct(tmiHaute)}, mais
               ces versements seront imposés au barème à la retraite et les gains du PER
               supportent {pct(tauxPFU)} d'impôt et {pct(psPer)} de prélèvements sociaux. Dans
@@ -254,10 +261,26 @@ export default function GuidePerOuAvSelonAgeTmi() {
             lectures ressortent. À une TMI d'entrée de {pct(tmis[0])}, la déduction ne rapporte
             rien : le PER est fiscalement perdant dans toutes les colonnes. À {pct(tmiBasse)}, il
             ne s'en sort que si la sortie est à {pct(tmis[0])}. À {pct(tmiMoyenne)} et au-dessus, le
-            PER reste favorable tant que la TMI de retraite est inférieure d'au moins{" "}
-            {pct(r2(tmiMoyenne - pointMort(tmiMoyenne)))} à celle de l'entrée environ ; au-delà de
-            cet écart, c'est l'assurance-vie qui l'emporte.
+            PER reste favorable tant que la TMI de retraite est inférieure d'environ{" "}
+            {r2(tmiMoyenne - pointMort(tmiMoyenne)).toLocaleString("fr-FR")} points au moins à
+            celle de l'entrée ; en deçà de cet écart, c'est l'assurance-vie qui l'emporte, dans
+            cette convention de calcul.
           </p>
+          <div className="note">
+            <p>
+              Convention à garder en tête : ce tableau compte l'économie d'impôt d'entrée pour sa
+              valeur nominale, sans la faire fructifier, ce qui désavantage le PER. Si cette
+              économie était elle-même placée sur une assurance-vie de plus de {duree} ans avec la
+              même hypothèse de gains, l'avantage du PER augmenterait de{" "}
+              {euros(gainEconomieReplacee(tmiMoyenne))} à {pct(tmiMoyenne)} et de{" "}
+              {euros(gainEconomieReplacee(tmiHaute))} à {pct(tmiHaute)} : à TMI égale de{" "}
+              {pct(tmiMoyenne)} à l'entrée et à la sortie, il passerait de{" "}
+              {euros(avantage(tmiMoyenne, tmiMoyenne, gainsAv8))} à{" "}
+              {euros(avantageReplace(tmiMoyenne, tmiMoyenne))}. Notre{" "}
+              <a href="/guide/per-vs-assurance-vie-retraite">comparatif PER ou assurance-vie</a>{" "}
+              raisonne, lui, à effort réel égal : ses écarts sont plus favorables au PER.
+            </p>
+          </div>
           <p>
             Si l'assurance-vie a moins de {duree} ans au moment des retraits, ses gains sont
             taxés à {pct(r2(tauxPFU + psAv))} au total ({euros(gainsAvMoins8)} sur {euros(G)} de
@@ -329,10 +352,11 @@ export default function GuidePerOuAvSelonAgeTmi() {
           <p>
             L'écart de {euros(casAvantage)} en faveur du PER vient presque entièrement de
             l'écart de TMI : {euros(casEco)} économisés au départ, {euros(casImpotVers)} repris à
-            la sortie, auxquels s'ajoutent {euros(casSurcout)} de fiscalité supplémentaire sur les
-            gains. Si la TMI de retraite était identique à celle de l'entrée, l'avantage
-            deviendrait négatif de {euros(casSurcout)} : le PER aurait coûté plus cher que
-            l'assurance-vie, pour une épargne en outre bloquée. Les montants ci-dessus ne tiennent
+            la sortie, dont il faut encore retrancher {euros(casSurcout)} de fiscalité
+            supplémentaire sur les gains. Si la TMI de retraite était identique à celle de
+            l'entrée, l'avantage deviendrait négatif de {euros(casSurcout)} dans cette convention
+            (économie d'impôt non replacée), et légèrement positif si l'économie était placée :
+            l'écart serait alors trop mince pour justifier à lui seul une épargne bloquée. Les montants ci-dessus ne tiennent
             pas compte du fractionnement de la sortie, de l'option pour le barème sur les gains, ni
             des frais propres à chaque contrat.
           </p>
@@ -508,9 +532,10 @@ export default function GuidePerOuAvSelonAgeTmi() {
 
           <h3>Que se passe-t-il si ma TMI ne baisse pas à la retraite ?</h3>
           <p>
-            Le PER perd alors son avantage : l'économie d'entrée est reprise à la sortie, et le
-            surcoût fiscal sur les gains ({euros(casSurcout)} dans notre exemple) reste à votre
-            charge. L'épargne est de plus bloquée pendant la durée du plan. Dans ce cas,
+            Le PER perd alors l'essentiel de son avantage : l'économie d'entrée est reprise à la
+            sortie, et le surcoût fiscal sur les gains ({euros(casSurcout)} dans notre exemple)
+            reste à votre charge ; seul le placement de l'économie d'impôt dans l'intervalle peut
+            compenser une partie de cet écart. L'épargne est de plus bloquée pendant la durée du plan. Dans ce cas,
             l'assurance-vie est souvent plus cohérente.
           </p>
 
@@ -570,7 +595,7 @@ export default function GuidePerOuAvSelonAgeTmi() {
           </p>
 
           <h2 id="sources">Sources officielles</h2>
-          <p>Sources consultées le {maj}, sauf date contraire indiquée :</p>
+          <p>Sources consultées en {maj}, sauf date contraire indiquée :</p>
           <ul>
             {sources.map((s) => (
               <li key={s.url}>

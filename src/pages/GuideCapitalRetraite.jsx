@@ -148,7 +148,8 @@ export default function GuideCapitalRetraite() {
           <p>
             « Combien me faut-il de capital pour ma retraite ? » est la question que l'on pose
             quand on commence à regarder son relevé de carrière. La réponse commence presque
-            toujours par un chiffre rond, 300 000 € ou 500 000 €, repris de forum en forum. Or un
+            toujours par un chiffre rond, {euros(grilleCapitaux[2])} ou{" "}
+            {euros(grilleCapitaux[3])}, repris de forum en forum. Or un
             capital seul ne veut rien dire : ce qui compte, c'est le revenu mensuel qu'il peut
             soutenir, pendant combien de temps, et dans quelle enveloppe il est détenu. Ce guide
             part donc du capital pour aller vers le revenu, puis remonte vers la façon de le
@@ -182,8 +183,8 @@ export default function GuideCapitalRetraite() {
 
           <h2 id="grille">Quel complément mensuel pour quel capital ?</h2>
           <p>
-            Le tableau ci-dessous convertit quatre capitaux en complément mensuel, en euros
-            d'aujourd'hui, selon trois lectures. La première applique le repère des{" "}
+            Le tableau ci-dessous convertit quatre capitaux en complément mensuel brut, selon
+            trois lectures. La première applique le repère des{" "}
             {pct(tauxRetrait)} (retrait initial annuel, voir plus bas). Les deux autres
             transforment le capital en versements réguliers sur {duree} ans, avec un capital
             consommé à zéro au terme, pour un rendement net pendant les retraits de{" "}
@@ -409,8 +410,8 @@ export default function GuideCapitalRetraite() {
           </div>
           <p>
             Deux enseignements. D'abord, la durée pèse plus lourd que le rendement : allonger la
-            constitution de {horizons[0]} à {horizons[1]} ans divise presque l'effort par deux, à
-            rendement égal. Ensuite, les écarts entre scénarios de rendement sont réels mais moins
+            constitution de {horizons[0]} à {horizons[1]} ans divise l'effort par deux environ, voire
+            davantage quand le rendement supposé est élevé. Ensuite, les écarts entre scénarios de rendement sont réels mais moins
             décisifs que l'on ne le croit, alors que la fourchette de long terme que l'on observe
             sur les actions ({pct(RENDEMENTS.ucActionsLongTerme.min)} à{" "}
             {pct(RENDEMENTS.ucActionsLongTerme.max)} par an en moyenne historique, avant frais et
@@ -489,8 +490,9 @@ export default function GuideCapitalRetraite() {
 
           <h3>Le capital retraite est-il imposé quand je le retire ?</h3>
           <p>
-            Oui, selon l'enveloppe : sortie du PER soumise à l'impôt sur le revenu (sur le capital
-            versé déduit) et aux prélèvements sociaux sur les gains ; gains d'assurance-vie imposés
+            Oui, selon l'enveloppe : sortie en capital du PER soumise à l'impôt sur le revenu au
+            barème sur les versements déduits, et au prélèvement forfaitaire (impôt et
+            prélèvements sociaux) sur les gains ; gains d'assurance-vie imposés
             selon l'ancienneté du contrat ; gains du PEA exonérés d'impôt sur le revenu après{" "}
             {FISCALITE.peaExonerationIRApres} ans mais soumis aux prélèvements sociaux. Les taux
             sont rappelés dans les sources ci-dessous.

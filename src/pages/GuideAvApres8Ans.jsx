@@ -160,10 +160,10 @@ export default function GuideAvApres8Ans() {
             part de gains, une rente sur une fraction forfaitaire de son montant.
           </p>
           <p>
-            Prenons un profil illustratif, sans lien avec un cas réel : un couple de 64 ans dont le
-            contrat, ouvert il y a une dizaine d'années, doit servir de complément à la pension.
-            Leur question n'est pas « combien rapporte-t-il ? » mais « sous quelle forme le
-            récupérer, et à quel coût fiscal ? ». Ce guide répond à la fiscalité ; les calculs sont
+            Prenons un profil illustratif, sans lien avec un cas réel : une personne seule proche
+            de la retraite dont le contrat, ouvert il y a une dizaine d'années, doit servir de
+            complément à la pension. Sa question n'est pas « combien rapporte-t-il ? » mais « sous
+            quelle forme le récupérer, et à quel coût fiscal ? ». Ce guide répond à la fiscalité ; les calculs sont
             à refaire avec vos chiffres.
           </p>
 
@@ -290,16 +290,23 @@ export default function GuideAvApres8Ans() {
           <p>
             Cette fraction est un abattement implicite, mais elle remplace le calcul de la part de
             gains : ni le taux de {pct(tauxReduit)} ni l'abattement annuel de {euros(abattSeul)}{" "}
-            ne s'appliquent à la rente. Les gains accumulés dans le contrat ne sont pas imposés
-            une seconde fois au moment de la conversion, selon notre lecture des textes, point que
-            votre assureur doit confirmer par écrit avant l'opération.
+            ne s'appliquent à la rente. Selon notre lecture des textes, les gains accumulés dans le
+            contrat ne sont pas soumis à l'impôt sur le revenu au moment de la conversion. Les
+            prélèvements sociaux sur ces gains, en revanche, peuvent être dus à cette date s'ils
+            n'ont pas déjà été prélevés (cas des unités de compte notamment) : dans l'exemple
+            ci-dessous, {euros(gainsContrat)} de gains représenteraient jusqu'à{" "}
+            {euros(de(gainsContrat, tauxPS))} au taux de {pct(tauxPS)}, montant que la comparaison
+            avec les rachats ne retient pas. Ces deux points sont à faire confirmer par écrit par
+            votre assureur avant l'opération.
           </p>
           <div className="note">
             <p>
               Prélèvements sociaux sur la rente : à notre connaissance, ils sont calculés sur la
               même fraction imposable que l'impôt, et non sur le montant total de la rente. Le
               taux de {pct(tauxPS)} retenu ci-dessous est celui des produits d'assurance-vie ;
-              ce point, comme la possibilité de déduire une partie de la CSG l'année suivante,
+              une rente viagère à titre onéreux relevant des revenus du patrimoine, le taux
+              applicable depuis la loi de financement de la sécurité sociale pour 2026 pourrait
+              être différent. Ce point, comme la possibilité de déduire une partie de la CSG l'année suivante,
               est à vérifier auprès de l'assureur ou de l'administration fiscale. Les exemples
               qui suivent posent cette hypothèse et la signalent comme telle.
             </p>
@@ -547,7 +554,7 @@ export default function GuideAvApres8Ans() {
           <p>
             Ce que le calcul ne dit pas : si vous avez besoin d'un revenu garanti ou de souplesse,
             de transmettre ou non, et quelle part du contrat convertir. C'est cette question, bien
-            plus que les quelques centaines d'euros d'impôt d'écart, qui décide du bon mode de
+            plus que l'écart d'impôt d'une année donnée, qui décide du bon mode de
             sortie. Si vous souhaitez la poser dans votre trajectoire complète (pensions
             attendues, autres enveloppes, rythme de retraits), le{" "}
             <a href="/bilan-retraite">bilan retraite gratuit de 15 minutes</a> sert à fixer ce cadre

@@ -42,7 +42,7 @@ const totalEx = irEx + psEx;
 // Capital constitué par versements mensuels (valeurs par défaut du simulateur), 3 scénarios de rendement net.
 const nMois = SIMU_DEFAUTS.dureeAnnees * 12;
 const capitalApres = (rendementAnnuel) => {
-  const i = rendementAnnuel / 100 / 12;
+  const i = Math.pow(1 + rendementAnnuel / 100, 1 / 12) - 1; // taux mensuel équivalent, comme le simulateur
   return SIMU_DEFAUTS.versementMensuel * (((1 + i) ** nMois - 1) / i);
 };
 const totalVerse = SIMU_DEFAUTS.versementMensuel * nMois;
@@ -460,8 +460,9 @@ export default function GuideMeilleureAssuranceVie() {
             {euros(renteAnnuelle)} par an (barèmes variables selon l'assureur, l'âge et les options).
             Pour une rente à titre onéreux démarrant à {ageRente} ans, seule une fraction de{" "}
             {pct(fractionRente)} est imposable, soit {euros(renteImposable)} ici, à soumettre au
-            barème de l'impôt sur le revenu, auxquels s'ajoutent les prélèvements sociaux de{" "}
-            {pct(psAv)}. En contrepartie, le capital n'est plus disponible ni transmissible dans les
+            barème de l'impôt sur le revenu, auxquels s'ajoutent des prélèvements sociaux,
+            supposés assis sur cette même fraction au taux de {pct(psAv)} (hypothèse à vérifier
+            auprès de l'assureur). En contrepartie, le capital n'est plus disponible ni transmissible dans les
             mêmes conditions. Le sujet est approfondi dans{" "}
             <a href="/guide/assurance-vie-apres-8-ans-fiscalite-et-rente">l'assurance-vie après 8 ans :
             fiscalité et rente</a>, et l'enchaînement avec les autres enveloppes dans{" "}
@@ -529,8 +530,8 @@ export default function GuideMeilleureAssuranceVie() {
             restés à ce niveau pour l'assurance-vie, alors que le taux est de{" "}
             {pct(FISCALITE.prelevementsSociaux.per)} pour le PER, le PEA et le compte-titres. Sur le
             fonds en euros, ils sont prélevés chaque année lors de l'inscription des intérêts ; sur
-            les unités de compte, lors du rachat. Barèmes en vigueur en {HYPOTHESES_MAJ}, recalculés
-            en {E.maj} : ces taux peuvent changer à chaque loi de finances.
+            les unités de compte, lors du rachat. Taux de l'assurance-vie vérifiés le{" "}
+            {AV_RACHAT.maj} : ils peuvent changer à chaque loi de finances.
           </p>
 
           <h2 id="checklist">Critères de choix : la checklist avant de souscrire</h2>

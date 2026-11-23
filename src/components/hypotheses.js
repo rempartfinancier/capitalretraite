@@ -394,7 +394,6 @@ export const PEA_LIGNE_NOV2026 = {
   ordresParAn: 12, // un ordre d'achat par mois (versement programmé)
   grilleHaute: { courtagePct: 0.5, droitsGardePct: 0.4 }, // proche des plafonds loi Pacte (% par ordre en ligne ; % annuel de la valeur du plan) — À VÉRIFIER
   grilleBasse: { courtagePct: 0.1, droitsGardePct: 0 }, // grille fictive d'un acteur à tarif réduit — À VÉRIFIER
-  nbEtfsPortefeuilleType: 2, // nombre de lignes d'un portefeuille type en ETF (pour les droits de garde forfaitaires éventuels)
   maj: "novembre 2026",
   source: "plafonds de frais du décret d'application de la loi Pacte (PEA) et grilles publiques — hypothèses d'illustration, À VÉRIFIER avant publication",
 };

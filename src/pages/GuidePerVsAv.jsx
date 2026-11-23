@@ -49,10 +49,15 @@ function comparer(tmiEntree, tmiSortie, annees) {
 const ageDepart = ENVELOPPES_NOV2026.ageDepartReference;
 
 // Plafond de déduction PER (versements de l'année 2026, revenus 2025) : 10 % des revenus
-// retenus dans la limite de 8 PASS, avec un plancher de 10 % du PASS.
+// d'activité nets de frais professionnels (abattement forfaitaire appliqué au salaire net
+// imposable, comme dans le guide plafond PER), retenus dans la limite de 8 PASS, avec un
+// plancher de 10 % du PASS.
 const plafondPer = (salaire) =>
   Math.max(
-    (Math.min(salaire, PER_PLAFOND.multiplePassMaximum * PER_PLAFOND.pass2025) *
+    (Math.min(
+      salaire * (1 - PER_PLAFOND.tauxAbattementFraisProfessionnels / 100),
+      PER_PLAFOND.multiplePassMaximum * PER_PLAFOND.pass2025
+    ) *
       PER_PLAFOND.tauxRevenusActivite) /
       100,
     (PER_PLAFOND.pass2025 * PER_PLAFOND.tauxPlancherPass) / 100
@@ -93,7 +98,8 @@ export default function GuidePerVsAv() {
           <div className="resume-executif">
             <p>
               <strong>Réponse courte :</strong> à partir d'une TMI (tranche marginale d'imposition) de{" "}
-              {pct(FISCALITE.tmiOptions[2])}, le PER est généralement l'enveloppe la plus rentable pour
+              {pct(FISCALITE.tmiOptions[2])}, et plus encore si votre TMI à la retraite devrait
+              être plus basse, le PER est souvent l'enveloppe fiscalement la plus avantageuse pour
               une épargne retraite que vous pouvez immobiliser ; à {pct(FISCALITE.tmiOptions[1])} ou si
               vous voulez garder l'accès à votre argent, l'assurance-vie est souvent plus adaptée.
               Beaucoup d'épargnants combinent les deux.
@@ -277,8 +283,8 @@ export default function GuidePerVsAv() {
           </div>
           <p>
             Lecture : tout se joue sur l'écart entre la TMI d'entrée et la TMI de sortie. Quand les
-            deux sont identiques et basses, le PER n'apporte pratiquement rien de plus que
-            l'assurance-vie, qui reste libre d'accès. Quand la TMI d'entrée est nettement supérieure
+            deux sont identiques et basses, le PER n'apporte rien de plus que l'assurance-vie,
+            voire un peu moins sur les horizons courts, alors que celle-ci reste libre d'accès. Quand la TMI d'entrée est nettement supérieure
             à celle de sortie, le PER prend de l'avance. L'écart varie aussi avec la durée :
           </p>
           <div className="table-scroll">

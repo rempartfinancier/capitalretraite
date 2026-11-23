@@ -355,7 +355,9 @@ export default function GuidePeaEnLigne() {
             Notre analyse : le PEA est surtout précieux pour la souplesse qu'il procure à la
             retraite. Les retraits ne sont pas imposés comme un revenu et ne gonflent donc pas
             mécaniquement la tranche d'imposition sur les gains, ce qui donne une marge de manœuvre
-            quand on combine plusieurs sources de revenus. En contrepartie, il est exposé aux
+            quand on combine plusieurs sources de revenus. Les gains exonérés restent toutefois
+            pris en compte dans le revenu fiscal de référence, qui sert notamment à fixer le taux
+            de CSG sur les pensions. En contrepartie, il est exposé aux
             actions du premier au dernier euro, sans compartiment sécurisé : un plan investi en
             actions peut perdre une part importante de sa valeur sur une période de marché
             difficile, au pire moment si l'on doit retirer. Les rendements de long terme des
@@ -385,9 +387,10 @@ export default function GuidePeaEnLigne() {
           </p>
           <p>
             La seconde voie est la conversion en <strong>rente viagère</strong>, possible après{" "}
-            {FISCALITE.peaExonerationIRApres} ans : le plan est clôturé et son capital sert à
-            financer une rente versée à vie. Cette rente est exonérée d'impôt sur le revenu, sans
-            être pour autant totalement exempte de prélèvements sociaux. Elle assure un revenu
+            {FISCALITE.peaExonerationIRApres} ans : le capital converti sert à financer une rente
+            versée à vie (les conditions, notamment le sort du plan, dépendent de l'établissement
+            et sont à vérifier). Cette rente est exonérée d'impôt sur le revenu, mais une
+            fraction de son montant reste, à notre connaissance, soumise aux prélèvements sociaux. Elle assure un revenu
             garanti tant que vous vivez, au prix de la disponibilité du capital, de sa
             transmissibilité, et d'un taux de conversion qui dépend de l'âge et des tables de
             mortalité de l'assureur. C'est en pratique une option peu utilisée : la rente

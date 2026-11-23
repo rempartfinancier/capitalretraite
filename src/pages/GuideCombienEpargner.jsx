@@ -36,12 +36,13 @@ const facteurRente = (i, n) => (i === 0 ? n : (1 - Math.pow(1 + i, -n)) / i);
 // Capital (à l'âge de départ) finançant un complément mensuel indexé sur la durée de retraite retenue.
 const capitalPourComplement = (complementMensuel) =>
   complementMensuel * 12 * facteurRente(tauxReel(EX.rendementDecaissementNet), EX.dureeRetraiteAnnees);
-// Versement mensuel constant (versements en début de mois) pour atteindre un capital en euros constants.
+// Versement mensuel constant (versements en fin de mois, même convention que le guide
+// « combien épargner par mois selon l'âge ») pour atteindre un capital en euros constants.
 const versementPourCapital = (capital, annees, rNetPct) => {
   const m = Math.pow(1 + tauxReel(rNetPct), 1 / 12) - 1;
   const n = annees * 12;
   if (Math.abs(m) < 1e-9) return capital / n; // rendement réel nul
-  return capital / (((Math.pow(1 + m, n) - 1) / m) * (1 + m));
+  return capital / ((Math.pow(1 + m, n) - 1) / m);
 };
 const rendementCentral = EX.rendementsEpargneNets[Math.floor(EX.rendementsEpargneNets.length / 2)];
 const rendementBas = EX.rendementsEpargneNets[0];
@@ -433,7 +434,7 @@ export default function GuideCombienEpargner() {
             <li>Ignorer l'inflation : un revenu cible défini en euros d'aujourd'hui doit être revalorisé sur la durée ;</li>
             <li>Oublier la fiscalité de sortie : 300 000 € dans un PER et 300 000 € dans un PEA ne financent pas le même revenu net ;</li>
             <li>Sous-estimer la durée : planifier jusqu'à 82 ans quand on peut vivre jusqu'à 95, c'est planifier un problème ;</li>
-            <li>Négliger les frais : quelques dixièmes de point par an, composés sur {HORIZON} ans, pèsent plusieurs milliers d'euros (voir le tableau ci-dessus) ;</li>
+            <li>Négliger les frais : un écart de frais annuels, composé sur {HORIZON} ans, pèse plusieurs milliers d'euros (voir le tableau ci-dessus) ;</li>
             <li>Raisonner en rendement garanti : les projections ci-dessus sont des hypothèses, et un marché actions peut décevoir longtemps, y compris juste avant le départ ;</li>
             <li>Attendre « d'avoir plus de revenus » pour commencer : retarder l'épargne coûte plus cher que de démarrer petit, comme le montre la progression du tableau selon l'âge.</li>
           </ul>
