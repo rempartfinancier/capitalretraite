@@ -58,6 +58,16 @@ export default function StrategieImmobilier() {
             revente des parts n'est jamais assurée à tout moment (liquidité limitée).
           </p>
           <p>
+            Pour le fonctionnement, les frais et les risques de liquidité, notre guide{" "}
+            <a href="/guide/scpi-preparer-sa-retraite">SCPI et retraite</a> reprend les chiffres
+            de marché 2025 et 2026 ; deux pages détaillent les choix qui pèsent le plus :{" "}
+            <a href="/guide/scpi-a-credit-ou-comptant">SCPI à crédit ou au comptant</a> et{" "}
+            <a href="/guide/scpi-assurance-vie-ou-per">SCPI en direct, en assurance-vie ou dans un PER</a>
+            , sans oublier{" "}
+            <a href="/guide/scpi-fiscalite-revenus-plus-values">la fiscalité des SCPI</a> (revenus
+            fonciers, revenus étrangers, plus-values, IFI).
+          </p>
+          <p>
             Nous ne développons pas ici l'analyse détaillée des SCPI : pour comparer les véhicules
             immobiliers entre eux, consultez{" "}
             <a href="https://immobilierpassif.com" target="_blank" rel="noopener noreferrer">
@@ -112,7 +122,13 @@ export default function StrategieImmobilier() {
             <a href="/guide/lmnp-risques">les risques du LMNP</a> détaille chacun de ces points
             au-delà de l'argument de vente habituel, et{" "}
             <a href="/guide/lmnp-ou-locatif-nu">LMNP ou locatif nu</a> compare les deux régimes si
-            vous hésitez encore sur le montage à privilégier.
+            vous hésitez encore sur le montage à privilégier. Deux pages complètent le sujet :{" "}
+            <a href="/guide/lmnp-residence-geree-retraite">le LMNP en résidence gérée</a>{" "}
+            (senior, EHPAD, étudiante) et{" "}
+            <a href="/guide/lmnp-reforme-amortissement-plus-value">
+              l'amortissement et la plus-value à la revente
+            </a>
+            .
           </p>
           <p>
             Côté rendement, la location meublée dégage un rendement locatif brut généralement
@@ -287,7 +303,12 @@ export default function StrategieImmobilier() {
               PER ou immobilier locatif pour transmettre
             </a>{" "}
             compare cette logique à l'abattement successoral du PER assurantiel, pour ceux qui
-            hésitent entre les deux leviers de protection familiale.
+            hésitent entre les deux leviers de protection familiale, et{" "}
+            <a href="/guide/demembrement-nue-propriete-retraite">
+              démembrement et nue-propriété
+            </a>{" "}
+            détaille le barème fiscal, l'usufruit temporaire et la donation avec réserve
+            d'usufruit.
           </p>
 
           <h2>Ce que l'immobilier ne fait pas</h2>
@@ -302,6 +323,16 @@ export default function StrategieImmobilier() {
             question n'est pas « faut-il de l'immobilier ? » mais « quelle part de mes revenus
             futurs doit venir de la pierre, et sous quelle forme ? ».
           </div>
+
+          <p>
+            Une fois à la retraite, la question change encore : garder, déléguer, vendre ou
+            transmettre. Notre guide{" "}
+            <a href="/guide/immobilier-a-la-retraite-revenus-transmission">
+              immobilier à la retraite : revenus, vente et transmission
+            </a>{" "}
+            traite l'effet des loyers sur la CSG des pensions, la plus-value et les options de
+            transmission.
+          </p>
 
           <p>
             Enfin, posséder de la pierre n'est que la moitié du chemin : vendre, démembrer ou

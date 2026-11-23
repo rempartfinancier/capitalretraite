@@ -194,6 +194,46 @@ const categories = [
         title: "Les 5 erreurs les plus coûteuses de l'investissement locatif retraite",
         text: "Les fausses boussoles qui plombent un projet immobilier — et comment les éviter.",
       },
+      {
+        to: "/guide/scpi-preparer-sa-retraite",
+        title: "SCPI et retraite : revenus, frais et risques de liquidité",
+        text: "Taux de distribution 2025, parts en attente de retrait, huit questions à poser avant de souscrire.",
+      },
+      {
+        to: "/guide/scpi-a-credit-ou-comptant",
+        title: "SCPI à crédit ou au comptant : le calcul et les risques",
+        text: "Mensualité, intérêts déductibles, effort réel et scénario de baisse du prix de part.",
+      },
+      {
+        to: "/guide/scpi-assurance-vie-ou-per",
+        title: "SCPI en direct, en assurance-vie ou dans un PER ?",
+        text: "Fiscalité, frais du contrat, liquidité et transmission selon l'enveloppe qui détient les parts.",
+      },
+      {
+        to: "/guide/scpi-fiscalite-revenus-plus-values",
+        title: "Fiscalité des SCPI : revenus, plus-values et IFI",
+        text: "Revenus fonciers, revenus étrangers, plus-value à la revente : ce qui se déclare, exemple chiffré.",
+      },
+      {
+        to: "/guide/lmnp-residence-geree-retraite",
+        title: "LMNP en résidence gérée : senior, EHPAD, étudiante",
+        text: "Bail commercial, loyers, exploitant : ce que vaut ce revenu pour la retraite.",
+      },
+      {
+        to: "/guide/lmnp-reforme-amortissement-plus-value",
+        title: "LMNP : l'amortissement réintégré dans la plus-value",
+        text: "Ce que change la loi de finances 2025 à la revente, exceptions et exemple avant/après.",
+      },
+      {
+        to: "/guide/demembrement-nue-propriete-retraite",
+        title: "Démembrement et nue-propriété pour préparer sa retraite",
+        text: "Barème de l'usufruit, usufruit temporaire, donation avec réserve d'usufruit.",
+      },
+      {
+        to: "/guide/immobilier-a-la-retraite-revenus-transmission",
+        title: "Immobilier à la retraite : revenus, vente et transmission",
+        text: "Loyers et CSG des pensions, plus-value, viager, donation : garder, déléguer, vendre ou transmettre.",
+      },
     ],
   },
   {

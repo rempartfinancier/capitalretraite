@@ -571,6 +571,94 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/scpi-preparer-sa-retraite",
+    title: "SCPI et retraite : revenus, frais, risques de liquidité",
+    description:
+      "Taux de distribution, frais, parts en attente de retrait, risques : ce que l'on peut attendre d'une SCPI pour compléter ses revenus de retraite, chiffres de marché 2025 et 2026.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI et retraite", "/guide/scpi-preparer-sa-retraite"],
+    ],
+  },
+  {
+    path: "/guide/scpi-a-credit-ou-comptant",
+    title: "SCPI à crédit ou au comptant : le calcul et les risques",
+    description:
+      "Mensualité, intérêts déductibles, effort d'épargne réel, scénario de baisse du prix de part : comparer l'achat de SCPI à crédit et comptant avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI à crédit ou comptant", "/guide/scpi-a-credit-ou-comptant"],
+    ],
+  },
+  {
+    path: "/guide/scpi-assurance-vie-ou-per",
+    title: "SCPI en direct, en assurance-vie ou dans un PER ?",
+    description:
+      "Fiscalité, frais du contrat, liquidité, transmission : ce qui change quand on détient des SCPI en direct, en unités de compte d'assurance-vie ou via un PER.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI en direct, assurance-vie ou PER", "/guide/scpi-assurance-vie-ou-per"],
+    ],
+  },
+  {
+    path: "/guide/scpi-fiscalite-revenus-plus-values",
+    title: "Fiscalité des SCPI : revenus fonciers, étrangers, plus-values, IFI",
+    description:
+      "Revenus fonciers, revenus de source étrangère, plus-value à la revente, IFI : ce qui se déclare quand on détient des SCPI en direct, avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Fiscalité des SCPI", "/guide/scpi-fiscalite-revenus-plus-values"],
+    ],
+  },
+  {
+    path: "/guide/lmnp-residence-geree-retraite",
+    title: "LMNP en résidence gérée : senior, EHPAD, étudiante",
+    description:
+      "Bail commercial, loyers, fiscalité, questions à poser à l'exploitant : ce que vaut un LMNP en résidence gérée comme revenu de retraite, scénario de baisse de loyer chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["LMNP en résidence gérée", "/guide/lmnp-residence-geree-retraite"],
+    ],
+  },
+  {
+    path: "/guide/lmnp-reforme-amortissement-plus-value",
+    title: "LMNP : amortissement et plus-value à la revente",
+    description:
+      "Réintégration des amortissements dans la plus-value depuis 2025, exceptions, exemple chiffré avant et après, et débat en cours sur l'amortissement en meublé.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["LMNP : amortissement et plus-value", "/guide/lmnp-reforme-amortissement-plus-value"],
+    ],
+  },
+  {
+    path: "/guide/demembrement-nue-propriete-retraite",
+    title: "Démembrement et nue-propriété pour préparer sa retraite",
+    description:
+      "Barème de l'article 669, usufruit temporaire, nue-propriété de SCPI, donation avec réserve d'usufruit : le démembrement expliqué avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Démembrement et nue-propriété", "/guide/demembrement-nue-propriete-retraite"],
+    ],
+  },
+  {
+    path: "/guide/immobilier-a-la-retraite-revenus-transmission",
+    title: "Immobilier à la retraite : revenus, vente et transmission",
+    description:
+      "Loyers et CSG des pensions, plus-value à la vente, viager, donation : que faire de son immobilier une fois à la retraite, avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Immobilier à la retraite", "/guide/immobilier-a-la-retraite-revenus-transmission"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

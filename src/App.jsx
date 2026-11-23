@@ -57,6 +57,14 @@ import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
 import GuideRachatPartielAssuranceVie from "./pages/GuideRachatPartielAssuranceVie.jsx";
 import GuideRetraiteProgressiveOuCumul from "./pages/GuideRetraiteProgressiveOuCumul.jsx";
+import GuideScpiRetraite from "./pages/GuideScpiRetraite.jsx";
+import GuideScpiCreditOuComptant from "./pages/GuideScpiCreditOuComptant.jsx";
+import GuideScpiAssuranceVieOuPer from "./pages/GuideScpiAssuranceVieOuPer.jsx";
+import GuideScpiFiscalite from "./pages/GuideScpiFiscalite.jsx";
+import GuideLmnpResidenceGeree from "./pages/GuideLmnpResidenceGeree.jsx";
+import GuideLmnpReforme from "./pages/GuideLmnpReforme.jsx";
+import GuideDemembrementRetraite from "./pages/GuideDemembrementRetraite.jsx";
+import GuideImmobilierALaRetraite from "./pages/GuideImmobilierALaRetraite.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -150,6 +158,14 @@ export default function App() {
             path="/guide/retraite-progressive-ou-cumul-emploi-retraite"
             element={<GuideRetraiteProgressiveOuCumul />}
           />
+          <Route path="/guide/scpi-preparer-sa-retraite" element={<GuideScpiRetraite />} />
+          <Route path="/guide/scpi-a-credit-ou-comptant" element={<GuideScpiCreditOuComptant />} />
+          <Route path="/guide/scpi-assurance-vie-ou-per" element={<GuideScpiAssuranceVieOuPer />} />
+          <Route path="/guide/scpi-fiscalite-revenus-plus-values" element={<GuideScpiFiscalite />} />
+          <Route path="/guide/lmnp-residence-geree-retraite" element={<GuideLmnpResidenceGeree />} />
+          <Route path="/guide/lmnp-reforme-amortissement-plus-value" element={<GuideLmnpReforme />} />
+          <Route path="/guide/demembrement-nue-propriete-retraite" element={<GuideDemembrementRetraite />} />
+          <Route path="/guide/immobilier-a-la-retraite-revenus-transmission" element={<GuideImmobilierALaRetraite />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>
