@@ -5,6 +5,9 @@ import {
   FRAIS_TYPES,
   FISCALITE,
   ILLUSTRATIF,
+  SIMU_DEFAUTS,
+  ENVELOPPES_NOV2026,
+  ENRICH_EPPEA_PEA,
   HYPOTHESES_MAJ,
   euros,
   pct,
@@ -25,8 +28,8 @@ function capitalise(versementMensuel, dureeAnnees, tauxAnnuelPct) {
 }
 
 const EX = (() => {
-  const versement = 300;
-  const duree = 15;
+  const versement = SIMU_DEFAUTS.versementMensuel;
+  const duree = SIMU_DEFAUTS.dureeAnnees;
   const brut = RENDEMENTS.ucActionsLongTerme.moyen; // hypothèse illustrative
   const fraisMaison = ILLUSTRATIF.fraisSupportMaison; // dans la fourchette FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports
   const fraisEtf = ILLUSTRATIF.fraisSupportEtf; // dans la fourchette FRAIS_TYPES.contratInternet.fraisSupports
@@ -50,17 +53,43 @@ const EX = (() => {
   };
 })();
 
+// ------------------------------------------------------------------
+// Exemple « PEA et retraite » : sortie en capital après le délai de
+// cinq ans. Montants illustratifs lus dans hypotheses.js.
+// ------------------------------------------------------------------
+const PR = (() => {
+  const capital = ENRICH_EPPEA_PEA.capitalExemple;
+  const versements = ENRICH_EPPEA_PEA.versementsCumulesExemple;
+  const gains = capital - versements;
+  const psPea = Math.round((gains * FISCALITE.prelevementsSociaux.pea) / 100);
+  const pfuCto = Math.round((gains * (FISCALITE.pfuIR + FISCALITE.prelevementsSociaux.cto)) / 100);
+  return {
+    capital,
+    versements,
+    gains,
+    psPea,
+    netPea: capital - psPea,
+    pfuCto,
+    netCto: capital - pfuCto,
+    economie: pfuCto - psPea,
+    pfuTotal: FISCALITE.pfuIR + FISCALITE.prelevementsSociaux.cto,
+  };
+})();
+const PLAFOND = ENVELOPPES_NOV2026.peaPlafondVersements;
+const MAJ = ENRICH_EPPEA_PEA.maj;
+
 export default function GuidePeaBanqueCourtier() {
   return (
     <>
       <section className="page-header">
         <div className="container">
-          <span className="eyebrow">Article phare</span>
-          <h1>PEA : banque ou courtier en ligne ? Frais, fonds maison et vraie diversification</h1>
+          <span className="eyebrow">Article phare · Mis à jour {MAJ}</span>
+          <h1>PEA en ligne ou en banque : comment choisir, frais comparés et mode d'emploi</h1>
           <p className="sub">
-            Le PEA est défini par la loi : même plafond, même fiscalité, mêmes règles du jeu
-            partout. Ce qui change d'un établissement à l'autre, c'est ce qu'il vous coûte — et ce
-            qu'on y loge.
+            Un PEA en ligne (courtier ou banque en ligne) coûte en général moins cher qu'un PEA en
+            agence, pour un avantage fiscal strictement identique : plafond de{" "}
+            {euros(PLAFOND)}, mêmes règles partout. Ce qui change d'un établissement à l'autre,
+            c'est ce qu'il vous coûte — et ce qu'on y loge.
           </p>
         </div>
       </section>
@@ -76,7 +105,9 @@ export default function GuidePeaBanqueCourtier() {
               peuvent aller de moins de {pct(FRAIS_TYPES.contratInternet.fraisSupports.min)} pour
               un ETF à plus de {pct(FRAIS_TYPES.contratBancaireTraditionnel.fraisSupports.max)}{" "}
               pour un fonds maison. Le courtier en ligne gagne presque toujours le match des coûts
-              ; la banque, celui de l'accompagnement de proximité.
+              ; la banque, celui de l'accompagnement de proximité. Ce guide ajoute le mode
+              d'emploi pour ouvrir et alimenter un PEA en ligne, un tableau des frais à comparer et
+              le rôle du PEA dans la préparation de la retraite.
             </p>
           </div>
           <p>
@@ -89,16 +120,22 @@ export default function GuidePeaBanqueCourtier() {
             pour des versements supérieurs ou une durée plus longue. Voici comment
             lire les lignes de frais, ce que dit la loi, et un exemple chiffré pas à pas.
           </p>
-          <ul>
-            <li><a href="#definition">Le PEA en deux phrases</a></li>
-            <li><a href="#frais">Les frais d'un PEA : ce que la loi encadre, ce qui reste variable</a></li>
-            <li><a href="#exemple">300 € par mois pendant 15 ans : l'écart chiffré</a></li>
-            <li><a href="#banque-ou-courtier">Banque ou courtier en ligne : le vrai match</a></li>
-            <li><a href="#contenu">Ce que vous y mettez compte plus que l'endroit où vous l'ouvrez</a></li>
-            <li><a href="#checklist">La check-list d'audit de votre PEA</a></li>
-            <li><a href="#faq">Questions fréquentes</a></li>
-            <li><a href="#retenir">Ce qu'il faut retenir</a></li>
-          </ul>
+          <div className="sommaire">
+            <strong>Sommaire</strong>
+            <ol>
+              <li><a href="#definition">Le PEA en deux phrases</a></li>
+              <li><a href="#frais">Les frais d'un PEA : ce que la loi encadre, ce qui reste variable</a></li>
+              <li><a href="#exemple">{euros(EX.versement)} par mois pendant {EX.duree} ans : l'écart chiffré</a></li>
+              <li><a href="#banque-ou-courtier">Banque ou courtier en ligne : le vrai match</a></li>
+              <li><a href="#mode-emploi">PEA en ligne : mode d'emploi pour ouvrir et alimenter</a></li>
+              <li><a href="#frais-comparer">Quels frais comparer avant d'ouvrir un PEA en ligne ?</a></li>
+              <li><a href="#contenu">Ce que vous y mettez compte plus que l'endroit où vous l'ouvrez</a></li>
+              <li><a href="#pea-retraite">PEA et retraite : sortie en capital, rente et fiscalité</a></li>
+              <li><a href="#checklist">La check-list d'audit de votre PEA</a></li>
+              <li><a href="#faq">Questions fréquentes</a></li>
+              <li><a href="#retenir">Ce qu'il faut retenir</a></li>
+            </ol>
+          </div>
 
           <h2 id="definition">Le PEA en deux phrases</h2>
           <p>
@@ -112,10 +149,10 @@ export default function GuidePeaBanqueCourtier() {
             sur les gains.
           </p>
           <p>
-            Les versements sont plafonnés à 150 000 € par personne (plafond légal en vigueur en
-            juillet 2026, publié par l'
+            Les versements sont plafonnés à {euros(PLAFOND)} par personne (plafond légal en vigueur en{" "}
+            {ENVELOPPES_NOV2026.maj}, publié par l'
             <a
-              href="https://www.amf-france.org/fr/espace-epargnants/comprendre-les-produits-financiers/les-enveloppes-fiscales-et-sociales/le-plan-depargne-en-actions-pea"
+              href="https://www.amf-france.org/fr/espace-epargnants"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -144,11 +181,14 @@ export default function GuidePeaBanqueCourtier() {
               décret d'application de la loi Pacte
             </a>{" "}
             entré en vigueur en 2020, ils sont
-            plafonnés — sous réserve des barèmes en vigueur en juillet 2026, à vérifier auprès de
-            votre établissement : environ 10 € pour l'ouverture, 0,4 % par an de la valeur du plan
+            plafonnés — sous réserve des barèmes en vigueur en {MAJ}, à vérifier auprès de
+            votre établissement : environ {euros(ENRICH_EPPEA_PEA.fraisOuvertureMax)} pour
+            l'ouverture, {pct(ENRICH_EPPEA_PEA.fraisTenueCompteMaxPct)} par an de la valeur du plan
             pour la tenue de compte et les droits de garde (plus un petit forfait par ligne
-            détenue), 0,5 % du montant par ordre passé en ligne (1,2 % par un autre canal), et
-            15 € par ligne transférée dans la limite de 150 € au total. Ces plafonds ont assaini
+            détenue), {pct(ENRICH_EPPEA_PEA.fraisOrdreEnLignePct)} du montant par ordre passé en
+            ligne ({pct(ENRICH_EPPEA_PEA.fraisOrdreAutreCanalPct)} par un autre canal), et{" "}
+            {euros(ENVELOPPES_NOV2026.peaFraisTransfertMax.parLigne)} par ligne transférée dans la
+            limite de {euros(ENVELOPPES_NOV2026.peaFraisTransfertMax.total)} au total. Ces plafonds ont assaini
             les excès historiques — mais un plan peut rester nettement plus cher qu'un autre tout
             en respectant la loi.
           </p>
@@ -197,7 +237,7 @@ export default function GuidePeaBanqueCourtier() {
             raconte autre chose.
           </p>
 
-          <h2 id="exemple">300 € par mois pendant 15 ans : l'écart chiffré, pas à pas</h2>
+          <h2 id="exemple">{euros(EX.versement)} par mois pendant {EX.duree} ans : l'écart chiffré, pas à pas</h2>
           <p>Posons le calcul avec des hypothèses explicites, purement illustratives :</p>
           <ul>
             <li>
@@ -258,13 +298,150 @@ export default function GuidePeaBanqueCourtier() {
           <div className="note">
             Bon à savoir : un PEA se transfère d'un établissement à l'autre en conservant son
             antériorité fiscale — la date d'ouverture du plan, qui commande le délai de cinq ans,
-            est préservée. Les frais de transfert sont plafonnés par la loi Pacte (de l'ordre de
-            15 € par ligne, 150 € au maximum — barème en vigueur en juillet 2026, à vérifier).
+            est préservée. Les frais de transfert sont plafonnés par la loi Pacte (de l'ordre de{" "}
+            {euros(ENVELOPPES_NOV2026.peaFraisTransfertMax.parLigne)} par ligne,{" "}
+            {euros(ENVELOPPES_NOV2026.peaFraisTransfertMax.total)} au maximum — barème en vigueur en{" "}
+            {MAJ}, à vérifier).
             Ne clôturez jamais un PEA pour en rouvrir un ailleurs : la clôture remet le compteur
             fiscal à zéro. Prévoyez en revanche un délai de plusieurs semaines, pendant lequel les
             arbitrages — les ventes et achats de supports à l'intérieur du plan — sont
             généralement gelés.
           </div>
+
+          <h2 id="mode-emploi">PEA en ligne : mode d'emploi pour ouvrir et alimenter</h2>
+          <p>
+            Ouvrir un PEA en ligne se fait en quelques étapes, sans passer en agence. Voici l'ordre
+            logique, avec ce qu'il faut vérifier à chaque étape.
+          </p>
+          <ol>
+            <li>
+              <strong>Vérifier que vous pouvez ouvrir un PEA.</strong> Il faut être majeur (
+              {ENVELOPPES_NOV2026.peaAgeMinimumOuverture} ans minimum), fiscalement domicilié en
+              France, et ne détenir qu'un seul PEA : un deuxième PEA classique est interdit. Un
+              PEA-PME peut s'y ajouter, dans la limite d'un plafond cumulé de{" "}
+              {euros(ENVELOPPES_NOV2026.peaPmePlafondCumule)} pour les deux plans.
+            </li>
+            <li>
+              <strong>Comparer les établissements.</strong> Relevez les frais d'ouverture, de tenue
+              de compte, de courtage et de transfert (tableau ci-dessous), la gamme d'ETF éligibles
+              et la qualité de l'application. Le tarif doit être publié et lisible.
+            </li>
+            <li>
+              <strong>Constituer le dossier en ligne.</strong> Pièce d'identité, justificatif de
+              domicile, avis d'imposition et IBAN d'un compte à votre nom ; l'établissement
+              vérifie votre identité et vous fait signer la convention en ligne. Gardez une copie
+              de la convention et de la grille tarifaire.
+            </li>
+            <li>
+              <strong>Effectuer le premier versement.</strong> Le PEA doit être alimenté par un
+              virement depuis un compte à votre nom ; la date de ce premier versement fixe
+              l'ouverture du plan, donc le point de départ du délai de{" "}
+              {FISCALITE.peaExonerationIRApres} ans. Rien n'oblige à verser un montant élevé : un
+              versement modeste suffit pour démarrer le compteur.
+            </li>
+            <li>
+              <strong>Mettre en place des versements réguliers.</strong> Un virement permanent
+              mensuel automatise l'effort ; les versements peuvent être libres, dans la limite du
+              plafond de {euros(PLAFOND)} de versements cumulés. Les retraits ne rechargent pas ce
+              plafond.
+            </li>
+            <li>
+              <strong>Choisir les supports et passer les ordres.</strong> Les liquidités d'un PEA ne
+              produisent rien tant qu'elles ne sont pas investies : une fois le plan alimenté, il
+              reste à acheter les ETF ou titres choisis. Vérifiez dans le DIC les frais courants et
+              l'éligibilité au PEA de chaque fonds.
+            </li>
+            <li>
+              <strong>Suivre le plan chaque année.</strong> Relisez le récapitulatif annuel des
+              frais, vérifiez que l'allocation correspond toujours à votre horizon, et ne retirez pas
+              avant le délai de {FISCALITE.peaExonerationIRApres} ans sans en mesurer les
+              conséquences fiscales.
+            </li>
+          </ol>
+          <p>
+            Pour comparer plus en détail les offres en ligne dans une optique retraite, voyez notre
+            guide{" "}
+            <a href="/guide/pea-en-ligne-comment-choisir-pour-la-retraite">
+              PEA en ligne : comment choisir pour la retraite
+            </a>
+            .
+          </p>
+
+          <h2 id="frais-comparer">Quels frais comparer avant d'ouvrir un PEA en ligne ?</h2>
+          <p>
+            Ce tableau liste les postes de coût à comparer d'un établissement à l'autre, avec les
+            plafonds légaux quand ils existent et les ordres de grandeur constatés sinon. Ce sont
+            des repères révisés en {MAJ}, à vérifier sur la grille tarifaire de chaque
+            établissement.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Poste de frais</th>
+                  <th>Repère</th>
+                  <th>Où le trouver</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ouverture du plan</td>
+                  <td>Plafonné, de l'ordre de {euros(ENRICH_EPPEA_PEA.fraisOuvertureMax)}</td>
+                  <td>Grille tarifaire</td>
+                </tr>
+                <tr>
+                  <td>Tenue de compte et droits de garde</td>
+                  <td>Plafonné à {pct(ENRICH_EPPEA_PEA.fraisTenueCompteMaxPct)} par an de la valeur du plan</td>
+                  <td>Grille tarifaire, récapitulatif annuel</td>
+                </tr>
+                <tr>
+                  <td>Courtage par ordre</td>
+                  <td>
+                    Plafonné à {pct(ENRICH_EPPEA_PEA.fraisOrdreEnLignePct)} du montant en ligne,{" "}
+                    {pct(ENRICH_EPPEA_PEA.fraisOrdreAutreCanalPct)} autre canal
+                  </td>
+                  <td>Grille tarifaire (comparer les minimums par ordre)</td>
+                </tr>
+                <tr>
+                  <td>Transfert vers un autre établissement</td>
+                  <td>
+                    {euros(ENVELOPPES_NOV2026.peaFraisTransfertMax.parLigne)} par ligne,{" "}
+                    {euros(ENVELOPPES_NOV2026.peaFraisTransfertMax.total)} au plus
+                  </td>
+                  <td>Grille tarifaire, avant d'ouvrir</td>
+                </tr>
+                <tr>
+                  <td>ETF éligible</td>
+                  <td>
+                    {pct(FRAIS_TYPES.etf.fraisCourants.min)} à {pct(FRAIS_TYPES.etf.fraisCourants.max)}{" "}
+                    par an
+                  </td>
+                  <td>DIC du fonds (frais courants)</td>
+                </tr>
+                <tr>
+                  <td>Fonds actions de gestion active</td>
+                  <td>
+                    {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.min)} à{" "}
+                    {pct(FRAIS_TYPES.fondsActionsClassiques.fraisCourants.max)} par an
+                  </td>
+                  <td>DIC du fonds (frais courants)</td>
+                </tr>
+                <tr>
+                  <td>Gestion sous mandat</td>
+                  <td>
+                    Surcoût de {pct(FRAIS_TYPES.gestionPiloteeSurcout.min)} à{" "}
+                    {pct(FRAIS_TYPES.gestionPiloteeSurcout.max)} par an
+                  </td>
+                  <td>Convention de mandat</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Pour juger du poids relatif de ces frais, voyez aussi notre analyse{" "}
+            <a href="/guide/etf-ou-fonds-actifs">ETF ou fonds actifs</a> et les limites de
+            l'enveloppe dans <a href="/guide/inconvenients-du-pea">les inconvénients du PEA</a>.
+          </p>
 
           <h2 id="contenu">Ce que vous y mettez compte plus que l'endroit où vous l'ouvrez</h2>
           <p>
@@ -350,6 +527,78 @@ export default function GuidePeaBanqueCourtier() {
             en actions, non garanti.
           </p>
 
+          <h2 id="pea-retraite">PEA et retraite : sortie en capital, rente et fiscalité</h2>
+          <p>
+            Le PEA se prête à la préparation de la retraite parce qu'au-delà de{" "}
+            {FISCALITE.peaExonerationIRApres} ans, les gains ne supportent plus d'impôt sur le
+            revenu : il reste les prélèvements sociaux, à {pct(FISCALITE.prelevementsSociaux.pea)}{" "}
+            en {HYPOTHESES_MAJ} depuis la LFSS 2026 (taux à vérifier selon la date d'acquisition des
+            gains). Deux modes de sortie existent après ce délai : des retraits partiels, qui ne
+            ferment pas le plan et laissent la possibilité de continuer à le faire fructifier, ou
+            une rente viagère, issue de la conversion du capital et exonérée d'impôt sur le revenu
+            (régime social de la rente à vérifier). Le plafond de {euros(PLAFOND)} de versements ne
+            limite que ce que vous y versez, pas la valeur que le plan peut atteindre.
+          </p>
+          <p>
+            Exemple illustratif, hors cas réel : un PEA de plus de {FISCALITE.peaExonerationIRApres}{" "}
+            ans, valant {euros(PR.capital)} pour {euros(PR.versements)} versés (donc{" "}
+            {euros(PR.gains)} de gains), retiré en totalité. Ce plan ne supporte que{" "}
+            {pct(FISCALITE.prelevementsSociaux.pea)} de prélèvements sociaux sur les gains, soit{" "}
+            {euros(PR.psPea)}, pour un net de {euros(PR.netPea)}. Les mêmes gains sur un
+            compte-titres ordinaire supporteraient le prélèvement forfaitaire unique de{" "}
+            {pct(PR.pfuTotal)} (impôt et prélèvements sociaux), soit {euros(PR.pfuCto)}, pour un net de{" "}
+            {euros(PR.netCto)}.
+          </p>
+          <div className="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sortie à partir de {FISCALITE.peaExonerationIRApres} ans</th>
+                  <th>PEA</th>
+                  <th>Compte-titres ordinaire</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gains imposables ({euros(PR.capital)} − {euros(PR.versements)})</td>
+                  <td>{euros(PR.gains)}</td>
+                  <td>{euros(PR.gains)}</td>
+                </tr>
+                <tr>
+                  <td>Impôt sur le revenu</td>
+                  <td>Exonéré</td>
+                  <td>{pct(FISCALITE.pfuIR)} (PFU)</td>
+                </tr>
+                <tr>
+                  <td>Prélèvements sociaux</td>
+                  <td>{pct(FISCALITE.prelevementsSociaux.pea)}</td>
+                  <td>{pct(FISCALITE.prelevementsSociaux.cto)}</td>
+                </tr>
+                <tr>
+                  <td>Total prélevé</td>
+                  <td>{euros(PR.psPea)}</td>
+                  <td>{euros(PR.pfuCto)}</td>
+                </tr>
+                <tr>
+                  <td>Net perçu</td>
+                  <td>{euros(PR.netPea)}</td>
+                  <td>{euros(PR.netCto)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Écart de {euros(PR.economie)} dans cet exemple. Un PEA investi en actions n'offre aucune
+            garantie de capital, et l'hypothèse de plus-value est illustrative. Pour situer le PEA
+            face aux autres enveloppes, voyez{" "}
+            <a href="/guide/pea-ou-per-pour-la-retraite">PEA ou PER pour la retraite</a>,{" "}
+            <a href="/guide/pea-ou-assurance-vie">PEA ou assurance-vie</a> et{" "}
+            <a href="/guide/meilleure-enveloppe-retraite">la meilleure enveloppe retraite</a> ; pour
+            chiffrer l'objectif, le <a href="/simulateur-retraite">simulateur de retraite</a> ou un{" "}
+            <a href="/bilan-retraite">bilan retraite</a>. Le détail stratégique est dans{" "}
+            <a href="/strategies/pea-retraite">PEA et retraite</a>.
+          </p>
+
           <h2 id="checklist">La check-list d'audit de votre PEA</h2>
           <p>Une heure suffit, relevés en main :</p>
           <ol>
@@ -383,6 +632,45 @@ export default function GuidePeaBanqueCourtier() {
           </ol>
 
           <h2 id="faq">Questions fréquentes</h2>
+          <h3>Quel est le plafond de versements d'un PEA ?</h3>
+          <p>
+            {euros(PLAFOND)} pour le PEA classique, et {euros(ENVELOPPES_NOV2026.peaPmePlafondCumule)}{" "}
+            pour l'ensemble PEA et PEA-PME (plafonds légaux à vérifier, révisés en {MAJ}). Le
+            plafond porte sur les versements cumulés et ne se recharge pas après un retrait.
+          </p>
+          <h3>Comment ouvrir un PEA en ligne, et en combien de temps ?</h3>
+          <p>
+            Il faut être majeur, fournir ses pièces justificatives et signer la convention en
+            ligne ; le délai dépend de l'établissement. Le plan est réellement ouvert à la date du
+            premier versement. Voir le mode d'emploi plus haut dans cette page.
+          </p>
+          <h3>Peut-on retirer de l'argent d'un PEA après {FISCALITE.peaExonerationIRApres} ans sans le fermer ?</h3>
+          <p>
+            Oui : passé ce délai, des retraits partiels sont possibles sans clôturer le plan, et
+            les gains retirés ne supportent plus que les prélèvements sociaux
+            ({pct(FISCALITE.prelevementsSociaux.pea)} en {HYPOTHESES_MAJ}, à vérifier selon la date
+            d'acquisition des gains).
+          </p>
+          <h3>Un PEA peut-il servir à se constituer une rente à la retraite ?</h3>
+          <p>
+            Oui, par conversion du capital en rente viagère après le délai de{" "}
+            {FISCALITE.peaExonerationIRApres} ans. La rente est exonérée d'impôt sur le revenu ;
+            son régime social et les conditions de conversion dépendent de l'établissement, à
+            vérifier avant de choisir cette option. Le capital peut aussi être retiré par étapes.
+          </p>
+          <h3>PEA ou PER : lequel pour préparer sa retraite ?</h3>
+          <p>
+            Le PER offre un avantage fiscal à l'entrée mais bloque l'épargne jusqu'à la retraite ;
+            le PEA est plus souple et son avantage se trouve à la sortie. Tout dépend de votre
+            tranche d'imposition et de votre besoin de liquidité : voir{" "}
+            <a href="/guide/pea-ou-per-pour-la-retraite">PEA ou PER pour la retraite</a>.
+          </p>
+          <h3>Un PEA en ligne est-il sûr ?</h3>
+          <p>
+            Vérifiez que l'établissement est agréé en France ; vos titres sont conservés
+            séparément de son patrimoine. En revanche, le contenu du PEA reste exposé aux marchés
+            actions : le capital n'est pas garanti, quel que soit l'établissement.
+          </p>
           <h3>Peut-on ouvrir un PEA à la fois en banque et chez un courtier en ligne ?</h3>
           <p>
             Non : un même contribuable ne peut détenir qu'un seul PEA (et, le cas échéant, un PEA-PME

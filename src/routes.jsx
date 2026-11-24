@@ -99,9 +99,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/combien-faut-il-epargner-pour-la-retraite",
-    title: "Combien faut-il vraiment épargner pour la retraite ?",
+    title: "Combien épargner pour sa retraite ? Par mois, selon l'âge",
     description:
-      "Taux de remplacement, niveau de vie cible, ordres de grandeur honnêtes selon votre situation : une réponse structurée à la question retraite n°1 — sans chiffre magique.",
+      "Combien épargner par mois pour sa retraite selon l'âge et le revenu ? Tableaux chiffrés, capital cible, effet des frais et de l'inflation.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -110,9 +110,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/per-vs-assurance-vie-retraite",
-    title: "PER ou assurance-vie pour la retraite : le vrai comparatif",
+    title: "PER ou assurance-vie pour la retraite : que choisir ?",
     description:
-      "Fiscalité à l'entrée vs à la sortie, liquidité, succession, cas d'usage : le comparatif structuré PER / assurance-vie pour préparer sa retraite, sans réponse toute faite.",
+      "PER ou assurance-vie selon votre TMI et votre horizon : tableau chiffré, plafond de déduction, profils types et FAQ.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -176,9 +176,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/pea-banque-ou-courtier",
-    title: "PEA : banque ou courtier en ligne ? Frais, fonds maison et vraie diversification",
+    title: "PEA en ligne ou banque : frais comparés et mode d'emploi",
     description:
-      "Droits de garde, frais de courtage, fonds actions maison à 2 % : le même PEA peut coûter dix fois plus cher selon l'établissement. Le comparatif pour choisir — ou transférer.",
+      "PEA en ligne ou en banque : comparatif des frais, mode d'emploi pour ouvrir et alimenter, fiscalité à 18,6 % et rôle pour la retraite.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -407,9 +407,9 @@ export const routesMeta = [
   },
   {
     path: "/guide/meilleure-assurance-vie-retraite",
-    title: "Quelle est la meilleure assurance-vie pour la retraite ? Le comparatif par profil",
+    title: "Assurance-vie pour la retraite : laquelle choisir ?",
     description:
-      "Contrat bancaire, courtier en ligne, gestion conseillée par un CGP : la meilleure assurance-vie n'est pas un nom, c'est un profil. La grille pour choisir selon que vous voulez tout faire seul ou être accompagné.",
+      "Assurance-vie et retraite : constituer, retirer, fiscalité 2026, critères de choix et erreurs à éviter. Comparatif par profil.",
     breadcrumb: [
       ["Accueil", "/"],
       ["Guides", "/guides"],
@@ -568,6 +568,545 @@ export const routesMeta = [
       ["Accueil", "/"],
       ["Guides", "/guides"],
       ["Retraite progressive ou cumul", "/guide/retraite-progressive-ou-cumul-emploi-retraite"],
+    ],
+  },
+  {
+    path: "/guide/combien-retirer-par-mois-capital-retraite",
+    title: "Combien retirer par mois d'un capital retraite ?",
+    description:
+      "Règle des 4 %, taux de retrait, risque de séquence : combien retirer chaque mois d'un capital sans l'épuiser, avec des exemples chiffrés.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Combien retirer par mois d'un capital", "/guide/combien-retirer-par-mois-capital-retraite"],
+    ],
+  },
+  {
+    path: "/guide/capital-necessaire-completer-pension-retraite-65-ans",
+    title: "Retraite à 65 ans : quel capital pour compléter sa pension ?",
+    description:
+      "Écart entre revenu visé et pension, capital nécessaire selon trois méthodes (rente, règle des 4 %, retraits sur 25 ans) : exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Capital pour compléter sa pension", "/guide/capital-necessaire-completer-pension-retraite-65-ans"],
+    ],
+  },
+  {
+    path: "/guide/rente-viagere-calcul-montant-taux-de-conversion",
+    title: "Rente viagère : calcul du montant et taux de conversion",
+    description:
+      "Comment un capital devient une rente : taux de conversion, âge, options de réversion, érosion par l'inflation et exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Rente viagère : calcul du montant", "/guide/rente-viagere-calcul-montant-taux-de-conversion"],
+    ],
+  },
+  {
+    path: "/guide/fiscalite-rente-viagere-titre-onereux",
+    title: "Fiscalité de la rente viagère à titre onéreux",
+    description:
+      "Fraction imposable selon l'âge (70 %, 50 %, 40 %, 30 %), prélèvements sociaux, revenu fiscal de référence : le calcul et un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Fiscalité de la rente viagère", "/guide/fiscalite-rente-viagere-titre-onereux"],
+    ],
+  },
+  {
+    path: "/guide/rachats-programmes-assurance-vie-retraite",
+    title: "Rachats programmés d'assurance-vie : un revenu régulier",
+    description:
+      "Mettre en place des rachats programmés d'assurance-vie à la retraite : fréquence, montant, supports vendus, fiscalité et exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Rachats programmés d'assurance-vie", "/guide/rachats-programmes-assurance-vie-retraite"],
+    ],
+  },
+  {
+    path: "/guide/a-quel-age-recuperer-son-capital-retraite",
+    title: "À quel âge récupérer son capital retraite (PER, AV, PEA) ?",
+    description:
+      "PER, assurance-vie, PEA : à quel moment et comment récupérer son capital, avec le calendrier de chaque enveloppe et les démarches.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["À quel âge récupérer son capital", "/guide/a-quel-age-recuperer-son-capital-retraite"],
+    ],
+  },
+  {
+    path: "/guide/per-ou-assurance-vie-selon-age-et-tmi",
+    title: "PER ou assurance-vie : le choix selon l'âge et la TMI",
+    description:
+      "Selon votre âge et votre tranche d'imposition, quel versement vaut quoi ? Économie d'impôt à l'entrée et fiscalité à la sortie, calculées.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PER ou assurance-vie selon l'âge et la TMI", "/guide/per-ou-assurance-vie-selon-age-et-tmi"],
+    ],
+  },
+  {
+    path: "/guide/combien-epargner-par-mois-pour-la-retraite-selon-age",
+    title: "Combien épargner par mois pour sa retraite selon l'âge ?",
+    description:
+      "Épargne mensuelle à 30, 40 et 50 ans pour viser un complément de 500 à 1 500 € par mois à la retraite : tableau, méthode et hypothèses.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Épargne mensuelle selon l'âge", "/guide/combien-epargner-par-mois-pour-la-retraite-selon-age"],
+    ],
+  },
+  {
+    path: "/guide/pea-en-ligne-comment-choisir-pour-la-retraite",
+    title: "PEA en ligne : comment choisir et l'utiliser pour la retraite",
+    description:
+      "PEA en ligne : critères de choix, frais, ouverture, place du PEA dans la préparation de la retraite. Sans conseil personnalisé.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["PEA en ligne pour la retraite", "/guide/pea-en-ligne-comment-choisir-pour-la-retraite"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-apres-8-ans-fiscalite-et-rente",
+    title: "Assurance-vie après 8 ans : fiscalité, abattement et rente",
+    description:
+      "Après 8 ans : taux de 7,5 %, abattement de 4 600 € ou 9 200 €, prélèvements sociaux, et fiscalité de la rente viagère, avec exemples chiffrés.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Assurance-vie après 8 ans et rente", "/guide/assurance-vie-apres-8-ans-fiscalite-et-rente"],
+    ],
+  },
+  {
+    path: "/guide/capital-retraite-objectif-et-construction",
+    title: "Capital retraite : quel objectif viser et comment le construire",
+    description:
+      "Quel capital pour compléter vos pensions ? Grille capital → revenu mensuel, règle des 4 %, et construction avec PER, assurance-vie et PEA.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Capital retraite : objectif et construction", "/guide/capital-retraite-objectif-et-construction"],
+    ],
+  },
+  {
+    path: "/guide/scpi-preparer-sa-retraite",
+    title: "SCPI et retraite : revenus, frais, risques de liquidité",
+    description:
+      "Taux de distribution, frais, parts en attente de retrait, risques : ce que l'on peut attendre d'une SCPI pour compléter ses revenus de retraite, chiffres de marché 2025 et 2026.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI et retraite", "/guide/scpi-preparer-sa-retraite"],
+    ],
+  },
+  {
+    path: "/guide/scpi-a-credit-ou-comptant",
+    title: "SCPI à crédit ou au comptant : le calcul et les risques",
+    description:
+      "Mensualité, intérêts déductibles, effort d'épargne réel, scénario de baisse du prix de part : comparer l'achat de SCPI à crédit et comptant avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI à crédit ou comptant", "/guide/scpi-a-credit-ou-comptant"],
+    ],
+  },
+  {
+    path: "/guide/scpi-assurance-vie-ou-per",
+    title: "SCPI en direct, en assurance-vie ou dans un PER ?",
+    description:
+      "Fiscalité, frais du contrat, liquidité, transmission : ce qui change quand on détient des SCPI en direct, en unités de compte d'assurance-vie ou via un PER.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI en direct, assurance-vie ou PER", "/guide/scpi-assurance-vie-ou-per"],
+    ],
+  },
+  {
+    path: "/guide/scpi-fiscalite-revenus-plus-values",
+    title: "Fiscalité des SCPI : revenus fonciers, étrangers, plus-values, IFI",
+    description:
+      "Revenus fonciers, revenus de source étrangère, plus-value à la revente, IFI : ce qui se déclare quand on détient des SCPI en direct, avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Fiscalité des SCPI", "/guide/scpi-fiscalite-revenus-plus-values"],
+    ],
+  },
+  {
+    path: "/guide/lmnp-residence-geree-retraite",
+    title: "LMNP en résidence gérée : senior, EHPAD, étudiante",
+    description:
+      "Bail commercial, loyers, fiscalité, questions à poser à l'exploitant : ce que vaut un LMNP en résidence gérée comme revenu de retraite, scénario de baisse de loyer chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["LMNP en résidence gérée", "/guide/lmnp-residence-geree-retraite"],
+    ],
+  },
+  {
+    path: "/guide/lmnp-reforme-amortissement-plus-value",
+    title: "LMNP : amortissement et plus-value à la revente",
+    description:
+      "Réintégration des amortissements dans la plus-value depuis 2025, exceptions, exemple chiffré avant et après, et débat en cours sur l'amortissement en meublé.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["LMNP : amortissement et plus-value", "/guide/lmnp-reforme-amortissement-plus-value"],
+    ],
+  },
+  {
+    path: "/guide/demembrement-nue-propriete-retraite",
+    title: "Démembrement et nue-propriété pour préparer sa retraite",
+    description:
+      "Barème de l'article 669, usufruit temporaire, nue-propriété de SCPI, donation avec réserve d'usufruit : le démembrement expliqué avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Démembrement et nue-propriété", "/guide/demembrement-nue-propriete-retraite"],
+    ],
+  },
+  {
+    path: "/guide/immobilier-a-la-retraite-revenus-transmission",
+    title: "Immobilier à la retraite : revenus, vente et transmission",
+    description:
+      "Loyers et CSG des pensions, plus-value à la vente, viager, donation : que faire de son immobilier une fois à la retraite, avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Immobilier à la retraite", "/guide/immobilier-a-la-retraite-revenus-transmission"],
+    ],
+  },
+  {
+    path: "/guide/estimer-sa-pension-retraite-taux-de-remplacement",
+    title: "Estimer sa pension de retraite et son taux de remplacement",
+    description:
+      "Calculer sa pension : retraite de base, points Agirc-Arrco, taux de remplacement cadre et non-cadre, puis estimation officielle sur info-retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Estimer sa pension", "/guide/estimer-sa-pension-retraite-taux-de-remplacement"],
+    ],
+  },
+  {
+    path: "/guide/age-de-depart-retraite-trimestres-duree-assurance",
+    title: "Âge de départ retraite, trimestres et durée d'assurance",
+    description:
+      "Âge légal par génération, 172 trimestres, taux plein à 67 ans : trimestres cotisés, assimilés et majorations enfants, expliqués simplement.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Âge de départ et trimestres", "/guide/age-de-depart-retraite-trimestres-duree-assurance"],
+    ],
+  },
+  {
+    path: "/guide/preparer-sa-retraite-a-40-ans",
+    title: "Préparer sa retraite à 40 ans : le plan d'action",
+    description:
+      "Relevé de carrière, objectif de revenu, effort d'épargne, PER, PEA, assurance-vie : le plan en six étapes pour préparer sa retraite à 40 ans.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Préparer sa retraite à 40 ans", "/guide/preparer-sa-retraite-a-40-ans"],
+    ],
+  },
+  {
+    path: "/guide/preparer-sa-retraite-a-50-ans",
+    title: "Préparer sa retraite à 50 ans : rattraper et sécuriser",
+    description:
+      "À 50 ans, il reste 10 à 15 ans : bilan des trimestres, rattrapage, prudence progressive et anticipation de la décumulation. Repères et limites.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Préparer sa retraite à 50 ans", "/guide/preparer-sa-retraite-a-50-ans"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans",
+    title: "Assurance-vie à 55 ans : fonds euros ou UC ?",
+    description:
+      "Garantie du capital, risque de perte, horizon de 30 ans, gestion pilotée, frais, fiscalité : raisonner par poche d'épargne avant la retraite.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Assurance-vie à 55 ans : fonds euros ou UC", "/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans"],
+    ],
+  },
+  {
+    path: "/guide/completer-sa-retraite-sans-per",
+    title: "Compléter sa retraite sans PER : les alternatives",
+    description:
+      "AV, PEA, CTO, immobilier, épargne salariale, cumul, surcote : comparer liquidité, fiscalité de sortie et succession, sans écarter le PER.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Compléter sa retraite sans PER", "/guide/completer-sa-retraite-sans-per"],
+    ],
+  },
+  {
+    path: "/guide/epargne-retraite-en-couple-et-transmission",
+    title: "Épargne retraite en couple et transmission : guide",
+    description:
+      "Deux retraites, deux TMI : répartir PER et assurance-vie entre conjoints, clause bénéficiaire, réversion et donation. Repères et limites, cas par cas.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Épargne retraite en couple", "/guide/epargne-retraite-en-couple-et-transmission"],
+    ],
+  },
+  {
+    path: "/guide/retraite-cadre-ou-fonctionnaire-comparaison",
+    title: "Retraite de cadre ou de fonctionnaire : le calcul comparé",
+    description:
+      "Points Agirc-Arrco ou pension sur 6 mois de traitement indiciaire ? Formules, taux de remplacement illustré et impact sur l'épargne complémentaire.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Cadre ou fonctionnaire : le calcul comparé", "/guide/retraite-cadre-ou-fonctionnaire-comparaison"],
+    ],
+  },
+  {
+    path: "/guide/preparer-sa-retraite-guide-complet",
+    title: "Préparer sa retraite : le guide complet",
+    description:
+      "Droits, estimation, objectif, enveloppes, épargne, décaissement, transmission : les 7 étapes pour préparer sa retraite, avec tous nos guides.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Préparer sa retraite : le guide complet", "/guide/preparer-sa-retraite-guide-complet"],
+    ],
+  },
+  {
+    path: "/guide/immobilier-et-retraite-guide-complet",
+    title: "Immobilier et retraite : le guide complet",
+    description:
+      "Location directe, LMNP, SCPI, démembrement, crédit, fiscalité, risques, revenus à la retraite : la carte complète pour investir en immobilier.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Immobilier et retraite : le guide complet", "/guide/immobilier-et-retraite-guide-complet"],
+    ],
+  },
+  {
+    path: "/guide/ouvrir-un-per-etapes-documents-delais",
+    title: "Ouvrir un PER : étapes, documents, délais, frais",
+    description:
+      "Ouvrir un PER en ligne, à 60 ans ou à la retraite : conditions, pièces à fournir, délais, frais d'entrée, PER assurantiel ou compte-titres.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Ouvrir un PER", "/guide/ouvrir-un-per-etapes-documents-delais"],
+    ],
+  },
+  {
+    path: "/guide/transferer-son-per-frais-demarche",
+    title: "Transférer son PER : frais, délais, démarche",
+    description:
+      "Transférer un PER ou un PERP, Madelin, article 83, PERCO vers un PER : démarche, frais plafonnés, délais, ce qui est conservé ou perdu.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer son PER", "/guide/transferer-son-per-frais-demarche"],
+    ],
+  },
+  {
+    path: "/guide/declarer-versements-per-impots-case-6ns",
+    title: "Déclarer ses versements PER aux impôts (case 6NS)",
+    description:
+      "Où déclarer ses versements PER, lire son plafond sur l'avis d'impôt, versements d'employeur, non-déduction, pièces à conserver.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Déclarer ses versements PER", "/guide/declarer-versements-per-impots-case-6ns"],
+    ],
+  },
+  {
+    path: "/guide/liquider-son-per-a-la-retraite-demarche",
+    title: "Liquider son PER à la retraite : démarche",
+    description:
+      "Liquider son PER : demande, documents, capital, rente, mixte ou fractionné, fiscalité selon les versements, délais et pièges.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Liquider son PER", "/guide/liquider-son-per-a-la-retraite-demarche"],
+    ],
+  },
+  {
+    path: "/guide/comment-ouvrir-une-assurance-vie-etapes",
+    title: "Comment ouvrir une assurance-vie : étapes, documents, frais",
+    description:
+      "Conditions, documents, versement minimum, frais à comparer, clause bénéficiaire et renonciation de 30 jours : la démarche pas à pas.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Ouvrir une assurance-vie", "/guide/comment-ouvrir-une-assurance-vie-etapes"],
+    ],
+  },
+  {
+    path: "/guide/transferer-assurance-vie-sans-perdre-anteriorite",
+    title: "Transférer son assurance-vie sans perdre l'antériorité ?",
+    description:
+      "Changer d'assureur fait perdre l'antériorité fiscale : ce qui reste possible chez le même assureur, alternatives et coût chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer son assurance-vie", "/guide/transferer-assurance-vie-sans-perdre-anteriorite"],
+    ],
+  },
+  {
+    path: "/guide/clause-beneficiaire-assurance-vie-comment-la-rediger",
+    title: "Clause bénéficiaire d'assurance-vie : comment la rédiger",
+    description:
+      "Clause standard, nominative ou démembrée, ordre, mineur, acceptation et fiscalité 990 I / 757 B : comment rédiger la vôtre.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Clause bénéficiaire", "/guide/clause-beneficiaire-assurance-vie-comment-la-rediger"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-garantie-repartir-plusieurs-contrats",
+    title: "Assurance-vie : garantie et répartition entre contrats",
+    description:
+      "Garantie des assurances de personnes (FGAP), différence avec la garantie des dépôts, exemple de 100 000 € à répartir.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Garantie et répartition entre contrats", "/guide/assurance-vie-garantie-repartir-plusieurs-contrats"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-a-60-ans-ou-a-la-retraite",
+    title: "Assurance-vie à 60 ans : ouvrir, garder ou racheter ?",
+    description:
+      "Ouvrir, garder, racheter ou alimenter une assurance-vie à 60 ans : horizon, fiscalité avant et après 8 ans, transmission, frais et démarche.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Assurance-vie à 60 ans", "/guide/assurance-vie-a-60-ans-ou-a-la-retraite"],
+    ],
+  },
+  {
+    path: "/guide/assurance-vie-apres-70-ans-fiscalite-succession",
+    title: "Assurance-vie après 70 ans : fiscalité et succession (757 B)",
+    description:
+      "Primes versées après 70 ans : abattement global de 30 500 €, intérêts exonérés, clause bénéficiaire, déclaration et exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Assurance-vie après 70 ans", "/guide/assurance-vie-apres-70-ans-fiscalite-succession"],
+    ],
+  },
+  {
+    path: "/guide/declarer-rachat-assurance-vie-sortie-per",
+    title: "Déclarer un rachat d'assurance-vie ou une sortie de PER",
+    description:
+      "IFU, acompte, option pour le barème, cases de report, pièces à conserver : déclarer un rachat d'assurance-vie ou une sortie de PER, avec exemples.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Déclarer un rachat ou une sortie de PER", "/guide/declarer-rachat-assurance-vie-sortie-per"],
+    ],
+  },
+  {
+    path: "/guide/investir-100000-euros-pour-la-retraite",
+    title: "Investir 100 000 € pour la retraite : démarche selon l'âge",
+    description:
+      "Fonds de sécurité, horizon, TMI, répartition PER, assurance-vie, PEA et immobilier : méthode en 7 étapes et 3 profils chiffrés, sans promesse.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Investir 100 000 € pour la retraite", "/guide/investir-100000-euros-pour-la-retraite"],
+    ],
+  },
+  {
+    path: "/guide/transferer-son-pea-procedure-frais",
+    title: "Transférer son PEA : procédure, délais et frais à comparer",
+    description:
+      "Transférer son PEA sans le clôturer ni perdre son ancienneté : étapes, documents, frais de transfert plafonnés et calcul pour savoir si ça vaut le coup.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transférer son PEA", "/guide/transferer-son-pea-procedure-frais"],
+    ],
+  },
+  {
+    path: "/guide/sortir-du-pea-a-la-retraite-retrait-rente",
+    title: "Sortir du PEA à la retraite : retraits, rente et fiscalité",
+    description:
+      "Retraits partiels après 5 ans sans clôture, rente viagère, retrait avant 5 ans : procédure, fiscalité et deux cas chiffrés pour le PEA.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Sortir du PEA à la retraite", "/guide/sortir-du-pea-a-la-retraite-retrait-rente"],
+    ],
+  },
+  {
+    path: "/guide/scpi-ou-lmnp-pour-completer-sa-retraite",
+    title: "SCPI ou LMNP pour compléter sa retraite : comment choisir ?",
+    description:
+      "Gestion, ticket, liquidité, fiscalité et risques : comparatif décisionnel SCPI ou LMNP en résidence gérée, avec un exemple chiffré sans promesse.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["SCPI ou LMNP", "/guide/scpi-ou-lmnp-pour-completer-sa-retraite"],
+    ],
+  },
+  {
+    path: "/guide/comment-choisir-une-scpi-checklist",
+    title: "Comment choisir une SCPI : la check-list avant de souscrire",
+    description:
+      "Pas de meilleure SCPI, mais une méthode : DIC, SRI, taux de distribution et TOF, frais, endettement, liquidité. Check-list et exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Choisir une SCPI", "/guide/comment-choisir-une-scpi-checklist"],
+    ],
+  },
+  {
+    path: "/guide/revenus-locatifs-et-retraite-cumul-impots-cotisations",
+    title: "Revenus locatifs et retraite : cumul, impôts, cotisations",
+    description:
+      "Peut-on cumuler pension et loyers ? Impôts, prélèvements sociaux, effet sur le revenu fiscal de référence : un cas chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Revenus locatifs et retraite", "/guide/revenus-locatifs-et-retraite-cumul-impots-cotisations"],
+    ],
+  },
+  {
+    path: "/guide/demande-de-retraite-demarches-calendrier",
+    title: "Demande de retraite : démarches et calendrier mois par mois",
+    description:
+      "Quand déposer sa demande de retraite, quels documents, date d'effet et premier versement : le calendrier mois par mois avant le départ.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Demande de retraite", "/guide/demande-de-retraite-demarches-calendrier"],
+    ],
+  },
+  {
+    path: "/guide/retraite-anticipee-carriere-longue-conditions",
+    title: "Retraite anticipée carrière longue : conditions et démarche",
+    description:
+      "Début d'activité, trimestres cotisés, attestation, pièges : les conditions de la retraite anticipée pour carrière longue, et son effet sur l'épargne.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Carrière longue", "/guide/retraite-anticipee-carriere-longue-conditions"],
+    ],
+  },
+  {
+    path: "/guide/pension-de-reversion-conditions-demarche",
+    title: "Pension de réversion : conditions, plafond et démarche",
+    description:
+      "Qui y a droit, quel taux, quel plafond de ressources, quels documents : la pension de réversion expliquée, avec un exemple chiffré.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Pension de réversion", "/guide/pension-de-reversion-conditions-demarche"],
     ],
   },
   {

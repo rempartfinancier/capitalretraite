@@ -1,5 +1,5 @@
 import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
-import { RENDEMENTS, FISCALITE, FRAIS_TYPES, pct } from "../components/hypotheses.js";
+import { RENDEMENTS, FISCALITE, FRAIS_TYPES, IMMO, pct } from "../components/hypotheses.js";
 
 export default function StrategieImmobilier() {
   return (
@@ -50,12 +50,23 @@ export default function StrategieImmobilier() {
           </p>
           <p>
             Côté chiffres : le taux de distribution (le revenu annuel versé, rapporté au prix de la
-            part) moyen des SCPI s'est établi à {pct(RENDEMENTS.scpi.moyen)} en{" "}
-            {RENDEMENTS.scpi.periode}, la plupart des véhicules se situant entre{" "}
-            {pct(RENDEMENTS.scpi.min)} et {pct(RENDEMENTS.scpi.max)} (source : ASPIM/IEIF). Ce
+            part) moyen des SCPI s'est établi à {pct(IMMO.scpiMarche.tauxDistribution2025)} en 2025
+            (ASPIM/IEIF), les moyennes par stratégie allant de{" "}
+            {pct(IMMO.scpiMarche.tauxDistributionStrategieMin)} à{" "}
+            {pct(IMMO.scpiMarche.tauxDistributionStrategieMax)}. Ce
             constat passé ne préjuge en rien des distributions futures : ni le revenu ni le
             capital ne sont garantis, le prix des parts peut baisser — parfois fortement —, et la
             revente des parts n'est jamais assurée à tout moment (liquidité limitée).
+          </p>
+          <p>
+            Pour le fonctionnement, les frais et les risques de liquidité, notre guide{" "}
+            <a href="/guide/scpi-preparer-sa-retraite">SCPI et retraite</a> reprend les chiffres
+            de marché 2025 et 2026 ; deux pages détaillent les choix qui pèsent le plus :{" "}
+            <a href="/guide/scpi-a-credit-ou-comptant">SCPI à crédit ou au comptant</a> et{" "}
+            <a href="/guide/scpi-assurance-vie-ou-per">SCPI en direct, en assurance-vie ou dans un PER</a>
+            , sans oublier{" "}
+            <a href="/guide/scpi-fiscalite-revenus-plus-values">la fiscalité des SCPI</a> (revenus
+            fonciers, revenus étrangers, plus-values, IFI).
           </p>
           <p>
             Nous ne développons pas ici l'analyse détaillée des SCPI : pour comparer les véhicules
@@ -91,7 +102,7 @@ export default function StrategieImmobilier() {
           </p>
           <p>
             La location meublée non professionnelle permet, via le régime réel et l'amortissement
-            du bien, de percevoir des loyers dont la part imposable est durablement réduite. En
+            du bien, de percevoir des loyers dont la part imposable est réduite pendant la détention, au prix d'une réintégration possible à la revente. En
             contrepartie : une gestion plus active qu'une SCPI, une comptabilité dédiée, et une
             dépendance au marché locatif local. Pour un futur retraité, la vraie question est
             souvent : « ai-je envie de gérer un bien à 70 ans ? »
@@ -112,7 +123,13 @@ export default function StrategieImmobilier() {
             <a href="/guide/lmnp-risques">les risques du LMNP</a> détaille chacun de ces points
             au-delà de l'argument de vente habituel, et{" "}
             <a href="/guide/lmnp-ou-locatif-nu">LMNP ou locatif nu</a> compare les deux régimes si
-            vous hésitez encore sur le montage à privilégier.
+            vous hésitez encore sur le montage à privilégier. Deux pages complètent le sujet :{" "}
+            <a href="/guide/lmnp-residence-geree-retraite">le LMNP en résidence gérée</a>{" "}
+            (senior, EHPAD, étudiante) et{" "}
+            <a href="/guide/lmnp-reforme-amortissement-plus-value">
+              l'amortissement et la plus-value à la revente
+            </a>
+            .
           </p>
           <p>
             Côté rendement, la location meublée dégage un rendement locatif brut généralement
@@ -168,7 +185,7 @@ export default function StrategieImmobilier() {
             </a>{" "}
             revient en détail sur ces fausses boussoles. À titre d'illustration : un bien payé
             comptant qui affiche 5 % bruts peut, une fois déduits taxe foncière, charges, entretien
-            et impôts, ne laisser que 2 à 3 % nets — ordre de grandeur constaté en cabinet, variable
+            et impôts, ne laisser que 2 à 3 % nets — ordre de grandeur purement illustratif, variable
             selon les villes et les situations ; notre guide{" "}
             <a href="/guide/combien-coute-un-investissement-locatif">
               combien coûte réellement un investissement locatif
@@ -224,8 +241,9 @@ export default function StrategieImmobilier() {
               <tr>
                 <td>Rendement indicatif (brut, non garanti)</td>
                 <td>
-                  {pct(RENDEMENTS.scpi.min)} à {pct(RENDEMENTS.scpi.max)} de taux de distribution
-                  en {RENDEMENTS.scpi.periode} (ASPIM/IEIF)
+                  {pct(IMMO.scpiMarche.tauxDistributionStrategieMin)} à{" "}
+                  {pct(IMMO.scpiMarche.tauxDistributionStrategieMax)} de taux de distribution
+                  selon les stratégies, 2025 (ASPIM/IEIF)
                 </td>
                 <td>
                   {pct(RENDEMENTS.lmnp.min)} à {pct(RENDEMENTS.lmnp.max)} bruts selon les villes
@@ -280,14 +298,19 @@ export default function StrategieImmobilier() {
           <p>
             À l'inverse, acheter la nue-propriété (d'un bien ou de parts de SCPI) permet de se
             constituer un capital à prix réduit, qui se reconstitue en pleine propriété à
-            l'échéance — sans revenus pendant la période, donc sans fiscalité. Une brique
+            l'échéance — sans revenus pendant la période, donc sans fiscalité sur ces revenus. Le capital n'est pas garanti (le prix des parts peut baisser) et la revente avant l'échéance est difficile. Une brique
             pertinente pour qui n'a pas besoin de revenus immédiats et pense déjà à la transmission.
             Notre guide{" "}
             <a href="/guide/per-ou-immobilier-locatif">
               PER ou immobilier locatif pour transmettre
             </a>{" "}
             compare cette logique à l'abattement successoral du PER assurantiel, pour ceux qui
-            hésitent entre les deux leviers de protection familiale.
+            hésitent entre les deux leviers de protection familiale, et{" "}
+            <a href="/guide/demembrement-nue-propriete-retraite">
+              démembrement et nue-propriété
+            </a>{" "}
+            détaille le barème fiscal, l'usufruit temporaire et la donation avec réserve
+            d'usufruit.
           </p>
 
           <h2>Ce que l'immobilier ne fait pas</h2>
@@ -304,12 +327,27 @@ export default function StrategieImmobilier() {
           </div>
 
           <p>
+            Une fois à la retraite, la question change encore : garder, déléguer, vendre ou
+            transmettre. Notre guide{" "}
+            <a href="/guide/immobilier-a-la-retraite-revenus-transmission">
+              immobilier à la retraite : revenus, vente et transmission
+            </a>{" "}
+            traite l'effet des loyers sur la CSG des pensions, la plus-value et les options de
+            transmission.
+          </p>
+
+          <p>
             Enfin, posséder de la pierre n'est que la moitié du chemin : vendre, démembrer ou
             convertir l'immobilier en revenus réguliers au moment voulu est un arbitrage à part
             entière — nous le détaillons dans notre page consacrée à{" "}
             <a href="/strategies/decumulation">la décumulation</a> (l'organisation des retraits et
             de la consommation du patrimoine à la retraite).
           </p>
+
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/immobilier-et-retraite-guide-complet">Immobilier et retraite : le guide complet</a></li>
+          </ul>
 
           <AuthorBox />
           <RiskNotice />

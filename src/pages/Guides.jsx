@@ -10,6 +10,31 @@ const categories = [
     name: "Vue d'ensemble",
     items: [
       {
+        to: "/guide/preparer-sa-retraite-guide-complet",
+        title: "Préparer sa retraite : le guide complet",
+        text: "Sept étapes, de vos droits à la transmission, avec tous les guides par étape.",
+      },
+      {
+        to: "/guide/estimer-sa-pension-retraite-taux-de-remplacement",
+        title: "Estimer sa pension de retraite et son taux de remplacement",
+        text: "Retraite de base, points Agirc-Arrco, taux de remplacement : la méthode pour estimer sa pension.",
+      },
+      {
+        to: "/guide/preparer-sa-retraite-a-40-ans",
+        title: "Préparer sa retraite à 40 ans : le plan d'action",
+        text: "Un plan d'action en six étapes pour préparer sa retraite à 40 ans, de la lecture du relevé de carrière au choix des enveloppes.",
+      },
+      {
+        to: "/guide/preparer-sa-retraite-a-50-ans",
+        title: "Préparer sa retraite à 50 ans : rattraper et sécuriser",
+        text: "Bilan des trimestres, rattrapage et sécurisation progressive : que faire à 50 ans avec 14 ans devant soi.",
+      },
+      {
+        to: "/guide/epargne-retraite-en-couple-et-transmission",
+        title: "Épargne retraite en couple et transmission",
+        text: "Répartir PER et assurance-vie à deux, clause bénéficiaire, réversion et transmission.",
+      },
+      {
         to: "/guide/meilleure-enveloppe-retraite",
         title: "Quelle est la meilleure enveloppe pour préparer sa retraite ?",
         text: "Notre classement par objectif — consommer, transmettre, garder la main — plutôt qu'un vainqueur unique.",
@@ -29,12 +54,32 @@ const categories = [
         title: "Faut-il un conseiller en gestion de patrimoine, ou peut-on tout gérer seul ?",
         text: "Ce qu'on peut vraiment faire seul aujourd'hui, et ce qui devient difficile sans accompagnement.",
       },
+      {
+        to: "/guide/combien-epargner-par-mois-pour-la-retraite-selon-age",
+        title: "Combien épargner par mois pour sa retraite selon l'âge ?",
+        text: "Le tableau de l'épargne mensuelle à 30, 40 et 50 ans, selon le complément visé et le rendement supposé.",
+      },
+      {
+        to: "/guide/capital-retraite-objectif-et-construction",
+        title: "Capital retraite : quel objectif viser et comment le construire",
+        text: "De l'objectif de revenu au capital à réunir : la grille de lecture et les enveloppes pour le construire.",
+      },
+      {
+        to: "/guide/investir-100000-euros-pour-la-retraite",
+        title: "Investir 100 000 € pour la retraite : démarche selon l'âge",
+        text: "Sept étapes et trois profils composites (45, 55, 62 ans) pour répartir 100 000 € entre PER, AV, PEA et immobilier.",
+      },
     ],
   },
   {
     id: "comparatifs",
     name: "Comparatifs entre enveloppes",
     items: [
+      {
+        to: "/guide/completer-sa-retraite-sans-per",
+        title: "Compléter sa retraite sans PER : les alternatives",
+        text: "AV, PEA, immobilier, épargne salariale, surcote : un comparatif qualitatif des alternatives au PER.",
+      },
       {
         to: "/guide/per-vs-assurance-vie-retraite",
         title: "PER ou assurance-vie pour la retraite : le vrai comparatif",
@@ -74,6 +119,11 @@ const categories = [
         to: "/guide/donation-ou-assurance-vie-transmission",
         title: "Donation ou assurance-vie : comment transmettre à ses enfants ?",
         text: "Deux logiques de transmission différentes, souvent complémentaires plutôt que concurrentes.",
+      },
+      {
+        to: "/guide/per-ou-assurance-vie-selon-age-et-tmi",
+        title: "PER ou assurance-vie : le choix selon l'âge et la TMI",
+        text: "Âge, tranche marginale, horizon : l'économie d'impôt du PER comparée à la fiscalité de l'assurance-vie, chiffres à l'appui.",
       },
     ],
   },
@@ -121,12 +171,37 @@ const categories = [
         title: "À quel âge ouvrir un PER ?",
         text: "Le plus tôt possible — mais pas pour tout le monde. Pourquoi il n'est pas trop tard à 50 ans.",
       },
+      {
+        to: "/guide/ouvrir-un-per-etapes-documents-delais",
+        title: "Ouvrir un PER : étapes, documents, délais, frais",
+        text: "Ouvrir un PER : conditions, pièces, délais et frais, du formulaire en ligne au premier versement.",
+      },
+      {
+        to: "/guide/transferer-son-per-frais-demarche",
+        title: "Transférer son PER : frais, délais, démarche",
+        text: "Changer de PER sans le casser : frais plafonnés, délais, ce qui est conservé, PERP et Madelin inclus.",
+      },
+      {
+        to: "/guide/declarer-versements-per-impots-case-6ns",
+        title: "Déclarer ses versements PER aux impôts (case 6NS)",
+        text: "Reporter ses versements PER dans la bonne case, lire son plafond et conserver les justificatifs.",
+      },
+      {
+        to: "/guide/liquider-son-per-a-la-retraite-demarche",
+        title: "Liquider son PER à la retraite : démarche",
+        text: "Sortir de son PER à la retraite : demande, options de sortie et impôt selon l'origine des versements.",
+      },
     ],
   },
   {
     id: "assurance-vie",
     name: "Assurance-vie",
     items: [
+      {
+        to: "/guide/assurance-vie-fonds-euros-ou-uc-a-55-ans",
+        title: "Assurance-vie à 55 ans : fonds euros ou UC ?",
+        text: "À 55 ans, raisonner par horizon plutôt que de choisir entre fonds euros et UC.",
+      },
       {
         to: "/guide/pourquoi-votre-assurance-vie-rapporte-peu",
         title: "Pourquoi votre assurance-vie rapporte si peu",
@@ -152,6 +227,46 @@ const categories = [
         title: "Assurance-vie luxembourgeoise : pour qui ?",
         text: "Triangle de sécurité, neutralité fiscale : ce que ça change vraiment, et pour quels patrimoines.",
       },
+      {
+        to: "/guide/assurance-vie-apres-8-ans-fiscalite-et-rente",
+        title: "Assurance-vie après 8 ans : fiscalité, abattement et rente",
+        text: "Ce qui change au 8e anniversaire et comment la rente viagère est imposée, avec des exemples chiffrés.",
+      },
+      {
+        to: "/guide/comment-ouvrir-une-assurance-vie-etapes",
+        title: "Comment ouvrir une assurance-vie : étapes, documents, frais",
+        text: "Les étapes d'une souscription : documents, frais, clause, renonciation.",
+      },
+      {
+        to: "/guide/transferer-assurance-vie-sans-perdre-anteriorite",
+        title: "Transférer son assurance-vie sans perdre l'antériorité ?",
+        text: "Peut-on changer d'assureur sans perdre l'antériorité ? Coût et alternatives.",
+      },
+      {
+        to: "/guide/clause-beneficiaire-assurance-vie-comment-la-rediger",
+        title: "Clause bénéficiaire d'assurance-vie : comment la rédiger",
+        text: "Rédiger sa clause : types, ordre, mineur, fiscalité du capital transmis.",
+      },
+      {
+        to: "/guide/assurance-vie-garantie-repartir-plusieurs-contrats",
+        title: "Assurance-vie : garantie et répartition entre contrats",
+        text: "FGAP, garantie des dépôts, répartir 100 000 € entre contrats : l'essentiel.",
+      },
+      {
+        to: "/guide/assurance-vie-a-60-ans-ou-a-la-retraite",
+        title: "Assurance-vie à 60 ans : ouvrir, garder ou racheter ?",
+        text: "Ouvrir, garder, racheter ou alimenter : la décision et la démarche à 60 ans, avec un exemple chiffré avant et après 8 ans.",
+      },
+      {
+        to: "/guide/assurance-vie-apres-70-ans-fiscalite-succession",
+        title: "Assurance-vie après 70 ans : fiscalité et succession (757 B)",
+        text: "Article 757 B, abattement global, intérêts exonérés et déclaration : ce qui change après 70 ans, exemple calculé.",
+      },
+      {
+        to: "/guide/declarer-rachat-assurance-vie-sortie-per",
+        title: "Déclarer un rachat d'assurance-vie ou une sortie de PER",
+        text: "IFU, acompte, option barème, cases de report : la marche à suivre pour déclarer un rachat d'assurance-vie ou un PER.",
+      },
     ],
   },
   {
@@ -168,12 +283,32 @@ const categories = [
         title: "Les inconvénients du PEA",
         text: "Plafond, rigidité, succession : pourquoi il reste central dans une stratégie retraite malgré tout.",
       },
+      {
+        to: "/guide/pea-en-ligne-comment-choisir-pour-la-retraite",
+        title: "PEA en ligne : comment choisir et l'utiliser pour la retraite",
+        text: "Critères de choix, frais à comparer, étapes d'ouverture et rôle du PEA pour préparer la retraite.",
+      },
+      {
+        to: "/guide/transferer-son-pea-procedure-frais",
+        title: "Transférer son PEA : procédure, délais et frais à comparer",
+        text: "PEA : comment changer d'établissement sans perdre l'ancienneté, avec les frais et un calcul.",
+      },
+      {
+        to: "/guide/sortir-du-pea-a-la-retraite-retrait-rente",
+        title: "Sortir du PEA à la retraite : retraits, rente et fiscalité",
+        text: "Retirer du PEA ou le convertir en rente : procédure, fiscalité et cas chiffrés.",
+      },
     ],
   },
   {
     id: "immobilier",
     name: "Immobilier",
     items: [
+      {
+        to: "/guide/immobilier-et-retraite-guide-complet",
+        title: "Immobilier et retraite : le guide complet",
+        text: "Véhicule, financement, fiscalité, risques et retraite : le cluster immobilier en une carte.",
+      },
       {
         to: "/guide/lmnp-risques",
         title: "LMNP : les risques que l'on vous cache",
@@ -193,6 +328,61 @@ const categories = [
         to: "/guide/cinq-erreurs-investissement-locatif-retraite",
         title: "Les 5 erreurs les plus coûteuses de l'investissement locatif retraite",
         text: "Les fausses boussoles qui plombent un projet immobilier — et comment les éviter.",
+      },
+      {
+        to: "/guide/scpi-preparer-sa-retraite",
+        title: "SCPI et retraite : revenus, frais et risques de liquidité",
+        text: "Taux de distribution 2025, parts en attente de retrait, huit questions à poser avant de souscrire.",
+      },
+      {
+        to: "/guide/scpi-a-credit-ou-comptant",
+        title: "SCPI à crédit ou au comptant : le calcul et les risques",
+        text: "Mensualité, intérêts déductibles, effort réel et scénario de baisse du prix de part.",
+      },
+      {
+        to: "/guide/scpi-assurance-vie-ou-per",
+        title: "SCPI en direct, en assurance-vie ou dans un PER ?",
+        text: "Fiscalité, frais du contrat, liquidité et transmission selon l'enveloppe qui détient les parts.",
+      },
+      {
+        to: "/guide/scpi-fiscalite-revenus-plus-values",
+        title: "Fiscalité des SCPI : revenus, plus-values et IFI",
+        text: "Revenus fonciers, revenus étrangers, plus-value à la revente : ce qui se déclare, exemple chiffré.",
+      },
+      {
+        to: "/guide/lmnp-residence-geree-retraite",
+        title: "LMNP en résidence gérée : senior, EHPAD, étudiante",
+        text: "Bail commercial, loyers, exploitant : ce que vaut ce revenu pour la retraite.",
+      },
+      {
+        to: "/guide/lmnp-reforme-amortissement-plus-value",
+        title: "LMNP : l'amortissement réintégré dans la plus-value",
+        text: "Ce que change la loi de finances 2025 à la revente, exceptions et exemple avant/après.",
+      },
+      {
+        to: "/guide/demembrement-nue-propriete-retraite",
+        title: "Démembrement et nue-propriété pour préparer sa retraite",
+        text: "Barème de l'usufruit, usufruit temporaire, donation avec réserve d'usufruit.",
+      },
+      {
+        to: "/guide/immobilier-a-la-retraite-revenus-transmission",
+        title: "Immobilier à la retraite : revenus, vente et transmission",
+        text: "Loyers et CSG des pensions, plus-value, viager, donation : garder, déléguer, vendre ou transmettre.",
+      },
+      {
+        to: "/guide/scpi-ou-lmnp-pour-completer-sa-retraite",
+        title: "SCPI ou LMNP pour compléter sa retraite : comment choisir ?",
+        text: "SCPI ou LMNP : les critères pour décider, risques et fiscalité, exemple chiffré.",
+      },
+      {
+        to: "/guide/comment-choisir-une-scpi-checklist",
+        title: "Comment choisir une SCPI : la check-list avant de souscrire",
+        text: "La check-list en dix points pour juger une SCPI avant de souscrire, sans classement.",
+      },
+      {
+        to: "/guide/revenus-locatifs-et-retraite-cumul-impots-cotisations",
+        title: "Revenus locatifs et retraite : cumul, impôts, cotisations",
+        text: "Loyers et pension : aucun plafond de cumul, mais impôts et prélèvements sociaux. Cas chiffré.",
       },
     ],
   },
@@ -220,12 +410,47 @@ const categories = [
         title: "Rachat partiel d'assurance-vie : comment est-il imposé ?",
         text: "Part de gains, avant et après 8 ans, abattement, prélèvements sociaux : la formule et trois cas chiffrés.",
       },
+      {
+        to: "/guide/combien-retirer-par-mois-capital-retraite",
+        title: "Combien retirer par mois d'un capital retraite ?",
+        text: "Règle des 4 %, taux de retrait et risque de séquence : un rythme de retrait se teste, il ne se décrète pas.",
+      },
+      {
+        to: "/guide/capital-necessaire-completer-pension-retraite-65-ans",
+        title: "Retraite à 65 ans : quel capital pour compléter sa pension ?",
+        text: "De l'écart de revenu au capital à constituer : trois méthodes de calcul comparées sur un même exemple.",
+      },
+      {
+        to: "/guide/rente-viagere-calcul-montant-taux-de-conversion",
+        title: "Rente viagère : comment calcule-t-on le montant ?",
+        text: "Taux de conversion, âge, options, inflation : ce qui détermine la rente et comment comparer deux offres.",
+      },
+      {
+        to: "/guide/fiscalite-rente-viagere-titre-onereux",
+        title: "Fiscalité de la rente viagère à titre onéreux : quelle fraction est imposée ?",
+        text: "La fraction imposable dépend de l'âge au premier versement : barème, prélèvements sociaux et exemple chiffré.",
+      },
+      {
+        to: "/guide/rachats-programmes-assurance-vie-retraite",
+        title: "Rachats programmés d'assurance-vie : se verser un revenu régulier",
+        text: "Fréquence, montant, supports vendus, fiscalité : comment mettre en place et piloter des rachats programmés.",
+      },
+      {
+        to: "/guide/a-quel-age-recuperer-son-capital-retraite",
+        title: "À quel âge peut-on récupérer son capital retraite ?",
+        text: "Calendrier par enveloppe (PER, assurance-vie, PEA) et démarches : quand et comment sortir son capital.",
+      },
     ],
   },
   {
     id: "mecanique-retraite",
     name: "Comprendre le système de retraite",
     items: [
+      {
+        to: "/guide/age-de-depart-retraite-trimestres-duree-assurance",
+        title: "Âge de départ retraite, trimestres et durée d'assurance",
+        text: "Âge légal, durée d'assurance, trimestres comptés : les repères pour dater son départ.",
+      },
       {
         to: "/guide/retraite-complementaire-agirc-arrco-cadres-calcul",
         title: "Retraite Agirc-Arrco des cadres : comment est-elle calculée ?",
@@ -256,12 +481,32 @@ const categories = [
         title: "Surcote ou décote : comment ça se calcule ?",
         text: "1,25 % par trimestre, dans un sens ou dans l'autre — un mécanisme à anticiper, pas à subir.",
       },
+      {
+        to: "/guide/demande-de-retraite-demarches-calendrier",
+        title: "Demande de retraite : démarches et calendrier mois par mois",
+        text: "Quand déposer sa demande de retraite, quels documents, premier versement : le calendrier mois par mois.",
+      },
+      {
+        to: "/guide/retraite-anticipee-carriere-longue-conditions",
+        title: "Retraite anticipée carrière longue : conditions et démarche",
+        text: "Carrière longue : conditions de début d'activité, attestation, pièges et effet sur l'épargne à constituer.",
+      },
+      {
+        to: "/guide/pension-de-reversion-conditions-demarche",
+        title: "Pension de réversion : conditions, plafond et démarche",
+        text: "Pension de réversion : qui y a droit, taux, plafond de ressources, démarche et exemple chiffré.",
+      },
     ],
   },
   {
     id: "profils-specifiques",
     name: "Profils spécifiques",
     items: [
+      {
+        to: "/guide/retraite-cadre-ou-fonctionnaire-comparaison",
+        title: "Retraite de cadre ou de fonctionnaire : le calcul comparé",
+        text: "Deux logiques de calcul comparées, avec un exemple chiffré et le besoin d'épargne qui en découle.",
+      },
       {
         to: "/guide/retraite-independants-per-ou-madelin",
         title: "Retraite des indépendants : PER ou contrat Madelin ?",

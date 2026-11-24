@@ -414,6 +414,12 @@ export default function GuideRetraiteFonctionnaires() {
               d'épargne adaptée.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/retraite-cadre-ou-fonctionnaire-comparaison">Retraite de cadre ou de fonctionnaire : le calcul comparé</a></li>
+            <li><a href="/guide/estimer-sa-pension-retraite-taux-de-remplacement">Estimer sa pension de retraite et son taux de remplacement</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

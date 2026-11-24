@@ -417,6 +417,12 @@ export default function GuideVerifierReleveCarriere() {
               révisées en {HYPOTHESES_MAJ} et susceptibles d'évoluer par la loi.
             </p>
           </div>
+          <h2 id="lire-aussi">Pour aller plus loin</h2>
+          <ul>
+            <li><a href="/guide/estimer-sa-pension-retraite-taux-de-remplacement">Estimer sa pension de retraite et son taux de remplacement</a></li>
+            <li><a href="/guide/age-de-depart-retraite-trimestres-duree-assurance">Âge de départ, trimestres et durée d'assurance</a></li>
+          </ul>
+
           <AuthorBox />
           <RiskNotice />
         </div>

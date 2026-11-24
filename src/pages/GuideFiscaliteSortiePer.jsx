@@ -53,7 +53,7 @@ export default function GuideFiscaliteSortiePer() {
             publié chaque année par l'administration fiscale — vous pouvez consulter les tranches
             en vigueur sur{" "}
             <a
-              href="https://www.impots.gouv.fr/particulier/questions/comment-sont-determinees-mes-tranches-dimposition"
+              href="https://www.impots.gouv.fr/particulier"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,11 +102,11 @@ export default function GuideFiscaliteSortiePer() {
             progressivité de l'impôt sur le revenu. Les tranches utilisées sont celles du barème IR
             en vigueur (source : {" "}
             <a
-              href="https://www.impots.gouv.fr/particulier/questions/comment-sont-determinees-mes-tranches-dimposition"
+              href="https://www.service-public.gouv.fr/particuliers/vosdroits/F1419"
               target="_blank"
               rel="noopener noreferrer"
             >
-              impots.gouv.fr
+              service-public.gouv.fr
             </a>
             ), barème en vigueur en {HYPOTHESES_MAJ}, sans préjuger de votre tranche marginale
             réelle, qui dépend de l'ensemble de vos revenus et de votre foyer fiscal.

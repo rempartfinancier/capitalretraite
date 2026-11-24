@@ -2,8 +2,20 @@ import { AuthorBox, CtaBanner, RiskNotice } from "../components/Layout.jsx";
 import {
   DECUMULATION,
   HYPOTHESES_MAJ,
+  RENTE_VIAGERE,
+  euros,
   pct,
 } from "../components/hypotheses.js";
+
+// ---- Exemples chiffrés : tout est calculé depuis hypotheses.js ----
+const TAUX = DECUMULATION.tauxConversionRente65;
+const capitalExemple = RENTE_VIAGERE.capitalIllustratif;
+const renteAnnuelleDefaut = (capitalExemple * TAUX.defaut) / 100;
+const renteMensuelleDefaut = renteAnnuelleDefaut / 12;
+const anneesPourRecupererCapital = 100 / TAUX.defaut; // non actualisé, avant impôt
+const infl = RENTE_VIAGERE.tauxInflationIllustratif;
+const pouvoirAchat = (annees) => 1 / Math.pow(1 + infl / 100, annees);
+const renteEnPouvoirAchat = (annees) => renteAnnuelleDefaut * pouvoirAchat(annees);
 
 export default function GuideInconvenientsRenteViagere() {
   return (
@@ -45,7 +57,10 @@ export default function GuideInconvenientsRenteViagere() {
               <li><a href="#transmission">Que devient une rente viagère en cas de décès ?</a></li>
               <li><a href="#irreversible">Pas de retour en arrière</a></li>
               <li><a href="#comparatif-options">Sans option, avec réversion, avec annuités garanties : que choisir ?</a></li>
+              <li><a href="#chiffres">Combien verse une rente viagère ? Un exemple chiffré</a></li>
+              <li><a href="#inflation">Une rente non indexée perd-elle de la valeur ?</a></li>
               <li><a href="#longevite">Un outil contre un seul risque : la longévité</a></li>
+              <li><a href="#fiscalite">Une rente viagère est-elle imposable ?</a></li>
               <li><a href="#per">Le cas particulier du PER</a></li>
               <li><a href="#faq">Questions fréquentes</a></li>
               <li><a href="#synthese">Notre analyse, en synthèse</a></li>
@@ -91,8 +106,9 @@ export default function GuideInconvenientsRenteViagere() {
             (détaillées plus bas). Une fois ces trois paramètres arrêtés et le capital converti,
             le taux ne bouge plus. Il reste identique pendant toute la durée de la rente, même si
             les taux de marché remontent nettement dans les années qui suivent : contrairement à
-            un placement resté investi, la rente ne profite d'aucune hausse ultérieure des
-            rendements.
+            un placement resté investi, la rente ne profite pas directement d'une hausse
+            ultérieure des rendements, hors revalorisation éventuellement prévue au contrat (par
+            exemple au titre de la participation aux bénéfices), dont l'ampleur n'est pas garantie.
           </p>
 
           <h2 id="transmission">Que devient une rente viagère en cas de décès ?</h2>
@@ -180,6 +196,48 @@ export default function GuideInconvenientsRenteViagere() {
             centralisés dans une fourchette unique fiable.
           </p>
 
+          <h2 id="chiffres">Combien verse une rente viagère ? Un exemple chiffré</h2>
+          <p>
+            Prenons un capital illustratif de {euros(capitalExemple)} converti à 65 ans, sans
+            option, au taux médian de {pct(TAUX.defaut)} (hypothèse révisée en {HYPOTHESES_MAJ},
+            purement illustrative). La rente s'élèverait à environ {euros(renteAnnuelleDefaut)} par
+            an, soit {euros(renteMensuelleDefaut)} par mois, avant impôt. Dans la fourchette de{" "}
+            {pct(TAUX.min)} à {pct(TAUX.max)}, le même capital donnerait de{" "}
+            {euros((capitalExemple * TAUX.min) / 100)} à {euros((capitalExemple * TAUX.max) / 100)}{" "}
+            par an : l'écart entre deux offres peut donc représenter plusieurs centaines d'euros par
+            an pour un même capital.
+          </p>
+          <p>
+            Autre lecture, à manier avec prudence : à ce taux, les versements cumulés égalent le
+            capital converti au bout d'environ {Math.round(anneesPourRecupererCapital)} ans
+            (100 ÷ {pct(TAUX.defaut).replace(" %", "")}), sans tenir compte ni de l'actualisation
+            ni de l'impôt. C'est un peu plus que l'espérance de vie moyenne à 65 ans d'un homme (
+            {DECUMULATION.esperanceVie65.hommes} ans) et un peu moins que celle d'une femme (
+            {DECUMULATION.esperanceVie65.femmes} ans) — ce qui ne dit rien de votre propre
+            longévité : la rente est une assurance mutualisée, qui paie davantage à ceux qui vivent
+            longtemps et moins à ceux qui décèdent tôt. Notre guide sur{" "}
+            <a href="/guide/rente-viagere-calcul-montant-taux-de-conversion">
+              le calcul du montant d'une rente viagère
+            </a>{" "}
+            détaille ce qui fait varier le taux.
+          </p>
+
+          <h2 id="inflation">Une rente non indexée perd-elle de la valeur ?</h2>
+          <p>
+            Oui, en pouvoir d'achat, si le contrat n'est pas indexé. Avec l'hypothèse d'une inflation
+            de {pct(infl)} par an (cible de la Banque centrale européenne, simple hypothèse
+            d'illustration), la rente de {euros(renteAnnuelleDefaut)} de l'exemple précédent
+            conserverait, en euros d'aujourd'hui, une valeur d'environ{" "}
+            {euros(renteEnPouvoirAchat(RENTE_VIAGERE.horizonsErosion[0]))} par an après{" "}
+            {RENTE_VIAGERE.horizonsErosion[0]} ans, {euros(renteEnPouvoirAchat(RENTE_VIAGERE.horizonsErosion[1]))}{" "}
+            après {RENTE_VIAGERE.horizonsErosion[1]} ans et{" "}
+            {euros(renteEnPouvoirAchat(RENTE_VIAGERE.horizonsErosion[2]))} après{" "}
+            {RENTE_VIAGERE.horizonsErosion[2]} ans. L'inflation réelle sera différente de
+            cette hypothèse ; le mécanisme, lui, vaut pour toute rente à montant fixe. Une
+            indexation contractuelle ou une rente à capital croissant atténue cet effet, mais
+            abaisse le montant de départ : c'est un arbitrage de plus à chiffrer avant de signer.
+          </p>
+
           <h2 id="longevite">Un outil contre un seul risque : la longévité</h2>
           <p>
             Ces inconvénients ne signifient pas que la rente est mal conçue : ils sont le prix
@@ -200,6 +258,21 @@ export default function GuideInconvenientsRenteViagere() {
             protège pas les héritiers, et ne profite pas d'une remontée des taux de marché après
             la conversion. Confondre « la rente sécurise le revenu » et « la rente est la solution
             à tout » est l'erreur la plus fréquente que nous rencontrons sur ce sujet.
+          </p>
+
+          <h2 id="fiscalite">Une rente viagère est-elle imposable ?</h2>
+          <p>
+            Oui, mais la règle dépend de l'origine de la rente. Pour une rente viagère « à titre
+            onéreux » (issue d'un capital que l'on a cédé à un assureur), seule une fraction de la
+            rente est soumise à l'impôt sur le revenu : de {RENTE_VIAGERE.fractionImposableRvto[0].partImposable} % avant 50 ans à{" "}
+            {RENTE_VIAGERE.fractionImposableRvto[3].partImposable} % à partir de 70 ans, fixée une fois pour
+            toutes selon l'âge au premier versement. Les prélèvements sociaux s'appliquent sur cette
+            même fraction. Le régime d'une rente issue d'un PER est distinct. Notre guide{" "}
+            <a href="/guide/fiscalite-rente-viagere-titre-onereux">
+              la fiscalité de la rente viagère à titre onéreux
+            </a>{" "}
+            détaille le calcul avec un exemple ; la rente de PER est abordée dans la page{" "}
+            <a href="/guide/fiscalite-sortie-per">fiscalité de sortie du PER</a>.
           </p>
 
           <h2 id="per">Le cas particulier du PER</h2>
@@ -279,6 +352,32 @@ export default function GuideInconvenientsRenteViagere() {
             Certains contrats dits « à espérance de vie réduite » existent sur le marché mais restent
             marginaux et à étudier au cas par cas.
           </p>
+          <h3>Quel capital faut-il pour une rente viagère de 1 000 € par mois ?</h3>
+          <p>
+            Il suffit d'inverser la formule : capital = rente annuelle ÷ taux de conversion. Pour
+            une rente de {euros(12000)} par an, il faudrait environ{" "}
+            {euros((12000 * 100) / TAUX.max)} au taux de {pct(TAUX.max)} et{" "}
+            {euros((12000 * 100) / TAUX.min)} au taux de {pct(TAUX.min)} — les bornes de l'ordre de
+            grandeur retenu à 65 ans, hypothèses {HYPOTHESES_MAJ} à vérifier contrat par contrat.
+          </p>
+          <h3>Rente viagère ou assurance-vie : que choisir ?</h3>
+          <p>
+            Ce n'est pas le même objet : l'assurance-vie laisse le capital disponible et
+            transmissible, la rente le transforme en revenu à vie. Beaucoup de situations
+            combinent les deux. Notre comparatif{" "}
+            <a href="/guide/rente-viagere-ou-retraits-programmes">
+              rente viagère ou retraits programmés
+            </a>{" "}
+            chiffre l'arbitrage, et les{" "}
+            <a href="/guide/rachats-programmes-assurance-vie-retraite">rachats programmés</a> en
+            décrivent l'alternative concrète.
+          </p>
+          <h3>Une rente viagère est-elle réversible au conjoint ?</h3>
+          <p>
+            Seulement si l'option de réversion a été choisie à la conversion, avec un taux de
+            réversion fixé au contrat. Elle abaisse la rente de départ ; son niveau exact dépend de
+            l'assureur et de l'écart d'âge entre les deux personnes.
+          </p>
           <h3>Peut-on convertir seulement une partie de son capital en rente ?</h3>
           <p>
             Oui, la sortie mixte (une partie en rente, une partie conservée en capital ou en
@@ -324,6 +423,13 @@ export default function GuideInconvenientsRenteViagere() {
               rien des taux ou barèmes qui s'appliqueront à votre conversion.
             </p>
           </div>
+          <p>
+            Pour aller plus loin :{" "}
+            <a href="/strategies/decumulation">la décumulation, vue d'ensemble</a>,{" "}
+            <a href="/guide/combien-retirer-par-mois-capital-retraite">combien retirer par mois d'un capital</a>,{" "}
+            <a href="/guide/capital-necessaire-completer-pension-retraite-65-ans">le capital nécessaire pour compléter sa pension</a>{" "}
+            et <a href="/guide/a-quel-age-recuperer-son-capital-retraite">à quel âge récupérer son capital retraite</a>.
+          </p>
           <AuthorBox />
           <RiskNotice />
         </div>
