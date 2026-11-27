@@ -229,3 +229,26 @@ prerendues après ce cycle (51 avant, +2 guides).
   déjà assignée par la plateforme, sans pouvoir la renommer — intention du garde-fou
   respectée (aucun commit direct sur main, PR, pas d'auto-merge) même quand le nom
   littéral `seo-cycle-AAAA-MM-JJ` n'est pas utilisé.
+
+---
+
+## Cycle 003 — clôturé le 2026-11-27 (guide : transfert de PER)
+
+**Contexte :** aucun cycle journalisé depuis le 2026-08-20 (cycle 002 non exécuté). Entre-temps,
+d'autres sessions ont publié 5 guides (plafond PER 2026, Agirc-Arrco, rachat partiel AV,
+retraite progressive) sans entrée de journal. Branche `seo-cycle-2026-11-27`, PR vers main.
+
+- **Guide :** `/guide/transfert-per-frais-delais` (`GuideTransfertPer.jsx`), catégorie PER dans
+  Guides.jsx. Câblé : routes.jsx, App.jsx, Guides.jsx, sitemap.xml. Build : 58/58 pages.
+- **Chiffres :** nouveau bloc `PER_TRANSFERT` dans hypotheses.js (1 %, 5 ans, délais 2/3 mois) —
+  **À VÉRIFIER** : service-public/Légifrance non lisibles (egress bloqué), recoupé via sources
+  secondaires divergentes (sanction du retard, règles PERP/Madelin non chiffrées dans le guide).
+- **Maillage :** 6 liens sortants du guide vers guides existants ; retours depuis
+  GuideCoutPer et GuidePerBancaire.
+- **Positions en attente :** rente/retraits évoqués une phrase, neutralisés (anciens contrats).
+- **Phase 4 :** aucune cible lue (egress bloqué) → aucun brouillon. Pistes inchangées
+  (prismo-retraite.fr, jobpublic.fr). Phase 5 : sans données. KPIs : non vérifiables
+  (aucun connecteur ; Ahrefs en ERR_PROXY_TUNNEL).
+- **Décisions cycle 004 :** (1) Alexandre valide les chiffres PER_TRANSFERT ; (2) il lit 2-3
+  contenus de prismo-retraite.fr/jobpublic.fr pour débloquer l'outreach ; (3) les guides
+  récents manquent de liens croisés entre eux.

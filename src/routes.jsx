@@ -571,6 +571,17 @@ export const routesMeta = [
     ],
   },
   {
+    path: "/guide/transfert-per-frais-delais",
+    title: "Transfert de PER : frais, délais, quand ça vaut le coup",
+    description:
+      "Frais plafonnés puis gratuits, délais, risque d'être hors marché, avantages perdus : ce qu'il faut vérifier avant de transférer un PER vers un autre contrat.",
+    breadcrumb: [
+      ["Accueil", "/"],
+      ["Guides", "/guides"],
+      ["Transfert de PER", "/guide/transfert-per-frais-delais"],
+    ],
+  },
+  {
     path: "/contact",
     title: "Contact — Parlons de votre retraite | Capital Retraite",
     description:

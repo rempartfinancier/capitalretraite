@@ -57,6 +57,7 @@ import GuideDonationOuAssuranceVie from "./pages/GuideDonationOuAssuranceVie.jsx
 import GuideRetraiteFonctionnaires from "./pages/GuideRetraiteFonctionnaires.jsx";
 import GuideRachatPartielAssuranceVie from "./pages/GuideRachatPartielAssuranceVie.jsx";
 import GuideRetraiteProgressiveOuCumul from "./pages/GuideRetraiteProgressiveOuCumul.jsx";
+import GuideTransfertPer from "./pages/GuideTransfertPer.jsx";
 import Contact from "./pages/Contact.jsx";
 import MentionsLegales from "./pages/MentionsLegales.jsx";
 import Confidentialite from "./pages/Confidentialite.jsx";
@@ -150,6 +151,7 @@ export default function App() {
             path="/guide/retraite-progressive-ou-cumul-emploi-retraite"
             element={<GuideRetraiteProgressiveOuCumul />}
           />
+          <Route path="/guide/transfert-per-frais-delais" element={<GuideTransfertPer />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>

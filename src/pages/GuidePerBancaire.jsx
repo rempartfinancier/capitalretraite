@@ -571,7 +571,10 @@ export default function GuidePerBancaire() {
             <a href="/guide/fiscalite-sortie-per">fiscalité de sortie du PER</a> détaille comment
             préparer la sortie en capital ou en rente, et notre comparatif{" "}
             <a href="/guide/per-vs-assurance-vie-retraite">PER ou assurance-vie</a> aide à
-            arbitrer entre les deux enveloppes selon votre objectif.
+            arbitrer entre les deux enveloppes selon votre objectif. Si votre contrat actuel vous
+            coûte trop cher, notre guide sur{" "}
+            <a href="/guide/transfert-per-frais-delais">le transfert de PER</a> précise frais,
+            délais et points de vigilance.
           </p>
           <div className="note">
             <p>

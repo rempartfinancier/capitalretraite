@@ -205,6 +205,21 @@ export const PER_PLAFOND_EXEMPLES = {
   source: "hypothèses d'illustration pédagogique (14 novembre 2026)",
 };
 
+// ---- Transfert d'un PER individuel vers un autre PER ----
+// Vérifié partiellement le 27 novembre 2026 (recoupement de plusieurs sources
+// secondaires ; service-public.gouv.fr et Légifrance non consultables depuis
+// l'environnement de rédaction) — À VÉRIFIER par Alexandre avant publication.
+// Les sources divergent sur la sanction du retard : le guide ne chiffre aucune pénalité.
+export const PER_TRANSFERT = {
+  plafondFraisPct: 1, // frais de transfert sortant plafonnés à 1 % de l'encours (%)
+  anneesFraisPlafonnes: 5, // au-delà de cette ancienneté du plan, transfert gratuit (années)
+  delaiMoisIndividuel: 2, // délai d'exécution d'un PER individuel, depuis la demande complète (mois)
+  delaiMoisCollectif: 3, // délai annoncé pour un PER collectif (mois)
+  maj: "27 novembre 2026",
+  source:
+    "loi Pacte du 22 mai 2019 et Code monétaire et financier, art. L. 224-6 et suivants ; service-public.gouv.fr, fiche F34982 ; recoupement de sources secondaires — À VÉRIFIER (règles distinctes pour les PERP et contrats Madelin)",
+};
+
 // ---- Rachat (partiel ou total) d'un contrat d'assurance-vie : impôt sur la part de gains ----
 // Vérifié le 15 novembre 2026. Part de gains d'un rachat partiel = rachat − primes non
 // remboursées × (rachat ÷ valeur de rachat du contrat) (BOI-RPPM-RCM-20-10-20-50, § 80).
